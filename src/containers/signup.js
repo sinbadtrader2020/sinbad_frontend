@@ -10,7 +10,7 @@ export default class Signup extends React.Component {
                     <div className="row main-row">
                         <div className="col-md-12">
                             <h2>Make Your Money Move</h2>
-                            <p>Halal Trading lets you invest in companies you love, commission-free.</p>
+                            <p>Sinbad Finance lets you invest in companies you love, commission-free.</p>
 
                             <form>
                                 <div className="form-row">

@@ -90,7 +90,7 @@ class App extends React.Component {
             <div className="App">
 
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <a class="navbar-brand" href="/#">Halal Trading</a>
+                    <a class="navbar-brand" href="/#">Sinbad Finance</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -171,7 +171,7 @@ class App extends React.Component {
                                 <ul>
                                     <li><a href="/#">Check the background of the firm on FINRA's Broker Check</a></li>
                                     <li><a href="/#">Brokerage Customer Relationship Summary</a></li>
-                                    <li><a href="/#">Halal Trading Terms & Conditions</a></li>
+                                    <li><a href="/#">Sinbad Finance Terms & Conditions</a></li>
                                     <li><a href="/#">Disclosure Library</a></li>
                                     <li><a href="/#">Privacy</a></li>
                                 </ul>
