@@ -1,4 +1,9 @@
 import React from "react";
+import Footer from "./footer";
+import MainNavBar from "./main-nav-bar";
+import { Link} from "react-router-dom";
+import {Path} from "../containers/config";
+import { Helmet } from "react-helmet";
 
 export default class Signin extends React.Component {
 
@@ -6,41 +11,70 @@ export default class Signin extends React.Component {
 
         return (
             <div className="Signin">
-                <div className="container shadow" style={{'margin-top': '50px', 'padding-bottom': '50px',}}>
-                    <div className="row main-row" style={{'text-align': 'center',}}>
-                        <div className="col-md-12">
-                            <h2 style={{'font-weight': 'bold',}}>Log In</h2>
-                            <p>New user? <a href="signup.html">Sign Up</a></p>
-                        </div>
-                    </div>
-                    <div className="row main-row">
-                        <div className="col-md-9 log-in-input">
-                            <input type="mail" placeholder="Enter e-mail or user name"/>
-                            <input type="password" placeholder="password"/>
-                            <div style={{'display': 'inline-flex', 'float': 'left',}}>
-                                <input type="checkbox" style={{'width': 'auto',}}/>
-                                <p>Remember Me</p>
-                            </div>
-                            <div style={{'float': 'right', 'margin-right': '50px',}}>
-                                <a href="/#">Forgot Password?</a>
-                            </div>
+               <Helmet>
+               <title>Sign In</title>
+        </Helmet>
+                
+         {/* <!-- Main menu Navbar --> */}
+         <MainNavBar/>
 
-                            <button className="btn btn-outline-success btn-block">Login</button>
+	{/* <!-- signin body --> */}
+	<div className="container shadow" style={{marginTop: "120px", paddingBottom: "50px"}}>
+		<div className="row row-padding" style={{textAlign: "center"}}>
+			<div className="col-md-12">
+				<h2 style={{fontWeight: "bold"}}>Log In</h2>
+				<p>New user? <Link to={Path.signup}>Sign Up</Link></p>
+			</div>
+		</div>
+		<div className="row row-padding">
+			<div className="col-md-9 log-in-input">
+				<input type="mail" placeholder="Enter e-mail or user name"/>
+				<input type="password" placeholder="password"/>
+				<div>
+					<div style={{display: "inline-flex"}}>
+						<input type="checkbox" style={{width: "auto"}}/>
+						<p>Remember Me</p>
+					</div>
+					<div style={{float: "right", marginRight: "50px"}}>
+						<a href="top#">Forgot Password?</a>
+					</div>
+				</div>
+				<div>
+					<button className="btn btn-outline-primary">Login</button>
+				</div>
+				
+			</div>
 
-                        </div>
+			{/* <!-- social account login options --> */}
+			<div className="col-md-3">
+				<a href="#top" className="btn btn-outline-primary btn-lg btn-block social-log">
+					<div>
+						<i className="fa fa-facebook"></i>
+					</div><p>Continue with facebook</p></a>
+				<a href="top#" className="btn btn-outline-primary btn-lg btn-block social-log">
+					<div>
+						<i className="fa fa-google"></i>
+					</div><p>Continue with Google</p></a>
+				<a href="top#" className="btn btn-outline-primary btn-lg btn-block social-log">
+					<div>
+						<i className="fa fa-linkedin"></i>
+					</div><p>Continue with LinkedIn</p></a>
+				<a href="top#" className="btn btn-outline-primary btn-lg btn-block social-log">
+					<div>
+						<i className="fa fa-instagram"></i>
+					</div><p>Continue with Instagram</p></a>
+			</div>
+		</div>
+	</div>
 
-                        <div className="col-md-3">
-                            <a href="/" className="btn btn-primary btn-lg btn-block" style={{'font-size': '15px',}}><i
-                                className="fa fa-facebook"></i>Continue with facebook</a>
-                            <a href="/" className="btn btn-success btn-lg btn-block" style={{'font-size': '15px',}}><i
-                                className="fa fa-google-plus"></i>Continue with Google</a>
-                            <a href="/" className="btn btn-primary btn-lg btn-block" style={{'font-size': '15px',}}><i
-                                className="fa fa-linkedin"></i>Continue with LinkedIn</a>
-                            <a href="/" className="btn btn-success btn-lg btn-block" style={{'font-size': '15px',}}><i
-                                className="fa fa-instagram"></i>Continue with Instagram</a>
-                        </div>
-                    </div>
-                </div>
+
+
+
+
+
+	{/* <!-- Website's Footer Design --> */}
+	<Footer/>
+
             </div>
         );
     }

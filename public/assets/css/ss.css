@@ -1,0 +1,33 @@
+.fa-background, .fa-test2, .fa-test, .fa-facebook {
+  background: #ffffff;
+}
+
+.fa-facebook {
+  color: #3B7998;
+}
+
+.fa-test {
+  color: #3B3398;
+}
+
+.fa-test2 {
+  color: #3B5998;
+}
+
+footer {
+  background: rgba(0, 0, 0, 0.5);
+  margin-top: 70px;
+  padding-top: 30px;
+}
+footer a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+footer a:hover {
+  color: #aaa;
+  text-decoration: none;
+}
+footer li {
+  list-style: none;
+}

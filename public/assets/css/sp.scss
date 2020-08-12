@@ -1,0 +1,285 @@
+// Variable declaration 
+
+$white: #ffffff !default;
+$primary1:#002868 !default;
+$primary2:#BF0A30 !default;
+
+/*Global design*/
+
+.navbar-light .navbar-brand{
+	font-weight: bold;
+	color: $primary1;
+
+	span{
+		color: $primary2;
+	}
+
+	&:hover{
+		font-weight: bold;
+		color: $primary1;
+
+		span{
+			color: $primary2;
+		}
+	}
+}
+
+.row-padding{
+	padding-top: 100px;
+}
+
+.div-row-padding{
+	padding-top: 20px;
+
+	div{
+		padding-top: 50px;
+	}
+}
+
+.div-h1-red-center{
+	font-weight: bold;
+	color: $primary2;
+	text-align: center;
+}
+
+a:hover{
+	text-decoration: none;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.sticky + .container{
+	margin-top: 70px;
+}
+
+/*Homepage design*/
+.home-intro{
+	background: $primary1;
+	color: $white;
+	padding-top:20px;
+	padding-bottom:100px;
+}
+
+.intro-img{
+	background-image: url("images/home-intro-b.png");
+	background-repeat: no-repeat;
+	background-position: bottom;
+	margin-right: -200px;
+
+	img{
+		margin-left:-200px;
+	}
+}
+
+.works-div{
+	padding-top: auto;
+	display: inline-flex;
+
+	div{
+		padding: 10px;
+
+		img{
+			margin: auto;
+		}
+	}
+
+	h2{
+		color: $primary1;
+	}
+
+	p{
+		color: gray;
+	}
+}
+
+@media (max-width: 600px){
+	.div-row-padding{
+		padding-top: 0px;
+
+		div{
+			padding-top: 30px;
+		}
+	}
+	.home-intro{
+	padding-top:0px;
+	padding-bottom:20px;
+	}
+
+	.slider-btn{
+		display: inline-flex;
+		padding-bottom: 50px;
+		width: 70%;
+		margin-left: auto;
+		margin-right: auto;
+
+		div{
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+
+	.txt-img-mob-center{
+		text-align: center;
+	}
+
+	.works-div{
+		text-align: center;
+		display: table-row;
+	}
+}
+
+
+
+
+.search-div{
+	padding-top:auto;
+
+	h3{
+		color: $primary1;
+	}
+
+	p{
+		color: gray;
+	}
+}
+
+.btn-white{
+	button{
+		color: #dd7777;
+	}
+
+	button:hover{
+		color: $white;
+	}
+}
+
+/*Signin page form style*/
+
+.log-in-input {
+	padding-bottom: 50px;
+
+	input{
+	border: none;
+	border-bottom: dotted 2px;
+	width: 90%;
+	margin: 0px 20px 20px 20px;
+	padding-bottom: 10px;
+	}
+
+	button{
+		margin-left: 20px;
+	}
+}
+
+/*Signin & Signup page Social login button style*/
+
+.social-log{
+	font-size: 15px;
+	display: inline-flex;
+	padding: 0px;
+
+	div{
+	width: 20%;
+	border-right: solid 1px;
+	padding: 10px;
+	}
+
+	p{
+	vertical-align: middle;
+	margin-top: auto;
+	margin-bottom: auto;
+	padding-left: 20px;
+	}
+}
+
+/*Social log icon color*/
+
+.fa-facebook {
+  color: #3B5998;
+}
+
+.fa-google {
+  color: #dd4b39;
+}
+
+.fa-linkedin {
+  color: #007bb5;
+}
+
+.fa-instagram {
+  color: #cb2027;
+}
+
+.btn:hover {
+	.fa-facebook {
+		color: $white;
+	}
+
+	.fa-google {
+		color: $white;
+	}
+
+	.fa-linkedin {
+		color: $white;
+	}
+
+	.fa-instagram {
+		color: $white;
+	}
+}
+
+/*Signup page horizontal padding for social login*/
+
+.social-log-pad{
+	padding-top: 10px;
+}
+
+/*Signup page form style*/
+
+.form-control{
+	background-color: #D1E2EE;
+}
+
+
+/* This SCSS part contains all footer style */
+
+footer{
+	background: #7F7F7F;
+	margin-top: 70px;
+	padding-top: 30px;
+
+	a{
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+	}
+
+	a:hover{
+	color: #aaa;
+	text-decoration: none;
+	}
+
+	li{
+	list-style: none;
+	}
+}
+
+/*subscribe field style*/
+
+.footer-subscribe{
+	text-align: right;
+	border-bottom: solid 2px white;
+
+	div{
+		display: inline-flex;
+	}
+
+	input{
+		margin-right: 10px;
+	}
+}

@@ -5,6 +5,9 @@ import {BrowserRouter} from "react-router-dom";
 import App from './app';
 import * as serviceWorker from './serviceWorker';
 
+import './i18n';
+
+
 ReactDOM.render(
     <React.StrictMode>
         <BrowserRouter>

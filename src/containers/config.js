@@ -9,6 +9,8 @@ const HOME                  = "/home";
 const SIGNIN                = "/signin";
 const SIGNUP                = "/signup";
 
+const WELCOME               = "/welcome";
+
 
 export class Path {
     static get index() {
@@ -26,4 +28,9 @@ export class Path {
     static get signup() {
         return SIGNUP;
     }
+
+    static get welcome() {
+        return WELCOME;
+    }
+    
 }
