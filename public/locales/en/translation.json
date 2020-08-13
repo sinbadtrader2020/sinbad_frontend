@@ -164,6 +164,21 @@
     "welFootCol4Row7R1":{
         "1":"Securities trading is offered to self-directed customers by Robinhood Financial,Robinhood Financial is a member of the Financial Industry Regulatory Authority (FINRA)."
 
+    },
+
+
+
+    "signUpBlock1R1":{
+        "1":"Log In"
+    },
+
+
+    "signUpBlock2R1":{
+        "1":"New user?"
+    },
+
+    "signUpBlock2R2":{
+        "1":"Sign Up"
     }
 
 

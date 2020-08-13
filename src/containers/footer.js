@@ -69,7 +69,8 @@ class Footer extends Component {
                     aria-label="Search"
                   />
                   <button className="btn btn-success" type="submit">
-                  <Translator text='welFootCol4Row1R2.1'/>  
+                  <Translator text='welFootCol4Row1R2.1'/> 
+                   
                   </button>
                 </div>
                 <ul>

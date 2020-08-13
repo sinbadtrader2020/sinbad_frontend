@@ -8,7 +8,7 @@ class MainNavBar extends Component {
       <>
         {/* <!-- Main menu Navbar --> */}
         <nav className="navbar navbar-expand-lg navbar-light bg-light sticky">
-          <a className="navbar-brand" href="index.html">
+          <a className="navbar-brand" href="#index.html">
             Sinbad <span>Finance</span>
           </a>
           <button

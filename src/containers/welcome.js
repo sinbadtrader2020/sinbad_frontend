@@ -5,11 +5,77 @@ import MainNavBar from "./main-nav-bar";
 
 import Translator from "./translator";
 
+const imagesPath = {
+  img1: "assets/images/learn.png",
+  img2: "assets/images/manage.png",
+  img3: "assets/images/customize.png"
+}
+const featureName = {
+  learn :{ 
+    tittle :<Translator text='welBlock3L1R1.1'/>,
+    body : <Translator text='welBlock3L1R2.1'/>
+   },
+   manage :{ 
+    tittle :<Translator text='welBlock3L2R1.1'/>,
+    body :<Translator text='welBlock3L2R2.1'/>
+   },
+   customize :{ 
+    tittle :<Translator text='welBlock3L3R1.1'/>,
+    body : <Translator text='welBlock3L3R2.1'/>
+   }
+}
+
+const arrFeature=[["img1","learn"],["img2","manage"],["img3","customize"]]
+
+
+
+let timer = null;
+
 class Welcome extends Component {
+  
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      imgname: imagesPath["img1"],
+      featureContent: featureName["learn"],
+    
+
+    };
+  }
+  imgChange= (param,param2)=> e=>{
+    console.log(param,param2)
+    this.setState(
+      {
+        
+        imgname:imagesPath[param],
+        featureContent: featureName[param2]
+      }
+    )
+    setInterval(() => {
+     
+    }, 5000);
+  }
+  imageNew =(p,p1)=>{
+    console.log("imgnew"+p,p1)
+    this.setState(
+      {
+        
+        imgname:imagesPath[p],
+        featureContent: featureName[p1]
+      }
+    )
+
+  }
+
+
+
+ 
+  
 
   render() {
     return (
-      <div className="Welcome">
+      <>
         <Helmet>
           <title>Sinbad Finance</title>
         </Helmet>
@@ -106,27 +172,31 @@ class Welcome extends Component {
             <div className="row h-100 row-padding">
               <div className="col-md-3 my-auto btn-white slider-btn">
                 <div>
-                  <button className="btn"><Translator text='welBlock3L1R.1'/>Learn</button>
+                  <button className="btn"  onClick={this.imgChange(arrFeature[0][0],arrFeature[0][1])} ><Translator text='welBlock3L1R.1'/></button>
+                </div>
+
+                <div>
+                  <button className="btn" 
+                  onClick={this.imgChange(arrFeature[1][0],arrFeature[1][1])}        
+                
+                   
+                  
+                  ><Translator text='welBlock3L2R.1'/></button>
                 </div>
                 <div>
-                  <button className="btn"><Translator text='welBlock3L2R.1'/>Manage</button>
-                </div>
-                <div>
-                  <button className="btn"><Translator text='welBlock3L3R.1'/>Customize</button>
+                  <button  className="btn" onClick={this.imgChange(arrFeature[2][0],arrFeature[2][1])} ><Translator text='welBlock3L3R.1'/></button>
                 </div>
               </div>
               <div className="col-md-9 my-auto">
                 <div className="container">
                   <div className="row txt-img-mob-center">
                     <div className="col-md-5 my-auto">
-                      <img src={"assets/images/home-intro.png"} alt="logo" />
+                      <img src={this.state.imgname} alt="logo" />
                     </div>
                     <div className="col-md-7 my-auto">
-                      <h3>Learn As You Grow</h3>
+                      <h3>{this.state.featureContent.tittle}</h3>
                       <p className="mt-4">
-                        Our goal is to make investing in financial markets more
-                        affordable, more intuitive, and more fun, no matter how
-                        much experience you have (or don’t have).
+                        {   this.state.featureContent.body}
                       </p>
                     </div>
                   </div>
@@ -170,7 +240,7 @@ class Welcome extends Component {
         </div>
 
       <Footer/>
-      </div>
+      </>
     );
   }
 }
