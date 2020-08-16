@@ -1,26 +1,24 @@
 import React from 'react'
-
 import { Translation } from 'react-i18next';
-
-
-
-
-
-// i18n.changeLanguage('en');
- 
 
 
  function Translator({text}) {
     return (
+    
           
         <Translation>
         {
-            (t, { i18n }) => <>{t(text)}</>
+            (t, { i18n }) => <>{t(text)}  </>
+            
         }
         </Translation>
-
 )
 }
+
+export default Translator;
+
+
+// i18n.changeLanguage('en');
 // class Testing extends Component {
  
 //     componentDidMount(){
@@ -30,5 +28,3 @@ import { Translation } from 'react-i18next';
         
 //     }
 // }
-
-export default Translator;

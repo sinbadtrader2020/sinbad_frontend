@@ -131,7 +131,9 @@ a:hover {
 .btn-white button:hover {
   color: #ffffff;
 }
-
+.btnactive {
+  color: #ffffff !important; 
+}
 /*Signin page form style*/
 .log-in-input {
   padding-bottom: 50px;

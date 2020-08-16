@@ -105,7 +105,7 @@ class App extends React.Component {
                     <Route component={NotFound}/>
                 </Switch>
              
-            <div>
+            {/* <div>
                 <Translator text='welBlock1R1.1'/>
             </div> 
              
@@ -114,7 +114,7 @@ class App extends React.Component {
              </div>  
              <div>
                 <ChangeLanguage/>
-             </div>
+             </div> */}
 
             </div>
 

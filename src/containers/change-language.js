@@ -12,6 +12,7 @@ function ChangeLanguage(){
         <div>
             <button onClick={()=>i18n.changeLanguage('bn')}>Bangla</button>
             <button onClick={()=>i18n.changeLanguage('en')}>English</button>
+            
 
         </div>
     );

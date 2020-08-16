@@ -1,8 +1,26 @@
 import React, { Component } from "react";
 import Translator from "./translator";
 
+
 class Footer extends Component {
+  constructor() {
+    super();
+    this.state = {
+      placeholder:"sasas",
+   
+      
+    };
+  
+}
+
   render() {
+    var m=(<Translator text='welFootCol4Row1R1.1'/>)
+    console.log('asd',m)
+    
+
+
+  
+
     return (
       <>
         {/* <!-- Website's Footer Design --> */}
@@ -13,10 +31,10 @@ class Footer extends Component {
             <div className="row">
               <div className="col-md-3">
                 <a href="top#" className="nav-link">
-                <Translator text='welFootCol1R1.1'/>Stocks & Funds
+                <Translator text='welFootCol1R1.1'/>
                 </a>
                 <a href="top#" className="nav-link">
-                <Translator text='welFootCol1R2.1'/>Options
+                <Translator text='welFootCol1R2.1'/>
                 </a>
                 <a href="top#" className="nav-link">
                 <Translator text='welFootCol1R3.1'/>
@@ -62,12 +80,19 @@ class Footer extends Component {
             <div className="row">
               <div className="col-md-12 footer-subscribe">
                 <div>
-                  <input
+               
+                    <input
                     className="form-control"
                     type="search"
-                    placeholder= {<Translator text='welFootCol4Row1R1.1'/>}
+                    id="user"
+     
+                    placeholder={<Translator text='welFootCol4Row1R1.1'/>}
+                    
                     aria-label="Search"
                   />
+                  
+            
+                 
                   <button className="btn btn-success" type="submit">
                   <Translator text='welFootCol4Row1R2.1'/> 
                    
@@ -107,6 +132,8 @@ class Footer extends Component {
             </div>
           </div>
         </footer>
+
+        
       </>
     );
   }

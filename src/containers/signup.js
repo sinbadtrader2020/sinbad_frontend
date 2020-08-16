@@ -2,6 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import MainNavBar from "./main-nav-bar";
 import Footer from "./footer";
+import Translator from "./translator";
 
 export default class Signup extends React.Component {
   render() {
@@ -18,10 +19,9 @@ export default class Signup extends React.Component {
         <div className="container">
           <div className="row row-padding">
             <div className="col-md-12">
-              <h2>Make Your Money Move</h2>
+              <h2><Translator text='signUpBlock1R1.1'/></h2>
               <p>
-                Halal Trading lets you invest in companies you love,
-                commission-free.
+              <Translator text='signUpBlock2R1.1'/>
               </p>
 
               {/* <!-- Signup Form --> */}
@@ -31,7 +31,7 @@ export default class Signup extends React.Component {
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="*First Name"
+                      placeholder={<Translator text='signUpBlock3R1.1'/>}
                       required
                     />
                   </div>
@@ -39,7 +39,7 @@ export default class Signup extends React.Component {
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="*Last Name"
+                      placeholder={<Translator text='signUpBlock3R2.1'/>}
                       required
                     />
                   </div>
@@ -50,7 +50,7 @@ export default class Signup extends React.Component {
                     <input
                       type="email"
                       className="form-control"
-                      placeholder="*E-mail"
+                      placeholder={<Translator text='signUpBlock4R1.1'/>}
                       required
                     />
                   </div>
@@ -58,7 +58,7 @@ export default class Signup extends React.Component {
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="*Mobile Number"
+                      placeholder={<Translator text='signUpBlock4R2.1'/>}
                       required
                     />
                   </div>
@@ -69,7 +69,7 @@ export default class Signup extends React.Component {
                     <input
                       type="password"
                       className="form-control"
-                      placeholder="*Password (min,10 characters)"
+                      placeholder={<Translator text='signUpBlock5R1.1'/>}
                       required
                     />
                   </div>
@@ -77,7 +77,7 @@ export default class Signup extends React.Component {
                     <input
                       type="password"
                       className="form-control"
-                      placeholder="*Confirm Password (min,10 characters)"
+                      placeholder={<Translator text='signUpBlock5R2.1'/>}
                       required
                     />
                   </div>
@@ -88,7 +88,7 @@ export default class Signup extends React.Component {
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="Street Address"
+                      placeholder={<Translator text='signUpBlock6R1.1'/>}
                     />
                   </div>
                 </div>
@@ -96,25 +96,25 @@ export default class Signup extends React.Component {
                 <div className="form-row">
                   <div className="form-group col-md-6">
                     <select id="" className="form-control">
-                      <option selected>Country</option>
-                      <option>Argentina</option>
-                      <option>Brazil</option>
-                      <option>Bangladesh</option>
-                      <option>Denmark</option>
+                      <option selected><Translator text='signUpBlock7R1.1'/>Country</option>
+                      <option><Translator text='signUpBlock7R1.2'/>Argentina</option>
+                      <option><Translator text='signUpBlock7R1.3'/>Brazil</option>
+                      <option><Translator text='signUpBlock7R1.4'/>Bangladesh</option>
+                      <option><Translator text='signUpBlock7R1.5'/>Denmark</option>
                     </select>
                   </div>
                   <div className="form-group col-md-4">
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="City / State"
+                      placeholder={<Translator text='signUpBlock7R2.1'/>}
                     />
                   </div>
                   <div className="form-group col-md-2">
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="ZIP"
+                      placeholder={<Translator text='signUpBlock7R2.2'/>}
                     />
                   </div>
                 </div>
@@ -122,7 +122,7 @@ export default class Signup extends React.Component {
                 <div className="form row">
                   <div className="col-sm-10">
                     <button type="submit" className="btn btn-primary">
-                      Sign Up
+                    <Translator text='signUpBlock8R2.1'/> 
                     </button>
                   </div>
                 </div>
@@ -141,7 +141,7 @@ export default class Signup extends React.Component {
                 <div>
                   <i className="fa fa-facebook"></i>
                 </div>
-                <p>Continue with facebook</p>
+                <p><Translator text='signInFacebook.1'/>  </p>
               </a>
               <a
                 href="top#"
@@ -150,7 +150,7 @@ export default class Signup extends React.Component {
                 <div>
                   <i className="fa fa-google"></i>
                 </div>
-                <p>Continue with Google</p>
+                <p><Translator text='signInGoogle.1'/>  </p>
               </a>
             </div>
             <div className="col-md-3 social-log-pad">
@@ -161,7 +161,7 @@ export default class Signup extends React.Component {
                 <div>
                   <i className="fa fa-linkedin"></i>
                 </div>
-                <p>Continue with LinkedIn</p>
+                <p><Translator text='signInLinkdln.1'/></p>
               </a>
               <a
                 href="top#"
@@ -170,7 +170,7 @@ export default class Signup extends React.Component {
                 <div>
                   <i className="fa fa-instagram"></i>
                 </div>
-                <p>Continue with Instagram</p>
+                <p><Translator text='signInInstagram.1'/> </p>
               </a>
             </div>
             <div className="col-md-3"></div>

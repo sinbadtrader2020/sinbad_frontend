@@ -4,6 +4,8 @@ import Footer from "./footer";
 import MainNavBar from "./main-nav-bar";
 
 import Translator from "./translator";
+import { Path } from "./config";
+import { Link } from "react-router-dom";
 
 const imagesPath = {
   img1: "assets/images/learn.png",
@@ -29,7 +31,7 @@ const arrFeature=[["img1","learn"],["img2","manage"],["img3","customize"]]
 
 
 
-let timer = null;
+
 
 class Welcome extends Component {
   
@@ -39,41 +41,72 @@ class Welcome extends Component {
     this.state = {
       imgname: imagesPath["img1"],
       featureContent: featureName["learn"],
+      count:0,
+      timer:5000
+      
+      
     
 
     };
   }
-  imgChange= (param,param2)=> e=>{
+  imgChange= (param,param2,param3)=> e=>{
     console.log(param,param2)
     this.setState(
       {
-        
+      
         imgname:imagesPath[param],
-        featureContent: featureName[param2]
+        featureContent: featureName[param2],
+        count:param3,
+        timer:5000
       }
     )
-    setInterval(() => {
-     
-    }, 5000);
+  
   }
-  imageNew =(p,p1)=>{
-    console.log("imgnew"+p,p1)
-    this.setState(
-      {
-        
-        imgname:imagesPath[p],
-        featureContent: featureName[p1]
+  async componentDidMount() {
+    console.log(this.state.count)
+    try {
+      setInterval(async () => {
+       
+       
+        if(this.state.count===2){
+          this.setState( prevState => {
+            return{
+            count:0,
+            imgname:imagesPath[arrFeature[0][0]],
+            featureContent: featureName[arrFeature[0][1]]
+            }
+          })
+        }
+        else {
+  
+  
+          this.setState( prevState => {
+            return{
+          
+              imgname:imagesPath[arrFeature[prevState.count+1][0]],
+              featureContent: featureName[arrFeature[this.state.count+1][1]],
+              count:prevState.count+1,
+          }
+        })
       }
-    )
-
+      }, this.state.timer);
+    } catch(e) {
+      console.log(e);
+    }
   }
-
 
 
  
   
 
   render() {
+    var style = {
+      color: 'white',
+      
+    };
+    var style1 ={
+      color:'#dd7777'
+    }
     return (
       <>
         <Helmet>
@@ -98,7 +131,7 @@ class Welcome extends Component {
                 <p className="mt-5">
                 <Translator text='welBlock1R3.1'/>
                 </p>
-                <button className="btn btn-danger"><Translator text='welBlock1R4.1'/></button>
+                <Link className="btn btn-danger"  to={Path.signup }><Translator text='welBlock1R4.1'/></Link>
               </div>
               <div className="col-md-5 intro-img">
                 <img src={"assets/images/home-intro.png"} alt="logo" />
@@ -172,21 +205,22 @@ class Welcome extends Component {
             <div className="row h-100 row-padding">
               <div className="col-md-3 my-auto btn-white slider-btn">
                 <div>
-                  <button className="btn"  onClick={this.imgChange(arrFeature[0][0],arrFeature[0][1])} ><Translator text='welBlock3L1R.1'/></button>
+                  <button  className="btn" style={this.state.count===0?style:style1} onClick={this.imgChange(arrFeature[0][0],arrFeature[0][1],0)} ><Translator text='welBlock3L1R.1'/></button>
                 </div>
 
                 <div>
-                  <button className="btn" 
-                  onClick={this.imgChange(arrFeature[1][0],arrFeature[1][1])}        
+                  <button style={this.state.count===1?style:style1} className="btn" 
+                  onClick={this.imgChange(arrFeature[1][0],arrFeature[1][1],1)}        
                 
                    
                   
                   ><Translator text='welBlock3L2R.1'/></button>
                 </div>
                 <div>
-                  <button  className="btn" onClick={this.imgChange(arrFeature[2][0],arrFeature[2][1])} ><Translator text='welBlock3L3R.1'/></button>
+                  <button style={this.state.count===2?style:style1} className="btn" onClick={this.imgChange(arrFeature[2][0],arrFeature[2][1],2)} ><Translator text='welBlock3L3R.1'/></button>
                 </div>
               </div>
+            
               <div className="col-md-9 my-auto">
                 <div className="container">
                   <div className="row txt-img-mob-center">
@@ -239,7 +273,10 @@ class Welcome extends Component {
           </div>
         </div>
 
+
+
       <Footer/>
+     
       </>
     );
   }

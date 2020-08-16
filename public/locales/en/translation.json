@@ -168,20 +168,108 @@
 
 
 
-    "signUpBlock1R1":{
+    "signInBlock1R1":{
         "1":"Log In"
     },
 
 
-    "signUpBlock2R1":{
+    "signInBlock2R1":{
         "1":"New user?"
     },
 
-    "signUpBlock2R2":{
+    "signInBlock2R2":{
         "1":"Sign Up"
+    },
+    "signInBlock3R1":{
+        "1":"Enter e-mail or user name"
+    },
+    "signInBlock4R1":{
+        "1":"Password"
+    },
+    "signInBlock5R1":{
+        "1":"Remember Me"
+    },
+    "signInBlock5R2":{
+        "1":"Forgot Password?"
+    },
+    "signInLogin":{
+        "1":"Login"
+    },
+
+
+    "signInFacebook":{
+        "1":"Continue with Facebook"
+    },
+    "signInGoogle":{
+        "1":"Continue with Google"
+    },
+
+    "signInLinkdln":{
+        "1":"Continue with Linkdln"
+    },
+    "signInInstagram":{
+        "1":"Continue with Instagram"
+    },
+
+
+
+
+
+
+    "signUpBlock1R1":{
+        "1":"Make Your Money Move"
+    },
+
+    "signUpBlock2R1":{
+        "1":"Halal Trading lets you invest in companies you love, commission-free."
+    },
+    "signUpBlock3R1":{
+        "1":"*First Name"
+    },
+    "signUpBlock3R2":{
+        "1":"*Last Name"
+    },
+
+
+    "signUpBlock4R1":{
+        "1":"*E-mail"
+    },
+    "signUpBlock4R2":{
+        "1":"*Mobile Number"
+    },
+
+    "signUpBlock5R1":{
+        "1":"*Password (min,10 characters)"
+    },
+    "signUpBlock5R2":{
+        "1":"Confirm *Password (min,10 characters)"
+    },
+
+    "signUpBlock6R1":{
+        "1":"Street Address"
+    },
+
+    "signUpBlock7R1":{
+        "1": "Country",
+        "2": "Argentina",
+        "3": "Brazil",
+        "4": "Bangladesh",
+        "5": "Denmark"
+    },
+
+
+    "signUpBlock7R2":{
+        "1":"City / State",
+        "2":"ZIP"
+    },
+    "signUpBlock8R2":{
+        "1":"Sign Up"
+        
+    },
+
+    "signUpTittle":{
+        "1":"Sign Up Page"
     }
-
-
 
 
 
