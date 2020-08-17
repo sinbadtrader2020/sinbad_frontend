@@ -4,7 +4,8 @@ import MainNavBar from "./main-nav-bar";
 import { Link} from "react-router-dom";
 import {Path} from "../containers/config";
 import { Helmet } from "react-helmet";
-import Translator from "./translator";
+import Translator from "../utils/translator";
+import InputTranslation from "../utils/input-translation";
 
 export default class Signin extends React.Component {
 
@@ -29,8 +30,8 @@ export default class Signin extends React.Component {
 		</div>
 		<div className="row row-padding">
 			<div className="col-md-9 log-in-input">
-				<input type="mail" placeholder={ <Translator text='signInBlock3R1.1'/> }/>
-				<input type="password" placeholder={ <Translator text='signInBlock4R1.1'/> }/>
+				<InputTranslation type="mail" text='signInBlock3R1.1' />
+				<InputTranslation type="password"  text='signInBlock4R1.1'/>
 				<div>
 					<div style={{display: "inline-flex"}}>
 						<input type="checkbox" style={{width: "auto"}}/>

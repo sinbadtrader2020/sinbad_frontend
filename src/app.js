@@ -1,7 +1,6 @@
 import React ,{Suspense} from 'react';
 import {Redirect} from "react-router"
 import {Switch, withRouter, Route} from "react-router-dom";
-
 import AppliedRoute from "./utils/applied-route";
 import {Path} from "./containers/config";
 import {Auth} from "./api/auth"
@@ -12,8 +11,8 @@ import Signup from "./containers/signup";
 import NotFound from "./containers/not-found";
 import Welcome from './containers/welcome';
 
-import Translator from './containers/translator';
-import ChangeLanguage from './containers/change-language';
+import i18n from './i18n';
+
 
 class Index extends React.Component {
 
@@ -25,7 +24,8 @@ class Index extends React.Component {
 class App extends React.Component {
     constructor(props) {
         super(props);
-
+      
+        i18n.changeLanguage('en');
         this.state = {
             isAuthenticated: false,
             user: ""
@@ -104,18 +104,28 @@ class App extends React.Component {
                     { /* Finally, catch all unmatched routes */ }
                     <Route component={NotFound}/>
                 </Switch>
-             
-            {/* <div>
-                <Translator text='welBlock1R1.1'/>
+
+
+             {/* for testing multi-language support start */}
+             {/* import ChangeLanguage from './utils/change-language';
+            import InputTranslation from './utils/input-translation'; */}
+             {/* <div>
+                
+                <h1><InputTranslation   type="text"
+                      className="form-control" text='welBlock1R1.1'/> </h1> 
             </div> 
              
              <div>
-                 <Translator text='welBlock1R2.1'/>
+                <h1> <InputTranslation   type="text"
+                      className="form-control" text='welBlock1R2.1'/></h1>
              </div>  
              <div>
+            
                 <ChangeLanguage/>
-             </div> */}
+             </div> 
+              */}
 
+               {/* for testing multi-language support  end */}
             </div>
 
           

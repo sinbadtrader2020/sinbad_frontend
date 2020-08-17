@@ -269,7 +269,42 @@
 
     "signUpTittle":{
         "1":"Sign Up Page"
+    },
+
+
+
+
+
+
+    "mainNavBarAbout":{
+        "1": "About",
+        "2": "Action",
+        "3": "Another Action",
+        "4": "Another Action"
+   
+    },
+    "mainNavBarLearn":{
+        "1": "Learn",
+        "2": "Action",
+        "3": "Another Action"
+       
+   
+    },
+    "mainNavBarPortfolio":{
+        "1":"Portfolio"
+    },
+    "mainNavBarEtf":{
+        "1":"ETF"
+    },
+    "mainNavBarPricing":{
+        "1":"Pricing"
+    },
+
+    "mainNavBarBtn":{
+        "1":"Login",
+        "2":"Signup"
     }
+
 
 
 

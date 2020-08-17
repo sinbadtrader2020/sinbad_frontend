@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Translator from "./translator";
+import Translator from "../utils/translator";
+import InputTranslation from "../utils/input-translation";
 
 
 class Footer extends Component {
@@ -14,12 +15,7 @@ class Footer extends Component {
 }
 
   render() {
-    var m=(<Translator text='welFootCol4Row1R1.1'/>)
-    console.log('asd',m)
-    
 
-
-  
 
     return (
       <>
@@ -80,13 +76,14 @@ class Footer extends Component {
             <div className="row">
               <div className="col-md-12 footer-subscribe">
                 <div>
+          
                
-                    <input
+                  <InputTranslation
                     className="form-control"
                     type="search"
                     id="user"
      
-                    placeholder={<Translator text='welFootCol4Row1R1.1'/>}
+                    text='welFootCol4Row1R1.1'
                     
                     aria-label="Search"
                   />

@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import Footer from "./footer";
 import MainNavBar from "./main-nav-bar";
 
-import Translator from "./translator";
+import Translator from "../utils/translator";
 import { Path } from "./config";
 import { Link } from "react-router-dom";
 
@@ -57,15 +57,21 @@ class Welcome extends Component {
         imgname:imagesPath[param],
         featureContent: featureName[param2],
         count:param3,
-        timer:5000
+        timer:3000
       }
     )
   
   }
+
+  async componentWillUnmount() {
+    // Clear the interval right before component unmount
+    clearInterval(this.interval);
+}
+
   async componentDidMount() {
     console.log(this.state.count)
     try {
-      setInterval(async () => {
+      this.interval=setInterval(async () => {
        
        
         if(this.state.count===2){

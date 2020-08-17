@@ -2,7 +2,10 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import MainNavBar from "./main-nav-bar";
 import Footer from "./footer";
-import Translator from "./translator";
+import Translator from "../utils/translator";
+import InputTranslation from "../utils/input-translation";
+
+import OptionTranslation from "../utils/option-translation";
 
 export default class Signup extends React.Component {
   render() {
@@ -28,18 +31,18 @@ export default class Signup extends React.Component {
               <form>
                 <div className="form-row">
                   <div className="form-group col-md-6">
-                    <input
+                    <InputTranslation
                       type="text"
                       className="form-control"
-                      placeholder={<Translator text='signUpBlock3R1.1'/>}
+                      text='signUpBlock3R1.1'
                       required
                     />
                   </div>
                   <div className="form-group col-md-6">
-                    <input
+                    <InputTranslation
                       type="text"
                       className="form-control"
-                      placeholder={<Translator text='signUpBlock3R2.1'/>}
+                      text='signUpBlock3R2.1'
                       required
                     />
                   </div>
@@ -47,18 +50,18 @@ export default class Signup extends React.Component {
 
                 <div className="form-row">
                   <div className="form-group col-md-6">
-                    <input
+                    <InputTranslation
                       type="email"
                       className="form-control"
-                      placeholder={<Translator text='signUpBlock4R1.1'/>}
+                      text='signUpBlock4R1.1'
                       required
                     />
                   </div>
                   <div className="form-group col-md-6">
-                    <input
+                    <InputTranslation
                       type="text"
                       className="form-control"
-                      placeholder={<Translator text='signUpBlock4R2.1'/>}
+                      text='signUpBlock4R2.1'
                       required
                     />
                   </div>
@@ -66,18 +69,18 @@ export default class Signup extends React.Component {
 
                 <div className="form-row">
                   <div className="form-group col-md-6">
-                    <input
+                    <InputTranslation
                       type="password"
                       className="form-control"
-                      placeholder={<Translator text='signUpBlock5R1.1'/>}
+                      text='signUpBlock5R1.1'
                       required
                     />
                   </div>
                   <div className="form-group col-md-6">
-                    <input
+                    <InputTranslation
                       type="password"
                       className="form-control"
-                      placeholder={<Translator text='signUpBlock5R2.1'/>}
+                      text='signUpBlock5R2.1'
                       required
                     />
                   </div>
@@ -85,36 +88,39 @@ export default class Signup extends React.Component {
 
                 <div className="form-row">
                   <div className="form-group col-md-12">
-                    <input
+                    <InputTranslation
                       type="text"
                       className="form-control"
-                      placeholder={<Translator text='signUpBlock6R1.1'/>}
+                      text='signUpBlock6R1.1'
                     />
+                    
                   </div>
                 </div>
+                
 
                 <div className="form-row">
                   <div className="form-group col-md-6">
                     <select id="" className="form-control">
-                      <option selected><Translator text='signUpBlock7R1.1'/>Country</option>
-                      <option><Translator text='signUpBlock7R1.2'/>Argentina</option>
-                      <option><Translator text='signUpBlock7R1.3'/>Brazil</option>
-                      <option><Translator text='signUpBlock7R1.4'/>Bangladesh</option>
-                      <option><Translator text='signUpBlock7R1.5'/>Denmark</option>
+                      <OptionTranslation deafult="true" text='signUpBlock7R1.1'/>
+                      <OptionTranslation text='signUpBlock7R1.2'/>
+                      <OptionTranslation text='signUpBlock7R1.3'/>
+                      <OptionTranslation text='signUpBlock7R1.4'/>
+                      <OptionTranslation text='signUpBlock7R1.5' />
+                    
                     </select>
                   </div>
                   <div className="form-group col-md-4">
-                    <input
+                    <InputTranslation
                       type="text"
                       className="form-control"
-                      placeholder={<Translator text='signUpBlock7R2.1'/>}
+                      text='signUpBlock7R2.1'
                     />
                   </div>
                   <div className="form-group col-md-2">
-                    <input
+                    <InputTranslation
                       type="text"
                       className="form-control"
-                      placeholder={<Translator text='signUpBlock7R2.2'/>}
+                      text='signUpBlock7R2.2'
                     />
                   </div>
                 </div>
