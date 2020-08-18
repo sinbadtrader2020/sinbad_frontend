@@ -19,7 +19,8 @@ class MainNavBar extends Component {
         {/* <!-- Main menu Navbar --> */}
         <nav className="navbar navbar-expand-lg navbar-light bg-light sticky">
           <Link className="navbar-brand" to={Path.welcome}>
-            Sinbad <span>Finance</span>
+          <img src={"assets/images/sinbad-logo.png"} alt="Logo" />
+
           </Link>
           <button
             className="navbar-toggler"
