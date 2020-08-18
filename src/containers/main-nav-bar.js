@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link} from "react-router-dom";
 import {Path} from "../containers/config";
 import Translator from "../utils/translator";
-import i18n from '../i18n';
+import i18n from '../utils/i18n';
 
 
 class MainNavBar extends Component {

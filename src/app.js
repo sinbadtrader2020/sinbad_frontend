@@ -1,4 +1,4 @@
-import React ,{Suspense} from 'react';
+import React, {Suspense} from 'react';
 import {Redirect} from "react-router"
 import {Switch, withRouter, Route} from "react-router-dom";
 import AppliedRoute from "./utils/applied-route";
@@ -11,7 +11,7 @@ import Signup from "./containers/signup";
 import NotFound from "./containers/not-found";
 import Welcome from './containers/welcome';
 
-import i18n from './i18n';
+import i18n from './utils/i18n';
 
 
 class Index extends React.Component {
@@ -24,7 +24,7 @@ class Index extends React.Component {
 class App extends React.Component {
     constructor(props) {
         super(props);
-      
+
         i18n.changeLanguage('en');
         this.state = {
             isAuthenticated: false,
@@ -91,45 +91,28 @@ class App extends React.Component {
         // }
 
         return (
-            <Suspense fallback="loading">
-   
-            <div className="App">
-              
-                <Switch>
-                    <AppliedRoute path={Path.index} exact component={Index} props={childProps}/>
-                    <AppliedRoute path={Path.home} exact component={Home} props={childProps}/>
-                    <AppliedRoute path={Path.welcome} exact component={Welcome} props={childProps}/>
-                    <AppliedRoute path={Path.signin} exact component={Signin} props={childProps}/>
-                    <AppliedRoute path={Path.signup} exact component={Signup} props={childProps}/>
-                    { /* Finally, catch all unmatched routes */ }
-                    <Route component={NotFound}/>
-                </Switch>
+            <Suspense fallback={
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>}>
+
+                <div className="App">
+
+                    <Switch>
+                        <AppliedRoute path={Path.index} exact component={Index} props={childProps}/>
+                        <AppliedRoute path={Path.home} exact component={Home} props={childProps}/>
+                        <AppliedRoute path={Path.welcome} exact component={Welcome} props={childProps}/>
+                        <AppliedRoute path={Path.signin} exact component={Signin} props={childProps}/>
+                        <AppliedRoute path={Path.signup} exact component={Signup} props={childProps}/>
+                        { /* Finally, catch all unmatched routes */ }
+                        <Route component={NotFound}/>
+                    </Switch>
+                </div>
 
 
-             {/* for testing multi-language support start */}
-             {/* import ChangeLanguage from './utils/change-language';
-            import InputTranslation from './utils/input-translation'; */}
-             {/* <div>
-                
-                <h1><InputTranslation   type="text"
-                      className="form-control" text='welBlock1R1.1'/> </h1> 
-            </div> 
-             
-             <div>
-                <h1> <InputTranslation   type="text"
-                      className="form-control" text='welBlock1R2.1'/></h1>
-             </div>  
-             <div>
-            
-                <ChangeLanguage/>
-             </div> 
-              */}
-
-               {/* for testing multi-language support  end */}
-            </div>
-
-          
-    </Suspense>
+            </Suspense>
         );
     }
 }
