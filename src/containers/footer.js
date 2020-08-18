@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Translator from "../utils/translator";
 import InputTranslation from "../utils/input-translation";
+import { Path } from "./config";
+import { Link } from "react-router-dom";
 
 
 class Footer extends Component {
@@ -20,7 +22,7 @@ class Footer extends Component {
     return (
       <>
         {/* <!-- Website's Footer Design --> */}
-        <footer>
+        <footer >
         
           <div className="container">
             {/* <!-- Footer Essential links & Company Description --> */}
@@ -62,10 +64,11 @@ class Footer extends Component {
                 </a>
               </div>
               <div className="col-md-3">
-                <a href="top#" className="nav-link">
-                  Logo Here
-                </a>
-                <p>
+                <Link className="navbar-brand" to={Path.welcome}>
+                  <img src={"assets/images/sinbad-logo.png"} alt="Logo" />
+
+                </Link>
+                <p className="footer-p">
                   {" "}
                   <Translator text='welFootCol4R1.1'/> 
                 </p>
