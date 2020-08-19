@@ -90,11 +90,26 @@ class App extends React.Component {
         //     }
         // }
 
+         
+        // if (this.state.isAuthenticated) {
+        //     if (this.props.location.pathname === Path.signin) {
+        //         // alert("App1 - " + childProps.isAuthenticated + " " + this.props.location.pathname);
+        //         return <Redirect to={Path.home}/>;
+        //     }
+        // }
+        // else {
+        //     if (this.props.location.pathname !== Path.signin) {
+        //         // alert("App2 - " + childProps.isAuthenticated + " " + this.props.location.pathname);
+        //         return <Redirect to={Path.sigin}/>;
+        //     }
+        // }
+
+
         return (
             <Suspense fallback={
-                <div class="d-flex justify-content-center">
-                    <div class="spinner-border" role="status">
-                        <span class="sr-only">Loading...</span>
+                <div className="d-flex justify-content-center">
+                    <div className="spinner-border" role="status">
+                        <span className="sr-only">Loading...</span>
                     </div>
                 </div>}>
 

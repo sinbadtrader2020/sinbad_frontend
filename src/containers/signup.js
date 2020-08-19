@@ -6,8 +6,106 @@ import Translator from "../utils/translator";
 import InputTranslation from "../utils/input-translation";
 
 import OptionTranslation from "../utils/option-translation";
+import { Auth } from "../api/auth";
+import { Path } from "./config";
 
 export default class Signup extends React.Component {
+  constructor(props) {
+    super(props);
+    this.alertRef = null;
+    this.setAlertRef = (element) => {
+      this.alertRef = element;
+    };
+    this.state = {
+      first_name: "",
+      last_name: "",
+      email: "",
+      mobile_number: "",
+      password: "",
+      confirmpassword: "",
+      street_address: "",
+      city: "",
+      country: "",
+      zip: "",
+      spinner: false,
+    };
+  }
+
+  handleChange = event => {
+
+    this.setState({
+      [event.target.id]: event.target.value
+    });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    console.log(this.state.city)
+
+    this.setState({
+      spinner: true
+    });
+    
+
+    Auth.register(this.state.first_name, this.state.last_name, this.state.email,
+      this.state.mobile_number,this.state.password,
+      this.state.city,this.state.country)
+      .then(response => {
+        this.props.userHasAuthenticated(response[0], response[1]);
+        this.setState({
+          spinner: false
+        });
+
+        if (response[0]) {
+
+          this.props.history.push(Path.home)
+
+
+        }
+        else {
+          // this.alertRef.handleShow(response[1].error, "danger");
+          // setTimeout(this.alertRef.handleDismiss, 3000);
+          alert(response[1].error)
+
+        }
+      });
+
+
+
+     
+    // // TODO registration Api connection
+    // this.setState({
+    //   spinner: true
+    // });
+    
+
+    // Auth.signin(this.state.first_name, this.state.last_name, this.state.email,this.state.mobile_number,
+    //   this.state.password,this.state.confirmpassword,this.state.street_address,this.state.city,
+    //   this.state.country,this.state.zip)
+    //   .then(response => {
+    //     this.props.userHasAuthenticated(response[0], response[1]);
+    //     this.setState({
+    //       spinner: false
+    //     });
+
+    //     if (response[0]) {
+
+    //       this.props.history.push(Path.home)
+
+
+    //     }
+    //     else {
+    //       // this.alertRef.handleShow(response[1].error, "danger");
+    //       // setTimeout(this.alertRef.handleDismiss, 3000);
+    //       alert(response[1].error)
+
+    //     }
+    //   });
+  };
+
+
+
+
   render() {
     return (
       <div className="Signup">
@@ -22,28 +120,35 @@ export default class Signup extends React.Component {
         <div className="container">
           <div className="row row-padding">
             <div className="col-md-12">
-              <h2><Translator text='signUpBlock1R1.1'/></h2>
+              <h2>
+                <Translator text="signUpBlock1R1.1" />
+              </h2>
               <p>
-              <Translator text='signUpBlock2R1.1'/>
+                <Translator text="signUpBlock2R1.1" />
               </p>
 
               {/* <!-- Signup Form --> */}
-              <form>
+              <>
                 <div className="form-row">
                   <div className="form-group col-md-6">
                     <InputTranslation
+                      id="first_name"
                       type="text"
                       className="form-control"
-                      text='signUpBlock3R1.1'
+                      text="signUpBlock3R1.1"
                       required
+                      onchange={this.handleChange}
                     />
                   </div>
                   <div className="form-group col-md-6">
                     <InputTranslation
+                      id="last_name"
+
                       type="text"
                       className="form-control"
-                      text='signUpBlock3R2.1'
+                      text="signUpBlock3R2.1"
                       required
+                      onchange={this.handleChange}
                     />
                   </div>
                 </div>
@@ -51,18 +156,23 @@ export default class Signup extends React.Component {
                 <div className="form-row">
                   <div className="form-group col-md-6">
                     <InputTranslation
+                      id="email"
+
                       type="email"
                       className="form-control"
-                      text='signUpBlock4R1.1'
+                      text="signUpBlock4R1.1"
                       required
+                      onchange={this.handleChange}
                     />
                   </div>
                   <div className="form-group col-md-6">
                     <InputTranslation
+                      id="mobile_number"
                       type="text"
                       className="form-control"
-                      text='signUpBlock4R2.1'
+                      text="signUpBlock4R2.1"
                       required
+                      onchange={this.handleChange}
                     />
                   </div>
                 </div>
@@ -70,18 +180,22 @@ export default class Signup extends React.Component {
                 <div className="form-row">
                   <div className="form-group col-md-6">
                     <InputTranslation
+                      id="password"
                       type="password"
                       className="form-control"
-                      text='signUpBlock5R1.1'
+                      text="signUpBlock5R1.1"
                       required
+                      onchange={this.handleChange}
                     />
                   </div>
                   <div className="form-group col-md-6">
                     <InputTranslation
+                      id="confirmpassword"
                       type="password"
                       className="form-control"
-                      text='signUpBlock5R2.1'
+                      text="signUpBlock5R2.1"
                       required
+                      onchange={this.handleChange}
                     />
                   </div>
                 </div>
@@ -89,50 +203,60 @@ export default class Signup extends React.Component {
                 <div className="form-row">
                   <div className="form-group col-md-12">
                     <InputTranslation
+                      id="street_address"
                       type="text"
                       className="form-control"
-                      text='signUpBlock6R1.1'
+                      text="signUpBlock6R1.1"
+                      onchange={this.handleChange}
                     />
-                    
                   </div>
                 </div>
-                
 
                 <div className="form-row">
                   <div className="form-group col-md-6">
-                    <select id="" className="form-control">
-                      <OptionTranslation deafult="true" text='signUpBlock7R1.1'/>
-                      <OptionTranslation text='signUpBlock7R1.2'/>
-                      <OptionTranslation text='signUpBlock7R1.3'/>
-                      <OptionTranslation text='signUpBlock7R1.4'/>
-                      <OptionTranslation text='signUpBlock7R1.5' />
-                    
+                    <select id="city" onChange={this.handleChange} className="form-control">
+                      <OptionTranslation
+                        deafult="true"
+                        text="signUpBlock7R1.1"
+                      />
+                      <OptionTranslation text="signUpBlock7R1.2" />
+                      <OptionTranslation text="signUpBlock7R1.3" />
+                      <OptionTranslation text="signUpBlock7R1.4" />
+                      <OptionTranslation text="signUpBlock7R1.5" />
                     </select>
                   </div>
                   <div className="form-group col-md-4">
                     <InputTranslation
+                      id="country"
                       type="text"
                       className="form-control"
-                      text='signUpBlock7R2.1'
+                      text="signUpBlock7R2.1"
+                      onchange={this.handleChange}
                     />
                   </div>
                   <div className="form-group col-md-2">
                     <InputTranslation
+                      id="zip"
                       type="text"
                       className="form-control"
-                      text='signUpBlock7R2.2'
+                      text="signUpBlock7R2.2"
+                      onchange={this.handleChange}
                     />
                   </div>
                 </div>
 
                 <div className="form row">
                   <div className="col-sm-10">
-                    <button type="submit" className="btn btn-primary">
-                    <Translator text='signUpBlock8R2.1'/> 
+                    <button type="submit" className="btn btn-primary"
+                      onClick={this.handleSubmit}
+
+
+                    >
+                      <Translator text="signUpBlock8R2.1" /> asd
                     </button>
                   </div>
                 </div>
-              </form>
+              </>
             </div>
           </div>
 
@@ -147,7 +271,9 @@ export default class Signup extends React.Component {
                 <div>
                   <i className="fa fa-facebook"></i>
                 </div>
-                <p><Translator text='signInFacebook.1'/>  </p>
+                <p>
+                  <Translator text="signInFacebook.1" />{" "}
+                </p>
               </a>
               <a
                 href="top#"
@@ -156,7 +282,9 @@ export default class Signup extends React.Component {
                 <div>
                   <i className="fa fa-google"></i>
                 </div>
-                <p><Translator text='signInGoogle.1'/>  </p>
+                <p>
+                  <Translator text="signInGoogle.1" />{" "}
+                </p>
               </a>
             </div>
             <div className="col-md-3 social-log-pad">
@@ -167,7 +295,9 @@ export default class Signup extends React.Component {
                 <div>
                   <i className="fa fa-linkedin"></i>
                 </div>
-                <p><Translator text='signInLinkdln.1'/></p>
+                <p>
+                  <Translator text="signInLinkdln.1" />
+                </p>
               </a>
               <a
                 href="top#"
@@ -176,7 +306,9 @@ export default class Signup extends React.Component {
                 <div>
                   <i className="fa fa-instagram"></i>
                 </div>
-                <p><Translator text='signInInstagram.1'/> </p>
+                <p>
+                  <Translator text="signInInstagram.1" />{" "}
+                </p>
               </a>
             </div>
             <div className="col-md-3"></div>

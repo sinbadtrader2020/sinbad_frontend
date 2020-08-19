@@ -1,5 +1,5 @@
 import axios from "axios"
-import {API, configureAxios} from "./config"
+import { API, configureAxios } from "./config"
 
 class Authentication {
     constructor() {
@@ -20,7 +20,7 @@ class Authentication {
             this.result.error = null;
 
             localStorage.setItem(this.session, JSON.stringify(this.result));
-            configureAxios({authToken: data.token, authCallback: this.authCallback});
+            configureAxios({ authToken: data.token, authCallback: this.authCallback });
 
             return [true, this.result];
         }
@@ -31,6 +31,15 @@ class Authentication {
         this.result.token = null;
         if (error && error.response && error.response.data && error.response.data.message) {
             this.result.error = error.response.data.message;
+        }
+        //    modification by zameer
+        if (data && !data.token) {
+            localStorage.removeItem(this.session);
+
+            this.result.data = data.data;
+
+            this.result.token = null;
+            return [false, this.result];
         }
         else {
             this.result.error = "Unknown Error";
@@ -45,18 +54,61 @@ class Authentication {
 
     signin(email, password) {
         return axios.post(API.signin, {
-            username: email,
+            email: email,
             password: password
         })
             .then(response => this.onSetResult(response.data))
             .catch(error => this.onSetResult("", error));
     }
+    //  TO DO Registration sinbad Api connection
+    // register(first_name, last_name, email,mobile_number,password,
+    //     confirmpassword,street_address,city,country,zip) {
+    //         return axios.post(API.register,{
+    //             first_name: first_name ,          
+    //             last_name: last_name ,            
+    //             email: email,             
+    //             mobile_number: mobile_number ,        
+    //             password: password ,             
+    //             confirmpassword: confirmpassword ,      
+    //             street_address: street_address ,       
+    //             city: city ,             
+    //             country: country ,             
+    //             zip: zip ,                
+    //         })
+    //         .then(response => this.onSetResult(response.data))
+    //         .catch(error => this.onSetResult("", error));
 
-    signout(email) {
+    // }
+
+
+
+    register(first_name, last_name, email,mobile_number,password,
+        city,country) {
+            return axios.post(API.signup,{
+                first_name: first_name ,          
+                last_name: last_name ,            
+                email: email,             
+                mobile_number: mobile_number ,        
+                city: city ,             
+                country: country , 
+
+                 
+                language:"ENGLISH",
+                password: password 
+                      
+             
+                
+
+                
+            })
+            .then(response => this.onSetResult(response.data))
+            .catch(error => this.onSetResult("", error));
+
+    }
+
+    signout() {
         localStorage.removeItem(this.session);
-        return axios.post(API.signout, {
-            username: email
-        })
+        return axios.post(API.signout)
             .then(response => this.onSetResult(response.data))
             .catch(error => this.onSetResult("", error));
     }

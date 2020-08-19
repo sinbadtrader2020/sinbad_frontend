@@ -1,4 +1,5 @@
 import React from "react";
+import MainNavBar from "./main-nav-bar";
 
 
 export default class Home extends React.Component {
@@ -7,6 +8,7 @@ export default class Home extends React.Component {
 
         return (
             <div className="Home">
+            <MainNavBar/>
         
             </div>
         );

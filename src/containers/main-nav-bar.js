@@ -1,19 +1,43 @@
 import React, { Component } from "react";
-import { Link} from "react-router-dom";
+import { Link, Redirect} from "react-router-dom";
 import {Path} from "../containers/config";
 import Translator from "../utils/translator";
 import i18n from '../utils/i18n';
+import { Auth } from "../api/auth";
+import app from "../app";
 
 
 class MainNavBar extends Component {
+ 
   
   constructor(props){
     super(props);
+
     this.state={
       languagebtn: (i18n.language==="en" )?"English":"Bangla"
     }
   }
+
+
+
+  handleLogout = event => {
+    event.preventDefault();
+    Auth.signout();
+
+   
+    
+};
+
+
+
+
+
   render() {
+    if(Auth.result.token===false){
+      return <Redirect to="/"/>
+      
+    }
+    
     return (
       <>
         {/* <!-- Main menu Navbar --> */}
@@ -150,15 +174,18 @@ class MainNavBar extends Component {
                      </ul>
                 {/* language button end */}
 
+                <h1>{Auth.result.data&&Auth.result.data[0]['first_name']}</h1>
+
            </div>
+           <button onClick={()=>console.log(Auth.result.data[0])}>asd</button>
            
     
-            <form className="form-inline my-2 my-lg-0">
+          <form className="form-inline my-2 my-lg-0">
            
-
-            <Link to={Path.signin} className="nav-link">  <Translator text="mainNavBarBtn.1"/></Link>
-            <Link to={Path.signup} className="nav-link">  <Translator text="mainNavBarBtn.2"/></Link>
-            
+        {  !Auth.result.token?
+            <><Link to={Path.signin} className="nav-link">  <Translator text="mainNavBarBtn.1"/></Link>
+            <Link to={Path.signup} className="nav-link">  <Translator text="mainNavBarBtn.2"/></Link></>
+           :<button  className="nav-link" onClick={this.handleLogout}>  <Translator text="mainNavBarBtn.3"/></button> }
             </form>
           </div>
         </nav>

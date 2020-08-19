@@ -2,10 +2,10 @@ import axios from "axios"
 
 export class APIConfig {
 
-    static BASE_URL          = "";
+    static BASE_URL          = "http://43.224.110.47:9002/api/v1";
     static AUTH_TOKEN        = "";
-    static POST_CONTENT_TYPE = "";
-    static AUTH_TOKEN_HEADER = "X-Authorization";
+    static POST_CONTENT_TYPE = "application/json";
+    static AUTH_TOKEN_HEADER = "token";
 }
 
 export function configureAxios({baseURL = APIConfig.BASE_URL, authToken = APIConfig.AUTH_TOKEN, authCallback = null,
@@ -31,9 +31,9 @@ export function configureAxios({baseURL = APIConfig.BASE_URL, authToken = APICon
 }
 
 
-const API_SIGNIN            = "/signin";
-const API_SIGNUP            = "/signup";
-const API_SIGNOUT           = "/signout";
+const API_SIGNIN            = "/login";
+const API_SIGNUP            = "/registration";
+const API_SIGNOUT           = "/logout";
 
 export class API {
     static get signin() {
