@@ -8,6 +8,7 @@ class Authentication {
             token: null,
             error: null
         };
+        this.authenticated=false;
 
         this.session = "tirzok-session";
         this.authCallback = null;
@@ -18,7 +19,7 @@ class Authentication {
             this.result.data = data.data;
             this.result.token = data.token;
             this.result.error = null;
-
+            this.authenticated=true;
             localStorage.setItem(this.session, JSON.stringify(this.result));
             configureAxios({ authToken: data.token, authCallback: this.authCallback });
 
@@ -26,7 +27,7 @@ class Authentication {
         }
 
         localStorage.removeItem(this.session);
-
+        this.authenticated=false;
         this.result.data = null;
         this.result.token = null;
         if (error && error.response && error.response.data && error.response.data.message) {
@@ -37,7 +38,7 @@ class Authentication {
             localStorage.removeItem(this.session);
 
             this.result.data = data.data;
-
+            this.authenticated=false;
             this.result.token = null;
             return [false, this.result];
         }
@@ -60,53 +61,53 @@ class Authentication {
             .then(response => this.onSetResult(response.data))
             .catch(error => this.onSetResult("", error));
     }
-    //  TO DO Registration sinbad Api connection
-    // register(first_name, last_name, email,mobile_number,password,
-    //     confirmpassword,street_address,city,country,zip) {
-    //         return axios.post(API.register,{
-    //             first_name: first_name ,          
-    //             last_name: last_name ,            
-    //             email: email,             
-    //             mobile_number: mobile_number ,        
-    //             password: password ,             
-    //             confirmpassword: confirmpassword ,      
-    //             street_address: street_address ,       
-    //             city: city ,             
-    //             country: country ,             
-    //             zip: zip ,                
-    //         })
-    //         .then(response => this.onSetResult(response.data))
-    //         .catch(error => this.onSetResult("", error));
-
-    // }
-
-
-
+    // TO DO Registration sinbad Api connection
     register(first_name, last_name, email,mobile_number,password,
-        city,country) {
+        confirmpassword,street_address,city,country,zip) {
             return axios.post(API.signup,{
                 first_name: first_name ,          
                 last_name: last_name ,            
                 email: email,             
                 mobile_number: mobile_number ,        
+                password: password ,             
+               // confirmpassword: confirmpassword ,      
+                street_address: street_address ,       
                 city: city ,             
-                country: country , 
-
-                 
-                language:"ENGLISH",
-                password: password 
-                      
-             
-                
-
-                
+                country: country ,             
+                zip_code: zip ,                
             })
             .then(response => this.onSetResult(response.data))
             .catch(error => this.onSetResult("", error));
 
     }
 
-    signout() {
+
+
+    // register(first_name, last_name, email,mobile_number,password,
+    //     city,country) {
+    //         return axios.post(API.signup,{
+    //             first_name: first_name ,          
+    //             last_name: last_name ,            
+    //             email: email,             
+    //             mobile_number: mobile_number ,        
+    //             city: city ,             
+    //             country: country , 
+
+                 
+    //             language:"ENGLISH",
+    //             password: password 
+                      
+             
+                
+
+                
+    //         })
+    //         .then(response => this.onSetResult(response.data))
+    //         .catch(error => this.onSetResult("", error));
+
+    // }
+
+    async signout() {
         localStorage.removeItem(this.session);
         return axios.post(API.signout)
             .then(response => this.onSetResult(response.data))

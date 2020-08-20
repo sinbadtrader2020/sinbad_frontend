@@ -31,8 +31,8 @@ export function configureAxios({baseURL = APIConfig.BASE_URL, authToken = APICon
 }
 
 
-const API_SIGNIN            = "/login";
-const API_SIGNUP            = "/registration";
+const API_SIGNIN            = "/signin";
+const API_SIGNUP            = "/signup";
 const API_SIGNOUT           = "/logout";
 
 export class API {

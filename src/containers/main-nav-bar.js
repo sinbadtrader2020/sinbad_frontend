@@ -5,7 +5,9 @@ import Translator from "../utils/translator";
 import i18n from '../utils/i18n';
 import { Auth } from "../api/auth";
 import app from "../app";
+import Welcome from "./welcome";
 
+import {withRouter} from 'react-router-dom';
 
 class MainNavBar extends Component {
  
@@ -14,16 +16,34 @@ class MainNavBar extends Component {
     super(props);
 
     this.state={
-      languagebtn: (i18n.language==="en" )?"English":"Bangla"
+      languagebtn: (i18n.language==="en" )?"English":"Bangla",
+      showLogin:Auth.result.token
+      
     }
+    console.log("main",this.state.showLogin)
+
   }
 
 
 
   handleLogout = event => {
     event.preventDefault();
-    Auth.signout();
+    Auth.signout().then(response => {
+                
 
+      this.setState({
+        showLogin:null
+      });
+      this.props.history.push(Path.welcome);
+				
+					
+				
+            
+            });
+
+  
+   
+    console.log("handel",this.state.showLogin)
    
     
 };
@@ -32,11 +52,9 @@ class MainNavBar extends Component {
 
 
 
+
   render() {
-    if(Auth.result.token===false){
-      return <Redirect to="/"/>
-      
-    }
+  
     
     return (
       <>
@@ -180,17 +198,17 @@ class MainNavBar extends Component {
            <button onClick={()=>console.log(Auth.result.data[0])}>asd</button>
            
     
-          <form className="form-inline my-2 my-lg-0">
+          
            
-        {  !Auth.result.token?
+          {  this.state.showLogin==null?
             <><Link to={Path.signin} className="nav-link">  <Translator text="mainNavBarBtn.1"/></Link>
             <Link to={Path.signup} className="nav-link">  <Translator text="mainNavBarBtn.2"/></Link></>
            :<button  className="nav-link" onClick={this.handleLogout}>  <Translator text="mainNavBarBtn.3"/></button> }
-            </form>
+         
           </div>
         </nav>
       </>
     );
   }
 }
-export default MainNavBar;
+export default withRouter(MainNavBar);

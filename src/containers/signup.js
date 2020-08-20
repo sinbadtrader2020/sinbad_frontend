@@ -32,6 +32,7 @@ export default class Signup extends React.Component {
   }
 
   handleChange = event => {
+    console.log('id---->', event.target.id,' value---->', event.target.value);
 
     this.setState({
       [event.target.id]: event.target.value
@@ -46,42 +47,10 @@ export default class Signup extends React.Component {
       spinner: true
     });
     
-
-    Auth.register(this.state.first_name, this.state.last_name, this.state.email,
-      this.state.mobile_number,this.state.password,
-      this.state.city,this.state.country)
-      .then(response => {
-        this.props.userHasAuthenticated(response[0], response[1]);
-        this.setState({
-          spinner: false
-        });
-
-        if (response[0]) {
-
-          this.props.history.push(Path.home)
-
-
-        }
-        else {
-          // this.alertRef.handleShow(response[1].error, "danger");
-          // setTimeout(this.alertRef.handleDismiss, 3000);
-          alert(response[1].error)
-
-        }
-      });
-
-
-
-     
-    // // TODO registration Api connection
-    // this.setState({
-    //   spinner: true
-    // });
-    
-
-    // Auth.signin(this.state.first_name, this.state.last_name, this.state.email,this.state.mobile_number,
-    //   this.state.password,this.state.confirmpassword,this.state.street_address,this.state.city,
-    //   this.state.country,this.state.zip)
+    // Api on development
+    // Auth.register(this.state.first_name, this.state.last_name, this.state.email,
+    //   this.state.mobile_number,this.state.password,
+    //   this.state.city,this.state.country)
     //   .then(response => {
     //     this.props.userHasAuthenticated(response[0], response[1]);
     //     this.setState({
@@ -101,6 +70,38 @@ export default class Signup extends React.Component {
 
     //     }
     //   });
+
+
+
+     
+    // TODO registration Api connection
+    this.setState({
+      spinner: true
+    });
+    
+    console.log('city before call api--->', this.state.city);
+    Auth.register(this.state.first_name, this.state.last_name, this.state.email,this.state.mobile_number,
+      this.state.password,this.state.confirmpassword,this.state.street_address,this.state.city,
+      this.state.country,this.state.zip)
+      .then(response => {
+        this.props.userHasAuthenticated(response[0], response[1]);
+        this.setState({
+          spinner: false
+        });
+
+        if (response[0]) {
+
+          this.props.history.push(Path.home)
+
+
+        }
+        else {
+          // this.alertRef.handleShow(response[1].error, "danger");
+          // setTimeout(this.alertRef.handleDismiss, 3000);
+          alert(response[1].error)
+
+        }
+      });
   };
 
 
@@ -214,7 +215,7 @@ export default class Signup extends React.Component {
 
                 <div className="form-row">
                   <div className="form-group col-md-6">
-                    <select id="city" onChange={this.handleChange} className="form-control">
+                    <select id="country" onChange={this.handleChange} className="form-control">
                       <OptionTranslation
                         deafult="true"
                         text="signUpBlock7R1.1"
@@ -227,7 +228,7 @@ export default class Signup extends React.Component {
                   </div>
                   <div className="form-group col-md-4">
                     <InputTranslation
-                      id="country"
+                      id="city"
                       type="text"
                       className="form-control"
                       text="signUpBlock7R2.1"

@@ -100,7 +100,7 @@ class App extends React.Component {
         // else {
         //     if (this.props.location.pathname !== Path.signin) {
         //         // alert("App2 - " + childProps.isAuthenticated + " " + this.props.location.pathname);
-        //         return <Redirect to={Path.sigin}/>;
+        //         return <Redirect to={Path.this.props.location.pathname}/>;
         //     }
         // }
 
@@ -117,8 +117,9 @@ class App extends React.Component {
 
                     <Switch>
                         <AppliedRoute path={Path.index} exact component={Index} props={childProps}/>
-                        <AppliedRoute path={Path.home} exact component={Home} props={childProps}/>
+                        
                         <AppliedRoute path={Path.welcome} exact component={Welcome} props={childProps}/>
+                        <AppliedRoute path={Path.home} exact component={Home} props={childProps}/>
                         <AppliedRoute path={Path.signin} exact component={Signin} props={childProps}/>
                         <AppliedRoute path={Path.signup} exact component={Signup} props={childProps}/>
                         { /* Finally, catch all unmatched routes */ }
