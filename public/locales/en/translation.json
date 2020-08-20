@@ -242,7 +242,7 @@
         "1":"*Password (min,10 characters)"
     },
     "signUpBlock5R2":{
-        "1":"Confirm *Password (min,10 characters)"
+        "1":"*Confirm Password (min,10 characters)"
     },
 
     "signUpBlock6R1":{

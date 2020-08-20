@@ -1,7 +1,7 @@
 import React from "react";
 import Footer from "./footer";
 import MainNavBar from "./main-nav-bar";
-import { Link} from "react-router-dom";
+import { Link, Redirect} from "react-router-dom";
 import {Path} from "../containers/config";
 import { Helmet } from "react-helmet";
 import Translator from "../utils/translator";
@@ -72,6 +72,8 @@ class Signin extends React.Component {
 	
 
     render() {
+	
+		
 
         return (
             <div className="Signin">

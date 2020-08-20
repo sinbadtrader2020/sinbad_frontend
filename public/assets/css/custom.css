@@ -108,12 +108,18 @@ a:hover {
 
   .txt-img-mob-center {
     text-align: center;
+    overflow: hidden;
   }
 
   .works-div {
     text-align: center;
     display: table-row;
   }
+    /* use on home page to remove gap from image */
+    .footer-no-margin {
+      margin-bottom: -70px;
+    }
+  
 }
 .search-div {
   padding-top: auto;

@@ -122,7 +122,7 @@ class Footer extends Component {
               </div>
 
               {/* <!-- Footer Bottom: Company Information--> */}
-              <div className="row">
+              <div class="row" style={{margin: "auto"}}>
                 <div className="col-md-12">
                   <p style={{ fontSize: "13px", color: "white" }}>
                   <Translator text='welFootCol4Row7R1.1'/> 

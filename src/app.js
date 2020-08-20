@@ -72,11 +72,11 @@ class App extends React.Component {
 
     render() {
         const childProps = {
-            isAuthenticated: this.state.isAuthenticated,
-            user: this.state.user,
-            userHasAuthenticated: this.userHasAuthenticated,
-            handleLogout: this.handleLogout
-        };
+                isAuthenticated: this.state.isAuthenticated,
+                user: this.state.user,
+                userHasAuthenticated: this.userHasAuthenticated,
+                handleLogout: this.handleLogout
+            };
 
         // TODO Fix it
         // if (this.state.isAuthenticated) {
@@ -90,21 +90,18 @@ class App extends React.Component {
         //     }
         // }
 
-         
+        
         // if (this.state.isAuthenticated) {
+        //     console.log("is",this.state.isAuthenticated)
         //     if (this.props.location.pathname === Path.signin) {
         //         // alert("App1 - " + childProps.isAuthenticated + " " + this.props.location.pathname);
         //         return <Redirect to={Path.home}/>;
         //     }
-        // }
-        // else {
-        //     if (this.props.location.pathname !== Path.signin) {
-        //         // alert("App2 - " + childProps.isAuthenticated + " " + this.props.location.pathname);
-        //         return <Redirect to={Path.this.props.location.pathname}/>;
-        //     }
-        // }
-
-
+		// }
+         
+       
+       
+      
         return (
             <Suspense fallback={
                 <div className="d-flex justify-content-center">
@@ -116,6 +113,9 @@ class App extends React.Component {
                 <div className="App">
 
                     <Switch>
+
+                      
+
                         <AppliedRoute path={Path.index} exact component={Index} props={childProps}/>
                         
                         <AppliedRoute path={Path.welcome} exact component={Welcome} props={childProps}/>

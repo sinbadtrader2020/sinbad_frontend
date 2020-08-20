@@ -8,6 +8,7 @@ import app from "../app";
 import Welcome from "./welcome";
 
 import {withRouter} from 'react-router-dom';
+import { Nav } from "react-bootstrap";
 
 class MainNavBar extends Component {
  
@@ -17,7 +18,8 @@ class MainNavBar extends Component {
 
     this.state={
       languagebtn: (i18n.language==="en" )?"English":"Bangla",
-      showLogin:Auth.result.token
+      showLogin:Auth.result.token,
+      navExpand:"navbar-collapse collapse show"
       
     }
     console.log("main",this.state.showLogin)
@@ -51,20 +53,18 @@ class MainNavBar extends Component {
 
 
 
-
-
   render() {
   
     
     return (
       <>
         {/* <!-- Main menu Navbar --> */}
-        <nav className="navbar navbar-expand-lg navbar-light bg-light sticky">
+        <Nav  className="navbar navbar-expand-lg navbar-light bg-light sticky">
           <Link className="navbar-brand" to={Path.welcome}>
           <img src={"assets/images/sinbad-logo.png"} alt="Logo" />
 
           </Link>
-          <button
+          <button 
             className="navbar-toggler"
             type="button"
             data-toggle="collapse"
@@ -72,11 +72,18 @@ class MainNavBar extends Component {
             aria-controls="navbarSupportedContent"
             aria-expanded="false"
             aria-label="Toggle navigation"
+            onClick={()=>{
+                                  this.setState({
+                                 
+                                  navExpand:'navbar-collapse collapse show'
+                                  });
+                                  
+                                  }} 
           >
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <div className={this.state.navExpand} id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
 
               <li className="nav-item dropdown">
@@ -144,7 +151,7 @@ class MainNavBar extends Component {
                 </div>
               </li>
             </ul>
-           
+      
            <div className="form-inline my-2 my-lg-0">
                    {/* language button Start1*/}
                    <ul className="navbar-nav mr-auto">
@@ -169,7 +176,8 @@ class MainNavBar extends Component {
                                   
                                   onClick={()=>{i18n.changeLanguage('en');
                                   this.setState({
-                                  languagebtn:'English'
+                                  languagebtn:'English',
+                                  navExpand:'navbar-collapse collapse'
                                   });
                                  
                                   }}>
@@ -178,7 +186,8 @@ class MainNavBar extends Component {
                                   </button>
                                   <button className="dropdown-item" onClick={()=>{i18n.changeLanguage('bn');
                                   this.setState({
-                                  languagebtn:'Bangla'
+                                  languagebtn:'Bangla',
+                                  navExpand:'navbar-collapse collapse'
                                   });
                                   
                                   }}>
@@ -194,20 +203,24 @@ class MainNavBar extends Component {
 
                 <h1>{Auth.result.data&&Auth.result.data[0]['first_name']}</h1>
 
-           </div>
+         
+          </div>
+
            <button onClick={()=>console.log(Auth.result.data[0])}>asd</button>
            
     
           
-           
+           <Link to={Path.signin} className="nav-link">  <Translator text="mainNavBarBtn.1"/></Link>
           {  this.state.showLogin==null?
-            <><Link to={Path.signin} className="nav-link">  <Translator text="mainNavBarBtn.1"/></Link>
+            <>
             <Link to={Path.signup} className="nav-link">  <Translator text="mainNavBarBtn.2"/></Link></>
            :<button  className="nav-link" onClick={this.handleLogout}>  <Translator text="mainNavBarBtn.3"/></button> }
          
           </div>
-        </nav>
+        </Nav>
+      
       </>
+      
     );
   }
 }
