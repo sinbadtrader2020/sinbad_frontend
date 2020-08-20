@@ -247,7 +247,7 @@ class Welcome extends Component {
         </div>
 
         {/* <!-- Homepage search feature design --> */}
-        <div className="container">
+        <div class="container footer-no-margin">
           <div className="row div-row-padding">
             <div className="col-md-12">
               <h2 className="div-h1-red-center"><Translator text='welBlock4R1.1'/></h2>
@@ -273,7 +273,7 @@ class Welcome extends Component {
               <img
                 src={"assets/images/search.png"}
                 alt="logo"
-                style={{ overflow: "hidden", height: "600px" }}
+                style={{  height: "600px" }}
               />
             </div>
           </div>
