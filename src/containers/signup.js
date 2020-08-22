@@ -31,81 +31,60 @@ export default class Signup extends React.Component {
     };
   }
 
-  handleChange = event => {
-    console.log('id---->', event.target.id,' value---->', event.target.value);
+  handleChange = (event) => {
+    console.log("id---->", event.target.id, " value---->", event.target.value);
 
     this.setState({
-      [event.target.id]: event.target.value
+      [event.target.id]: event.target.value,
     });
   };
 
-  handleSubmit = event => {
+  //registration api event handler
+  handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state.city)
 
     this.setState({
-      spinner: true
+      spinner: true,
     });
-    
-    // Api on development
-    // Auth.register(this.state.first_name, this.state.last_name, this.state.email,
-    //   this.state.mobile_number,this.state.password,
-    //   this.state.city,this.state.country)
-    //   .then(response => {
-    //     this.props.userHasAuthenticated(response[0], response[1]);
-    //     this.setState({
-    //       spinner: false
-    //     });
-
-    //     if (response[0]) {
-
-    //       this.props.history.push(Path.home)
-
-
-    //     }
-    //     else {
-    //       // this.alertRef.handleShow(response[1].error, "danger");
-    //       // setTimeout(this.alertRef.handleDismiss, 3000);
-    //       alert(response[1].error)
-
-    //     }
-    //   });
-
-
-
-     
-    // TODO registration Api connection
-    this.setState({
-      spinner: true
-    });
-    
-    console.log('city before call api--->', this.state.city);
-    Auth.register(this.state.first_name, this.state.last_name, this.state.email,this.state.mobile_number,
-      this.state.password,this.state.confirmpassword,this.state.street_address,this.state.city,
-      this.state.country,this.state.zip)
-      .then(response => {
+   if(this.state.password.length>=10){
+    if(this.state.password===this.state.confirmpassword){
+      Auth.register(
+        this.state.first_name,
+        this.state.last_name,
+        this.state.email,
+        this.state.mobile_number,
+        this.state.password,
+        this.state.confirmpassword,
+        this.state.street_address,
+        this.state.city,
+        this.state.country,
+        this.state.zip
+      ).then((response) => {
         this.props.userHasAuthenticated(response[0], response[1]);
         this.setState({
-          spinner: false
+          spinner: false,
         });
-
+  
         if (response[0]) {
-
-          this.props.history.push(Path.home)
-
-
-        }
-        else {
+          this.props.history.push(Path.home);
+        } else {
           // this.alertRef.handleShow(response[1].error, "danger");
           // setTimeout(this.alertRef.handleDismiss, 3000);
-          alert(response[1].error)
-
+          alert(response[1].error);
         }
       });
+    }
+    else {
+      alert("password didn't match")
+    }
+   }
+   else{
+     alert("password need to be 10 charecter")
+   }
+
+ 
+    
   };
-
-
-
 
   render() {
     return (
@@ -115,7 +94,7 @@ export default class Signup extends React.Component {
         </Helmet>
         {/* <!-- Main menu Navbar --> */}
         {/* <!-- Main menu Navbar --> */}
-        <MainNavBar />
+        <MainNavBar props={this.props} />
 
         {/* <!-- Signup body --> */}
         <div className="container">
@@ -144,7 +123,6 @@ export default class Signup extends React.Component {
                   <div className="form-group col-md-6">
                     <InputTranslation
                       id="last_name"
-
                       type="text"
                       className="form-control"
                       text="signUpBlock3R2.1"
@@ -158,7 +136,6 @@ export default class Signup extends React.Component {
                   <div className="form-group col-md-6">
                     <InputTranslation
                       id="email"
-
                       type="email"
                       className="form-control"
                       text="signUpBlock4R1.1"
@@ -215,7 +192,11 @@ export default class Signup extends React.Component {
 
                 <div className="form-row">
                   <div className="form-group col-md-6">
-                    <select id="country" onChange={this.handleChange} className="form-control">
+                    <select
+                      id="country"
+                      onChange={this.handleChange}
+                      className="form-control"
+                    >
                       <OptionTranslation
                         deafult="true"
                         text="signUpBlock7R1.1"
@@ -248,12 +229,12 @@ export default class Signup extends React.Component {
 
                 <div className="form row">
                   <div className="col-sm-10">
-                    <button type="submit" className="btn btn-primary"
+                    <button
+                      type="submit"
+                      className="btn btn-primary"
                       onClick={this.handleSubmit}
-
-
                     >
-                      <Translator text="signUpBlock8R2.1" /> asd
+                      <Translator text="signUpBlock8R2.1" /> 
                     </button>
                   </div>
                 </div>

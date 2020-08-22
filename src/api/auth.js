@@ -1,128 +1,120 @@
-import axios from "axios"
-import { API, configureAxios } from "./config"
+import axios from "axios";
+import { API, configureAxios } from "./config";
 
 class Authentication {
-    constructor() {
-        this.result = {
-            data: null,
-            token: null,
-            error: null
-        };
-        this.authenticated=false;
+  constructor() {
+    this.result = {
+      data: null,
+      token: null,
+      error: null,
+    };
 
-        this.session = "tirzok-session";
-        this.authCallback = null;
+    this.session = "tirzok-session";
+    this.authCallback = null;
+  }
+
+  onSetResult(data = "", error = "") {
+    if (data && data.token) {
+      this.result.data = data.data;
+      this.result.token = data.token;
+      this.result.error = null;
+
+      localStorage.setItem(this.session, JSON.stringify(this.result));
+      configureAxios({
+        authToken: data.token,
+        authCallback: this.authCallback,
+      });
+
+      return [true, this.result];
     }
 
-    onSetResult(data = "", error = "") {
-        if (data && data.token) {
-            this.result.data = data.data;
-            this.result.token = data.token;
-            this.result.error = null;
-            this.authenticated=true;
-            localStorage.setItem(this.session, JSON.stringify(this.result));
-            configureAxios({ authToken: data.token, authCallback: this.authCallback });
+    localStorage.removeItem(this.session);
 
-            return [true, this.result];
-        }
+    this.result.data = null;
+    this.result.token = null;
+    if (
+      error &&
+      error.response &&
+      error.response.data &&
+      error.response.data.message
+    ) {
+      this.result.error = error.response.data.message;
+    }
+    //    modification by zameer
+    if (data && !data.token) {
+      localStorage.removeItem(this.session);
 
-        localStorage.removeItem(this.session);
-        this.authenticated=false;
-        this.result.data = null;
-        this.result.token = null;
-        if (error && error.response && error.response.data && error.response.data.message) {
-            this.result.error = error.response.data.message;
-        }
-        //    modification by zameer
-        if (data && !data.token) {
-            localStorage.removeItem(this.session);
+      this.result.data = data.data;
 
-            this.result.data = data.data;
-            this.authenticated=false;
-            this.result.token = null;
-            return [false, this.result];
-        }
-        else {
-            this.result.error = "Unknown Error";
-        }
-
-        return [false, this.result];
+      this.result.token = null;
+      return [false, this.result];
+    } else {
+      this.result.error = "Unknown Error";
     }
 
-    setAuthCallback(authCallback) {
-        this.authCallback = authCallback;
-    }
+    return [false, this.result];
+  }
 
-    signin(email, password) {
-        return axios.post(API.signin, {
-            email: email,
-            password: password
-        })
-            .then(response => this.onSetResult(response.data))
-            .catch(error => this.onSetResult("", error));
-    }
-    // TO DO Registration sinbad Api connection
-    register(first_name, last_name, email,mobile_number,password,
-        confirmpassword,street_address,city,country,zip) {
-            return axios.post(API.signup,{
-                first_name: first_name ,          
-                last_name: last_name ,            
-                email: email,             
-                mobile_number: mobile_number ,        
-                password: password ,             
-               // confirmpassword: confirmpassword ,      
-                street_address: street_address ,       
-                city: city ,             
-                country: country ,             
-                zip_code: zip ,                
-            })
-            .then(response => this.onSetResult(response.data))
-            .catch(error => this.onSetResult("", error));
+  setAuthCallback(authCallback) {
+    this.authCallback = authCallback;
+  }
 
-    }
+  signin(email, password) {
+    return axios
+      .post(API.signin, {
+        email: email,
+        password: password,
+      })
+      .then((response) => this.onSetResult(response.data))
+      .catch((error) => this.onSetResult("", error));
+  }
+  // TO DO Registration sinbad Api connection
+  register(
+    first_name,
+    last_name,
+    email,
+    mobile_number,
+    password,
+    confirmpassword,
+    street_address,
+    city,
+    country,
+    zip
+  ) {
+    return axios
+      .post(API.signup, {
+        first_name: first_name,
+        last_name: last_name,
+        email: email,
+        mobile_number: mobile_number,
+        password: password,
+        // confirmpassword: confirmpassword ,
+        street_address: street_address,
+        city: city,
+        country: country,
+        zip_code: zip,
+      })
+      .then((response) => this.onSetResult(response.data))
+      .catch((error) => this.onSetResult("", error));
+  }
 
+  async signout() {
+    localStorage.removeItem(this.session);
+    return axios
+      .post(API.signout)
+      .then((response) => this.onSetResult(response.data))
+      .catch((error) => this.onSetResult("", error));
+  }
 
+  updateData(user) {
+    this.result.data = user;
 
-    // register(first_name, last_name, email,mobile_number,password,
-    //     city,country) {
-    //         return axios.post(API.signup,{
-    //             first_name: first_name ,          
-    //             last_name: last_name ,            
-    //             email: email,             
-    //             mobile_number: mobile_number ,        
-    //             city: city ,             
-    //             country: country , 
+    localStorage.setItem(this.session, JSON.stringify(this.result));
+  }
 
-                 
-    //             language:"ENGLISH",
-    //             password: password 
-                      
-             
-                
-
-                
-    //         })
-    //         .then(response => this.onSetResult(response.data))
-    //         .catch(error => this.onSetResult("", error));
-
-    // }
-
-    async signout() {
-        localStorage.removeItem(this.session);
-        return axios.post(API.signout)
-            .then(response => this.onSetResult(response.data))
-            .catch(error => this.onSetResult("", error));
-    }
-
-    updateData(user) {
-        this.result.data = user;
-
-        localStorage.setItem(this.session, JSON.stringify(this.result));
-    }
-
-    currentSession() {
-        return JSON.parse(localStorage.getItem(this.session));
-    }
+  currentSession() {
+    return JSON.parse(localStorage.getItem(this.session));
+  }
 }
 
 export const Auth = new Authentication();
