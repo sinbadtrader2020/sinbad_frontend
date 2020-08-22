@@ -266,7 +266,9 @@ class Welcome extends Component {
         </div>
 
         {/* <!-- Homepage search feature design --> */}
+
         <div className="container footer-no-margin">
+
           <div className="row div-row-padding">
             <div className="col-md-12">
               <h2 className="div-h1-red-center">
@@ -302,7 +304,9 @@ class Welcome extends Component {
               <img
                 src={"assets/images/search.png"}
                 alt="logo"
+
                 style={{ height: "600px" }}
+
               />
             </div>
           </div>

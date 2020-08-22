@@ -106,6 +106,7 @@ class Footer extends Component {
               </div>
 
               {/* <!-- Footer Bottom: Company Information--> */}
+
               <div className="row" style={{ margin: "auto" }}>
                 <div className="col-md-12">
                   <p style={{ fontSize: "13px", color: "white" }}>
