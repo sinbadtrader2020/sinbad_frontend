@@ -5,7 +5,7 @@ import Translator from "../utils/translator";
 import i18n from "../utils/i18n";
 import { Auth } from "../api/auth";
 
-import { withRouter } from "react-router-dom";
+
 import { Nav } from "react-bootstrap";
 import OutsideAlerter from "../utils/outside-alert";
 
@@ -95,20 +95,18 @@ class MainNavBar extends Component {
                   </div>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="top#">
+                  <Link
+                    to={Path.portfolio} className="nav-link" >
                     <Translator text="mainNavBarPortfolio.1" />
                     <span className="sr-only" />
-                  </a>
+                  </Link>
                 </li>
+               
                 <li className="nav-item">
-                  <a className="nav-link" href="top#">
-                    <Translator text="mainNavBarEtf.1" />
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="top#">
-                    <Translator text="mainNavBarPricing.1" />
-                  </a>
+                  <Link
+                    to={Path.fee} className="nav-link" >
+                    <Translator text="mainNavBarFees.1" />
+                  </Link>
                 </li>
                 <li className="nav-item dropdown">
                   <a
@@ -126,13 +124,22 @@ class MainNavBar extends Component {
                     className="dropdown-menu"
                     aria-labelledby="navbarDropdown"
                   >
-                    <a className="dropdown-item" href="top#">
+                    <Link
+                    to={Path.forum} className="dropdown-item" >
                       <Translator text="mainNavBarLearn.2" />
-                    </a>
-                    <a className="dropdown-item" href="top#">
+                    </Link>
+                    <Link
+                    to={Path.faq} className="dropdown-item" >
                       <Translator text="mainNavBarLearn.3" />
-                    </a>
+                    </Link>
                   </div>
+                </li>
+
+                <li className="nav-item">
+                  <Link
+                    to={Path.blog} className="nav-link" >
+                    <Translator text="mainNavBarBlog.1" />
+                  </Link>
                 </li>
               </ul>
 
@@ -184,19 +191,22 @@ class MainNavBar extends Component {
                 </ul>
                 {/* language button end */}
 
-                <h1>
-                  {this.props.props.isAuthenticated === true
-                    ? this.props.props.user.data[0]["email"]
-                    : " "}
-                </h1>
+               
               </div>
+              <h5 style={{padding:"0 5px 0 0px",margin:"1px"}}>
+                  {this.props.props.isAuthenticated === true
+                    ? this.props.props.user.data[0]["first_name"]
+                    : " "}
+                </h5>
 
               {this.props.props.isAuthenticated === false ? (
                 <>
                   <Link
                     to={Path.signin}
                     onClick={this.changeNav}
-                    className="nav-link"
+                    className="btn"
+                    style={{padding:"0px 10px 0px 0px"}}
+                    
                   >
                     {" "}
                     <Translator text="mainNavBarBtn.1" />
@@ -205,6 +215,7 @@ class MainNavBar extends Component {
                     to={Path.signup}
                     onClick={this.changeNav}
                     className="btn btn-outline-danger my-2 my-sm-0"
+                  
                   >
                     {" "}
                     <Translator text="mainNavBarBtn.2" />
@@ -226,4 +237,4 @@ class MainNavBar extends Component {
     );
   }
 }
-export default withRouter(MainNavBar);
+export default MainNavBar;

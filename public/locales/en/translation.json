@@ -285,19 +285,19 @@
     },
     "mainNavBarLearn":{
         "1": "Learn",
-        "2": "Action",
-        "3": "Another Action"
+        "2": "Forum",
+        "3": "FAQ"
        
    
     },
     "mainNavBarPortfolio":{
         "1":"Portfolio"
     },
-    "mainNavBarEtf":{
-        "1":"ETF"
+    "mainNavBarBlog":{
+        "1":"Blog"
     },
-    "mainNavBarPricing":{
-        "1":"Pricing"
+    "mainNavBarFees":{
+        "1":"Fees"
     },
 
     "mainNavBarBtn":{

@@ -105,7 +105,7 @@ class Welcome extends Component {
         {/* <!-- Home page design -->
              <!-- Intro design --> */}
         <div className="home-intro">
-          <div className="container " onClick={this.changeNavP}>
+          <div className="container " >
             <div
               className="row div-row-padding"
               style={{ textAlign: "center" }}

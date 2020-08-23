@@ -12,6 +12,13 @@ import NotFound from "./containers/not-found";
 import Welcome from "./containers/welcome";
 
 import i18n from "./utils/i18n";
+import Faq from "./containers/faq";
+import About from "./containers/about";
+
+import Fees from "./containers/fee";
+import Blog from "./containers/blog";
+import Forum from "./containers/forum";
+import Portfolio from "./containers/portfolio";
 
 class Index extends React.Component {
   render() {
@@ -146,6 +153,49 @@ class App extends React.Component {
               path={Path.signup}
               exact
               component={Signup}
+              props={childProps}
+            />
+
+             <AppliedRoute
+              path={Path.faq}
+              exact
+              component={Faq}
+              props={childProps}
+            />
+              <AppliedRoute
+              path={Path.about}
+              exact
+              component={About}
+              props={childProps}
+            />
+
+               <AppliedRoute
+              path={Path.fee}
+              exact
+              component={Fees}
+              props={childProps}
+            />
+
+               <AppliedRoute
+              path={Path.blog}
+              exact
+              component={Blog}
+              props={childProps}
+            />
+
+
+               <AppliedRoute
+              path={Path.forum}
+              exact
+              component={Forum}
+              props={childProps}
+            />
+
+
+            <AppliedRoute
+              path={Path.portfolio}
+              exact
+              component={Portfolio}
               props={childProps}
             />
             {/* Finally, catch all unmatched routes */}
