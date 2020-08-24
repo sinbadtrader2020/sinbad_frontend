@@ -301,8 +301,8 @@
     },
 
     "mainNavBarBtn":{
-        "1":"Login",
-        "2":"Signup",
+        "1":"Log In",
+        "2":"Sign Up",
         "3":"Logout"
     }
 

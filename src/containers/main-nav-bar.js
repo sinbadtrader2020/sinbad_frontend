@@ -204,7 +204,7 @@ class MainNavBar extends Component {
                   <Link
                     to={Path.signin}
                     onClick={this.changeNav}
-                    className="btn"
+                    className="nav-link"
                     style={{padding:"0px 10px 0px 0px"}}
                     
                   >
