@@ -30,7 +30,11 @@
   color: #BF0A30;
   text-align: center;
 }
-
+.div-h1-blue-center {
+  font-weight: bold;
+  color:  #002868;
+  text-align: center;
+}
 a:hover {
   text-decoration: none;
 }
@@ -301,11 +305,18 @@ footer li {
 }
 .faq-support-card div div {
   border:1px solid #7F7F7F;
-  height:200px;
- 
+
 }
+
+.faq-support-card div div h4{
+  font-weight: bold;
+  margin-bottom: 20px;
+
+}
+
 .faq-support-card div{
   padding-top: 30px;
+  padding-bottom: 30px
 }
 .faq-support-card{
   padding: 0px 140px;
@@ -313,23 +324,108 @@ footer li {
 }
 @media screen and (max-width: 600px){
   
+  
   .faq-support-card div div {
     border:1px solid #7F7F7F;
-    height:200px;
-    margin: 10px 0px;
-   
+    
+    margin: 10px 10px;
+    padding: 20px !important;
+  }
+  .div-row-work-padding{
+    padding: 0px 0px !important;
+    
   }
   .faq-support-card div{
     padding-top: 0px !important;
   }
   .faq-support-card{
     padding: 0px 0px !important;
+  }
+  .faq-support-card div{
+    padding-top: 0px;
+    padding-bottom: 0px
+  }
+.faq-div-support-margin{
+  margin: 10px;
+  }
+  .image-height{
+    height: 300px !important;
+    border-radius: 50%;
+    margin: 20px;
+   
+   
   
+  }
+  .img-screen-size{
+    width: inherit;
+
+  }
+}
+
+/* about page */
+.faq-about-card{
+  padding: 0px 68px !important;
+}
+.faq-about-card div div {
+  border:none !important;
+ 
+ 
+}
+.faq-about-card div div h2 {
+  padding-top: 5px;
+  color: #002868;
+}
+.img-inherit{
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+}
+.div-row-work-padding{
+  padding: 10px 20px;
+  
+}
+.div-row-work-padding h4{
+  color:gray
+}
+
+.faq-about-grow{
+  padding: 0px 68px !important;
+}
+
+.faq-about-grow div div h2 {
+  padding-top: 5px;
+  color: #002868;
+}
+.padding-zero{
+  padding: 0px  !important;
+}
+
+
+.div-h4-blue{
+  
+  color: #002868;
+  font-weight: bold;
+}
+
+.padding-extra{
+  padding-top: 100px;
+}
+.image-height{
+  height: 180px;
+  border-radius: 50%;
+  background: red;
+  padding: 0px;
+  
+ 
 
 }
-.faq-div-support-margin{
-  margin-bottom: 0px;
+.about-padding{
+  padding-bottom: 50px;
 }
+
+.p-gray{
+  color:gray
 }
+
 
 /*# sourceMappingURL=custom.css.map */

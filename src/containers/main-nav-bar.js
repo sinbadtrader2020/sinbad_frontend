@@ -83,9 +83,9 @@ class MainNavBar extends Component {
                     className="dropdown-menu"
                     aria-labelledby="navbarDropdown"
                   >
-                    <a className="dropdown-item" href="top#">
+                    <Link className="dropdown-item" to={Path.about}>
                       <Translator text="mainNavBarAbout.2" />
-                    </a>
+                    </Link>
                     <a className="dropdown-item" href="top#">
                       <Translator text="mainNavBarAbout.3" />
                     </a>
