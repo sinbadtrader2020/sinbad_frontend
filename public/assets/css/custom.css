@@ -21,10 +21,81 @@
 .div-row-padding {
   padding-top: 20px;
 }
+.div-row-padding-only div{
+  padding-top: 0px !important;
+}
+.div-row-padding-only{
+  padding-top: 0px !important;
+}
+.div-row-margin-check{
+  margin: 20px 0px;
+}
 .div-row-padding div {
   padding-top: 50px;
 }
+@media (max-width: 600px) {
+  .div-row-padding {
+    padding-top: 0px;
+  }
+  .div-row-padding div {
+    padding-top: 30px;
+  }
 
+  .home-intro {
+    padding-top: 0px;
+    padding-bottom: 20px !important;
+  }
+
+  .slider-btn {
+    display: inline-flex;
+    padding-bottom: 50px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .slider-btn div {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .txt-img-mob-center {
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .works-div {
+    text-align: center;
+    display: table-row;
+  }
+    /* use on home page to remove gap from image */
+    .footer-no-margin {
+      margin-bottom: -70px;
+    }
+    .div-h1-blue-end{
+      font-weight: bold;
+      color:  #002868;
+      text-align: start !important;
+    }
+    .h1-blue-center-start{
+      font-weight: bold;
+      color:  #002868;
+      text-align: start !important;
+    }
+    .input-line-style {
+      margin: 0px !important;
+      width: 50% !important;
+    }
+   
+    .align-center{
+      text-align: center;
+    }
+  
+}
+.h1-blue-center-start{
+  font-weight: bold;
+  color:  #002868;
+  text-align: center;
+}
 .div-h1-red-center {
   font-weight: bold;
   color: #BF0A30;
@@ -34,6 +105,11 @@
   font-weight: bold;
   color:  #002868;
   text-align: center;
+}
+.div-h1-blue-end {
+  font-weight: bold;
+  color:  #002868;
+  text-align: end;
 }
 a:hover {
   text-decoration: none;
@@ -85,46 +161,7 @@ a:hover {
   color: gray;
 }
 
-@media (max-width: 600px) {
-  .div-row-padding {
-    padding-top: 0px;
-  }
-  .div-row-padding div {
-    padding-top: 30px;
-  }
 
-  .home-intro {
-    padding-top: 0px;
-    padding-bottom: 20px;
-  }
-
-  .slider-btn {
-    display: inline-flex;
-    padding-bottom: 50px;
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .slider-btn div {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .txt-img-mob-center {
-    text-align: center;
-    overflow: hidden;
-  }
-
-  .works-div {
-    text-align: center;
-    display: table-row;
-  }
-    /* use on home page to remove gap from image */
-    .footer-no-margin {
-      margin-bottom: -70px;
-    }
-  
-}
 .search-div {
   padding-top: auto;
 }
@@ -360,6 +397,34 @@ footer li {
     width: inherit;
 
   }
+  .center-start{
+    text-align: start !important;
+  }
+  .padding-extra {
+    padding-top: 0px !important;
+  }
+
+  .pb-subhead{
+    margin: 0px !important;
+  }
+
+  .blog-search-padd{
+    padding-top: 0px !important;
+    padding-bottom: 10px;
+  }
+  .row-marging-cancel{
+    margin: 0px !important;
+  }
+  .img-blog-padding{
+    padding: 0px !important;
+    
+  
+  }
+  
+
+
+
+
 }
 
 /* about page */
@@ -377,7 +442,7 @@ footer li {
 }
 .img-inherit{
   width: inherit;
-  height: inherit;
+  height: 50%;
   border-radius: inherit;
 }
 .div-row-work-padding{
@@ -399,13 +464,14 @@ footer li {
 .padding-zero{
   padding: 0px  !important;
 }
-
-
 .div-h4-blue{
   
   color: #002868;
-  font-weight: bold;
+  font-weight: bold ;
 }
+
+
+
 
 .padding-extra{
   padding-top: 100px;
@@ -426,6 +492,93 @@ footer li {
 .p-gray{
   color:gray
 }
+.p-size-font{
+  font-size: 17px;
+  font-weight: bold;
 
+}
+.input-line-style {
+  border: none;
+  border-bottom: red solid 2px;
+  width: 90%;
+  outline: none;
+  color: red;
+  font-weight: bold;
+  padding-left: 15px;
+  padding-bottom: 15px;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+.input-before
+{
+  font-weight: bold;
+  color: red;
+  position: absolute;
+}
+.deposit-circule{
+  border-radius: 50%;
+  background-color:#302d2d;
+  height: 180px;
+  width: 180px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.deposit-circule-white{
+  border-radius: 50%;
+  background-color:#fff;
+  color: black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  height: 180px;
+  width: 180px;
+  font-weight: bold;
+  text-align: center;
+}
+.p-annual-ammount{
+  margin-top: 20px !important;
+  text-align: center;
+  width: 180px;
+  font-weight: bold;
+
+}
+.color-icon{
+  color: #85d2f1;
+}
+.fund-img-padd{
+  padding-top: 20px;
+}
+
+
+/* blog page css */
+.pb-head-1{
+  font-weight:bold;
+  font-size: 37px;
+  text-align: center;
+  margin-top: 30px;
+}
+.pb-subhead{
+  font-weight:bold;
+  text-align: center;
+  font-size: 24px;
+  margin:0px 225px;
+}
+.blog-search-padd{
+  padding-top: 25px ;
+}
+.img-blog-padding{
+  padding: 15px 40px;
+}
+.h6-blog-padding{
+  padding: 0px 10px;
+  color: #002868;
+  text-align: center;
+  font-size: 21px;
+}
 
 /*# sourceMappingURL=custom.css.map */
