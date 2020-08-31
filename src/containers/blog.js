@@ -47,7 +47,7 @@ export default class Blog extends Component {
           <p className="div-h4-blue h2 mb-4 pb-1 text-center">Most popular</p>
         </div>
         <div className="div-row-padding div-row-padding-only">
-          <div className="row justify-content-md-around div-h4-blu row-marging-cancel">
+          <div className="row justify-content-md-around div-h4-blu row-marging-cancel div-margin-no">
             <div className="col-md-1"></div>
 
             <div className="col-md-3 ">
@@ -109,7 +109,7 @@ export default class Blog extends Component {
           <p className="div-h4-blue h2 mb-4 pb-1 text-center">Recent Post</p>
         </div>
         <div className="div-row-padding div-row-padding-only">
-          <div className="row justify-content-md-around div-h4-blu row-marging-cancel">
+          <div className="row justify-content-md-around div-h4-blu row-marging-cancel div-margin-no">
             <div className="col-md-1"></div>
 
             <div className="col-md-3 ">
@@ -165,7 +165,7 @@ export default class Blog extends Component {
         </div>
 
         <div className="div-row-padding div-row-padding-only">
-          <div className="row justify-content-md-around div-h4-blu row-marging-cancel">
+          <div className="row justify-content-md-around div-h4-blu  row-marging-cancel div-margin-no">
             <div className="col-md-1"></div>
 
             <div className="col-md-3 ">
@@ -218,6 +218,29 @@ export default class Blog extends Component {
 
             <div className="col-md-1"></div>
           </div>
+        </div>
+        
+        <div className='row div-padding-top-only' >
+          <div className='col-md-2'></div>
+            <div className="col-md-8 ">
+
+            <div className=" div-margin-only text-center color-bg">
+           <p className='p-blog'> Get in touch</p>
+            <div className="row div-blog-padding justify-content-lg-center">
+              <div className='col-md-5 '>
+                <input className='form-control form-control-blog' placeholder='Full Name'></input>
+              </div>
+              <div className='col-md-5'> <input className='form-control form-control-blog' placeholder='Email'></input></div>
+              <div className='col-md-2'><button className='btn btn-primary'> Subscribe</button></div>
+
+            </div>
+
+            </div>
+
+            </div>
+
+          <div className='col-md-2'></div>
+
         </div>
 
         <Footer />

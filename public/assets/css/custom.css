@@ -27,6 +27,9 @@
 .div-row-padding-only{
   padding-top: 0px !important;
 }
+.div-padding-only{
+  padding-top: 0px !important;
+}
 .div-row-margin-check{
   margin: 20px 0px;
 }
@@ -404,7 +407,7 @@ footer li {
     padding-top: 0px !important;
   }
 
-  .pb-subhead{
+  .pb-subhead ,.pb-subhead-2{
     margin: 0px !important;
   }
 
@@ -442,7 +445,7 @@ footer li {
 }
 .img-inherit{
   width: inherit;
-  height: 50%;
+  
   border-radius: inherit;
 }
 .div-row-work-padding{
@@ -479,7 +482,7 @@ footer li {
 .image-height{
   height: 180px;
   border-radius: 50%;
-  background: red;
+  background: #BF0A30;
   padding: 0px;
   
  
@@ -499,13 +502,13 @@ footer li {
 }
 .input-line-style {
   border: none;
-  border-bottom: red solid 2px;
+  border-bottom: #BF0A30 solid 2px;
   width: 90%;
   outline: none;
-  color: red;
+  color: #BF0A30;;
   font-weight: bold;
   padding-left: 15px;
-  padding-bottom: 15px;
+  padding-bottom: 10px;
 }
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
@@ -517,7 +520,7 @@ input[type=number]::-webkit-outer-spin-button {
 .input-before
 {
   font-weight: bold;
-  color: red;
+  color: #BF0A30;;
   position: absolute;
 }
 .deposit-circule{
@@ -550,6 +553,11 @@ input[type=number]::-webkit-outer-spin-button {
 .color-icon{
   color: #85d2f1;
 }
+
+.color-icon-blue{
+  background-color: transparent;
+  color: #002868;
+}
 .fund-img-padd{
   padding-top: 20px;
 }
@@ -568,6 +576,12 @@ input[type=number]::-webkit-outer-spin-button {
   font-size: 24px;
   margin:0px 225px;
 }
+.pb-subhead-2{
+  font-weight:bold;
+  text-align: center;
+  font-size: 20px;
+  margin:0px 225px;
+}
 .blog-search-padd{
   padding-top: 25px ;
 }
@@ -580,5 +594,135 @@ input[type=number]::-webkit-outer-spin-button {
   text-align: center;
   font-size: 21px;
 }
+.color-bg{
+  background-color: #EBE2E3;
+}
+.p-blog{
+  color: #002868;
+  font-size: 20px;
+  font-weight: bold;
+}
+.bg-color-blue{
+  
+  background-color: #002868 ;
+  color: #fff;
+
+}
+.div-margin-only{
+  padding: 30px 0px;
+}
+.div-blog-padding{
+  padding: 0px 25px;
+}
+.form-control-blog{
+  background-color: #fff;
+}
+.div-padding-top-only{
+  padding-top: 50px;
+  margin: 0px;
+}
+.div-margin-no{
+  margin: 0px;
+}
+.border-line{
+ 
+    border: none;
+    border-bottom: gray solid 2px;
+    width: 90%;
+    outline: none;
+    color: gray;
+    font-weight: bold;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+  
+}
+
+.div-bg-color-black{
+  background-color: rgb(13, 33, 67);;;
+  color: white;
+  height: 130px;
+  width: 160px;
+
+
+  text-align: center;
+  padding-top: 26px;
+  cursor: pointer;
+  margin-left: 3px;
+  
+}
+.div-bg-color-white{
+  background-color:white;
+  color:  #002868;
+  height: 130px;
+  width: 160px;
+
+  text-align: center;
+  padding-top: 26px;
+  cursor: pointer;
+  margin-left: 3px;
+
+
+}
+.div-bg-color-white:hover{
+   background-color:rgb(13, 33, 67);
+  color: white !important;
+
+}
+
+.p-black{
+  padding-top: 5px;
+ 
+ 
+}
+.div-row-padding-top-b{
+  padding: 50px 0px;
+}
+.div-bg-color-black p{
+  padding-top: 5px;
+}
+.div-top-padding{
+  padding-top: 30px;
+}
+.div-invest-padding{
+  padding-top: 15px;
+}
+.bg-color-div{
+  padding: 0px 40px;
+  background-color: #E7EEF6;
+  padding-bottom: 20px;
+}
+.top-padding{
+  padding-top: 50px;
+}
+.div-button{ 
+  
+  color: black;
+  padding: 10px 0px;
+  border: 1px solid black;
+  
+
+}
+
+.div-button-active{
+  padding: 10px 0px;
+  background-color: black;
+  color: white !important;
+}
+.portfolio.active {
+ background-color: #fff!important;
+ border: solid 2px #002868;
+ color:#002868 !important;
+}
+.portfolio{
+  background-color: #fff!important;
+ border: solid 2px grey;
+ color: grey !important;
+ margin: 5px 0px;
+}
+.div-inherit{
+  height: inherit;
+}
+
 
 /*# sourceMappingURL=custom.css.map */

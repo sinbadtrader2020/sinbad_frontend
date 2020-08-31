@@ -67,12 +67,12 @@ export default class Fees extends Component {
 
               {/*  */}
 
-              <div className='row div-row-padding-only m-auto'>
+              <div className='row div-padding-only m-auto'>
               <div className='col-md-1'></div>
 
               <div className="col-md-3  ">
               <div className="deposit-circule m-auto " >
-              <h2 className='font-weight-bold'>100.00%</h2>
+              <h2 className='font-weight-bold '>100.00%</h2>
               <p>per year</p>
 
 
@@ -190,9 +190,10 @@ export default class Fees extends Component {
           </div>
         </div>
 
-        {/* <!-- Become an investor-> */}
+     
+                {/* <!-- Become an investor-> */}
 
-        <div className="container footer-no-margin padding-extra">
+                <div className="container footer-no-margin padding-extra">
           <div className="row div-row-padding">
             {/* <div className="col-md-1"></div> */}
             <div className="col-md-7 m-auto">
@@ -200,11 +201,15 @@ export default class Fees extends Component {
               <p>You will receive an SMS to download the app</p>
 
               <div className="row  padding-zero">
-                <div className="col-md-3 about-padding">
-                  <input type="text" id="inputMDEx" class="form-control" />
+                <div className="col-md-2 about-padding">
+                  <input type="number" id="inputMDEx" class=" border-line" />
                 </div>
-                <div className="col-md-7 about-padding">
-                  <input type="text" id="inputMDEx" class="form-control" />
+                <div className="col-md-5 about-padding">
+                  <input type="number" id="inputMDEx" class="border-line" />
+                </div>
+                <div className="col-md-3 about-padding">
+                <button className='btn btn-primary'> GET THE APP</button>
+
                 </div>
               </div>
 
@@ -229,6 +234,7 @@ export default class Fees extends Component {
             <div className="col-md-1"></div>
           </div>
         </div>
+
 
         <Footer />
       </>
