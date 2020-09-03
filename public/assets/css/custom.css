@@ -364,7 +364,11 @@ footer li {
 }
 @media screen and (max-width: 600px){
   
+  .allocation-graph-padding{
+    padding-top: 44px;
+    padding-left: 44px !important;
   
+  }
   .faq-support-card div div {
     border:1px solid #7F7F7F;
     
@@ -686,6 +690,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .div-invest-padding{
   padding-top: 15px;
+ 
 }
 .bg-color-div{
   padding: 0px 40px;
@@ -723,6 +728,50 @@ input[type=number]::-webkit-outer-spin-button {
 .div-inherit{
   height: inherit;
 }
+.portfolio-graph{
+  height: inherit;
+  width: inherit;
+}
 
 
+
+/* chart library */
+.floating-tooltip-2 {
+	width: 96px;
+	height: 100px;
+	position: absolute;
+	display: none;
+	padding: 8px !important;
+	box-sizing: border-box;
+	font-size: 12px;
+	color: #131722;
+	background-color: rgba(255, 255, 255, 1);
+	text-align: left;
+	z-index: 1000;
+	top: 12px;
+	left: 12px;
+	pointer-events: none;
+	border: 1px solid rgba(0, 150, 136, 1);
+	border-radius: 2px;
+}
+.div-padding-graph{
+  padding-top: 50px;
+}
+.div-padding-inherit{
+  padding: inherit;
+}
+.allocation-graph-padding{
+  padding-top: 44px;
+  padding-left: 100px;
+
+}
+.cursor{
+  cursor: pointer;
+}
+.donut-inherit svg path{
+  opacity: 1 !important;
+
+  
+}
+ 
 /*# sourceMappingURL=custom.css.map */

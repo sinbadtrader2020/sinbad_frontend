@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import MainNavBar from "./main-nav-bar";
 import Footer from "./footer";
+import Translator from "../utils/translator";
+import InputTranslation from "../utils/input-translation";
 
 export default class Blog extends Component {
   render() {
@@ -14,26 +16,28 @@ export default class Blog extends Component {
             <div className="row div-row-padding">
               <div className="container">
                 <p className="pb-head-1">
-                  Good knowledge is the key of success.
+                <Translator text="blogIntro.1" />
                 </p>
                 <p className="pb-subhead">
-                  Become a smarter investor by gathering knowledge how to invest
-                  in best place.
+                <Translator text="blogIntro.2" />
                 </p>
               </div>
 
               <div className="col-md-2 blog-search-padd"></div>
               <div className="col-sm-7 blog-search-padd">
-                <input
-                  type="search"
+                
+                <InputTranslation type="search"
                   placeholder="Find Anything?"
                   aria-label="Search"
                   className="faq-search  h5 font-weight-normal mb-4 pb-1"
-                ></input>
+
+                  />
+              
+                
               </div>
               <div className="col-md-1 blog-search-padd">
                 <button className="faq-search-btn font-weight-bold">
-                  Search
+                <Translator text="blogIntro.4" />
                 </button>
               </div>
             </div>
@@ -44,7 +48,7 @@ export default class Blog extends Component {
         {/* most popular */}
 
         <div className="row-padding">
-          <p className="div-h4-blue h2 mb-4 pb-1 text-center">Most popular</p>
+          <p className="div-h4-blue h2 mb-4 pb-1 text-center"><Translator text="blogMost.1" /></p>
         </div>
         <div className="div-row-padding div-row-padding-only">
           <div className="row justify-content-md-around div-h4-blu row-marging-cancel div-margin-no">
@@ -57,12 +61,13 @@ export default class Blog extends Component {
                 alt="logo"
               />
               <h6 className="h6-blog-padding  ">
-                4 Reason why millennails are carzy about it..
+              <Translator text="blogMostCard.1" />
+
               </h6>
               <p className="p-gray">
                 {" "}
-                it's about time people started using advanced technology to
-                manage their investment in the past few years, we have se..
+                <Translator text="blogMostCard.2" />
+
               </p>
             </div>
 
@@ -73,12 +78,11 @@ export default class Blog extends Component {
                 alt="logo"
               />
               <h6 className="h6-blog-padding">
-                4 Reason why millennails are carzy about it..
+              <Translator text="blogMostCard.1" />
               </h6>
               <p className="p-gray">
                 {" "}
-                it's about time people started using advanced technology to
-                manage their investment in the past few years, we have se..
+                <Translator text="blogMostCard.2" />
               </p>
             </div>
 
@@ -89,12 +93,13 @@ export default class Blog extends Component {
                 alt="logo"
               />
               <h6 className="h6-blog-padding">
-                4 Reason why millennails are carzy about it..
+              <Translator text="blogMostCard.1" />
+
               </h6>
               <p className="p-gray">
                 {" "}
-                it's about time people started using advanced technology to
-                manage their investment in the past few years, we have se..
+                <Translator text="blogMostCard.2" />
+
               </p>
             </div>
 
@@ -106,7 +111,7 @@ export default class Blog extends Component {
          {/* most popular */}
 
          <div className="row-padding">
-          <p className="div-h4-blue h2 mb-4 pb-1 text-center">Recent Post</p>
+          <p className="div-h4-blue h2 mb-4 pb-1 text-center"><Translator text="blogRecent.1" /></p>
         </div>
         <div className="div-row-padding div-row-padding-only">
           <div className="row justify-content-md-around div-h4-blu row-marging-cancel div-margin-no">
@@ -119,12 +124,13 @@ export default class Blog extends Component {
                 alt="logo"
               />
               <h6 className="h6-blog-padding  ">
-                4 Reason why millennails are carzy about it..
+              <Translator text="blogRecentCard.1" />
+
               </h6>
               <p className="p-gray">
                 {" "}
-                it's about time people started using advanced technology to
-                manage their investment in the past few years, we have se..
+                <Translator text="blogRecentCard.2" />
+
               </p>
             </div>
 
@@ -135,12 +141,13 @@ export default class Blog extends Component {
                 alt="logo"
               />
               <h6 className="h6-blog-padding">
-                4 Reason why millennails are carzy about it..
+              <Translator text="blogRecentCard.1" />
+
               </h6>
               <p className="p-gray">
                 {" "}
-                it's about time people started using advanced technology to
-                manage their investment in the past few years, we have se..
+                <Translator text="blogRecentCard.2" />
+
               </p>
             </div>
 
@@ -151,12 +158,11 @@ export default class Blog extends Component {
                 alt="logo"
               />
               <h6 className="h6-blog-padding">
-                4 Reason why millennails are carzy about it..
+              <Translator text="blogRecentCard.1" />
               </h6>
               <p className="p-gray">
                 {" "}
-                it's about time people started using advanced technology to
-                manage their investment in the past few years, we have se..
+                <Translator text="blogRecentCard.2" />
               </p>
             </div>
 
@@ -175,12 +181,11 @@ export default class Blog extends Component {
                 alt="logo"
               />
               <h6 className="h6-blog-padding  ">
-                4 Reason why millennails are carzy about it..
+              <Translator text="blogRecentCard.1" />
               </h6>
               <p className="p-gray">
                 {" "}
-                it's about time people started using advanced technology to
-                manage their investment in the past few years, we have se..
+                <Translator text="blogRecentCard.2" />
               </p>
             </div>
 
@@ -191,12 +196,11 @@ export default class Blog extends Component {
                 alt="logo"
               />
               <h6 className="h6-blog-padding">
-                4 Reason why millennails are carzy about it..
+              <Translator text="blogRecentCard.1" />
               </h6>
               <p className="p-gray">
                 {" "}
-                it's about time people started using advanced technology to
-                manage their investment in the past few years, we have se..
+                <Translator text="blogRecentCard.2" />
               </p>
             </div>
 
@@ -207,12 +211,13 @@ export default class Blog extends Component {
                 alt="logo"
               />
               <h6 className="h6-blog-padding">
-                4 Reason why millennails are carzy about it..
+              <Translator text="blogRecentCard.1" />
+
               </h6>
               <p className="p-gray">
                 {" "}
-                it's about time people started using advanced technology to
-                manage their investment in the past few years, we have se..
+                <Translator text="blogRecentCard.2" />
+
               </p>
             </div>
 
@@ -225,13 +230,13 @@ export default class Blog extends Component {
             <div className="col-md-8 ">
 
             <div className=" div-margin-only text-center color-bg">
-           <p className='p-blog'> Get in touch</p>
+           <p className='p-blog'>      <Translator text="blogSearch.1" /></p>
             <div className="row div-blog-padding justify-content-lg-center">
               <div className='col-md-5 '>
-                <input className='form-control form-control-blog' placeholder='Full Name'></input>
+                <InputTranslation className='form-control form-control-blog' text='blogSearch.2'/>
               </div>
-              <div className='col-md-5'> <input className='form-control form-control-blog' placeholder='Email'></input></div>
-              <div className='col-md-2'><button className='btn btn-primary'> Subscribe</button></div>
+              <div className='col-md-5'> <InputTranslation className='form-control form-control-blog' text='blogSearch.3'/></div>
+              <div className='col-md-2'><button className='btn btn-primary'>  <Translator text="blogSearch.4" /></button></div>
 
             </div>
 

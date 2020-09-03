@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import MainNavBar from "./main-nav-bar";
 import Footer from "./footer";
+import Translator from "../utils/translator";
 
 export default class Forum extends Component {
   render() {
@@ -17,11 +18,10 @@ export default class Forum extends Component {
                   className="text-center font-weight-bold"
                   style={{ margin: "30px 0px" }}
                 >
-                  Sinbad Finance Forum
+                   <Translator text="forumInto.1" />
                 </h2>
                 <p className="text-center forum-intro-p">
-                  The place to discuss anything about Ethical investing or
-                  Sinbad Finance
+                <Translator text="forumInto.2" />
                 </p>
               </div>
             </div>
@@ -33,23 +33,23 @@ export default class Forum extends Component {
           <div className="row row-padding justify-content-md-center ">
             <div className="col-sm-3 justify-content-md-around forum-div overflow-hidden table table-md-4 border forum-border-color">
               <h5 className="text-center forum-m15 font-weight-bold   ">
-                Feature Request
+              <Translator text="forumIntoCard1.1" />
               </h5>
               <p className="text-center forum-f13 font-weight-normal ">
                 {" "}
-                Do you have any feedback or ideas to improve Sinbad Finance?
-                Share them here and vote for the ideas{" "}
+                <Translator text="forumIntoCard1.2" />
               </p>
             </div>
             <div className="col-md-1 justify-content-md-around "></div>
             <div className="col-sm-3 justify-content-md-around forum-div overflow-hidden table table-md-4 border forum-border-color">
               {" "}
               <h5 className=" text-center forum-m15 font-weight-bold    ">
-                Genaral Discussion
+              <Translator text="forumIntoCard2.1" />
+
               </h5>
               <p className=" text-center forum-f13 font-weight-normal    ">
-                Do you have thoughts that you'd like to share with the
-                community? Create anew post here.{" "}
+              <Translator text="forumIntoCard2.2" />
+              {" "}
               </p>
             </div>
           </div>
@@ -58,22 +58,24 @@ export default class Forum extends Component {
             <div className="col-sm-3 justify-content-md-around forum-div overflow-hidden table table-md-4 border forum-border-color">
               {" "}
               <h5 className=" text-center forum-m15 font-weight-bold    ">
-                Ethical Finance
+              <Translator text="forumIntoCard3.1" />
+
               </h5>
               <p className=" text-center forum-f13 font-weight-normal    ">
-                Are you interested in sharing your knowledge, or asking
-                questions about Ethical finance? This page is for you
+              <Translator text="forumIntoCard3.2" />
+
               </p>
             </div>
             <div className="col-md-1 justify-content-md-around "></div>
             <div className="col-sm-3 justify-content-md-around forum-div overflow-hidden table table-md-4 border forum-border-color">
               {" "}
               <h5 className=" text-center forum-m15 font-weight-bold   ">
-                Key Investing Terms
+              <Translator text="forumIntoCard4.1" />
+
               </h5>
               <p className=" text-center forum-f13 font-weight-normal    ">
-                Are you new to investing? Visit this page to learn more about
-                the different terms and become a smarter investor.{" "}
+              <Translator text="forumIntoCard4.2" />
+
               </p>
             </div>
           </div>

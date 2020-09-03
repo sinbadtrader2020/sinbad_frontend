@@ -19,6 +19,9 @@ import Fees from "./containers/fee";
 import Blog from "./containers/blog";
 import Forum from "./containers/forum";
 import Portfolio from "./containers/portfolio";
+import AllocatoinChart from "./test/allocation-chart";
+
+
 
 class Index extends React.Component {
   render() {
@@ -198,6 +201,16 @@ class App extends React.Component {
               component={Portfolio}
               props={childProps}
             />
+
+
+              <AppliedRoute
+              path={Path.piechart}
+              exact
+              component={AllocatoinChart}
+              props={childProps}
+            />
+
+
             {/* Finally, catch all unmatched routes */}
             <Route component={NotFound} />
           </Switch>

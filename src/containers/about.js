@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import MainNavBar from "./main-nav-bar";
 import Footer from "./footer";
-
-import { AiFillAccountBook } from "react-icons/ai";
 import Translator from "../utils/translator";
+import BecomeAnInvestor from "./become-an-investor";
+
+
 
 export default class About extends Component {
   render() {
@@ -19,16 +20,13 @@ export default class About extends Component {
               <div className="col-md-7">
                 <h1 className="mt-5">
                   {" "}
-                  Sinbad Finance
-                  <br /> Ethical Stock Finder Tools
+                  <Translator text="aboutInto.1" />
+                  <br />  <Translator text="aboutInto.2" />
                 </h1>
-                <p className="mt-5 font-weight-bold">About</p>
+                <p className="mt-5 font-weight-bold"> <Translator text="aboutInto.3" /></p>
                 <p>
-                  Sinbad Finance is a stock screening tool designed for making
-                  ethical invesment easier. Now you can know which stock is
-                  ethical and which one is not. Whether you are looking to
-                  invest ethical or you would like to check if your current
-                  invesment is ethical, Sinbad Finance is here to help.
+                <Translator text="aboutInto.4" />
+                
                 </p>
               </div>
               <div className="col-md-5 ">
@@ -47,8 +45,8 @@ export default class About extends Component {
         <div className="container">
           <div className="row div-row-padding">
             <div className="col-md-12">
-              <h2 className="div-h1-blue-center">Why Sinbad Finance?</h2>
-              <p className="text-center">Easy investing for you</p>
+              <h2 className="div-h1-blue-center"> <Translator text="aboutWhySinbad.1" /></h2>
+              <p className="text-center"> <Translator text="aboutWhySinbad.1" /></p>
             </div>
           </div>
 
@@ -57,43 +55,53 @@ export default class About extends Component {
             <div className="row justify-content-md-around faq-div-support-margin text-center ">
               <div className="col-md-4">
                 <img src={"assets/images/signup.png"} alt="logo" />
-                <h2>No Lock-in</h2>
+                <h2><Translator text="aboutCard1.1" /></h2>
                 <p>
-                  You can place a withdrawal or deposit request at any time.
+                <Translator text="aboutCard1.2" />
                 </p>
               </div>
               <div className="col-md-4">
                 <img src={"assets/images/fund.png"} alt="logo" />
-                <h2>No Minimum</h2>
+                <h2><Translator text="aboutCard2.1" /></h2>
                 <p>
-                  We don't want to leave a single ethical investor without
-                  access to a diversified portfolio.
+                <Translator text="aboutCard2.2" />
                 </p>
               </div>
 
               <div className="col-md-4">
                 <img src={"assets/images/monitor.png"} alt="logo" />
-                <h2>Lower Fees</h2>
-                <p>Monitor performance and view your holdings at any time.</p>
+                <h2>                <Translator text="aboutCard3.1" />
+                </h2>
+                <p>                <Translator text="aboutCard3.2" />
+                    </p>
               </div>
             </div>
 
             <div className="row justify-content-md-around faq-div-support-margin text-center">
               <div className="col-md-4">
                 <img src={"assets/images/signup.png"} alt="logo" />
-                <h2>Monitor your Portfolio</h2>
-                <p>Add stock to your portfolio</p>
+                <h2>                <Translator text="aboutCard4.1" /></h2>
+                <p>                <Translator text="aboutCard4.2" />
+
+                </p>
               </div>
               <div className="col-md-4">
                 <img src={"assets/images/fund.png"} alt="logo" />
-                <h2>Stay Vigilant</h2>
-                <p>Alert if stock turn out of halal universe</p>
+               
+                <h2> <Translator text="aboutCard5.1" />
+                </h2>
+             
+                <p>   <Translator text="aboutCard5.2" />
+                </p>
               </div>
 
               <div className="col-md-4">
                 <img src={"assets/images/monitor.png"} alt="logo" />
-                <h2>Custom filters</h2>
-                <p>Search with your own filters</p>
+                <h2>
+                <Translator text="aboutCard6.1" />
+
+                </h2>
+                <p> <Translator text="aboutCard6.2" /></p>
               </div>
             </div>
           </div>
@@ -101,7 +109,7 @@ export default class About extends Component {
           <div className="container">
             <div className="row div-row-padding">
               <div className="col-md-12">
-                <h2 className="div-h1-blue-center">How it works?</h2>
+                <h2 className="div-h1-blue-center"><Translator text="aboutHowItWorks.1" /></h2>
               </div>
             </div>
             <div className="row" style={{ paddingBottom: "50px" }}>
@@ -120,8 +128,7 @@ export default class About extends Component {
                   <div className="col-md-7 m-auto">
                     <div className="works-div ">
                       <h4 className="text-center">
-                        Search by company name or ticker and you should find out
-                        whether or not your stock is ethical
+                      <Translator text="aboutHowItWorks.2" />
                       </h4>
                     </div>
                   </div>
@@ -132,9 +139,7 @@ export default class About extends Component {
                   <div className="col-md-7 m-auto">
                     <div className="works-div ">
                       <h4 className="text-center">
-                        Get results based on ethical investment method adopted
-                        by AAOIFI. More ESG stocks screening methodologies
-                        (DowJones, FTSE, Standard & Poors and MSCI) coming soon.
+                      <Translator text="aboutHowItWorks.3" />
                       </h4>
                     </div>
                   </div>
@@ -153,9 +158,7 @@ export default class About extends Component {
                   <div className="col m-auto">
                     <div className="works-div ">
                       <p className="text-center">
-                        Don’t have a stock on mind… No problem! Use our advanced
-                        search option, to find out ethical stocks based on your
-                        own criteria
+                      <Translator text="aboutHowItWorks.4" />
                       </p>
                     </div>
                   </div>
@@ -175,10 +178,7 @@ export default class About extends Component {
                   <div className="col-md-7 m-auto">
                     <div className="works-div ">
                       <h4 className="text-center">
-                        Start trading ethical right away. To make your life
-                        easier, you can connect with one of our third party
-                        broker, depending on your country, and you can start
-                        trading with peace of mind.
+                      <Translator text="aboutHowItWorks.5" />
                       </h4>
                     </div>
                   </div>
@@ -194,11 +194,10 @@ export default class About extends Component {
         <div className="container">
           <div className="row div-row-padding">
             <div className="col-md-5 m-auto">
-              <h2 className="div-h1-blue-center">Grow your wealth faster!</h2>
+              <h2 className="div-h1-blue-center"><Translator text="aboutGrow.1" /></h2>
               <p className="text-center" style={{ fontSize: "20px" }}>
                 {" "}
-                Getting started with Sinbad Finance is easy with Ethical
-                Investment
+                <Translator text="aboutGrow.2" />
               </p>
             </div>
           </div>
@@ -208,26 +207,26 @@ export default class About extends Component {
           <div className="m-auto faq-support-card padding-zero">
             <div className="row  justify-content-md-around faq-div-support-margin text-center ">
               <div className="col-md-3 ">
-                <h4 className="font-weight-bold">Investment Account</h4>
-                <p>Your excess savings don't need to sit in a bank account.</p>
+                <h4 className="font-weight-bold"> <Translator text="aboutGrowCard1.1" /></h4>
+                <p><Translator text="aboutGrowCard1.2" /></p>
                 <p>
-                  Become a ethical investor with Sinbad Finance in minutes by
-                  opening an individual account.
+                <Translator text="aboutGrowCard1.3" />
                 </p>
               </div>
               <div className="col-md-3">
-                <h4>Savings</h4>
-                <p>Earn modest returns while staying away from interest.</p>
-                <p>A low risk investment to keep your cash in.</p>
+              <h4 className="font-weight-bold"> <Translator text="aboutGrowCard2.1" /></h4>
+                <p><Translator text="aboutGrowCard2.2" /></p>
+                <p>
+                <Translator text="aboutGrowCard2.3" />
+                </p>
               </div>
 
               <div className="col-md-3">
                 {" "}
-                <h4>Custom</h4>
-                <p>For more experienced investors.</p>
+                <h4 className="font-weight-bold"> <Translator text="aboutGrowCard3.1" /></h4>
+                <p><Translator text="aboutGrowCard3.2" /></p>
                 <p>
-                  Customize your portfolio allocation as you wish across the
-                  different asset classes.
+                <Translator text="aboutGrowCard3.3" />
                 </p>
               </div>
             </div>
@@ -238,7 +237,7 @@ export default class About extends Component {
         <div className="container">
           <div className="row div-row-padding">
             <div className="col-md-12">
-              <h2 className="div-h1-blue-center">Team Sinbad Finance</h2>
+              <h2 className="div-h1-blue-center">  <Translator text="aboutTeam.1" /></h2>
             </div>
           </div>
           <div
@@ -254,7 +253,7 @@ export default class About extends Component {
               />
 
               <h2 className="text-center" style={{ paddingTop: "5px" }}>
-                Mohoshin
+              <Translator text="aboutTeam.2" />
               </h2>
             </div>
 
@@ -265,7 +264,7 @@ export default class About extends Component {
                 alt="logo"
               />
               <h2 className="text-center" style={{ paddingTop: "5px" }}>
-                Moshiur
+              <Translator text="aboutTeam.3" />
               </h2>
             </div>
             <div className="col-md-1 "></div>
@@ -276,49 +275,7 @@ export default class About extends Component {
 
                 {/* <!-- Become an investor-> */}
 
-                <div className="container footer-no-margin padding-extra ">
-          <div className="row div-row-padding">
-            {/* <div className="col-md-1"></div> */}
-            <div className="col-md-7 m-auto">
-              <h3 className="div-h4-blue text-start">Become an Investor</h3>
-              <p>You will receive an SMS to download the app</p>
-
-              <div className="row  padding-zero">
-                <div className="col-md-2 about-padding">
-                  <input type="number" id="inputMDEx" class=" border-line" />
-                </div>
-                <div className="col-md-5 about-padding">
-                  <input type="number" id="inputMDEx" class="border-line" />
-                </div>
-                <div className="col-md-3 about-padding">
-                <button className='btn btn-primary'> GET THE APP</button>
-
-                </div>
-              </div>
-
-              <p>
-                By clicking on the 'GET THE APP' button above, you confirm that
-                you have entered your own phone number and you consent to
-                receiving the SMS.
-              </p>
-            </div>
-           <div className='col-md-1'>
-        
-           </div>
-            <div className="col-md-3"
-              style={{ maxHeight: "350px", zIndex: " -1" }}
-            >
-              <img
-                src={"assets/images/become-an-investor.png"}
-                alt="logo"
-                style={{ height: "420px", width: "inherit" }}
-              />
-            </div>
-            <div className="col-md-1"></div>
-          </div>
-        </div>
-
-
+        <BecomeAnInvestor/>
 
         <Footer />
       </>

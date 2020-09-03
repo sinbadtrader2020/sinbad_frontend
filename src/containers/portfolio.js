@@ -4,10 +4,22 @@ import Footer from './footer'
 import { Helmet } from 'react-helmet'
 import { AiFillAccountBook } from 'react-icons/ai'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee,faCheck,faPlusCircle,fa} from '@fortawesome/free-solid-svg-icons'
-import { Tabs, Tab } from 'react-bootstrap'
+import { faCheck,faPlusCircle,faMinusCircle} from '@fortawesome/free-solid-svg-icons'
+
+import Graph from '../utils/past-performance-graph'
+import BecomeAnInvestor from './become-an-investor'
+import Translator from '../utils/translator'
+import AllocatoinChart from '../test/allocation-chart'
 
 export default class Portfolio extends Component {
+  constructor(){
+    super()
+
+    this.state={
+      divExpand:"Diversified",
+      bg_color:"#002868",
+    }
+  }
     render() {
         return (
             <>
@@ -22,10 +34,11 @@ export default class Portfolio extends Component {
             <div className="row div-row-padding">
               <div className="container">
                 <p className="pb-head-1">
-                 Find the efficient way to invest
+                <Translator text="portfolioIntro.1" />
                 </p>
                 <p className="pb-subhead-2">
-                 Compelete the portfolios to give you the trust you seek.
+                <Translator text="portfolioIntro.2" />
+                
                 </p>
               </div>
 
@@ -41,7 +54,7 @@ export default class Portfolio extends Component {
           <div className="row div-row-padding">
             <div className="col-md-12">
               <h2 className="div-h1-blue-center">
-                What you'll invest in Sinbad Finance.
+               <Translator text="portfolioWhatInvest.1" />
               </h2>
             </div>
           </div>
@@ -52,7 +65,7 @@ export default class Portfolio extends Component {
                 <div className='div-bg-color-black '>
              
                 <AiFillAccountBook size="50px"  />
-                 <p >Global Stocks</p>
+                 <p >Global Stocks </p>
                
                 </div>
                 <div className='div-bg-color-white'>
@@ -128,12 +141,12 @@ export default class Portfolio extends Component {
 
             <div className='row padding-zero justify-content-sm-center m-auto'>
                         
-              <ul class="nav nav-pills col-md-6 justify-content-lg-center mb-3" id="pills-tab" role="tablist">
-                <li class="nav-item col-md-6">
-                  <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Allocation</a>
+              <ul className="nav nav-pills col-md-6 justify-content-lg-center mb-3" id="pills-tab" role="tablist">
+                <li className="nav-item col-md-6">
+                  <a className="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Allocation</a>
                 </li>
-                <li class="nav-item col-md-6">
-                  <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Past Performance</a>
+                <li className="nav-item col-md-6">
+                  <a className="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Past Performance</a>
                 </li>
                 
               </ul>
@@ -144,36 +157,26 @@ export default class Portfolio extends Component {
                 </div>
 
                
-              <div class="tab-content" id="pills-tabContent">
+              <div className="tab-content" id="pills-tabContent">
            
-               <div className='row div-row-padding tab-pane fade show active overflow-hidden ' id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+               <div className='row  tab-pane fade show active overflow-hidden ' id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                      <div className='col-md-3 float-left'>
                         <p>Portfolio Types</p>
-                        <div class="nav flex-column nav-pills padding-zero " id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                        <a class="portfolio nav-link active" id="v-pills-Very-Aggressive-tab" data-toggle="pill" href="#v-pills-Very-Aggressive" role="tab" aria-controls="v-pills-home" aria-selected="true">Very Aggressive</a>
-                        <a class="portfolio nav-link" id="v-pills-Aggressive-tab" data-toggle="pill" href="#v-pills-Aggressive" role="tab" aria-controls="v-pills-profile" aria-selected="false">Aggressive</a>
-                        <a class="portfolio nav-link" id="v-pills-Moderately-Aggressive-tab" data-toggle="pill" href="#v-pills-Moderately-Aggressive" role="tab" aria-controls="v-pills-messages" aria-selected="false">Moderately Aggressive</a>
-                        <a class="portfolio nav-link" id="v-pills-Moderate-tab" data-toggle="pill" href="#v-pills-Moderate" role="tab" aria-controls="v-pills-settings" aria-selected="false">Moderate</a>
-                        <a class="portfolio nav-link" id="v-pills-Moderately-Conservative-tab" data-toggle="pill" href="#v-pills-Moderately-Conservative" role="tab" aria-controls="v-pills-settings" aria-selected="false">Moderately Conservative</a>
-                        <a class="portfolio nav-link" id="v-pills-Very-Conservative-tab" data-toggle="pill" href="#v-pills-Very-Conservative" role="tab" aria-controls="v-pills-settings" aria-selected="false">Very Conservative</a>
+                        <div className="nav flex-column nav-pills padding-zero " id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <a className="portfolio nav-link active" id="v-pills-Very-Aggressive-tab" data-toggle="pill" href="#v-pills-Very-Aggressive" role="tab" aria-controls="v-pills-home" aria-selected="true">Very Aggressive</a>
+                        <a className="portfolio nav-link" id="v-pills-Aggressive-tab" data-toggle="pill" href="#v-pills-Aggressive" role="tab" aria-controls="v-pills-profile" aria-selected="false">Aggressive</a>
+                        <a className="portfolio nav-link" id="v-pills-Moderately-Aggressive-tab" data-toggle="pill" href="#v-pills-Moderately-Aggressive" role="tab" aria-controls="v-pills-messages" aria-selected="false">Moderately Aggressive</a>
+                        <a className="portfolio nav-link" id="v-pills-Moderate-tab" data-toggle="pill" href="#v-pills-Moderate" role="tab" aria-controls="v-pills-settings" aria-selected="false">Moderate</a>
+                        <a className="portfolio nav-link" id="v-pills-Moderately-Conservative-tab" data-toggle="pill" href="#v-pills-Moderately-Conservative" role="tab" aria-controls="v-pills-settings" aria-selected="false">Moderately Conservative</a>
+                        <a className="portfolio nav-link" id="v-pills-Very-Conservative-tab" data-toggle="pill" href="#v-pills-Very-Conservative" role="tab" aria-controls="v-pills-settings" aria-selected="false">Very Conservative</a>
                       
                          </div>
         
  
                      </div>
 
-                     <div className='col-md-7 float-left'>
-                          <div class="tab-content" id="v-pills-tabContent">
-                              <div class="tab-pane fade show active" id="v-pills-Very-Aggressive" role="tabpanel" aria-labelledby="v-pills-Very-Aggressive-tab">.Very Aggressive..</div>
-                              <div class="tab-pane fade" id="v-pills-Aggressive" role="tabpanel" aria-labelledby="v-pills-Aggressive-tab">..Aggressive.</div>
-                              <div class="tab-pane fade" id="v-pills-Moderately-Aggressive" role="tabpanel" aria-labelledby="v-pills-Moderately-Aggressive-tab">..Moderately Aggressive.</div>
-                              <div class="tab-pane fade" id="v-pills-Moderate" role="tabpanel" aria-labelledby="v-pills-Moderate-tab">.Moderate..</div>
-                            
-                              <div class="tab-pane fade" id="v-pills-Moderately-Conservative" role="tabpanel" aria-labelledby="v-pills-Moderately-Conservative-tab">.Moderately Conservative..</div>
-                              <div class="tab-pane fade" id="v-pills-Very-Conservative" role="tabpanel" aria-labelledby="v-pills-Very-Conservative-tab">.Very Conservative..</div>
-
-
-                          </div>
+                     <div className='col-md-3 float-left allocation-graph-padding '>
+                          <AllocatoinChart/>
  
                       </div>
                  </div>
@@ -182,16 +185,16 @@ export default class Portfolio extends Component {
  
 {/*  */}
   
-                  <div className='row div-row-padding tab-pane fade overflow-hidden ' id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                  <div className='row div-padding-graph tab-pane fade overflow-hidden ' id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                   <div className='col-md-3 float-left'>
                      <p>Portfolio Types</p>
-                     <div class="nav flex-column nav-pills padding-zero " id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                     <a class="portfolio nav-link active" id="v-pills-Very-Aggressive-tab" data-toggle="pill" href="#v-pills-Very-Aggressive1" role="tab" aria-controls="v-pills-home" aria-selected="true">Very Aggressive</a>
-                     <a class="portfolio nav-link" id="v-pills-Aggressive-tab" data-toggle="pill" href="#v-pills-Aggressive1" role="tab" aria-controls="v-pills-profile" aria-selected="false">Aggressive</a>
-                     <a class="portfolio nav-link" id="v-pills-Moderately-Aggressive-tab" data-toggle="pill" href="#v-pills-Moderately-Aggressive1" role="tab" aria-controls="v-pills-messages" aria-selected="false">Moderately Aggressive</a>
-                     <a class="portfolio nav-link" id="v-pills-Moderate-tab" data-toggle="pill" href="#v-pills-Moderate1" role="tab" aria-controls="v-pills-settings" aria-selected="false">Moderate</a>
-                     <a class="portfolio nav-link" id="v-pills-Moderately-Conservative-tab" data-toggle="pill" href="#v-pills-Moderately-Conservative1" role="tab" aria-controls="v-pills-settings" aria-selected="false">Moderately Conservative</a>
-                     <a class="portfolio nav-link" id="v-pills-Very-Conservative-tab" data-toggle="pill" href="#v-pills-Very-Conservative1" role="tab" aria-controls="v-pills-settings" aria-selected="false">Very Conservative</a>
+                     <div className="nav flex-column nav-pills padding-zero " id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                     <a className="portfolio nav-link active" id="v-pills-Very-Aggressive-tab" data-toggle="pill" href="#v-pills-Very-Aggressive1" role="tab" aria-controls="v-pills-home" aria-selected="true">Very Aggressive</a>
+                     <a className="portfolio nav-link" id="v-pills-Aggressive-tab" data-toggle="pill" href="#v-pills-Aggressive1" role="tab" aria-controls="v-pills-profile" aria-selected="false">Aggressive</a>
+                     <a className="portfolio nav-link" id="v-pills-Moderately-Aggressive-tab" data-toggle="pill" href="#v-pills-Moderately-Aggressive1" role="tab" aria-controls="v-pills-messages" aria-selected="false">Moderately Aggressive</a>
+                     <a className="portfolio nav-link" id="v-pills-Moderate-tab" data-toggle="pill" href="#v-pills-Moderate1" role="tab" aria-controls="v-pills-settings" aria-selected="false">Moderate</a>
+                     <a className="portfolio nav-link" id="v-pills-Moderately-Conservative-tab" data-toggle="pill" href="#v-pills-Moderately-Conservative1" role="tab" aria-controls="v-pills-settings" aria-selected="false">Moderately Conservative</a>
+                     <a className="portfolio nav-link" id="v-pills-Very-Conservative-tab" data-toggle="pill" href="#v-pills-Very-Conservative1" role="tab" aria-controls="v-pills-settings" aria-selected="false">Very Conservative</a>
                     
                      </div>
                     
@@ -199,18 +202,8 @@ export default class Portfolio extends Component {
  
  
                      </div>
-                     <div className='col-md-7 float-left'>
-                     <div class="tab-content" id="v-pills-tabContent">
-                     <div class="tab-pane fade show active" id="v-pills-Very-Aggressive1" role="tabpanel" aria-labelledby="v-pills-Very-Aggressive-tab">.Very Aggressive..</div>
-                     <div class="tab-pane fade" id="v-pills-Aggressive1" role="tabpanel" aria-labelledby="v-pills-Aggressive-tab">..Aggressive.</div>
-                     <div class="tab-pane fade" id="v-pills-Moderately-Aggressive1" role="tabpanel" aria-labelledby="v-pills-Moderately-Aggressive-tab">..Moderately Aggressive1.</div>
-                     <div class="tab-pane fade" id="v-pills-Moderate1" role="tabpanel" aria-labelledby="v-pills-Moderate-tab">.Moderate..</div>
-                   
-                     <div class="tab-pane fade" id="v-pills-Moderately-Conservative1" role="tabpanel" aria-labelledby="v-pills-Moderately-Conservative-tab">.Moderately Conservative.1.</div>
-                     <div class="tab-pane fade" id="v-pills-Very-Conservative1" role="tabpanel" aria-labelledby="v-pills-Very-Conservative-tab">.Very Conservative1..</div>
-
-
-                     </div>
+                     <div className='col-md-9 float-left div-padding-inherit'>
+                      <Graph></Graph>
  
                       </div>
                  </div>
@@ -251,64 +244,64 @@ export default class Portfolio extends Component {
         <div className="container footer-no-margin padding-extra">
           <div className="row top-padding bg-color-div">
             <div className='col-md-6'>
-            <h2 style={{paddingTop:"10px"}}>Everthing to help you get better results</h2>
+            <h2 style={{paddingTop:"10px"}}><Translator text="portfolioGetBetterTittle.1" /></h2>
 
-            <div className='row div-margin-no div-invest-padding'>
+            <div className='row div-margin-no div-invest-padding cursor ' onClick={()=>{this.setState({divExpand:'Diversified'})}}>
 
 
 
                 <div className='col-md-1 m-auto '>
-                <FontAwesomeIcon className='color-icon-blue' fontSize='20px' icon={faPlusCircle} />
+                <i><FontAwesomeIcon className={this.state.divExpand==='Diversified'?"color-icon-blue":"p-gray"} fontSize='20px' icon={this.state.divExpand==='Diversified'?faMinusCircle:faPlusCircle} /></i>
              
                 </div>
                 <div className='col-md-11'>
-                <h3 className='p-gray '> Diversified</h3>
+                <h3 className='p-gray  '  style={this.state.divExpand==='Diversified'?{color: this.state.bg_color}:null}> <Translator text="portfolioGetBetter1.1" /></h3>
                 </div>
                 </div>
                 <div className='row div-margin-no div-invest-padding'>
                 <div className='col-md-1'>
 
                 </div>
-                <div className='col-md-11'>
-                <p>you'll be invested in hundreds of individual companies ethical bonds, and commodities, ensureing your concentration risk to one security is limited.</p>
+                {this.state.divExpand==='Diversified'?<div className='col-md-11'>
+                <p><Translator text="portfolioGetBetter1.2" /></p>
 
-                </div>
+                </div>:null}
             </div>
 
             {/*  */}
 
- <div className='row div-margin-no div-invest-padding'>
+                <div className='row div-margin-no div-invest-padding cursor' onClick={()=>{this.setState({divExpand:'LowCost'})}}>
 
 
 
-                <div className='col-md-1 m-auto '>
-                <FontAwesomeIcon className='color-icon-blue' fontSize='20px' icon={faPlusCircle} />
-             
-                </div>
-                <div className='col-md-11'>
-                <h3 className='p-gray '> Low Cost</h3>
-                </div>
+                  <div className='col-md-1 m-auto '>
+                  <FontAwesomeIcon className={this.state.divExpand==='LowCost'?"color-icon-blue":"p-gray"} fontSize='20px' icon={this.state.divExpand==='LowCost'?faMinusCircle:faPlusCircle} />
+              
+                  </div>
+                  <div className='col-md-11' >
+                  <h3 className='p-gray ' style={this.state.divExpand==='LowCost'?{color: this.state.bg_color}:null}> <Translator text="portfolioGetBetter2.1" /></h3>
+                  </div>
                 </div>
                 <div className='row div-margin-no div-invest-padding'>
-                <div className='col-md-1'>
+                    <div className='col-md-1'>
 
-                </div>
-                <div className='col-md-11'>
-                <p>The investment funds we use are efficient and low cost. Every penny you save on expenses can help you achieve higher returns.</p>
+                    </div>
+                   {this.state.divExpand==='LowCost'? <div className='col-md-11'>
+                    <p><Translator text="portfolioGetBetter2.2" /></p>
 
-                </div>
-            </div>
+                    </div>:null}
+                 </div>
             {/*  */}
-             <div className='row div-margin-no div-invest-padding'>
+             <div className='row div-margin-no div-invest-padding cursor' onClick={()=>{this.setState({divExpand:'Optimized'})}}>
 
 
 
                 <div className='col-md-1 m-auto '>
-                <FontAwesomeIcon className='color-icon-blue' fontSize='20px' icon={faPlusCircle} />
+                <FontAwesomeIcon className={this.state.divExpand==='Optimized'?"color-icon-blue":"p-gray"} fontSize='20px' icon={this.state.divExpand==='Optimized'?faMinusCircle:faPlusCircle}/>
              
                 </div>
                 <div className='col-md-11'>
-                <h3 className='p-gray '> Optimized</h3>
+                <h3 className='p-gray ' style={this.state.divExpand==='Optimized'?{color: this.state.bg_color}:null}><Translator text="portfolioGetBetter3.1" /></h3>
                 </div>
                 </div>
                 <div className='row div-margin-no div-invest-padding'>
@@ -316,10 +309,10 @@ export default class Portfolio extends Component {
                 <div className='col-md-1'>
 
                 </div>
-                <div className='col-md-11'>
-                <p>Our investment committee uses the modern portfolio theory to build portfolios that seek to maximize your return based on your risk profile.</p>
+                {this.state.divExpand==='Optimized'?<div className='col-md-11'>
+                <p><Translator text="portfolioGetBetter3.2" /></p>
 
-                </div>
+                </div>:null}
             </div>
             {/*  */}
             </div>
@@ -337,48 +330,7 @@ export default class Portfolio extends Component {
 
                 {/* <!-- Become an investor-> */}
 
-        <div className="container footer-no-margin padding-extra">
-          <div className="row div-row-padding">
-            {/* <div className="col-md-1"></div> */}
-            <div className="col-md-7 m-auto">
-              <h3 className="div-h4-blue text-start">Become an Investor</h3>
-              <p>You will receive an SMS to download the app</p>
-
-              <div className="row  padding-zero">
-                <div className="col-md-2 about-padding">
-                  <input type="number" id="inputMDEx" class=" border-line" />
-                </div>
-                <div className="col-md-5 about-padding">
-                  <input type="number" id="inputMDEx" class="border-line" />
-                </div>
-                <div className="col-md-3 about-padding">
-                <button className='btn btn-primary'> GET THE APP</button>
-
-                </div>
-              </div>
-
-              <p>
-                By clicking on the 'GET THE APP' button above, you confirm that
-                you have entered your own phone number and you consent to
-                receiving the SMS.
-              </p>
-            </div>
-           <div className='col-md-1'>
-        
-           </div>
-            <div className="col-md-3"
-              style={{ maxHeight: "350px", zIndex: " -1" }}
-            >
-              <img
-                src={"assets/images/become-an-investor.png"}
-                alt="logo"
-                style={{ height: "420px", width: "inherit" }}
-              />
-            </div>
-            <div className="col-md-1"></div>
-          </div>
-        </div>
-
+                <BecomeAnInvestor/>
 
             <Footer />
                 

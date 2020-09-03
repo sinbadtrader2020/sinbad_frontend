@@ -3,6 +3,8 @@ import { Helmet } from "react-helmet";
 import MainNavBar from "./main-nav-bar";
 import Footer from "./footer";
 import { AiFillAccountBook } from "react-icons/ai";
+import Translator from "../utils/translator";
+import InputTranslation from "../utils/input-translation";
 
 export default class Faq extends Component {
   render() {
@@ -21,22 +23,23 @@ export default class Faq extends Component {
                   className="font-weight-bold h3 mb-4 pb-1 text-center"
                   style={{ margin: "30px 0px" }}
                 >
-                  What are you looking for?
+                  <Translator text="faqIntro.1" />
                 </p>
               </div>
 
               <div className="col-md-2"></div>
               <div className="col-sm-7 ">
-                <input
+                <InputTranslation
                   type="search"
-                  placeholder="Find Anything?"
+                  text="faqIntro.2"
                   aria-label="Search"
                   className="faq-search  h5 font-weight-normal mb-4 pb-1"
-                ></input>
+                 />
               </div>
               <div className="col-md-1 ">
                 <button className="faq-search-btn font-weight-bold">
-                  Search
+                <Translator text="faqIntro.3" />
+                
                 </button>
               </div>
             </div>
@@ -49,46 +52,46 @@ export default class Faq extends Component {
             className="div-h4-blue h2 mb-4 pb-1 text-center  "
        
           >
-            Sinbad Finance Support
+            <Translator text="faqSupport.1" />
           </p>
         </div>
         <div className="m-auto faq-support-card">
           <div className="row justify-content-md-around faq-div-support-margin text-center ">
             <div className="col-md-3 ">
               <AiFillAccountBook size="100px" />
-              <h5>Genaral Question </h5>
+              <h5><Translator text="faqSupportCard.1" /> </h5>
             </div>
             <div className="col-md-3">
               <AiFillAccountBook size="100px" />
-              <h5>How it works </h5>
+              <h5><Translator text="faqSupportCard.2" /> </h5>
             </div>
 
             <div className="col-md-3">
               {" "}
-              <AiFillAccountBook size="100px" /> <h5>Ethical Investing </h5>
+              <AiFillAccountBook size="100px" /> <h5><Translator text="faqSupportCard.3" /> </h5>
             </div>
           </div>
 
           <div className="row justify-content-md-around faq-div-support-margin text-center">
             <div className="col-md-3">
               <AiFillAccountBook size="100px" />
-              <h5>Invesments and Portfolios </h5>
+              <h5><Translator text="faqSupportCard.4" /> </h5>
             </div>
             <div className="col-md-3">
               <AiFillAccountBook size="100px" />
-              <h5>Client Portal and Accounts </h5>
+              <h5><Translator text="faqSupportCard.5" /> </h5>
             </div>
 
             <div className="col-md-3">
               <AiFillAccountBook size="100px" />
-              <h5>Fees </h5>
+              <h5><Translator text="faqSupportCard.6" /> </h5>
             </div>
           </div>
 
           <div className="row justify-content-md-around faq-div-support-margin text-center">
             <div className="col-md-3" style={{ float: "left" }}>
               <AiFillAccountBook size="100px" />
-              <h5>Deposits & Withdrawals </h5>
+              <h5><Translator text="faqSupportCard.7" /> </h5>
             </div>
           </div>
         </div>

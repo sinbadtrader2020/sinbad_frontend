@@ -1,3 +1,4 @@
+import { PieChart } from "react-minimal-pie-chart";
 
 
 
@@ -19,6 +20,8 @@ const FEE = '/fees'
 const BLOG ='/blog'
 const FORUM ='/forum'
 const PORTFOLIO ='/portfolio'
+const PIECHART ='/chart'
+
 
 export class Path {
   static get index() {
@@ -58,4 +61,8 @@ export class Path {
   static get portfolio(){
     return PORTFOLIO;
   }
+  static get piechart(){
+    return PIECHART;
+  }
+ 
 }
