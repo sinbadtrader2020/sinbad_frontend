@@ -2,22 +2,28 @@ import React, { Component } from 'react'
 import MainNavBar from './main-nav-bar'
 import Footer from './footer'
 import { Helmet } from 'react-helmet'
-import { AiFillAccountBook } from 'react-icons/ai'
+import { AiFillAccountBook,AiOutlineGold,AiOutlineStock } from 'react-icons/ai'
+import { FaRegMoneyBillAlt,FaBitcoin ,FaRegBuilding,FaChartBar} from "react-icons/fa";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheck,faPlusCircle,faMinusCircle} from '@fortawesome/free-solid-svg-icons'
+import { faCheck,faPlusCircle,faMinusCircle, faCashRegister} from '@fortawesome/free-solid-svg-icons'
 
 import Graph from '../utils/past-performance-graph'
 import BecomeAnInvestor from './become-an-investor'
 import Translator from '../utils/translator'
-import AllocatoinChart from '../test/allocation-chart'
+import AllocatoinChart from '../utils/allocation-chart'
+import { ProgressBar } from 'react-bootstrap'
+import { text } from '@fortawesome/fontawesome-svg-core'
+
 
 export default class Portfolio extends Component {
   constructor(){
     super()
 
     this.state={
+      divExpandAllocation:"",
       divExpand:"Diversified",
       bg_color:"#002868",
+      divInvestSinbad:"GlobalStocks",
     }
   }
     render() {
@@ -62,29 +68,35 @@ export default class Portfolio extends Component {
             <div className="col-md-1"></div>
             <div className="col-md-12">
                 <div className='row div-margin-no m-auto justify-content-sm-between'>
-                <div className='div-bg-color-black '>
-             
-                <AiFillAccountBook size="50px"  />
-                 <p >Global Stocks </p>
                
+                <div className={this.state.divInvestSinbad==='GlobalStocks'?'div-bg-color-black':'div-bg-color-white'} onClick={()=>{this.setState({divInvestSinbad:"GlobalStocks"})}}>
+                <FaChartBar size="50px"  />
+                 <p  className='p-black'><Translator text='portfolioCard1.1' /></p>
                 </div>
-                <div className='div-bg-color-white'>
-                <AiFillAccountBook size="50px" />
-                 <p className='p-black'>Emerging Marketing Stocks</p>
+
+                <div className={this.state.divInvestSinbad==='EmergingMarketingStocks'?'div-bg-color-black':'div-bg-color-white'}  onClick={()=>{this.setState({divInvestSinbad:"EmergingMarketingStocks"})}}>
+                <AiOutlineStock size="50px" />
+                 <p className='p-black'><Translator text='portfolioCard2.1' /></p>
                 </div>
-                <div className='div-bg-color-white'>
-                <AiFillAccountBook size="50px" />
-                 <p className='p-black'>Sukuk</p>
+
+                <div className={this.state.divInvestSinbad==='Sukuk'?'div-bg-color-black':'div-bg-color-white'}  onClick={()=>{this.setState({divInvestSinbad:"Sukuk"})}}>
+                <FaRegMoneyBillAlt size="50px" />
+                 <p className='p-black'><Translator text='portfolioCard3.1' /></p>
                 </div>
-                <div className='div-bg-color-white'>
-                <AiFillAccountBook size="50px" />
-                 <p className='p-black'>Real Estate </p></div>
-                <div className='div-bg-color-white'>
-                <AiFillAccountBook size="50px"  />
-                 <p className='p-black'>Gold</p></div>
-                <div className=' div-bg-color-white'>
-                <AiFillAccountBook size="50px" />
-                 <p className='p-black'>Bit Coin</p>
+
+                <div className={this.state.divInvestSinbad==='RealEstate'?'div-bg-color-black':'div-bg-color-white'}  onClick={()=>{this.setState({divInvestSinbad:"RealEstate"})}}>
+                <FaRegBuilding size="50px" />
+                 <p className='p-black'><Translator text='portfolioCard4.1' /></p>
+                 </div>
+
+                <div className={this.state.divInvestSinbad==='Gold'?'div-bg-color-black':'div-bg-color-white'}  onClick={()=>{this.setState({divInvestSinbad:"Gold"})}}>
+                <AiOutlineGold size="50px"  />
+                 <p className='p-black'><Translator text='portfolioCard5.1' /></p>
+                 </div>
+
+                <div className={this.state.divInvestSinbad==='BitCoin'?'div-bg-color-black':'div-bg-color-white'}  onClick={()=>{this.setState({divInvestSinbad:"BitCoin"})}}>
+                <FaBitcoin size="50px" />
+                 <p className='p-black'><Translator text='portfolioCard6.1' /></p>
                 </div>
 
 
@@ -93,60 +105,233 @@ export default class Portfolio extends Component {
             <div className="col-md-1"></div>
             
           </div>
-          <div className="div-top-padding">
-          <div className='col-md-10'>
-          <h6 className='div-h4-blue'>Global Stocks</h6>
-          <p className='p-gray div-invest-padding'> Global stocks are mainly from the developed markets of the world. These are diversified investments across sectors and geographies and generally follow a large-cap value investment style.</p>
+          {/* card content are here */}
+             
+             {/* globalStocks */}
+           {this.state.divInvestSinbad==='GlobalStocks'? <div>
+              <div className="div-top-padding">
+                <div className='col-md-10'>
+                  <h6 className='div-h4-blue'><Translator text='portfolioCard1.1'/></h6>
+                  <p className='p-gray div-invest-padding'> <Translator text='portfolioCard1.2'/></p>
+                </div>
+              </div>
+
+              <div className="div-top-padding">
+                <div className='col-md-10'>
+                <h6 className='div-h4-blue'><Translator text='portfolioCard1.3'/></h6>
+                  <div className='row div-margin-no div-invest-padding'>
+
+                  <div className='col-md-1'>
+                  <FontAwesomeIcon className='color-icon' icon={faCheck} />
+                  </div>
+                  <div className='col-md-11'>
+                  <p className='p-gray '> <Translator text='portfolioCard1.4'/></p>
+                  </div>
+
+                  <div className='col-md-1'>
+                  <FontAwesomeIcon className='color-icon' icon={faCheck} />
+                  </div>
+                  <div className='col-md-10'>
+                  <p className='p-gray '> <Translator text='portfolioCard1.5'/></p>
+                  </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>:null}
+            
+            {/* EmergingMarketingStocks */}
+            {this.state.divInvestSinbad==='EmergingMarketingStocks'? <div>
+              <div className="div-top-padding">
+                <div className='col-md-10'>
+                  <h6 className='div-h4-blue'><Translator text='portfolioCard2.1'/></h6>
+                  <p className='p-gray div-invest-padding'> <Translator text='portfolioCard2.2'/></p>
+                </div>
+              </div>
+
+              <div className="div-top-padding">
+                <div className='col-md-10'>
+                <h6 className='div-h4-blue'><Translator text='portfolioCard2.3'/></h6>
+                  <div className='row div-margin-no div-invest-padding'>
+
+                  <div className='col-md-1'>
+                  <FontAwesomeIcon className='color-icon' icon={faCheck} />
+                  </div>
+                  <div className='col-md-11'>
+                  <p className='p-gray '> <Translator text='portfolioCard2.4'/></p>
+                  </div>
+
+                  <div className='col-md-1'>
+                  <FontAwesomeIcon className='color-icon' icon={faCheck} />
+                  </div>
+                  <div className='col-md-10'>
+                  <p className='p-gray '> <Translator text='portfolioCard2.5'/></p>
+                  </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>:null}
+            {/* Sukuk */}
+            {this.state.divInvestSinbad==='Sukuk'? <div>
+              <div className="div-top-padding">
+                <div className='col-md-10'>
+                  <h6 className='div-h4-blue'><Translator text='portfolioCard3.1'/></h6>
+                  <p className='p-gray div-invest-padding'> <Translator text='portfolioCard3.2'/></p>
+                </div>
+              </div>
+
+              <div className="div-top-padding">
+                <div className='col-md-10'>
+                <h6 className='div-h4-blue'><Translator text='portfolioCard3.3'/></h6>
+                  <div className='row div-margin-no div-invest-padding'>
+
+                  <div className='col-md-1'>
+                  <FontAwesomeIcon className='color-icon' icon={faCheck} />
+                  </div>
+                  <div className='col-md-11'>
+                  <p className='p-gray '><Translator text='portfolioCard3.4'/></p>
+                  </div>
+
+                  <div className='col-md-1'>
+                  <FontAwesomeIcon className='color-icon' icon={faCheck} />
+                  </div>
+                  <div className='col-md-10'>
+                  <p className='p-gray '> <Translator text='portfolioCard3.5'/></p>
+                  </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>:null}
+            {/* Real Estate */}
+            {this.state.divInvestSinbad==='RealEstate'? <div>
+              <div className="div-top-padding">
+                <div className='col-md-10'>
+                  <h6 className='div-h4-blue'><Translator text='portfolioCard4.1'/></h6>
+                  <p className='p-gray div-invest-padding'> <Translator text='portfolioCard4.2'/></p>
+                </div>
+              </div>
+
+              <div className="div-top-padding">
+                <div className='col-md-10'>
+                <h6 className='div-h4-blue'><Translator text='portfolioCard4.3'/></h6>
+                  <div className='row div-margin-no div-invest-padding'>
+
+                  <div className='col-md-1'>
+                  <FontAwesomeIcon className='color-icon' icon={faCheck} />
+                  </div>
+                  <div className='col-md-11'>
+                  <p className='p-gray '> <Translator text='portfolioCard4.4'/></p>
+                  </div>
+
+                  <div className='col-md-1'>
+                  <FontAwesomeIcon className='color-icon' icon={faCheck} />
+                  </div>
+                  <div className='col-md-10'>
+                  <p className='p-gray '> <Translator text='portfolioCard4.5'/></p>
+                  </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>:null}
+
+            {/* Gold */}
+            {this.state.divInvestSinbad==='Gold'? <div>
+              <div className="div-top-padding">
+                <div className='col-md-10'>
+                  <h6 className='div-h4-blue'><Translator text='portfolioCard5.1'/></h6>
+                  <p className='p-gray div-invest-padding'> <Translator text='portfolioCard5.2'/></p>
+                </div>
+              </div>
+
+              <div className="div-top-padding">
+                <div className='col-md-10'>
+                <h6 className='div-h4-blue'><Translator text='portfolioCard5.3'/></h6>
+                  <div className='row div-margin-no div-invest-padding'>
+
+                  <div className='col-md-1'>
+                  <FontAwesomeIcon className='color-icon' icon={faCheck} />
+                  </div>
+                  <div className='col-md-11'>
+                  <p className='p-gray '> <Translator text='portfolioCard5.4'/></p>
+                  </div>
+
+                  <div className='col-md-1'>
+                  <FontAwesomeIcon className='color-icon' icon={faCheck} />
+                  </div>
+                  <div className='col-md-10'>
+                  <p className='p-gray '> <Translator text='portfolioCard5.5'/></p>
+                  </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>:null}
+
+            {/* BitCoin */}
+            {this.state.divInvestSinbad==='BitCoin'? <div>
+              <div className="div-top-padding">
+                <div className='col-md-10'>
+                  <h6 className='div-h4-blue'><Translator text='portfolioCard6.1'/></h6>
+                  <p className='p-gray div-invest-padding'> <Translator text='portfolioCard6.2'/></p>
+                </div>
+              </div>
+
+              <div className="div-top-padding">
+                <div className='col-md-10'>
+                <h6 className='div-h4-blue'><Translator text='portfolioCard6.3'/></h6>
+                  <div className='row div-margin-no div-invest-padding'>
+
+                  <div className='col-md-1'>
+                  <FontAwesomeIcon className='color-icon' icon={faCheck} />
+                  </div>
+                  <div className='col-md-11'>
+                  <p className='p-gray '> <Translator text='portfolioCard6.4'/></p>
+                  </div>
+
+                  <div className='col-md-1'>
+                  <FontAwesomeIcon className='color-icon' icon={faCheck} />
+                  </div>
+                  <div className='col-md-10'>
+                  <p className='p-gray '> <Translator text='portfolioCard6.5'/></p>
+                  </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>:null}
+
+            {/*card content end here  */}
         </div>
-          </div>
 
-          <div className="div-top-padding">
-          <div className='col-md-10'>
-          <h6 className='div-h4-blue'>Reason we chose this Asset Class:</h6>
-           <div className='row div-margin-no div-invest-padding'>
+  
 
-           <div className='col-md-1'>
-           <FontAwesomeIcon className='color-icon' icon={faCheck} />
-           </div>
-           <div className='col-md-11'>
-           <p className='p-gray '> Direct and diversified investment in US, Uk and other foreign companies in developed markets that complay with islamic investment principles.</p>
-           </div>
-
-           <div className='col-md-1'>
-           <FontAwesomeIcon className='color-icon' icon={faCheck} />
-           </div>
-           <div className='col-md-10'>
-           <p className='p-gray '> Exposure to developed and mature stock markets</p>
-           </div>
-
-           </div>
-        </div>
-          </div>
-        </div>
 
 {/* Our portfolio */}
                 <div className="container">
-                <div className="row div-row-padding">
+                <div className="row div-row-padding m-auto">
                 <div className='row padding-zero'>
                 <div className='col-md-11 m-auto h1-blue-center-start '>
-                 <h2 className='font-weight-bold'>Our Portfolios</h2>
+                 <h2 className='font-weight-bold'><Translator text='portfolioOurGraph.1'/></h2>
                  </div>
                 <div className='col-md-11 m-auto ' >
-                <p>You'll be investing in a portfolio that has a healthy mix of different companies and investments from numerous industries.</p>
+                <p className='p-center-start' ><Translator text='portfolioOurGraph.2'/></p>
                 </div>
                 </div>
  
                 </div>
 
 
-            <div className='row padding-zero justify-content-sm-center m-auto'>
+            <div className='row div-tab-pad-top justify-content-sm-center m-auto'>
                         
               <ul className="nav nav-pills col-md-6 justify-content-lg-center mb-3" id="pills-tab" role="tablist">
                 <li className="nav-item col-md-6">
-                  <a className="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Allocation</a>
+                  <a className="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"><Translator text='portfolioOurGraph.3'/></a>
                 </li>
                 <li className="nav-item col-md-6">
-                  <a className="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Past Performance</a>
+                  <a className="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false"><Translator text='portfolioOurGraph.4'/></a>
                 </li>
                 
               </ul>
@@ -159,26 +344,152 @@ export default class Portfolio extends Component {
                
               <div className="tab-content" id="pills-tabContent">
            
-               <div className='row  tab-pane fade show active overflow-hidden ' id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+               <div className='row div-padding-graph justify-content-lg-center tab-pane fade show active overflow-hidden ' id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                      <div className='col-md-3 float-left'>
-                        <p>Portfolio Types</p>
+                        <p><Translator text='portfolioTypes.0'/></p>
                         <div className="nav flex-column nav-pills padding-zero " id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                        <a className="portfolio nav-link active" id="v-pills-Very-Aggressive-tab" data-toggle="pill" href="#v-pills-Very-Aggressive" role="tab" aria-controls="v-pills-home" aria-selected="true">Very Aggressive</a>
-                        <a className="portfolio nav-link" id="v-pills-Aggressive-tab" data-toggle="pill" href="#v-pills-Aggressive" role="tab" aria-controls="v-pills-profile" aria-selected="false">Aggressive</a>
-                        <a className="portfolio nav-link" id="v-pills-Moderately-Aggressive-tab" data-toggle="pill" href="#v-pills-Moderately-Aggressive" role="tab" aria-controls="v-pills-messages" aria-selected="false">Moderately Aggressive</a>
-                        <a className="portfolio nav-link" id="v-pills-Moderate-tab" data-toggle="pill" href="#v-pills-Moderate" role="tab" aria-controls="v-pills-settings" aria-selected="false">Moderate</a>
-                        <a className="portfolio nav-link" id="v-pills-Moderately-Conservative-tab" data-toggle="pill" href="#v-pills-Moderately-Conservative" role="tab" aria-controls="v-pills-settings" aria-selected="false">Moderately Conservative</a>
-                        <a className="portfolio nav-link" id="v-pills-Very-Conservative-tab" data-toggle="pill" href="#v-pills-Very-Conservative" role="tab" aria-controls="v-pills-settings" aria-selected="false">Very Conservative</a>
+                        <a className="portfolio nav-link active" id="v-pills-Very-Aggressive-tab" data-toggle="pill" href="#v-pills-Very-Aggressive" role="tab" aria-controls="v-pills-home" aria-selected="true"><Translator text="portfolioTypes.1"/></a>
+                        <a className="portfolio nav-link" id="v-pills-Aggressive-tab" data-toggle="pill" href="#v-pills-Aggressive" role="tab" aria-controls="v-pills-profile" aria-selected="false"><Translator text="portfolioTypes.2"/></a>
+                        <a className="portfolio nav-link" id="v-pills-Moderately-Aggressive-tab" data-toggle="pill" href="#v-pills-Moderately-Aggressive" role="tab" aria-controls="v-pills-messages" aria-selected="false"><Translator text="portfolioTypes.3"/></a>
+                        <a className="portfolio nav-link" id="v-pills-Moderate-tab" data-toggle="pill" href="#v-pills-Moderate" role="tab" aria-controls="v-pills-settings" aria-selected="false"><Translator text="portfolioTypes.4"/></a>
+                        <a className="portfolio nav-link" id="v-pills-Moderately-Conservative-tab" data-toggle="pill" href="#v-pills-Moderately-Conservative" role="tab" aria-controls="v-pills-settings" aria-selected="false"><Translator text="portfolioTypes.5"/></a>
+                        <a className="portfolio nav-link" id="v-pills-Very-Conservative-tab" data-toggle="pill" href="#v-pills-Very-Conservative" role="tab" aria-controls="v-pills-settings" aria-selected="false"><Translator text="portfolioTypes.6"/></a>
                       
                          </div>
         
  
                      </div>
 
-                     <div className='col-md-3 float-left allocation-graph-padding '>
-                          <AllocatoinChart/>
+                     <div className='col-md-4 float-left allocation-graph-padding '>
+                         <AllocatoinChart/>
  
                       </div>
+                      
+                      <div className='col-md-5 float-left' >
+                      {/*  */}
+                         <div className="div-pad-allocation">
+                            <div className='div-margin-alocation cursor' onClick={()=>{this.state.divExpandAllocation==="GlobalStocks"?this.setState({divExpandAllocation:''}):this.setState({divExpandAllocation:'GlobalStocks'})}}>
+                                <div className='row div-margin-no justify-content-md-between' >
+                                    <p className="p-allocation"><Translator text="portfolioAllocationGlobal.1"/></p>
+                                    <p className='float-right font-weight-bold'>75%</p>
+                            
+
+                                </div>
+                                  <div className='progress-div'>
+                                  <ProgressBar  className='progress-height' now={70} />
+                                  </div>
+                                  {this.state.divExpandAllocation==='GlobalStocks'?<div>
+                                    <p className="p-gray" ><Translator text="portfolioAllocationGlobal.2"/></p>
+                                    <h6><Translator text="portfolioAllocationGlobal.3"/></h6>
+                                    <p className="p-gray"><Translator text="portfolioAllocationGlobal.4"/></p>
+                                    <p className="p-gray"><Translator text="portfolioAllocationGlobal.5"/></p>
+                                  </div>:null}
+                              </div>
+
+
+
+                              <div className='div-margin-alocation cursor  ' onClick={()=>{this.state.divExpandAllocation==="EmergingMarketStocks"?this.setState({divExpandAllocation:''}):this.setState({divExpandAllocation:'EmergingMarketStocks'})}} >
+                                <div className='row div-margin-no justify-content-md-between' >
+                                    <p className="p-allocation"><Translator text="portfolioAllocationEmergingMarketStocks.1"/></p>
+                                    <p className='float-right font-weight-bold'>10%</p>
+                            
+
+                                </div>
+                                  <div className='progress-div'>
+                                  <ProgressBar className='progress-height' now={70} />
+                                  </div>
+                                  {this.state.divExpandAllocation==='EmergingMarketStocks'? <div>
+                                    <p className="p-gray" ><Translator text="portfolioAllocationEmergingMarketStocks.2"/></p>
+                                    <h6><Translator text="portfolioAllocationEmergingMarketStocks.3"/></h6>
+                                    <p className="p-gray"><Translator text="portfolioAllocationEmergingMarketStocks.4"/></p>
+                                    
+                                  </div>:null}
+                                 
+                              </div>
+
+
+
+                              <div className='div-margin-alocation cursor' onClick={()=>{this.state.divExpandAllocation==="Sukuk"?this.setState({divExpandAllocation:''}):this.setState({divExpandAllocation:'Sukuk'})}}>
+                                <div className='row div-margin-no justify-content-md-between' >
+                                    <p className="p-allocation"><Translator text='portfolioAllocationSukuk.1'/></p>
+                                    <p className='float-right font-weight-bold'>0%</p>
+                            
+
+                                </div>
+                                  <div className='progress-div'>
+                                  <ProgressBar  className='progress-height' now={0} />
+                                  </div>
+                                  {this.state.divExpandAllocation==="Sukuk"?<div>
+                                    <p className="p-gray" ><Translator text='portfolioAllocationSukuk.2'/></p>
+                                   
+                                  </div>:null }
+                              </div>
+
+
+                              <div className='div-margin-alocation cursor ' onClick={()=>{this.state.divExpandAllocation==="RealEstate"?this.setState({divExpandAllocation:''}):this.setState({divExpandAllocation:'RealEstate'})}} >
+                                <div className='row div-margin-no justify-content-md-between' >
+                                    <p className="p-allocation"><Translator text='portfolioAllocationRealEstate.1'/></p>
+                                    <p className='float-right font-weight-bold'>10%</p>
+                            
+
+                                </div>
+                                  <div className='progress-div'>
+                                  <ProgressBar  className='progress-height' now={10} />
+                                  </div>
+                                  {this.state.divExpandAllocation==="RealEstate"? <div>
+                                    <p className="p-gray" ><Translator text='portfolioAllocationRealEstate.2'/></p>
+                                    <h6><Translator text='portfolioAllocationRealEstate.3'/></h6>
+                                    <p className="p-gray"><Translator text='portfolioAllocationRealEstate.4'/></p>
+                                    
+                                  </div>:null}
+                              </div>
+
+
+                              <div className='div-margin-alocation cursor ' onClick={()=>{this.state.divExpandAllocation==="Gold"?this.setState({divExpandAllocation:''}):this.setState({divExpandAllocation:'Gold'})}}>
+                                <div className='row div-margin-no justify-content-md-between' >
+                                    <p className="p-allocation"><Translator text='portfolioAllocationGold.1'/></p>
+                                    <p className='float-right font-weight-bold'>3.75%</p>
+                            
+
+                                </div>
+                                  <div className='progress-div'>
+                                  <ProgressBar  className='progress-height' now={3.75} />
+                                  </div>
+                                  {this.state.divExpandAllocation==='Gold'?  <div>
+                                    <p className="p-gray" ><Translator text='portfolioAllocationGold.2'/></p>
+                                    <h6><Translator text='portfolioAllocationGold.3'/></h6>
+                                    <p className="p-gray"><Translator text='portfolioAllocationGold.4'/></p>
+                                    
+                                  </div>:null}
+                              </div>
+
+                              <div className='div-margin-alocation cursor ' onClick={()=>{this.state.divExpandAllocation==="Cash"?this.setState({divExpandAllocation:''}):this.setState({divExpandAllocation:'Cash'})}}>
+                                <div className='row div-margin-no justify-content-md-between' >
+                                    <p className="p-allocation"><Translator text='portfolioAllocationCash.1'/></p>
+                                    <p className='float-right font-weight-bold'>1.25%</p>
+                            
+
+                                </div>
+                                  <div className='progress-div'>
+                                  <ProgressBar  className='progress-height' now={1.25} />
+                                  </div>
+                                  {this.state.divExpandAllocation==="Cash"?null:null}
+                              </div>
+
+
+
+
+
+
+
+                         </div>
+
+
+                           
+                      </div>
+
+                      
+                    
                  </div>
             {/*  */}
         
@@ -189,12 +500,12 @@ export default class Portfolio extends Component {
                   <div className='col-md-3 float-left'>
                      <p>Portfolio Types</p>
                      <div className="nav flex-column nav-pills padding-zero " id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                     <a className="portfolio nav-link active" id="v-pills-Very-Aggressive-tab" data-toggle="pill" href="#v-pills-Very-Aggressive1" role="tab" aria-controls="v-pills-home" aria-selected="true">Very Aggressive</a>
-                     <a className="portfolio nav-link" id="v-pills-Aggressive-tab" data-toggle="pill" href="#v-pills-Aggressive1" role="tab" aria-controls="v-pills-profile" aria-selected="false">Aggressive</a>
-                     <a className="portfolio nav-link" id="v-pills-Moderately-Aggressive-tab" data-toggle="pill" href="#v-pills-Moderately-Aggressive1" role="tab" aria-controls="v-pills-messages" aria-selected="false">Moderately Aggressive</a>
-                     <a className="portfolio nav-link" id="v-pills-Moderate-tab" data-toggle="pill" href="#v-pills-Moderate1" role="tab" aria-controls="v-pills-settings" aria-selected="false">Moderate</a>
-                     <a className="portfolio nav-link" id="v-pills-Moderately-Conservative-tab" data-toggle="pill" href="#v-pills-Moderately-Conservative1" role="tab" aria-controls="v-pills-settings" aria-selected="false">Moderately Conservative</a>
-                     <a className="portfolio nav-link" id="v-pills-Very-Conservative-tab" data-toggle="pill" href="#v-pills-Very-Conservative1" role="tab" aria-controls="v-pills-settings" aria-selected="false">Very Conservative</a>
+                     <a className="portfolio nav-link active" id="v-pills-Very-Aggressive-tab" data-toggle="pill" href="#v-pills-Very-Aggressive1" role="tab" aria-controls="v-pills-home" aria-selected="true"><Translator text="portfolioTypes.1"/></a>
+                     <a className="portfolio nav-link" id="v-pills-Aggressive-tab" data-toggle="pill" href="#v-pills-Aggressive1" role="tab" aria-controls="v-pills-profile" aria-selected="false"><Translator text="portfolioTypes.2"/></a>
+                     <a className="portfolio nav-link" id="v-pills-Moderately-Aggressive-tab" data-toggle="pill" href="#v-pills-Moderately-Aggressive1" role="tab" aria-controls="v-pills-messages" aria-selected="false"><Translator text="portfolioTypes.3"/></a>
+                     <a className="portfolio nav-link" id="v-pills-Moderate-tab" data-toggle="pill" href="#v-pills-Moderate1" role="tab" aria-controls="v-pills-settings" aria-selected="false"><Translator text="portfolioTypes.4"/></a>
+                     <a className="portfolio nav-link" id="v-pills-Moderately-Conservative-tab" data-toggle="pill" href="#v-pills-Moderately-Conservative1" role="tab" aria-controls="v-pills-settings" aria-selected="false"><Translator text="portfolioTypes.5"/></a>
+                     <a className="portfolio nav-link" id="v-pills-Very-Conservative-tab" data-toggle="pill" href="#v-pills-Very-Conservative1" role="tab" aria-controls="v-pills-settings" aria-selected="false"><Translator text="portfolioTypes.6"/></a>
                     
                      </div>
                     

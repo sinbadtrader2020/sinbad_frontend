@@ -1,5 +1,3 @@
-import { PieChart } from "react-minimal-pie-chart";
-
 
 
 /**
@@ -20,7 +18,8 @@ const FEE = '/fees'
 const BLOG ='/blog'
 const FORUM ='/forum'
 const PORTFOLIO ='/portfolio'
-const PIECHART ='/chart'
+const COMINGSOON='/top'
+
 
 
 export class Path {
@@ -61,8 +60,9 @@ export class Path {
   static get portfolio(){
     return PORTFOLIO;
   }
-  static get piechart(){
-    return PIECHART;
+  static get comingSoon(){
+    return COMINGSOON;
   }
+
  
 }

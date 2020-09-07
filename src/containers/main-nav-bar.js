@@ -40,7 +40,7 @@ class MainNavBar extends Component {
       <>
         {/* <!-- Main menu Navbar --> */}
         <OutsideAlerter onchangeNav={this.changeNav}>
-          <Nav className="navbar navbar-expand-lg navbar-light bg-light sticky">
+          <Nav className="navbar navbar-expand-lg navbar-light bg-light sticky main-nav-shadow">
             <Link
               className="navbar-brand"
               onClick={this.changeNav}

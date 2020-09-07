@@ -5959,6 +5959,9 @@ a.close.disabled {
   border-right-color: transparent;
   border-radius: 50%;
   animation: spinner-border 0.75s linear infinite;
+ 
+
+  
 }
 
 .spinner-border-sm {

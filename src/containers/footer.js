@@ -83,22 +83,22 @@ class Footer extends Component {
                     </a>
                   </li>
                   <li>
-                    <a href="toptop#">
+                    <a href="top#">
                       <Translator text="welFootCol4Row3R1.1" />
                     </a>
                   </li>
                   <li>
-                    <a href="toptop#">
+                    <a href="top#">
                       <Translator text="welFootCol4Row4R1.1" />
                     </a>
                   </li>
                   <li>
-                    <a href="toptop#">
+                    <a href="top#">
                       <Translator text="welFootCol4Row5R1.1" />{" "}
                     </a>
                   </li>
                   <li>
-                    <a href="toptop#">
+                    <a href="top#">
                       <Translator text="welFootCol4Row6R1.1" />
                     </a>
                   </li>

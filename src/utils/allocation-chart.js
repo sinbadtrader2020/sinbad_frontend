@@ -1,9 +1,4 @@
 import React, { Component } from 'react'
-import { PieChart } from 'react-minimal-pie-chart';
-import FullOption from './as';
-import { Doughnut,Chart} from 'react-chartjs-2';
-
-
 import DonutChart from 'react-donut-chart';
 
 
@@ -17,7 +12,7 @@ export default class AllocatoinChart extends Component {
               
           
 
-            <DonutChart className="donut-inherit"  height="280" width="280" clickToggle={false} legend={false}
+            <DonutChart className="donut-inherit" innerRadius={0.60 } height={300} width={300} clickToggle={false} legend={false}
                 data={[{
                     label: 'Global Stack',
                     value: 75
@@ -48,7 +43,13 @@ export default class AllocatoinChart extends Component {
                     value: 1.25,
                 }
                 
-                ]} colorFunction={(colors, index) => colors[(index % colors.length)]} strokeColor={"white"} colors={['blue', 'red', 'blue', '#009688', '#4caf50', '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800', '#ff5722', '#795548', '#607d8b' ]} />
+                ]} colorFunction={(colors, index) => colors[(index % colors.length)]} strokeColor={"white"} colors={
+                    ['rgb(31, 65, 132)', 
+                    'rgb(46, 103, 152)', 
+                     'rgb(203, 234, 242)',
+                     'rgb(167, 202, 234)', 
+                     'rgb(130, 180, 225)', 
+                     'rgb(203, 234, 242)']} />
                 
          
             </>

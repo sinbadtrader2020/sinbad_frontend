@@ -92,6 +92,20 @@
     .align-center{
       text-align: center;
     }
+
+    .div-pad-allocation{
+      padding: 0px !important;
+    }
+    .allocation-graph-padding{
+      padding-top: 0px !important;
+     
+      text-align: start !important;
+    
+    }
+
+  .p-center-start{
+    text-align: start !important;
+  }
   
 }
 .h1-blue-center-start{
@@ -476,6 +490,12 @@ footer li {
   color: #002868;
   font-weight: bold ;
 }
+.faq-img-p-s{
+  height: 79px;
+  width: 79px;
+  margin: 24px 0px;
+}
+
 
 
 
@@ -626,7 +646,7 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0px;
 }
 .div-margin-no{
-  margin: 0px;
+  margin: 0px !important;
 }
 .border-line{
  
@@ -644,9 +664,10 @@ input[type=number]::-webkit-outer-spin-button {
 
 .div-bg-color-black{
   background-color: rgb(13, 33, 67);;;
-  color: white;
-  height: 130px;
+  color: white ;
+  height: 140px;
   width: 160px;
+  
 
 
   text-align: center;
@@ -658,7 +679,7 @@ input[type=number]::-webkit-outer-spin-button {
 .div-bg-color-white{
   background-color:white;
   color:  #002868;
-  height: 130px;
+  height: 140px;
   width: 160px;
 
   text-align: center;
@@ -668,19 +689,31 @@ input[type=number]::-webkit-outer-spin-button {
 
 
 }
-.div-bg-color-white:hover{
+.div-bg-color-white:hover {
    background-color:rgb(13, 33, 67);
   color: white !important;
 
 }
+.div-bg-color-white:hover p{
+  background-color:rgb(13, 33, 67);
+ color: white !important;
 
+}
+.div-bg-color-white p{
+  color: black;
+}
+.div-bg-color-black p{
+  color: white;
+}
 .p-black{
   padding-top: 5px;
- 
+  
+  
  
 }
 .div-row-padding-top-b{
-  padding: 50px 0px;
+  padding-top: 80px;
+  padding-bottom: 50px;
 }
 .div-bg-color-black p{
   padding-top: 5px;
@@ -761,8 +794,9 @@ input[type=number]::-webkit-outer-spin-button {
   padding: inherit;
 }
 .allocation-graph-padding{
-  padding-top: 44px;
-  padding-left: 100px;
+  padding-top: 60px;
+ 
+  text-align: center;
 
 }
 .cursor{
@@ -770,8 +804,69 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .donut-inherit svg path{
   opacity: 1 !important;
-
-  
 }
- 
+.donut-inherit-innertext{
+  width: 10px !important;
+  font-size: 14px;
+}
+/* .progress-bar{
+
+  height: 8px;
+  margin-left: 20px;
+} */
+
+.progress-div{
+  padding-bottom: 10px;
+
+
+}
+
+.div-pad-allocation{
+  padding: 40px 10px 10px 20px;
+}
+
+.div-margin-alocation{
+  padding:10px;
+}
+.p-allocation{
+  color: rgb(132, 146, 166);
+  font-weight: bold;
+}
+.progress-height{
+  height: 6px;
+}
+.main-nav-shadow{
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 20px;
+}
+
+.div-center{
+  top: 40%;
+  left: 40%;
+  position: absolute;
+}
+.loading{
+  top: 50%;
+  left: 50%;
+  height: 101px;
+  width: 101px;
+  position: relative;
+  color: #BF0A30;
+
+}
+
+.loading-img{
+
+  height: 100px;
+  width: 100px;
+  content: url(../images/icon-fund-dollar-1.png);
+}
+
+.div-tab-pad-top{
+  padding-top: 45px;
+}
+.p-center-start{
+  text-align: center ;
+}
+
+
 /*# sourceMappingURL=custom.css.map */

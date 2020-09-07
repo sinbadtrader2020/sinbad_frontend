@@ -2,11 +2,15 @@ import React, { Component } from "react";
 import MainNavBar from "./main-nav-bar";
 import Footer from "./footer";
 import Translator from "../utils/translator";
+import { Helmet } from "react-helmet";
 
 export default class Forum extends Component {
   render() {
     return (
       <>
+        <Helmet>
+          <title>Sinbad Forum</title>
+        </Helmet>
         <MainNavBar props={this.props} />
         {/* <!-- Forum Page Design -->
              <!-- Intro design --> */}

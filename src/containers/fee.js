@@ -6,11 +6,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import BecomeAnInvestor from "./become-an-investor";
 import Translator from "../utils/translator";
+import { Helmet } from "react-helmet";
 
 export default class Fees extends Component {
   render() {
     return (
       <>
+        <Helmet>
+          <title>Sinbad Fees</title>
+        </Helmet>
         <MainNavBar props={this.props} />
 
         {/* <!-- Fees page design -->

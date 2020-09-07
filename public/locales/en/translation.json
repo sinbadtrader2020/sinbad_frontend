@@ -278,9 +278,9 @@
 
     "mainNavBarAbout":{
         "1": "About",
-        "2": "Action",
-        "3": "Another Action",
-        "4": "Another Action"
+        "2": "Why Sinbad",
+        "3": "Our Offerings",
+        "4": "Ethical Investing"
    
     },
     "mainNavBarLearn":{
@@ -453,7 +453,7 @@
         "3":"Search"
     },
 
-    "faqSuport":{
+    "faqSupport":{
         "1":"Sinbad Finance Support"
     },
     "faqSupportCard":{
@@ -519,51 +519,46 @@
   
     "portfolioCard1":{
         "1":"Global Stocks",
-        "2":" Global Stocks",
-        "3":"Global stocks are mainly from the developed markets of the world. These are diversified investments across sectors and geographies and generally follow a large-cap value investment style.",
-        "4":"   Reason we chose this Asset Class:",
-        "5":" Direct and diversified investment in US, Uk and other foreign companies in developed markets that complay with islamic investment principles.",
-        "6":"  Exposure to developed and mature stock markets"
+    
+        "2":"Global stocks are mainly from the developed markets of the world. These are diversified investments across sectors and geographies and generally follow a large-cap value investment style.",
+        "3":"   Reason we chose this Asset Class:",
+        "4":" Direct and diversified investment in US, Uk and other foreign companies in developed markets that complay with islamic investment principles",
+        "5":"  Exposure to developed and mature stock markets"
     },
     "portfolioCard2":{
         "1":"Emerging Marketing Stocks",
-        "2":"",
-        "3":"",
-        "4":"",
-        "5":"",
-        "6":""
+        "2":"Emerging market stocks provide a great potential for geographic diversification and growth. This asset class comes with higher risk than the developed market stocks, yet can also provide higher returns due to the rising economic output and market capitalization of emerging markets.",
+        "3":"Reason we chose this Asset Class:",
+        "4":"Direct and diversified investment in emerging market companies that comply with Islamic investment principles",
+        "5":"Provides exposure to emerging market economies, which are not as mature as developed economies, thereby potentially offering higher returns"
     },
     "portfolioCard3":{
         "1":"Sukuk",
-        "2":"",
-        "3":"",
-        "4":"",
-        "5":"",
-        "6":""
+        "2":"The essence of Sukuk is to provide Ethical compliant instruments for investments which do not involve interest and excess uncertainty. It is a primacy of equity financing. The Sukuk holder has an ownership on the underlying asset which is entitled for revenues generated from the Sukuk asset unlike the bondholder who is eligible to receive interest payments by the bond issuer. The Sukuk limits the value of debt to that of the underlying. It must be asset backed or asset based and interest free.",
+        "3":"Reason we chose this Asset Class:",
+        "4":"Limits debt to value of underlying asset",
+        "5":"Primacy of equity financing"
     },
     "portfolioCard4":{
         "1":"Real Estate",
-        "2":"",
-        "3":"",
-        "4":"",
-        "5":"",
-        "6":""
+        "2":"This asset class aims to provide global exposure to real estate across different types of entities operating in this sector. Real estate allocation in a portfolio can help investors achieve a variety of objectives and may act as a valuable diversifier.",
+        "3":"Reason we chose this Asset Class:",
+        "4":"Shariah compliant exposure to global real estate investments",
+        "5":"Diversification benefit"
     },
     "portfolioCard5":{
         "1":"Gold",
-        "2":"",
-        "3":"",
-        "4":"",
-        "5":"",
-        "6":""
+        "2":"Commodities as an asset class have had historically low correlation with stocks and bonds. We have included gold to represent this asset class. Gold provides the potential for long-term capital appreciation and acts as an inflation hedge. The Royal Mint Physical Gold ETC aims to exclusively use responsibly-sourced bars that meet the requirements of the LBMA responsible sourcing program.",
+        "3":"Reason we chose this Asset Class:",
+        "4":"Diversification benefit",
+        "5":"Direct exposure to gold prices"
     },
     "portfolioCard6":{
         "1":"Bit Coin",
         "2":"",
-        "3":"",
+        "3":"Reason we chose this Asset Class:",
         "4":"",
-        "5":"",
-        "6":""
+        "5":""
     },
 
 
@@ -572,6 +567,63 @@
         "2":"You'll be investing in a portfolio that has a healthy mix of different companies and investments from numerous industries.",
         "3":"Allocation",
         "4":"Past Performance"
+    },
+
+    "portfolioTypes":{
+        "0":"Portfolio Types",
+        "1":"Very Aggressive",
+        "2":"Aggressive",
+        "3":"Moderately Aggressive",
+        "4":"Moderate",
+        "5":"Moderately Conservative",
+        "6":"Very Conservative"
+    },
+
+  
+    "portfolioAllocationGlobal":{
+        "1":"Global Stocks",
+        "2":"Global stocks are mainly from the developed markets of the world. These are diversified investments across sectors and geographies and generally follow a large-cap value investment style.",
+        "3":"Preferred Securities",
+        "4":"iShares MSCI World Islamic UCITS ETF USD (Dist)",
+        "5":"Wahed FTSE USA Shariah ETF"
+    
+    },
+    "portfolioAllocationEmergingMarketStocks":{
+        "1":"Emerging Market Stocks",
+        "2":"Emerging market stocks provide a great potential for geographic diversification and growth. This asset class comes with higher risk than the developed market stocks, yet can also provide higher returns due to the rising economic output and market capitalization of emerging markets.",
+        "3":"Preferred Securities",
+        "4":"iShares MSCI EM Islamic UCITS ETF USD (Dist)"
+    
+    },
+
+    "portfolioAllocationSukuk":{
+        "1":"Sukuk",
+        "2":"The essence of Sukuk is to provide Ethical compliant instruments for investments which do not involve interest and excess uncertainty. It is a primacy of equity financing. The Sukuk holder has an ownership on the underlying asset which is entitled for revenues generated from the Sukuk asset unlike the bondholder who is eligible to receive interest payments by the bond issuer. The Sukuk limits the value of debt to that of the underlying. It must be asset backed or asset based and interest free."
+       
+      
+    
+    },
+
+    "portfolioAllocationRealEstate":{
+        "1":"Real Estate",
+        "2":"This asset class aims to provide global exposure to real estate across different types of entities operating in this sector. Real estate allocation in a portfolio can help investors achieve a variety of objectives and may act as a valuable diversifier.",
+        "3":"Preferred Securities",
+        "4":"SC Global Real Estate Equities Fund - Class D"
+    
+    },
+    "portfolioAllocationGold":{
+        "1":"Gold",
+        "2":"Commodities as an asset class have had historically low correlation with stocks and bonds. We have included gold to represent this asset class. Gold provides the potential for long-term capital appreciation and acts as an inflation hedge. The Royal Mint Physical Gold ETC aims to exclusively use responsibly-sourced bars that meet the requirements of the LBMA responsible sourcing program.",
+        "3":"Preferred Securities",
+        "4":"Royal Mint Physical Gold ETC"
+    
+    },
+    "portfolioAllocationCash":{
+        "1":"Cash",
+        "2":"",
+        "3":"",
+        "4":""
+    
     },
 
     "portfolioGetBetterTittle":{
@@ -589,6 +641,8 @@
         "1":"Optimized",
         "2":"Our investment committee uses the modern portfolio theory to build portfolios that seek to maximize your return based on your risk profile."
     }
+    
+    
  
 
  

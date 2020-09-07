@@ -19,7 +19,8 @@ import Fees from "./containers/fee";
 import Blog from "./containers/blog";
 import Forum from "./containers/forum";
 import Portfolio from "./containers/portfolio";
-import AllocatoinChart from "./test/allocation-chart";
+import ComingSoon from "./containers/coming-soon";
+
 
 
 
@@ -118,11 +119,14 @@ class App extends React.Component {
     return (
       <Suspense
         fallback={
-          <div className="d-flex justify-content-center">
-            <div className="spinner-border" role="status">
-              <span className="sr-only">Loading...</span>
+          <div className="div-center d-flex justify-content-center">
+            <div className="loading spinner-border"  role="status"> 
+            </div>
+            <div className='loading2 loading-img'> 
+
             </div>
           </div>
+          
         }
       >
         <div className="App">
@@ -202,13 +206,15 @@ class App extends React.Component {
               props={childProps}
             />
 
-
-              <AppliedRoute
-              path={Path.piechart}
+            <AppliedRoute
+              path={Path.comingSoon}
               exact
-              component={AllocatoinChart}
+              component={ComingSoon}
               props={childProps}
             />
+
+
+          
 
 
             {/* Finally, catch all unmatched routes */}
