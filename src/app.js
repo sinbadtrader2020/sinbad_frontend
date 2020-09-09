@@ -25,8 +25,10 @@ import ComingSoon from "./containers/coming-soon";
 
 
 class Index extends React.Component {
+
   render() {
     return <Redirect to={Path.welcome} />;
+
   }
 }
 
@@ -82,6 +84,7 @@ class App extends React.Component {
   };
 
   render() {
+    Auth.blog()
     const childProps = {
       isAuthenticated: this.state.isAuthenticated,
       user: this.state.user,
@@ -100,6 +103,10 @@ class App extends React.Component {
     //         return <Redirect to={Path.login}/>;
     //     }
     // }
+    if(this.props.location.pathname===Path.blog){
+      Auth.blog()
+
+    }
 
     if (this.state.isAuthenticated) {
       if (
@@ -119,6 +126,8 @@ class App extends React.Component {
     return (
       <Suspense
         fallback={
+         
+          
           <div className="div-center d-flex justify-content-center">
             <div className="loading spinner-border"  role="status"> 
             </div>

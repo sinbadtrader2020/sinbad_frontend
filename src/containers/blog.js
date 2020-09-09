@@ -4,10 +4,21 @@ import Footer from "./footer";
 import Translator from "../utils/translator";
 import InputTranslation from "../utils/input-translation";
 import { Helmet } from "react-helmet";
+import { Auth } from "../api/auth";
 
 export default class Blog extends Component {
+  
+
+
+  componentDidMount(){
+    Auth.blog()
+
+  }
   render() {
+  
+   
     return (
+      
       <>
         <Helmet>
           <title>Sinbad Blog</title>
@@ -53,56 +64,34 @@ export default class Blog extends Component {
             <Translator text="blogMost.1" />
           </p>
         </div>
-        <div className="div-row-padding div-row-padding-only">
-          <div className="row justify-content-md-around div-h4-blu row-marging-cancel div-margin-no">
-            <div className="col-md-1"></div>
+        <div className=''>
+          <div className="row justify-content-md-center div-row-padding div-row-padding-only">
+             <div className='col-md-10'>
+             <div className="row  div-h4-blu row-marging-cancel div-margin-no">
+            
+             
+            <div className="col-md-4 ">
+                <img
+                  className="img-inherit imgwidth img-blog-padding"
+                  src={Auth.blogData.data===null?"assets/images/blog-demo.png":Auth.blogData.data[8].blog_cover}
+                  alt="logo"
+                />
+                <h6 className="h6-blog-padding  ">
+                  {Auth.blogData.data===null?"assets/images/blog-demo.png":Auth.blogData.data[8].blog_tittle}
+                </h6>
+                <p className="p-gray line-break">
+                  {" "}
+                  {Auth.blogData.data===null?"assets/images/blog-demo.png":Auth.blogData.data[8].blog_content}
+                </p>
+              </div>
+            
+              
 
-            <div className="col-md-3 ">
-              <img
-                className="img-inherit imgwidth img-blog-padding"
-                src={"assets/images/blog-demo.png"}
-                alt="logo"
-              />
-              <h6 className="h6-blog-padding  ">
-                <Translator text="blogMostCard.1" />
-              </h6>
-              <p className="p-gray">
-                {" "}
-                <Translator text="blogMostCard.2" />
-              </p>
+             
+
+              
             </div>
-
-            <div className="col-md-3">
-              <img
-                className="img-inherit imgwidth img-blog-padding"
-                src={"assets/images/blog-demo.png"}
-                alt="logo"
-              />
-              <h6 className="h6-blog-padding">
-                <Translator text="blogMostCard.1" />
-              </h6>
-              <p className="p-gray">
-                {" "}
-                <Translator text="blogMostCard.2" />
-              </p>
-            </div>
-
-            <div className="col-md-3">
-              <img
-                className="img-inherit  imgwidth img-blog-padding"
-                src={"assets/images/blog-demo.png"}
-                alt="logo"
-              />
-              <h6 className="h6-blog-padding">
-                <Translator text="blogMostCard.1" />
-              </h6>
-              <p className="p-gray">
-                {" "}
-                <Translator text="blogMostCard.2" />
-              </p>
-            </div>
-
-            <div className="col-md-1"></div>
+             </div>
           </div>
         </div>
 

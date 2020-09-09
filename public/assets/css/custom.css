@@ -868,5 +868,22 @@ input[type=number]::-webkit-outer-spin-button {
   text-align: center ;
 }
 
+.line-break{
+  -webkit-line-clamp: 3;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+}
+.line-break-2{
+  -webkit-line-clamp: 1;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+}
+.blog-card-margin{
+ 
+}
 
 /*# sourceMappingURL=custom.css.map */

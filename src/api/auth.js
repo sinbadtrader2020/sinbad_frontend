@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import { API, configureAxios } from "./config";
 
 class Authentication {
@@ -8,6 +9,10 @@ class Authentication {
       token: null,
       error: null,
     };
+    this.blogData={
+      data:null,
+      error:null,
+  };
 
     this.session = "tirzok-session";
     this.authCallback = null;
@@ -115,6 +120,36 @@ class Authentication {
   currentSession() {
     return JSON.parse(localStorage.getItem(this.session));
   }
+
+
+
+
+
+
+
+
+  async blog(){
+    const token = Buffer.from('admin:admin', 'utf8').toString('base64')
+    
+      return axios
+      .get('http://127.0.0.1:8000/api/blogs/').then(res=>{this.onSetBlog(res.data)});
+  }
+
+  onSetBlog(data = "") {
+
+    if (data) {
+      this.blogData.data = data;
+      this.blogData.error = null;
+
+
+      return [true, this.blogData];
+    }
+ 
+    
+
+    return [false, this.blogData];
+  }
+  
 }
 
 export const Auth = new Authentication();

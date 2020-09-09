@@ -7,6 +7,7 @@ export class APIConfig {
   static AUTH_TOKEN_HEADER = "token";
 }
 
+
 export function configureAxios({
   baseURL = APIConfig.BASE_URL,
   authToken = APIConfig.AUTH_TOKEN,
@@ -35,6 +36,46 @@ export function configureAxios({
     }
   );
 }
+
+
+
+// blog api config
+
+// export class APIBlogConfig {
+//   static BASE_URL = "http://127.0.0.1:8000/api/blogs/";
+//   static POST_CONTENT_TYPE = "application/json";
+//   static AUTH_HEADER= {username: 'admin',password: 'admin'};
+// }
+// export function configureAxiosBlog({
+//   baseURL = APIBlogConfig.BASE_URL,
+//   authToken = APIBlogConfig.AUTH_HEADER,
+//   authCallback = null,
+//   postContentType = APIBlogConfig.POST_CONTENT_TYPE,
+//   ...props
+// } = {}) {
+//   axios.defaults.baseURL = baseURL;
+  
+//   // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+//   APIBlogConfig.authCallback = authCallback;
+//   axios.interceptors.response.use(
+//     function (response) {
+//       return response;
+//     },
+//     function (error) {
+//       if (401 === error.response.status) {
+//         if (APIBlogConfig.authCallback) {
+//           APIBlogConfig.authCallback(error.response);
+//         }
+//       } else {
+//         return Promise.reject(error);
+//       }
+//     }
+//   );
+// }
+
+
+
+// end blog  api config
 
 const API_SIGNIN = "/signin";
 const API_SIGNUP = "/signup";
