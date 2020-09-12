@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { API, configureAxios } from "./config";
+import { API, configureAxios, BlogApiConfig } from "./config";
 
 class Authentication {
   constructor() {
@@ -128,11 +128,11 @@ class Authentication {
 
 
 
-  async blog(){
-    const token = Buffer.from('admin:admin', 'utf8').toString('base64')
-    
+   blog(){
+   
       return axios
-      .get('http://127.0.0.1:8000/api/blogs/').then(res=>{this.onSetBlog(res.data)});
+      .get(BlogApiConfig.BASE_URL).then(res=>{this.onSetBlog(res.data)})
+      .catch((error) => this.onSetResult("", error));;
   }
 
   onSetBlog(data = "") {

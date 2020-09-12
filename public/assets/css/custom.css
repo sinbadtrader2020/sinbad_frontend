@@ -37,6 +37,21 @@
   padding-top: 50px;
 }
 @media (max-width: 600px) {
+  .full-blog-padding-content{
+    padding: 10px  20px !important;
+  }
+  .ckedit p img{
+    width: 200px !important;
+    height: 330px !important;
+
+  }
+  .div-center{
+    top: 50% !important;
+    left: 10% !important;
+    position: absolute;
+  }
+
+
   .div-row-padding {
     padding-top: 0px;
   }
@@ -882,8 +897,21 @@ input[type=number]::-webkit-outer-spin-button {
     overflow: hidden;
     -webkit-box-orient: vertical;
 }
-.blog-card-margin{
+.full-blog-padding{
+  padding-top: 70px;
  
 }
+.fullblogfont-p{
+  font-size: 12px;
+}
+.img-inherit-blog{
+  width: inherit;
+  height: 220px;
+  border-radius: inherit;
+}
+.full-blog-padding-content{
+  padding: 70px 40px 20px 100px;
+}
+
 
 /*# sourceMappingURL=custom.css.map */

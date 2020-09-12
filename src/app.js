@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { Redirect } from "react-router";
-import { Switch, withRouter, Route } from "react-router-dom";
+import { Switch, withRouter, Route, Link } from "react-router-dom";
 import AppliedRoute from "./utils/applied-route";
 import { Path } from "./containers/config";
 import { Auth } from "./api/auth";
@@ -20,6 +20,7 @@ import Blog from "./containers/blog";
 import Forum from "./containers/forum";
 import Portfolio from "./containers/portfolio";
 import ComingSoon from "./containers/coming-soon";
+import fullBlog from "./containers/full-blog";
 
 
 
@@ -84,7 +85,7 @@ class App extends React.Component {
   };
 
   render() {
-    Auth.blog()
+
     const childProps = {
       isAuthenticated: this.state.isAuthenticated,
       user: this.state.user,
@@ -103,11 +104,7 @@ class App extends React.Component {
     //         return <Redirect to={Path.login}/>;
     //     }
     // }
-    if(this.props.location.pathname===Path.blog){
-      Auth.blog()
-
-    }
-
+ 
     if (this.state.isAuthenticated) {
       if (
         this.props.location.pathname === Path.signin ||
@@ -219,6 +216,17 @@ class App extends React.Component {
               path={Path.comingSoon}
               exact
               component={ComingSoon}
+              props={childProps}
+            />
+
+
+
+            <Route
+        
+ 
+              path={Path.fullBlog}
+              exact         
+              component={fullBlog}
               props={childProps}
             />
 

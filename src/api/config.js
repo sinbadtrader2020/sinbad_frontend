@@ -7,6 +7,10 @@ export class APIConfig {
   static AUTH_TOKEN_HEADER = "token";
 }
 
+export class BlogApiConfig{
+  static BASE_URL =  'http://127.0.0.1:8000/api/blogs/';
+}
+
 
 export function configureAxios({
   baseURL = APIConfig.BASE_URL,

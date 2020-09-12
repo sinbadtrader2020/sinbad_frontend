@@ -70,3 +70,14 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+
+### Blog post api connection
+
+go to src/api/config.js there you will find a function
+export class BlogApiConfig{
+  static BASE_URL =  'http://127.0.0.1:8000/api/blogs/';
+}
+edit the BASE_URL 
+and build

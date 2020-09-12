@@ -199,7 +199,7 @@ class MainNavBar extends Component {
                     : " "}
                 </h5>
 
-              {this.props.props.isAuthenticated === false ? (
+              {this.props.props.isAuthenticated === false ||this.props.props.isAuthenticated === undefined? (
                 <>
                   <Link
                     to={Path.signin}
@@ -212,7 +212,7 @@ class MainNavBar extends Component {
                     <Translator text="mainNavBarBtn.1" />
                   </Link>
                   <Link
-                    to={Path.signup}
+                    to={Path.signup} 
                     onClick={this.changeNav}
                     className="btn btn-outline-danger my-2 my-sm-0"
                   

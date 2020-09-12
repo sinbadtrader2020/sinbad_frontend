@@ -19,6 +19,7 @@ const BLOG ='/blog'
 const FORUM ='/forum'
 const PORTFOLIO ='/portfolio'
 const COMINGSOON='/top'
+const FULLBLOG='/fullblog'
 
 
 
@@ -63,6 +64,8 @@ export class Path {
   static get comingSoon(){
     return COMINGSOON;
   }
-
+  static get fullBlog(){
+    return FULLBLOG;
+  }
  
 }
