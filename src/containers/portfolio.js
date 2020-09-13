@@ -561,12 +561,13 @@ export default class Portfolio extends Component {
 
 
 
-                <div className='col-md-1 m-auto '>
-                <i><FontAwesomeIcon className={this.state.divExpand==='Diversified'?"color-icon-blue":"p-gray"} fontSize='20px' icon={this.state.divExpand==='Diversified'?faMinusCircle:faPlusCircle} /></i>
+                {/* <div className='col-md-1 m-auto '>
+                
              
-                </div>
-                <div className='col-md-11'>
-                <h3 className='p-gray  '  style={this.state.divExpand==='Diversified'?{color: this.state.bg_color}:null}> <Translator text="portfolioGetBetter1.1" /></h3>
+                </div> */}
+                <div className='col-md-11 overflow-hidden'>
+                <i className='float-left icon-porfolio'><FontAwesomeIcon className={this.state.divExpand==='Diversified'?"color-icon-blue":"p-gray"} fontSize='20px' icon={this.state.divExpand==='Diversified'?faMinusCircle:faPlusCircle} /></i>
+                <h3 className='p-gray float-left '  style={this.state.divExpand==='Diversified'?{color: this.state.bg_color}:null}> <Translator text="portfolioGetBetter1.1" /></h3>
                 </div>
                 </div>
                 <div className='row div-margin-no div-invest-padding'>
@@ -585,12 +586,14 @@ export default class Portfolio extends Component {
 
 
 
-                  <div className='col-md-1 m-auto '>
-                  <FontAwesomeIcon className={this.state.divExpand==='LowCost'?"color-icon-blue":"p-gray"} fontSize='20px' icon={this.state.divExpand==='LowCost'?faMinusCircle:faPlusCircle} />
+                  {/* <div className='col-md-1 m-auto '>
               
-                  </div>
-                  <div className='col-md-11' >
-                  <h3 className='p-gray ' style={this.state.divExpand==='LowCost'?{color: this.state.bg_color}:null}> <Translator text="portfolioGetBetter2.1" /></h3>
+                  </div> */}
+                  <div className='col-md-11 overflow-hidden'  >
+                  <i className='float-left icon-porfolio'>
+                  <FontAwesomeIcon className={this.state.divExpand==='LowCost'?"color-icon-blue":"p-gray"} fontSize='20px' icon={this.state.divExpand==='LowCost'?faMinusCircle:faPlusCircle} />
+                  </i>
+                  <h3 className='p-gray float-left' style={this.state.divExpand==='LowCost'?{color: this.state.bg_color}:null}> <Translator text="portfolioGetBetter2.1" /></h3>
                   </div>
                 </div>
                 <div className='row div-margin-no div-invest-padding'>
@@ -607,12 +610,16 @@ export default class Portfolio extends Component {
 
 
 
-                <div className='col-md-1 m-auto '>
-                <FontAwesomeIcon className={this.state.divExpand==='Optimized'?"color-icon-blue":"p-gray"} fontSize='20px' icon={this.state.divExpand==='Optimized'?faMinusCircle:faPlusCircle}/>
+                {/* <div className='col-md-1 m-auto '>
              
-                </div>
-                <div className='col-md-11'>
-                <h3 className='p-gray ' style={this.state.divExpand==='Optimized'?{color: this.state.bg_color}:null}><Translator text="portfolioGetBetter3.1" /></h3>
+                </div> */}
+                <div className='col-md-11 overflow-hidden'>
+                <i className='float-left icon-porfolio'>
+
+                <FontAwesomeIcon className={this.state.divExpand==='Optimized'?"color-icon-blue":"p-gray"} fontSize='20px' icon={this.state.divExpand==='Optimized'?faMinusCircle:faPlusCircle}/>
+
+                </i>
+                <h3 className='p-gray float-left' style={this.state.divExpand==='Optimized'?{color: this.state.bg_color}:null}><Translator text="portfolioGetBetter3.1" /></h3>
                 </div>
                 </div>
                 <div className='row div-margin-no div-invest-padding'>
@@ -641,7 +648,7 @@ export default class Portfolio extends Component {
 
                 {/* <!-- Become an investor-> */}
 
-                <BecomeAnInvestor/>
+        <BecomeAnInvestor/>
 
             <Footer />
                 

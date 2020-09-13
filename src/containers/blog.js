@@ -125,7 +125,7 @@ export default class Blog extends Component {
         </p>
       </div>
       <div className=''>
-        <div className="row justify-content-md-center div-row-padding div-row-padding-only">
+        <div className="row div-margin-no justify-content-md-center div-row-padding div-row-padding-only">
            <div className='col-md-10'>
            <div className="row  div-h4-blu row-marging-cancel div-margin-no">
           
@@ -171,7 +171,7 @@ export default class Blog extends Component {
         </p>
       </div>
       <div className=''>
-        <div className="row justify-content-md-center div-row-padding div-row-padding-only">
+        <div className="row div-margin-no justify-content-md-center div-row-padding div-row-padding-only">
            <div className='col-md-10'>
            <div className="row  div-h4-blu row-marging-cancel div-margin-no">
           

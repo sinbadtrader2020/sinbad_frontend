@@ -5,7 +5,7 @@ export default class BecomeAnInvestor extends Component {
     render() {
         return (
             <>
-                           <div className="container footer-no-margin padding-extra ">
+                      <div className="container  padding-extra ">
           <div className="row div-row-padding">
             {/* <div className="col-md-1"></div> */}
             <div className="col-md-7 m-auto">

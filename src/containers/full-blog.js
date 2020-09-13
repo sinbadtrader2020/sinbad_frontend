@@ -5,6 +5,7 @@ import Axios from "axios";
 import { Auth } from "../api/auth";
 import { Route } from "react-router";
 import notFound from "./not-found";
+import Footer from "./footer";
 
 
 
@@ -67,8 +68,8 @@ export default class fullBlog extends Component {
        <title>Sinbad Forum</title>
      </Helmet>
      <MainNavBar props={this.props} />
-     <div className="row full-blog-padding justify-content-lg-center">
-       <div className="full-blog-padding-content">
+     <div className="row div-margin-no full-blog-padding justify-content-lg-center">
+       <div className=" full-blog-padding-content">
          <h1>{Auth.blogData.data[this.state.index].blog_tittle}</h1>
          <p className="fullblogfont-p">
            {" "}
@@ -77,7 +78,7 @@ export default class fullBlog extends Component {
            }{" "}
          </p>
 
-         <div classname='ckedit'
+         <div 
            dangerouslySetInnerHTML={{
              __html: Auth.blogData.data[this.state.index].blog_content,
             
@@ -85,6 +86,7 @@ export default class fullBlog extends Component {
          />
        </div>
      </div> 
+  
    </>
       )
       

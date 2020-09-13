@@ -37,12 +37,81 @@
   padding-top: 50px;
 }
 @media (max-width: 600px) {
+  .bg-color-div{
+      padding: 0px !important;
+  }
+
+  .allocation-graph-padding{
+    padding-top: 44px;
+    padding-left: 44px !important;
+  
+  }
+  .faq-support-card div div {
+    border:1px solid #7F7F7F;
+    
+    margin: 10px 10px;
+    padding: 20px !important;
+  }
+  .div-row-work-padding{
+    padding: 0px 0px !important;
+    
+  }
+  .faq-support-card div{
+    padding-top: 0px !important;
+  }
+  .faq-support-card{
+    padding: 0px 0px !important;
+  }
+  .faq-support-card div{
+    padding-top: 0px;
+    padding-bottom: 0px
+  }
+.faq-div-support-margin{
+  margin: 10px;
+  }
+  .image-height{
+    height: 300px !important;
+    border-radius: 50%;
+    margin: 20px;
+   
+   
+  
+  }
+  .img-screen-size{
+    width: inherit;
+
+  }
+  .center-start{
+    text-align: start !important;
+  }
+  .padding-extra {
+    padding-top: 0px !important;
+  }
+
+  .pb-subhead ,.pb-subhead-2{
+    margin: 0px !important;
+  }
+
+  .blog-search-padd{
+    padding-top: 0px !important;
+    padding-bottom: 10px;
+  }
+  .row-marging-cancel{
+    margin: 0px !important;
+  }
+  .img-blog-padding{
+    padding: 0px !important;
+    
+  
+  }
+  
+
   .full-blog-padding-content{
     padding: 10px  20px !important;
   }
-  .ckedit p img{
-    width: 200px !important;
-    height: 330px !important;
+  .ckedit p {
+    width: 20px !important;
+    height: 33px !important;
 
   }
   .div-center{
@@ -85,10 +154,10 @@
     text-align: center;
     display: table-row;
   }
-    /* use on home page to remove gap from image */
+    /* use on home page to remove gap from image 
     .footer-no-margin {
       margin-bottom: -70px;
-    }
+    }*/
     .div-h1-blue-end{
       font-weight: bold;
       color:  #002868;
@@ -121,6 +190,7 @@
   .p-center-start{
     text-align: start !important;
   }
+  
   
 }
 .h1-blue-center-start{
@@ -393,71 +463,7 @@ footer li {
 }
 @media screen and (max-width: 600px){
   
-  .allocation-graph-padding{
-    padding-top: 44px;
-    padding-left: 44px !important;
-  
-  }
-  .faq-support-card div div {
-    border:1px solid #7F7F7F;
-    
-    margin: 10px 10px;
-    padding: 20px !important;
-  }
-  .div-row-work-padding{
-    padding: 0px 0px !important;
-    
-  }
-  .faq-support-card div{
-    padding-top: 0px !important;
-  }
-  .faq-support-card{
-    padding: 0px 0px !important;
-  }
-  .faq-support-card div{
-    padding-top: 0px;
-    padding-bottom: 0px
-  }
-.faq-div-support-margin{
-  margin: 10px;
-  }
-  .image-height{
-    height: 300px !important;
-    border-radius: 50%;
-    margin: 20px;
-   
-   
-  
-  }
-  .img-screen-size{
-    width: inherit;
-
-  }
-  .center-start{
-    text-align: start !important;
-  }
-  .padding-extra {
-    padding-top: 0px !important;
-  }
-
-  .pb-subhead ,.pb-subhead-2{
-    margin: 0px !important;
-  }
-
-  .blog-search-padd{
-    padding-top: 0px !important;
-    padding-bottom: 10px;
-  }
-  .row-marging-cancel{
-    margin: 0px !important;
-  }
-  .img-blog-padding{
-    padding: 0px !important;
-    
-  
-  }
-  
-
+ 
 
 
 
@@ -911,6 +917,11 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .full-blog-padding-content{
   padding: 70px 40px 20px 100px;
+}
+
+.icon-porfolio{
+  padding-top: 6px;
+  padding-right: 5px;
 }
 
 
