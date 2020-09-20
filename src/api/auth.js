@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { API, configureAxios, BlogApiConfig } from "./config";
+import { API, configureAxios } from "./config";
 
 class Authentication {
   constructor() {
@@ -9,10 +9,7 @@ class Authentication {
       token: null,
       error: null,
     };
-    this.blogData={
-      data:null,
-      error:null,
-  };
+    
 
     this.session = "tirzok-session";
     this.authCallback = null;
@@ -128,27 +125,7 @@ class Authentication {
 
 
 
-   blog(){
-   
-      return axios
-      .get(BlogApiConfig.BASE_URL).then(res=>{this.onSetBlog(res.data)})
-      .catch((error) => this.onSetResult("", error));;
-  }
-
-  onSetBlog(data = "") {
-
-    if (data) {
-      this.blogData.data = data;
-      this.blogData.error = null;
-
-
-      return [true, this.blogData];
-    }
- 
-    
-
-    return [false, this.blogData];
-  }
+  
   
 }
 

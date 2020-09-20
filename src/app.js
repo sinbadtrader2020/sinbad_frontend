@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { Redirect } from "react-router";
-import { Switch, withRouter, Route, Link } from "react-router-dom";
+import { Switch, withRouter, Route } from "react-router-dom";
 import AppliedRoute from "./utils/applied-route";
 import { Path } from "./containers/config";
 import { Auth } from "./api/auth";
@@ -114,13 +114,15 @@ class App extends React.Component {
         // alert("App1 - " + childProps.isAuthenticated + " " + this.props.location.pathname);
         return <Redirect to={Path.home} />;
       }
-    } else {
+    } 
+    else {
       if (this.props.location.pathname === Path.home) {
         return <Redirect to={Path.welcome} />;
       }
     }
 
     return (
+    
       <Suspense
         fallback={
          
@@ -136,6 +138,7 @@ class App extends React.Component {
         }
       >
         <div className="App">
+        {console.log("APP")}
           <Switch>
             <AppliedRoute
               path={Path.index}
@@ -189,7 +192,7 @@ class App extends React.Component {
               props={childProps}
             />
 
-               <AppliedRoute
+            <AppliedRoute
               path={Path.blog}
               exact
               component={Blog}
@@ -219,11 +222,7 @@ class App extends React.Component {
               props={childProps}
             />
 
-
-
-            <Route
-        
- 
+            <AppliedRoute
               path={Path.fullBlog}
               exact         
               component={fullBlog}

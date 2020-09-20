@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import MainNavBar from "./main-nav-bar";
 import { Helmet } from "react-helmet";
-import Axios from "axios";
-import { Auth } from "../api/auth";
+
+
 import { Route } from "react-router";
 import notFound from "./not-found";
-import Footer from "./footer";
+import { blogApi } from "../utils/blog-api";
+
 
 
 
@@ -38,7 +39,7 @@ export default class fullBlog extends Component {
     this.setState({
       index: this.state.adressPath[this.state.adressPath.length - 1]-1 ,
     });
-    Auth.blog()
+    blogApi.blog()
     .then((response) => {
       console.log("update");
 
@@ -59,7 +60,7 @@ export default class fullBlog extends Component {
         </div>
       </>
      : 
-     (Auth.blogData.data[this.state.index]===undefined? <Route component={notFound} />:
+     (blogApi.blogData.data[this.state.index]===undefined? <Route component={notFound} />:
       
       <>
     
@@ -70,17 +71,17 @@ export default class fullBlog extends Component {
      <MainNavBar props={this.props} />
      <div className="row div-margin-no full-blog-padding justify-content-lg-center">
        <div className=" full-blog-padding-content">
-         <h1>{Auth.blogData.data[this.state.index].blog_tittle}</h1>
+         <h1>{blogApi.blogData.data[this.state.index].blog_tittle}</h1>
          <p className="fullblogfont-p">
            {" "}
            Author name:  {
-             " "+Auth.blogData.data[this.state.index].author_name
+             " "+blogApi.blogData.data[this.state.index].author_name
            }{" "}
          </p>
 
          <div 
            dangerouslySetInnerHTML={{
-             __html: Auth.blogData.data[this.state.index].blog_content,
+             __html: blogApi.blogData.data[this.state.index].blog_content,
             
            }}
          />

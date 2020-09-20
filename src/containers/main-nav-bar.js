@@ -193,10 +193,10 @@ class MainNavBar extends Component {
 
                
               </div>
-              <h5 style={{padding:"0 5px 0 0px",margin:"1px"}}>
+               <h5 style={{padding:"0 5px 0 0px",margin:"1px"}}>
                   {this.props.props.isAuthenticated === true
-                    ? this.props.props.user.data[0]["first_name"]
-                    : " "}
+                    ? this.props.props.user.data[0]['first_name']
+                    : null}
                 </h5>
 
               {this.props.props.isAuthenticated === false ||this.props.props.isAuthenticated === undefined? (

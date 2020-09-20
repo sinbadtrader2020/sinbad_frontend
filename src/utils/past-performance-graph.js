@@ -91,7 +91,7 @@ const  Graph = () => {
     
       prepareChart(chart);
     }
-  }, [])
+  })
 
     function prepareChart(chart) {
         var series = chart.addLineSeries({

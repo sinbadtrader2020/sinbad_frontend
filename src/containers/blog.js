@@ -1,14 +1,14 @@
-import React, { Component, Suspense } from "react";
+import React, { Component } from "react";
 import MainNavBar from "./main-nav-bar";
 import Footer from "./footer";
 import Translator from "../utils/translator";
 import InputTranslation from "../utils/input-translation";
 import { Helmet } from "react-helmet";
-import { Auth } from "../api/auth";
-import { Link, Route, useHistory } from "react-router-dom";
-import AppliedRoute from "../utils/applied-route";
-import fullBlog from "./full-blog";
+
+
 import { Path } from "./config";
+import { blogApi } from "../utils/blog-api";
+
 
 //  'id',
 // 'blog_tittle',
@@ -25,12 +25,15 @@ export default class Blog extends Component {
     this.state = {
       hit: null,
     };
+    
   }
+
+  
   
 
 
   componentDidMount(){
-    Auth.blog().then(response => {
+    blogApi.blog().then(response => {
       console.log('update');
       
       this.setState({
@@ -55,10 +58,8 @@ export default class Blog extends Component {
     return (
       this.state.hit===null?
       <>
-      <Helmet>
-      <title>Sinbad Blog</title>
-       </Helmet>
-       <MainNavBar props={this.props} />
+      {console.log("hit________null")}
+
 
       <div className="div-center d-flex justify-content-center">
       <div className="loading spinner-border"  role="status"> 
@@ -67,9 +68,9 @@ export default class Blog extends Component {
 
       </div>
      </div> </>:
-     (Auth.blogData.data==null?
+     (blogApi.blogData.data===null?
      <>
-
+      {console.log("blogdata___________null")}
       <Helmet>
         <title>Sinbad Blog</title>
       </Helmet>
@@ -80,6 +81,7 @@ export default class Blog extends Component {
      
       :
       <>
+      {console.log("data___________________has",blogApi.blogData.data)}
       <Helmet>
         <title>Sinbad Blog</title>
       </Helmet>
@@ -129,7 +131,7 @@ export default class Blog extends Component {
            <div className='col-md-10'>
            <div className="row  div-h4-blu row-marging-cancel div-margin-no">
           
-           {Auth.blogData.data.map((data,i)=>(
+           {blogApi.blogData.data.map((data,i)=>(
 
           /* "  mostPopular
             recentPost" */
@@ -137,15 +139,15 @@ export default class Blog extends Component {
             (data.post==='mostPopular'? <div className="col-md-4 cursor " onClick={()=>this.routeChange(data,i)}>
               <img
                 className="img-inherit-blog imgwidth img-blog-padding"
-                src={Auth.blogData.data===null?"assets/images/blog-demo.png":data.blog_cover}
+                src={blogApi.blogData.data===null?"assets/images/blog-demo.png":data.blog_cover}
                 alt="headline"
               />
               <h6 className="h6-blog-padding  ">
-                {Auth.blogData.data===null?"assets/images/blog-demo.png":data.blog_tittle}
+                {blogApi.blogData.data===null?"assets/images/blog-demo.png":data.blog_tittle}
               </h6>
               <p className="p-gray line-break">
                 {" "}
-                {Auth.blogData.data===null?"assets/images/blog-demo.png":data.blog_description}
+                {blogApi.blogData.data===null?"assets/images/blog-demo.png":data.blog_description}
               </p>
             </div>:null)
            
@@ -175,7 +177,7 @@ export default class Blog extends Component {
            <div className='col-md-10'>
            <div className="row  div-h4-blu row-marging-cancel div-margin-no">
           
-           {Auth.blogData.data.map((data,i)=>(
+           {blogApi.blogData.data.map((data,i)=>(
 
           /* "  mostPopular
             recentPost" */
@@ -183,15 +185,15 @@ export default class Blog extends Component {
             (data.post==='recentPost'? <div className="col-md-4 cursor " onClick={()=>this.routeChange(data,i)}>
               <img
                 className="img-inherit-blog imgwidth img-blog-padding"
-                src={Auth.blogData.data===null?"assets/images/blog-demo.png":data.blog_cover}
+                src={blogApi.blogData.data===null?"assets/images/blog-demo.png":data.blog_cover}
                 alt="logo"
               />
               <h6 className="h6-blog-padding  ">
-                {Auth.blogData.data===null?"assets/images/blog-demo.png":data.blog_tittle}
+                {blogApi.blogData.data===null?"assets/images/blog-demo.png":data.blog_tittle}
               </h6>
               <p className="p-gray line-break">
                 {" "}
-                {Auth.blogData.data===null?"assets/images/blog-demo.png":data.blog_description}
+                {blogApi.blogData.data===null?"assets/images/blog-demo.png":data.blog_description}
               </p>
             </div>:null)
            

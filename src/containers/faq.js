@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Helmet } from "react-helmet";
 import MainNavBar from "./main-nav-bar";
 import Footer from "./footer";
-import { AiFillAccountBook } from "react-icons/ai";
+
 import Translator from "../utils/translator";
 import InputTranslation from "../utils/input-translation";
 

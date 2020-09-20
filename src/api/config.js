@@ -8,7 +8,9 @@ export class APIConfig {
 }
 
 export class BlogApiConfig{
-  static BASE_URL =  'http://127.0.0.1:8000/api/blogs/';
+  static BASE_URL =  'http://127.0.0.1:8000/admin/api/blogs/';
+
+
 }
 
 

@@ -2,17 +2,17 @@ import React, { Component } from 'react'
 import MainNavBar from './main-nav-bar'
 import Footer from './footer'
 import { Helmet } from 'react-helmet'
-import { AiFillAccountBook,AiOutlineGold,AiOutlineStock } from 'react-icons/ai'
+import { AiOutlineGold,AiOutlineStock } from 'react-icons/ai'
 import { FaRegMoneyBillAlt,FaBitcoin ,FaRegBuilding,FaChartBar} from "react-icons/fa";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheck,faPlusCircle,faMinusCircle, faCashRegister} from '@fortawesome/free-solid-svg-icons'
+import { faCheck,faPlusCircle,faMinusCircle } from '@fortawesome/free-solid-svg-icons'
 
 import Graph from '../utils/past-performance-graph'
 import BecomeAnInvestor from './become-an-investor'
 import Translator from '../utils/translator'
 import AllocatoinChart from '../utils/allocation-chart'
 import { ProgressBar } from 'react-bootstrap'
-import { text } from '@fortawesome/fontawesome-svg-core'
+
 
 
 export default class Portfolio extends Component {
