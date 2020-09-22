@@ -108,7 +108,7 @@ export default class Signup extends React.Component {
               </p>
 
               {/* <!-- Signup Form --> */}
-              <>
+              <form onSubmit={this.handleSubmit}>
                 <div className="form-row">
                   <div className="form-group col-md-6">
                     <InputTranslation
@@ -232,13 +232,13 @@ export default class Signup extends React.Component {
                     <button
                       type="submit"
                       className="btn btn-primary"
-                      onClick={this.handleSubmit}
+                     
                     >
                       <Translator text="signUpBlock8R2.1" /> 
                     </button>
                   </div>
                 </div>
-              </>
+              </form>
             </div>
           </div>
 

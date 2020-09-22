@@ -1,5 +1,4 @@
 
-
 /**
  * Path definition to route between JavaScript pages.
  * Paths can be accessed through Path's static
@@ -8,6 +7,7 @@
  */
 const INDEX = "/";
 const HOME = "/home";
+const SETTING = "/setting"
 const SIGNIN = "/signin";
 const SIGNUP = "/signup";
 
@@ -30,6 +30,9 @@ export class Path {
 
   static get home() {
     return HOME;
+  }
+  static get setting(){
+    return SETTING;
   }
 
   static get signin() {
@@ -66,6 +69,9 @@ export class Path {
   }
   static get fullBlog(){
     return FULLBLOG;
+  }
+  static get scroll(){
+    return  '/scroll'
   }
  
 }

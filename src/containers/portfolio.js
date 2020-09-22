@@ -27,6 +27,10 @@ export default class Portfolio extends Component {
     }
   }
     render() {
+      const size={
+        height:300,
+        width:800,
+      }
         return (
             <>
             <Helmet>
@@ -514,7 +518,7 @@ export default class Portfolio extends Component {
  
                      </div>
                      <div className='col-md-9 float-left div-padding-inherit'>
-                      <Graph></Graph>
+                      <Graph {...size}></Graph>
  
                       </div>
                  </div>

@@ -1,10 +1,11 @@
 import { createChart } from "lightweight-charts";
 import React from 'react';
 
-const  Graph = () => {
+function  Graph (props){
   const chartRef = React.useRef(null);
-  var width = 800;
-  var height = 300;
+ 
+  // var width = 800;
+  // var height = 300;
   React.useEffect(()=> {
     if(chartRef.current){
       const chart = createChart(chartRef.current, {
@@ -50,7 +51,8 @@ const  Graph = () => {
         },
       
       });
-      chart.resize(width,height)
+     
+      chart.resize( props.width, props.height)
      
       chart.applyOptions({
         timeScale:{
@@ -302,7 +304,7 @@ const  Graph = () => {
     }
   
   return <>
-      <div className=" as overflow-auto portfolio-graph" ref={chartRef} />
+      <div className=" overflow-auto portfolio-graph g-postion" ref={chartRef} />
    
   </>
   

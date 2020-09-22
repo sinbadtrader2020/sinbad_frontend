@@ -5,7 +5,7 @@ import AppliedRoute from "./utils/applied-route";
 import { Path } from "./containers/config";
 import { Auth } from "./api/auth";
 import { configureAxios } from "./api/config";
-import Home from "./containers/home";
+import Home from "./containers/home/home";
 import Signin from "./containers/signin";
 import Signup from "./containers/signup";
 import NotFound from "./containers/not-found";
@@ -21,6 +21,9 @@ import Forum from "./containers/forum";
 import Portfolio from "./containers/portfolio";
 import ComingSoon from "./containers/coming-soon";
 import fullBlog from "./containers/full-blog";
+import Setting from "./containers/home/setting";
+import Scroll from "./test/scroll";
+
 
 
 
@@ -116,7 +119,9 @@ class App extends React.Component {
       }
     } 
     else {
-      if (this.props.location.pathname === Path.home) {
+      if (this.props.location.pathname === Path.home||
+        this.props.location.pathname === Path.setting
+        ) {
         return <Redirect to={Path.welcome} />;
       }
     }
@@ -157,6 +162,12 @@ class App extends React.Component {
               path={Path.home}
               exact
               component={Home}
+              props={childProps}
+            />
+            <AppliedRoute
+              path={Path.setting}
+              exact
+              component={Setting}
               props={childProps}
             />
             <AppliedRoute
@@ -226,6 +237,13 @@ class App extends React.Component {
               path={Path.fullBlog}
               exact         
               component={fullBlog}
+              props={childProps}
+            />
+
+            <AppliedRoute
+              path={Path.scroll}
+              exact         
+              component={Scroll}
               props={childProps}
             />
 

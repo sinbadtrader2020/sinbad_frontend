@@ -925,4 +925,99 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 
+/* phase 2 media */
+@media (max-width: 600px) {
+  .nav-search{
+    margin: 10px 0px;
+  }
+  .p-menu p{
+    padding:0px !important;
+  
+  }
+  .account-call-pad{
+    padding: 0px !important;
+  }
+}
+/* phase 2 */
+.nav-end{
+  place-content: flex-end;
+}
+.nav-search{
+  width: 300px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 5px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('../images/search-icon.png');
+  background-position: 10px 4px;
+  background-repeat: no-repeat;
+  padding: 8px 20px 8px 55px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  outline: none;
+}
+.div-top-only{
+  padding-top: 120px;
+}
+.div-home-tab{
+  padding : 0px !important;
+  margin : 20px 10px;
+}
+.home-tab-black{
+  color: black;
+}
+.g-postion div div canvas{
+ 
+  z-index: unset !important;
+}
+.g-postion as{
+ 
+  z-index: unset !important;
+}
+.account-menu{
+  left: -50%;
+}
+.div-account-padding{
+  padding-top: 40px;
+  margin: 0px;
+}
+.p-account{
+  font-size: 24px;
+}
+.account-detail{
+  background-color:   #E7EEF6;
+  
+  border-bottom: 1px solid rgb(210, 210, 210);
+
+  padding: inherit;
+}
+.account-bg{
+  
+  background-color: #c6dae5;
+  border: none;
+  outline: none;
+  text-align: center;
+}
+.setting-page-color{
+  background-color: #E7EEF6;
+  box-shadow: rgba(0, 0, 0, 0.20) 0px 0px 10px;
+}
+.p-menu p{
+  padding-left:50px
+
+}
+.p-menu p a{
+  color: black;
+}
+.home-about-margin{
+  margin: 0px 40px 0px 0px;
+}
+.home-about-head{
+  width: -webkit-fill-available;
+  text-align: start;
+  font-size: 22px ;
+  border-bottom: 1px solid black;
+}
 /*# sourceMappingURL=custom.css.map */
