@@ -70,8 +70,8 @@ export class Path {
   static get fullBlog(){
     return FULLBLOG;
   }
-  static get scroll(){
-    return  '/scroll'
+  static get graphapi(){
+    return  '/test'
   }
  
 }

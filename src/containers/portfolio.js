@@ -7,36 +7,47 @@ import { FaRegMoneyBillAlt,FaBitcoin ,FaRegBuilding,FaChartBar} from "react-icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck,faPlusCircle,faMinusCircle } from '@fortawesome/free-solid-svg-icons'
 
-import Graph from '../utils/past-performance-graph'
+// import Graph from '../utils/past-performance-graph'
 import BecomeAnInvestor from './become-an-investor'
 import Translator from '../utils/translator'
 import AllocatoinChart from '../utils/allocation-chart'
 import { ProgressBar } from 'react-bootstrap'
+import UserMainNavBar from './home/user-main-nav-bar'
+import { Graphapi } from '../utils/graph/graph-api'
+import StaticGraph from '../utils/graph/static-past-performance-graph'
 
 
 
 export default class Portfolio extends Component {
   constructor(){
     super()
-
+     Graphapi.fetchData()
     this.state={
+     
+      divGraph:"Allocation",
       divExpandAllocation:"",
       divExpand:"Diversified",
       bg_color:"#002868",
       divInvestSinbad:"GlobalStocks",
     }
   }
+ 
+  
     render() {
-      const size={
+    let size={
         height:300,
         width:800,
+        data:Graphapi.result.data,
+       
       }
         return (
+     
             <>
             <Helmet>
             <title>Sinbad Portfolio</title>
             </Helmet>
-            <MainNavBar props={this.props} />
+            {this.props.isAuthenticated === false ||this.props.isAuthenticated === undefined?<MainNavBar props={this.props} />:<UserMainNavBar props={this.props}/>}
+            
 
               {/* Portfolio intro */}
         <div className="home-intro">
@@ -314,7 +325,7 @@ export default class Portfolio extends Component {
 
 
 {/* Our portfolio */}
-                <div className="container">
+        <div className="container">
                 <div className="row div-row-padding m-auto">
                 <div className='row padding-zero'>
                 <div className='col-md-11 m-auto h1-blue-center-start '>
@@ -330,12 +341,12 @@ export default class Portfolio extends Component {
 
             <div className='row div-tab-pad-top justify-content-sm-center m-auto'>
                         
-              <ul className="nav nav-pills col-md-6 justify-content-lg-center mb-3" id="pills-tab" role="tablist">
+              <ul className="nav nav-pills col-md-6 justify-content-lg-center mb-3" >
                 <li className="nav-item col-md-6">
-                  <a className="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"><Translator text='portfolioOurGraph.3'/></a>
+                  <p className={this.state.divGraph==="Allocation"?'nav-link active cursor':'nav-link  cursor'}   onClick={()=>{this.setState({divGraph:"Allocation"});console.log(this.state.divGraph)}} ><Translator text='portfolioOurGraph.3'/></p>
                 </li>
                 <li className="nav-item col-md-6">
-                  <a className="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false"><Translator text='portfolioOurGraph.4'/></a>
+                  <p className={this.state.divGraph==='Pastperfoemance'?'nav-link active cursor':'nav-link cursor'} onClick={()=>{this.setState({divGraph:"Pastperfoemance"})}}  ><Translator text='portfolioOurGraph.4'/></p>
                 </li>
                 
               </ul>
@@ -343,12 +354,13 @@ export default class Portfolio extends Component {
 
             
 
-                </div>
+            </div>
 
                
-              <div className="tab-content" id="pills-tabContent">
+       
            
-               <div className='row div-padding-graph justify-content-lg-center tab-pane fade show active overflow-hidden ' id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+              {this.state.divGraph==='Allocation'?
+              <div className='row div-padding-graph justify-content-lg-center tab-pane    overflow-hidden ' id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                      <div className='col-md-3 float-left'>
                         <p><Translator text='portfolioTypes.0'/></p>
                         <div className="nav flex-column nav-pills padding-zero " id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -495,12 +507,16 @@ export default class Portfolio extends Component {
                       
                     
                  </div>
+              
+              :null}
+               
             {/*  */}
         
  
 {/*  */}
   
-                  <div className='row div-padding-graph tab-pane fade overflow-hidden ' id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+              {this.state.divGraph==='Pastperfoemance'?
+              <div className='row div-padding-graph tab-pane  show overflow-hidden ' id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                   <div className='col-md-3 float-left'>
                      <p>Portfolio Types</p>
                      <div className="nav flex-column nav-pills padding-zero " id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -517,16 +533,21 @@ export default class Portfolio extends Component {
  
  
                      </div>
-                     <div className='col-md-9 float-left div-padding-inherit'>
-                      <Graph {...size}></Graph>
- 
-                      </div>
-                 </div>
+                  <div  className='col-md-9 float-left div-padding-inherit'>
+              
+                  
+                    <StaticGraph {...size}></StaticGraph>
+
+                  </div>
+                </div>
+              
+              :null}   
+              
  {/*  */}
            </div>
 
                 
-                </div>
+  
 
 
 

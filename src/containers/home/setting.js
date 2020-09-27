@@ -3,13 +3,16 @@ import React, { Component } from 'react'
 import { Helmet } from 'react-helmet';
 import UserMainNavBar from './user-main-nav-bar';
 import Translator from '../../utils/translator';
-import InputTranslation from '../../utils/input-translation';
-import OptionTranslation from '../../utils/option-translation';
+
 import Editable from '../../utils/editablelabel'
 import { Link } from 'react-router-dom';
+import { Auth } from '../../api/auth';
 class Setting extends Component {
     constructor(props){
         super(props);
+        this.user={
+            id:this.props.user.data[0].id
+        }
         this.state={
             email:this.props.user.data[0].email,
             street_address:this.props.user.data[0].street_address,
@@ -18,9 +21,22 @@ class Setting extends Component {
             last_name:this.props.user.data[0].last_name,
         }
     }
+    handleSubmit =(event)=>{
+        console.log("called submit")
+        event.preventDefault();
+        Auth.updateUser(this.state,this.user.id).then((response) => {
+         
 
+        })
+        Auth.updateData(this.user.id).then((res)=>{
+            
+        })
+        
+    }
+ 
     handleChange = (event) => {
         console.log("id---->", event.target.id, " value---->", event.target.value);
+        console.log("state",this.state)
     
         this.setState({
           [event.target.id]: event.target.value,
@@ -67,7 +83,10 @@ class Setting extends Component {
 
 
                                         </div>
+
+                                       
                                         <div className="col-md-7 social-log-pad account-call-pad">
+                                            <form onSubmit={this.handleSubmit}>
                                                 <div><p className='p-account'>Account</p></div>
                                                 <div className='overflow-hidden account-detail'>
                                                     <p className='float-left'>Email</p>
@@ -76,7 +95,7 @@ class Setting extends Component {
                                                         type="email"
                                                        
                                                         text={this.state.email}
-                                                        required
+                                                        
                                                         onchange={this.handleChange}
                                                         />
                                                 </div>
@@ -87,7 +106,7 @@ class Setting extends Component {
                                                         type="text"
                                                        
                                                         text={this.props.user.data[0]['first_name']}
-                                                        required
+                                                        
                                                         onchange={this.handleChange}
                                                         />
                                                 </div>
@@ -98,7 +117,7 @@ class Setting extends Component {
                                                         type="text"
                                                        
                                                         text={this.state.last_name}
-                                                        required
+                                                        
                                                         onchange={this.handleChange}
                                                         />
                                                 </div>
@@ -113,7 +132,7 @@ class Setting extends Component {
                                                         type="text"
                                                        
                                                         text={this.state.street_address}
-                                                        required
+                                                        
                                                         onchange={this.handleChange}
                                                         />
                                                 </div>
@@ -125,21 +144,18 @@ class Setting extends Component {
                                                         type="text"
                                                        
                                                         text={this.state.mobile_number}
-                                                        required
+                                                        
                                                         onchange={this.handleChange}
                                                         />
                                                 </div>
                                                 <div className='overflow-hidden account-detail'>
-                                                <p style={{paddingRight:"80px"}} className='float-right' type='submit'> Save</p>
-                                                </div>
-
-                                                
+                                                <button style={{marginRight:"80px"}} className='btn btn-outline-danger my-2 my-sm-0 float-right' type='submit'> Save</button>
                                                
-                                               
+                                                </div>     
+                                            </form>                                    
                                         </div>
                                                
-                                                
-                                          
+                                      
                                            
                                     </div>
                                 

@@ -22,7 +22,6 @@ import Portfolio from "./containers/portfolio";
 import ComingSoon from "./containers/coming-soon";
 import fullBlog from "./containers/full-blog";
 import Setting from "./containers/home/setting";
-import Scroll from "./test/scroll";
 
 
 
@@ -67,6 +66,7 @@ class App extends React.Component {
   }
 
   componentWillMount() {
+ 
     try {
       let result = Auth.currentSession();
       if (result) {
@@ -88,6 +88,7 @@ class App extends React.Component {
   };
 
   render() {
+   
 
     const childProps = {
       isAuthenticated: this.state.isAuthenticated,
@@ -143,7 +144,9 @@ class App extends React.Component {
         }
       >
         <div className="App">
-        {console.log("APP")}
+        
+       
+   
           <Switch>
             <AppliedRoute
               path={Path.index}
@@ -240,13 +243,7 @@ class App extends React.Component {
               props={childProps}
             />
 
-            <AppliedRoute
-              path={Path.scroll}
-              exact         
-              component={Scroll}
-              props={childProps}
-            />
-
+            
 
           
 

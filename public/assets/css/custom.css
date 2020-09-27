@@ -937,6 +937,9 @@ input[type=number]::-webkit-outer-spin-button {
   .account-call-pad{
     padding: 0px !important;
   }
+  .home-a{
+    margin: 10px 10px !important;
+  }
 }
 /* phase 2 */
 .nav-end{
@@ -966,7 +969,7 @@ input[type=number]::-webkit-outer-spin-button {
   margin : 20px 10px;
 }
 .home-tab-black{
-  color: black;
+  color:#002868;;
 }
 .g-postion div div canvas{
  
@@ -1020,4 +1023,41 @@ input[type=number]::-webkit-outer-spin-button {
   font-size: 22px ;
   border-bottom: 1px solid black;
 }
+.user-home{
+  background-color: #E7EEF6;
+  color:black;
+}
+.company-details{
+  -webkit-line-clamp: 3;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-box-orient: vertical
+}
+.p-pad-zero{
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 0px;
+  
+
+}
+.f-s-13{
+  font-size: 13px;
+  
+}
+.home-a{
+  margin: 10px 25px;
+}
+.home-company-list{
+     box-shadow: rgb(106 130 159) 1px 1px 12px 8px;
+    margin-left: 15px;
+    padding: 20px;
+    height: 468px;
+    width: 300px;
+    right: 8%;
+    border: 1px solid black;
+}
+
+
+
 /*# sourceMappingURL=custom.css.map */

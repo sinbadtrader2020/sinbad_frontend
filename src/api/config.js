@@ -86,6 +86,7 @@ export function configureAxios({
 const API_SIGNIN = "/signin";
 const API_SIGNUP = "/signup";
 const API_SIGNOUT = "/logout";
+const API_EDITUSER = '/user'
 
 export class API {
   static get signin() {
@@ -98,6 +99,9 @@ export class API {
 
   static get signout() {
     return API_SIGNOUT;
+  }
+  static get editUser() {
+    return API_EDITUSER;
   }
 }
 

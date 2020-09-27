@@ -17,6 +17,7 @@ class Authentication {
 
   onSetResult(data = "", error = "") {
     if (data && data.token) {
+      console.log(data.data[0]['id'])
       this.result.data = data.data;
       this.result.token = data.token;
       this.result.error = null;
@@ -108,10 +109,22 @@ class Authentication {
       .catch((error) => this.onSetResult("", error));
   }
 
-  updateData(user) {
-    this.result.data = user;
+  updateUser(user,userID) {
+    // console.log()
+    
+    
+    return axios
+    .post(API.editUser+"/"+userID,user)
+    
+    
+    
+    // // this.result.data = user;
 
-    localStorage.setItem(this.session, JSON.stringify(this.result));
+    // localStorage.setItem(this.session, JSON.stringify(this.result));
+  }
+  updateData(userID){
+    return  axios.get(API.editUser+"/"+userID)
+    .then((response) => {this.result.data = response.data.data;localStorage.setItem(this.session, JSON.stringify(this.result));})
   }
 
   currentSession() {
