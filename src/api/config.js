@@ -32,6 +32,7 @@ export function configureAxios({
       return response;
     },
     function (error) {
+     
       if (401 === error.response.status) {
         if (configureAxios.authCallback) {
           configureAxios.authCallback(error.response);
@@ -87,6 +88,9 @@ const API_SIGNIN = "/signin";
 const API_SIGNUP = "/signup";
 const API_SIGNOUT = "/logout";
 const API_EDITUSER = '/user'
+const API_RESET_PASSWORD ='/resetpassword'
+const API_COMPANY_OVERVIEW ='/company'
+
 
 export class API {
   static get signin() {
@@ -103,6 +107,14 @@ export class API {
   static get editUser() {
     return API_EDITUSER;
   }
+  static get resetPassword(){
+    return API_RESET_PASSWORD;
+  }
+ // company list
+  static get companyOverview(){
+    return API_COMPANY_OVERVIEW;
+  }
+  
 }
 
 const MSG_SIGNIN_ERROR = "Unauthorized Access";
@@ -117,3 +129,6 @@ export class MSG {
     return MSG_NO_CONTENT;
   }
 }
+
+
+

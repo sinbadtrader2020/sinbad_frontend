@@ -133,6 +133,18 @@ class Authentication {
 
 
 
+  resetPassword(email){
+    return axios
+    .post(API.resetPassword, {
+      email: email,
+      
+    }).catch(error => alert(error.response.data.message))
+    
+
+  }
+
+
+
 
 
 

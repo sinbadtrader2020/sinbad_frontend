@@ -21,6 +21,8 @@ const PORTFOLIO ='/portfolio'
 const COMINGSOON='/top'
 const FULLBLOG='/fullblog'
 
+const FORGETPASSWORD='/forgetpassword'
+
 
 
 export class Path {
@@ -70,8 +72,15 @@ export class Path {
   static get fullBlog(){
     return FULLBLOG;
   }
+
+  static get forgetPassword(){
+    return FORGETPASSWORD;
+  }
+
+
   static get graphapi(){
     return  '/test'
   }
+  
  
 }

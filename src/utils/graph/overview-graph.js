@@ -1,7 +1,7 @@
 import { createChart } from "lightweight-charts";
 import React from 'react';
 
-function  StaticGraph(props) {
+function  OverviewGraph(props) {
   const chartRef = React.useRef(null);
  
   // var width = 800;
@@ -11,88 +11,34 @@ function  StaticGraph(props) {
       const chart = createChart(chartRef.current, {
       
       
-          crosshair: {
-         
-          horzLine: {
-          visible: false,
-          labelVisible: false,
-        },
-
-          vertLine: {
-            visible:false,
-            labelVisible: false,
-
-          },
-        },
-       
   
         handleScroll: false,
         handleScale: false,
     
-        layout: {
-       
-
-          backgroundColor: '#ffffff',
-          textColor: '#333',
+        timeScale: {
+            visible:false,
         },
-        grid: {
+        rightPriceScale:{
+            visible:false,
 
-          horzLines: {
-           
-            color: '#eee',
-            labelVisible: true,
+        },
+        grid:{
+            horzLines:{
+                visible:false
+            },
+            vertLines:{
+                visible:false
+            }
+        },
+        
+       
+      
+      
+      });
+     
+      chart.resize( 100, 50);
     
-           
-          },
-          vertLines: {
-            color: '#ffffff',
-            labelVisible: true,
-          
-        
-          },
-        },
-      
-      });
-     
-      chart.resize( props.width, props.height)
-      // chart.resize( width,height)
-       
-      chart.applyOptions({
-        timeScale:{
-          rightOffset: 12,
-         
-          
-     
-          fixLeftEdge:true,
-          
-          
-          borderVisible: true,
-          borderColor: '#eee',
-          visible: true,
-          scaleMargins: {
-            top: 0.6,
-            bottom: 0.05,
-        },
-         
-        },
-   
-        
-        priceScale: {
-          
-        
-          position: 'right',
-       
-        
-          
-      
-          // scaleMargins: {
-          //     top: 0.34,
-          //     bottom: 0.3,
-          // },
-      },
-
-
-      });
+    
       chart.timeScale().fitContent();
     
      
@@ -112,65 +58,7 @@ function  StaticGraph(props) {
        
           });
 
-        // var series= chart.addCandlestickSeries();
-          var toolTipWidth = 80;
-          var toolTipHeight = 100;
-          var toolTipMargin = 15;
-          
-          var toolTip = document.createElement('as');
-          toolTip.className =  'floating-tooltip-2';
-          chartRef.current.appendChild(toolTip);
-          function businessDayToString(businessDay) {
-            return businessDay.year + '-' + businessDay.month + '-' + businessDay.day;
-        }
-          // update tooltip
-          chart.subscribeCrosshairMove(function(param) {
-                  if (param.point === undefined || !param.time || param.point.x < 0 || param.point.x > chartRef.current.clientWidth || param.point.y < 0 || param.point.y > chartRef.current.clientHeight) {
-                      toolTip.style.display = 'none';
-                  } else {
-                      const dateStr = businessDayToString(param.time);
-                      toolTip.style.display = 'block';
-                      var price = param.seriesPrices.get(series);
-                      toolTip.innerHTML = '<div style="color: #009688">Apple Inc.</div><div style="font-size: 24px; margin: 4px 0px; color: #21384d">' + Math.round(100 * price) / 100 + '</div><div style="color: #21384d">' + dateStr + '</div>';
-                      var coordinate = series.priceToCoordinate(price);
-                      var shiftedCoordinate = param.point.x - 50;
-                      if (coordinate === null) {
-                          return;
-                      }
-                      shiftedCoordinate = Math.max(0, Math.min(chartRef.current.clientWidth - toolTipWidth, shiftedCoordinate));
-                      var coordinateY = coordinate - toolTipHeight - toolTipMargin > 0 ? coordinate - toolTipHeight - toolTipMargin : Math.max(0, Math.min(chartRef.current.clientHeight - toolTipHeight - toolTipMargin, coordinate + toolTipMargin));
-                      toolTip.style.left = shiftedCoordinate + 'px';
-                      toolTip.style.top = coordinateY + 'px';
-                  }
-          });
-    // const sortedActivities = props.data
-    // console.log("props",sortedActivities)
-    // // console.log("value",props.data['value'])
-  
-    // series.setData(sortedActivities)
-       
-
-    // var candleSeries = chart.addCandlestickSeries();
-// series.setData([
-// 	{ time: '2018-10-19 15:05:00', open: 54.62, high: 55.50, low: 54.52, close: 54.90 },
-// 	{ time: '2018-10-22 15:05:00', open: 55.08, high: 55.27, low: 54.61, close: 54.98 },
-// 	{ time: '2018-10-23', open: 56.09, high: 57.47, low: 56.09, close: 57.21 },
-// 	{ time: '2018-10-24', open: 57.00, high: 58.44, low: 56.41, close: 57.42 },
-// 	{ time: '2018-10-25', open: 57.46, high: 57.63, low: 56.17, close: 56.43 },
-// 	{ time: '2018-10-26', open: 56.26, high: 56.62, low: 55.19, close: 55.51 },
-// 	{ time: '2018-10-29', open: 55.81, high: 57.15, low: 55.72, close: 56.48 },
-// 	{ time: '2018-10-30', open: 56.92, high: 58.80, low: 56.92, close: 58.18 },
-// 	{ time: '2018-10-31', open: 58.32, high: 58.32, low: 56.76, close: 57.09 },
-// 	{ time: '2018-11-01', open: 56.98, high: 57.28, low: 55.55, close: 56.05 },
-// 	{ time: '2018-11-02', open: 56.34, high: 57.08, low: 55.92, close: 56.63 },
-// 	{ time: '2018-11-05', open: 56.51, high: 57.45, low: 56.51, close: 57.21 },
-// 	{ time: '2018-11-06', open: 57.02, high: 57.35, low: 56.65, close: 57.21 },
-// 	{ time: '2018-11-07', open: 57.55, high: 57.78, low: 57.03, close: 57.65 },
-// 	{ time: '2018-11-08', open: 57.70, high: 58.44, low: 57.66, close: 58.27 },
-// 	{ time: '2018-11-09', open: 58.32, high: 59.20, low: 57.94, close: 58.46 },
-// 	{ time: '2018-11-12', open: 58.84, high: 59.40, low: 58.54, close: 58.72 },]);
-
-
+     
 series.setData([
      
        
@@ -345,4 +233,4 @@ series.setData([
   
 }
 
-export default StaticGraph;
+export default OverviewGraph;

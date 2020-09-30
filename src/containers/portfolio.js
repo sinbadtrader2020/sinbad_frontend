@@ -15,6 +15,8 @@ import { ProgressBar } from 'react-bootstrap'
 import UserMainNavBar from './home/user-main-nav-bar'
 import { Graphapi } from '../utils/graph/graph-api'
 import StaticGraph from '../utils/graph/static-past-performance-graph'
+import OverviewGraph from '../utils/graph/overview-graph'
+import Intra1DGraph from '../utils/graph/intrad-1day-graph'
 
 
 
@@ -36,7 +38,7 @@ export default class Portfolio extends Component {
     render() {
     let size={
         height:300,
-        width:800,
+        width:700,
         data:Graphapi.result.data,
        
       }
@@ -536,7 +538,9 @@ export default class Portfolio extends Component {
                   <div  className='col-md-9 float-left div-padding-inherit'>
               
                   
-                    <StaticGraph {...size}></StaticGraph>
+                    {/* <StaticGraph {...size}></StaticGraph> */}
+                    {/* <OverviewGraph {...size}></OverviewGraph> */}
+                    <Intra1DGraph/>
 
                   </div>
                 </div>

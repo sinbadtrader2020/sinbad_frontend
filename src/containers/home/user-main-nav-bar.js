@@ -24,16 +24,7 @@ class UserMainNavBar extends Component {
     });
   };
 
-  handleLogout = (event) => {
-    event.preventDefault();
-    Auth.signout().then((response) => {
-      this.setState({
-        showLogin: null,
-      });
-      this.props.history.push(Path.welcome);
-    });
-  };
-
+ 
   render() {
     return (
       <>

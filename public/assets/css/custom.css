@@ -792,7 +792,7 @@ input[type=number]::-webkit-outer-spin-button {
 /* chart library */
 .floating-tooltip-2 {
 	width: 96px;
-	height: 100px;
+	height: 120px;
 	position: absolute;
 	display: none;
 	padding: 8px !important;
@@ -1056,6 +1056,41 @@ input[type=number]::-webkit-outer-spin-button {
     width: 300px;
     right: 8%;
     border: 1px solid black;
+ 
+
+}
+.reset-btn{
+  padding-right: 10%;
+  color: #002868;
+}
+
+.div-scroll{
+  
+  height: 402px;
+  width: 276px;
+ 
+}
+
+.infinite-scroll-component{
+  -ms-overflow-style: none !important;  /* IE and Edge */
+  scrollbar-width: none !important;  /* Firefox */
+}
+.infinite-scroll-component::-webkit-scrollbar{
+  display: none !important;
+}
+.word-clamp{
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 5px;
+  margin: 0;
+ 
+  
+}
+.pad-l-r{
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 

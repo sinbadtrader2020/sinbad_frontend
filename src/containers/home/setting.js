@@ -7,6 +7,7 @@ import Translator from '../../utils/translator';
 import Editable from '../../utils/editablelabel'
 import { Link } from 'react-router-dom';
 import { Auth } from '../../api/auth';
+import { Path } from '../config';
 class Setting extends Component {
     constructor(props){
         super(props);
@@ -33,7 +34,15 @@ class Setting extends Component {
         })
         
     }
- 
+    handleReset =()=>{
+        Auth.resetPassword(this.props.user.data[0].email).then((res)=>{
+           alert(res.data.message)
+           this.props.handleLogout();
+          
+        });
+        
+
+    }
     handleChange = (event) => {
         console.log("id---->", event.target.id, " value---->", event.target.value);
         console.log("state",this.state)
@@ -123,7 +132,7 @@ class Setting extends Component {
                                                 </div>
                                                 <div className='overflow-hidden account-detail'>
                                                     <p className='float-left'>Password</p>
-                                                    <Link className='float-right' style={{    paddingRight: '36px'}}>Reset Password</Link>
+                                                    <p className='float-right reset-btn cursor' onClick={this.handleReset} >Reset Password</p>
                                                 </div>
                                                 <div className='overflow-hidden account-detail'>
                                                     <p className='float-left'>Address</p>

@@ -22,6 +22,7 @@ import Portfolio from "./containers/portfolio";
 import ComingSoon from "./containers/coming-soon";
 import fullBlog from "./containers/full-blog";
 import Setting from "./containers/home/setting";
+import ForgetPassword from "./containers/forget-password";
 
 
 
@@ -108,7 +109,7 @@ class App extends React.Component {
     //         return <Redirect to={Path.login}/>;
     //     }
     // }
- 
+    console.log(this.state.isAuthenticated)
     if (this.state.isAuthenticated) {
       if (
         this.props.location.pathname === Path.signin ||
@@ -123,6 +124,7 @@ class App extends React.Component {
       if (this.props.location.pathname === Path.home||
         this.props.location.pathname === Path.setting
         ) {
+          console.log('pathwelcome')
         return <Redirect to={Path.welcome} />;
       }
     }
@@ -243,9 +245,24 @@ class App extends React.Component {
               props={childProps}
             />
 
-            
 
-          
+
+
+
+
+
+
+
+
+            {/* forget password */}
+             <AppliedRoute
+              path={Path.forgetPassword}
+              exact         
+              component={ForgetPassword}
+              props={childProps}
+            />
+
+            
 
 
             {/* Finally, catch all unmatched routes */}

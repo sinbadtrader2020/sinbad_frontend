@@ -10,6 +10,7 @@ import { Nav } from "react-bootstrap";
 import OutsideAlerter from "../utils/outside-alert";
 
 class MainNavBar extends Component {
+  
   constructor(props) {
     super(props);
 

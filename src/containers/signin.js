@@ -44,11 +44,14 @@ class Signin extends React.Component {
       });
 
       if (response[0]) {
+        
         this.props.history.push(Path.home);
       } else {
         // this.alertRef.handleShow(response[1].error, "danger");
         // setTimeout(this.alertRef.handleDismiss, 3000);
         alert(response[1].error);
+        this.props.history.push(Path.signin);
+
       }
     });
   };
@@ -108,10 +111,10 @@ class Signin extends React.Component {
                   </p>
                 </div>
                 <div style={{ float: "right", marginRight: "50px" }}>
-                  <a href="top#">
+                  <Link to={Path.forgetPassword}>
                     {" "}
                     <Translator text="signInBlock5R2.1" />
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div>

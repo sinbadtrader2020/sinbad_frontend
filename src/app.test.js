@@ -1,9 +1,11 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import App from './app';
+import Welcome from './containers/welcome';
+import MainNavBar from './containers/main-nav-bar';
 
 test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  var component = TestUtils.renderIntoDocument(
+    <MainNavBar />
+  );
 });
