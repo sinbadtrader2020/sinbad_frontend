@@ -1,8 +1,10 @@
 import { createChart } from "lightweight-charts";
-import React from 'react';
+import React  from 'react';
+
 
 function  Intra1DGraph(props) {
   const chartRef = React.useRef(null);
+
  
   // var width = 800;
   // var height = 300;
@@ -102,7 +104,7 @@ function  Intra1DGraph(props) {
     
       prepareChart(chart);
     }
-  },[0])
+  },[])
 
     function prepareChart(chart) {
         var series = chart.addLineSeries({

@@ -23,6 +23,7 @@ import ComingSoon from "./containers/coming-soon";
 import fullBlog from "./containers/full-blog";
 import Setting from "./containers/home/setting";
 import ForgetPassword from "./containers/forget-password";
+import { Alert } from "react-bootstrap";
 
 
 
@@ -54,7 +55,7 @@ class App extends React.Component {
     };
 
     this.authCallback = (response) => {
-      this.logout();
+      alert(response.data.message)
     };
 
     Auth.setAuthCallback(this.authCallback);

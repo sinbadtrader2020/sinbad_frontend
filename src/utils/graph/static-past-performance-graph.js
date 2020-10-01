@@ -100,7 +100,7 @@ function  StaticGraph(props) {
     
       prepareChart(chart);
     }
-  },[0])
+  })
 
     function prepareChart(chart) {
         var series = chart.addLineSeries({

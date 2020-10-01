@@ -4,7 +4,7 @@ import MainNavBar from "./main-nav-bar";
 import { Link } from "react-router-dom";
 import { Path } from "../containers/config";
 import { Helmet } from "react-helmet";
-import Translator from "../utils/translator";
+
 import InputTranslation from "../utils/input-translation";
 import { Auth } from "../api/auth";
 

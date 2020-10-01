@@ -16,6 +16,9 @@ class Authentication {
   }
 
   onSetResult(data = "", error = "") {
+  
+   console.log(error)
+   
     if (data && data.token) {
       console.log(data.data[0]['id'])
       this.result.data = data.data;
@@ -51,9 +54,8 @@ class Authentication {
 
       this.result.token = null;
       return [false, this.result];
-    } else {
-      this.result.error = "Unknown Error";
     }
+    
 
     return [false, this.result];
   }
@@ -70,6 +72,7 @@ class Authentication {
       })
       .then((response) => this.onSetResult(response.data))
       .catch((error) => this.onSetResult("", error));
+
   }
   // TO DO Registration sinbad Api connection
   register(
@@ -106,7 +109,8 @@ class Authentication {
     return axios
       .post(API.signout)
       .then((response) => this.onSetResult(response.data))
-      .catch((error) => this.onSetResult("", error));
+     .catch((error) => this.onSetResult("", error));
+
   }
 
   updateUser(user,userID) {

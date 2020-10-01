@@ -13,10 +13,8 @@ import Translator from '../utils/translator'
 import AllocatoinChart from '../utils/allocation-chart'
 import { ProgressBar } from 'react-bootstrap'
 import UserMainNavBar from './home/user-main-nav-bar'
-import { Graphapi } from '../utils/graph/graph-api'
+import { Graphapi } from '../test/graph-api'
 import StaticGraph from '../utils/graph/static-past-performance-graph'
-import OverviewGraph from '../utils/graph/overview-graph'
-import Intra1DGraph from '../utils/graph/intrad-1day-graph'
 
 
 
@@ -82,9 +80,9 @@ export default class Portfolio extends Component {
             </div>
           </div>
           <div className="row div-row-padding-top-b" >
-            <div className="col-md-1"></div>
+            {/* <div className="col-md-1"></div> */}
             <div className="col-md-12">
-                <div className='row div-margin-no m-auto justify-content-sm-between'>
+                <div className='row div-margin-no m-auto justify-content-sm-start'>
                
                 <div className={this.state.divInvestSinbad==='GlobalStocks'?'div-bg-color-black':'div-bg-color-white'} onClick={()=>{this.setState({divInvestSinbad:"GlobalStocks"})}}>
                 <FaChartBar size="50px"  />
@@ -119,7 +117,7 @@ export default class Portfolio extends Component {
 
                 </div>
             </div>
-            <div className="col-md-1"></div>
+            {/* <div className="col-md-1"></div> */}
             
           </div>
           {/* card content are here */}
@@ -538,9 +536,9 @@ export default class Portfolio extends Component {
                   <div  className='col-md-9 float-left div-padding-inherit'>
               
                   
-                    {/* <StaticGraph {...size}></StaticGraph> */}
+                    <StaticGraph {...size}></StaticGraph>
                     {/* <OverviewGraph {...size}></OverviewGraph> */}
-                    <Intra1DGraph/>
+                    {/* <Intra1DGraph/> */}
 
                   </div>
                 </div>

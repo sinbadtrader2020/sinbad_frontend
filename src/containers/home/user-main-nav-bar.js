@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Path } from "../../containers/config";
 import Translator from "../../utils/translator";
 import i18n from "../../utils/i18n";
-import { Auth } from "../../api/auth";
+
 import { Nav } from "react-bootstrap";
 import OutsideAlerter from "../../utils/outside-alert";
 

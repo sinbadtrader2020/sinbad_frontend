@@ -71,6 +71,7 @@ export default class Signup extends React.Component {
           // this.alertRef.handleShow(response[1].error, "danger");
           // setTimeout(this.alertRef.handleDismiss, 3000);
           alert(response[1].error);
+         // console.log(response[1])
         }
       });
     }

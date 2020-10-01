@@ -49,11 +49,12 @@ class Signin extends React.Component {
       } else {
         // this.alertRef.handleShow(response[1].error, "danger");
         // setTimeout(this.alertRef.handleDismiss, 3000);
-        alert(response[1].error);
+      // console.log(response)
+      
         this.props.history.push(Path.signin);
 
       }
-    });
+    })
   };
 
   render() {
@@ -89,45 +90,51 @@ class Signin extends React.Component {
           </div>
           <div className="row row-padding">
             <div className="col-md-9 log-in-input">
-              <InputTranslation
-                type="mail"
-                text="signInBlock3R1.1"
-                id="email"
-                onchange={this.handleChange}
-              />
-              <InputTranslation
-                type="password"
-                text="signInBlock4R1.1"
-                id="password"
-                onchange={this.handleChange}
-              />
+                <form onSubmit={this.handleSubmit}>
 
-              <div>
-                <div style={{ display: "inline-flex" }}>
-                  <input type="checkbox" style={{ width: "auto" }} />
-                  <p>
-                    {" "}
-                    <Translator text="signInBlock5R1.1" />{" "}
-                  </p>
-                </div>
-                <div style={{ float: "right", marginRight: "50px" }}>
-                  <Link to={Path.forgetPassword}>
-                    {" "}
-                    <Translator text="signInBlock5R2.1" />
-                  </Link>
-                </div>
-              </div>
-              <div>
-                <button
-                  className="btn btn-outline-primary"
-                  onClick={this.handleSubmit}
-                >
-                  {" "}
-                  <Translator text="signInLogin.1" /> 
-                </button>
-              </div>
+                    <InputTranslation
+                      type="mail"
+                      text="signInBlock3R1.1"
+                      id="email"
+                      required
+                      onchange={this.handleChange}
+                    />
+                    <InputTranslation
+                      type="password"
+                      text="signInBlock4R1.1"
+                      id="password"
+                      required
+                      onchange={this.handleChange}
+                    />
+
+                    <div>
+                      <div style={{ display: "inline-flex" }}>
+                        <input type="checkbox" style={{ width: "auto" }} />
+                        <p>
+                          {" "}
+                          <Translator text="signInBlock5R1.1" />{" "}
+                        </p>
+                      </div>
+                      <div style={{ float: "right", marginRight: "50px" }}>
+                        <Link to={Path.forgetPassword}>
+                          {" "}
+                          <Translator text="signInBlock5R2.1" />
+                        </Link>
+                      </div>
+                    </div>
+                    <div>
+                      <button
+                        className="btn btn-outline-primary"
+                        type='submit'
+                        // onClick={this.handleSubmit}
+                      >
+                        {" "}
+                        <Translator text="signInLogin.1" /> 
+                      </button>
+                    </div>
+                </form>
+
             </div>
-
             {/* <!-- social account login options --> */}
             <div className="col-md-3">
               <a

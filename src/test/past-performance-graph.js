@@ -100,7 +100,7 @@ function  Graph(props) {
     
       prepareChart(chart);
     }
-  },[0])
+  },[])
 
     function prepareChart(chart) {
         var series = chart.addLineSeries({

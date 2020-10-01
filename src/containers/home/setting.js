@@ -7,7 +7,7 @@ import Translator from '../../utils/translator';
 import Editable from '../../utils/editablelabel'
 import { Link } from 'react-router-dom';
 import { Auth } from '../../api/auth';
-import { Path } from '../config';
+
 class Setting extends Component {
     constructor(props){
         super(props);

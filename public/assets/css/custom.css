@@ -463,7 +463,12 @@ footer li {
 }
 @media screen and (max-width: 600px){
   
- 
+  .div-bg-color-black{
+    margin-left: 3px !important;
+  }
+  .div-bg-color-white{
+    margin-left: 3px !important;
+  }
 
 
 
@@ -694,7 +699,7 @@ input[type=number]::-webkit-outer-spin-button {
   text-align: center;
   padding-top: 26px;
   cursor: pointer;
-  margin-left: 3px;
+  margin-left: 20px;
   
 }
 .div-bg-color-white{
@@ -706,7 +711,7 @@ input[type=number]::-webkit-outer-spin-button {
   text-align: center;
   padding-top: 26px;
   cursor: pointer;
-  margin-left: 3px;
+  margin-left: 20px;
 
 
 }
@@ -1092,7 +1097,9 @@ input[type=number]::-webkit-outer-spin-button {
   padding-left: 0px;
   padding-right: 0px;
 }
-
+.p-color{
+  color:#002868;
+}
 
 
 /*# sourceMappingURL=custom.css.map */
