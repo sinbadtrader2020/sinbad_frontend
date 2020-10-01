@@ -127,7 +127,7 @@ class Welcome extends Component {
                 </Link>
               </div>
               <div className="col-md-5 intro-img">
-                <img src={"assets/images/home-intro.png"} alt="logo" />
+                <img  src={"assets/images/home-intro.png"}  style={{ height: "400px" }} alt="logo" />
               </div>
             </div>
           </div>
@@ -158,7 +158,7 @@ class Welcome extends Component {
             <div className="col-md-6 row-padding">
               <div className="works-div">
                 <div>
-                  <img src={"assets/images/signup.png"} alt="logo" />
+                  <img className="about-icon"  src={"assets/icon/welcome/signup.png"} alt="logo" />
                 </div>
                 <div>
                   <h2>
@@ -171,7 +171,7 @@ class Welcome extends Component {
               </div>
               <div className="works-div">
                 <div className="a">
-                  <img src={"assets/images/fund.png"} alt="logo" />
+                  <img className="about-icon" src={"assets/icon/welcome/fund.png"} alt="logo" />
                 </div>
                 <div>
                   <h2>
@@ -184,7 +184,7 @@ class Welcome extends Component {
               </div>
               <div className="works-div">
                 <div className="a">
-                  <img src={"assets/images/monitor.png"} alt="logo" />
+                  <img className="about-icon"  src={"assets/icon/welcome/monitoring.png"} alt="logo" />
                 </div>
                 <div>
                   <h2>
@@ -252,7 +252,7 @@ class Welcome extends Component {
                 <div className="container">
                   <div className="row txt-img-mob-center">
                     <div className="col-md-5 my-auto">
-                      <img src={this.state.imgname} alt="logo" />
+                      <img style={{width:'250px',height:'500px'}} src={this.state.imgname} alt="logo" />
                     </div>
                     <div className="col-md-7 my-auto">
                       <h3>{this.state.featureContent.tittle}</h3>

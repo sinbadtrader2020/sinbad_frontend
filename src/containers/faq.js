@@ -58,33 +58,33 @@ export default class Faq extends Component {
         <div className="m-auto faq-support-card ">
           <div className="row justify-content-md-around faq-div-support-margin text-center ">
             <div className="col-md-3 ">
-            <img className='faq-img-p-s' src={"assets/images/genaral-question.png"} alt="logo" />
+            <img className='faq-img-p-s' src={"assets/icon/faq/question.png"} alt="logo" />
               <h5><Translator text="faqSupportCard.1" /> </h5>
             </div>
             <div className="col-md-3">
-            <img className='faq-img-p-s' src={"assets/images/how-it-work.png"} alt="logo" />
+            <img className='faq-img-p-s' src={"assets/icon/faq/works.png"} alt="logo" />
               <h5><Translator text="faqSupportCard.2" /> </h5>
             </div>
 
             <div className="col-md-3">
               {" "}
-              <img className='faq-img-p-s' src={"assets/images/ethical-investing.png"} alt="logo" /> 
+              <img className='faq-img-p-s' src={"assets/icon/faq/ethical.png"} alt="logo" /> 
               <h5><Translator text="faqSupportCard.3" /> </h5>
             </div>
           </div>
 
           <div className="row justify-content-md-around faq-div-support-margin text-center">
             <div className="col-md-3">
-            <img className='faq-img-p-s' src={"assets/images/investment.png"} alt="logo" />
+            <img className='faq-img-p-s' src={"assets/icon/faq/investment.png"} alt="logo" />
               <h5><Translator text="faqSupportCard.4" /> </h5>
             </div>
             <div className="col-md-3">
-            <img className='faq-img-p-s' src={"assets/images/clients-icon-0.png"} alt="logo" />
+            <img className='faq-img-p-s' src={"assets/icon/faq/clint-portal.png"} alt="logo" />
               <h5><Translator text="faqSupportCard.5" /> </h5>
             </div>
 
             <div className="col-md-3">
-            <img className='faq-img-p-s' src={"assets/images/icon-fund-dollar-1.png"} alt="logo" />
+            <img className='faq-img-p-s' src={"assets/icon/faq/fund.png"} alt="logo" />
             
               <h5><Translator text="faqSupportCard.6" /> </h5>
             </div>
@@ -92,7 +92,7 @@ export default class Faq extends Component {
 
           <div className="row justify-content-md-around faq-div-support-margin text-center">
             <div className="col-md-3" style={{ float: "left" }}>
-            <img className='faq-img-p-s' src={"assets/images/deposit-icon.png"} alt="logo" />
+            <img className='faq-img-p-s' src={"assets/icon/faq/diposit.png"} alt="logo" />
               <h5><Translator text="faqSupportCard.7" /> </h5>
             </div>
           </div>

@@ -64,7 +64,7 @@ export default class About extends Component {
           <div className="m-auto faq-support-card faq-about-card">
             <div className="row justify-content-md-around faq-div-support-margin text-center ">
               <div className="col-md-4">
-                <img src={"assets/images/signup.png"} alt="logo" />
+                <img className='about-icon' src={"assets/icon/about/no-lockin.png"} alt="logo" />
                 <h2>
                   <Translator text="aboutCard1.1" />
                 </h2>
@@ -73,7 +73,7 @@ export default class About extends Component {
                 </p>
               </div>
               <div className="col-md-4">
-                <img src={"assets/images/fund.png"} alt="logo" />
+                <img className='about-icon' src={"assets/icon/about/fund.png"} alt="logo" />
                 <h2>
                   <Translator text="aboutCard2.1" />
                 </h2>
@@ -83,7 +83,7 @@ export default class About extends Component {
               </div>
 
               <div className="col-md-4">
-                <img src={"assets/images/monitor.png"} alt="logo" />
+                <img className='about-icon' src={"assets/icon/about/lower-fees.png"} alt="logo" />
                 <h2>
                   {" "}
                   <Translator text="aboutCard3.1" />
@@ -97,7 +97,7 @@ export default class About extends Component {
 
             <div className="row justify-content-md-around faq-div-support-margin text-center">
               <div className="col-md-4">
-                <img src={"assets/images/signup.png"} alt="logo" />
+                <img className='about-icon' src={"assets/icon/about/monitoring.png"} alt="logo" />
                 <h2>
                   {" "}
                   <Translator text="aboutCard4.1" />
@@ -108,7 +108,7 @@ export default class About extends Component {
                 </p>
               </div>
               <div className="col-md-4">
-                <img src={"assets/images/fund.png"} alt="logo" />
+                <img className='about-icon' src={"assets/icon/about/vigilant.png"} alt="logo" />
 
                 <h2>
                   {" "}
@@ -122,7 +122,7 @@ export default class About extends Component {
               </div>
 
               <div className="col-md-4">
-                <img src={"assets/images/monitor.png"} alt="logo" />
+                <img className='about-icon' src={"assets/icon/about/custom-filter.png"} alt="logo" />
                 <h2>
                   <Translator text="aboutCard6.1" />
                 </h2>

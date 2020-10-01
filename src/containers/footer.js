@@ -51,7 +51,7 @@ class Footer extends Component {
               </div>
               <div className="col-md-3">
                 <Link className="navbar-brand" to={Path.welcome}>
-                  <img src={"assets/images/sinbad-logo.png"} alt="Logo" />
+                  <img className='sinbad-log' src={"assets/images/sinbad-logo1.png"} alt="Logo" />
                 </Link>
                 <p className="footer-p">
                   {" "}

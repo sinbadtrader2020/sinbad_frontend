@@ -884,7 +884,7 @@ input[type=number]::-webkit-outer-spin-button {
 
   height: 100px;
   width: 100px;
-  content: url(../images/icon-fund-dollar-1.png);
+  content: url(../images/loading.png);
 }
 
 .div-tab-pad-top{
@@ -1101,5 +1101,13 @@ input[type=number]::-webkit-outer-spin-button {
   color:#002868;
 }
 
-
+/* icons */
+.about-icon{
+  height: 64px;
+}
+.sinbad-log{
+  width: 155px;
+  height: 25px;
+  padding-bottom: 5px;
+}
 /*# sourceMappingURL=custom.css.map */
