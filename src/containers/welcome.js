@@ -41,7 +41,7 @@ class Welcome extends Component {
       imgname: imagesPath["img1"],
       featureContent: featureName["learn"],
       count: 0,
-      timer: 5000,
+      timer: 3000,
       navExpand: "navbar-collapse collapse",
     };
   }
@@ -51,7 +51,7 @@ class Welcome extends Component {
       imgname: imagesPath[param],
       featureContent: featureName[param2],
       count: param3,
-      timer: 3000,
+      
     });
   };
 
