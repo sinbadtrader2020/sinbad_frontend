@@ -25,6 +25,7 @@ export default class Home extends React.Component {
 
 //graphdata means the data value send to load graph
 //update is for if the api call is making data fetch 
+      graphCompanySymbol:null,
       graphData1d:null,
       updateData1d:false,
 
@@ -56,7 +57,9 @@ export default class Home extends React.Component {
     this.size={
       height:300,
       width:600,
-      data:null
+      data:null,
+      companySymbol:null,
+      
     }
   }
 
@@ -167,7 +170,9 @@ export default class Home extends React.Component {
                     fetchData.reverse();
                     pointer.setState({
                       graphData1d:fetchData,
-                      updateData1d:false
+                      updateData1d:false,
+                      graphCompanySymbol:symbol,
+
                     })
                   }
                   //1w
@@ -177,7 +182,9 @@ export default class Home extends React.Component {
 
                     pointer.setState({
                        graphData1w:fetchData,
-                        updateData1w:false
+                        updateData1w:false,
+                      graphCompanySymbol:symbol,
+
 
                     })
 
@@ -195,6 +202,8 @@ export default class Home extends React.Component {
                       graphData3m:fetchData3m,
                       updateData1m:false,
                       updateData3m:false,
+                      graphCompanySymbol:symbol,
+
 
                     })
                    
@@ -255,6 +264,7 @@ export default class Home extends React.Component {
                      graphData5y: fetchData5y,
                      updateData1y:false,
                      updateData5y:false,
+                     graphCompanySymbol:symbol,
 
                      
                   })
@@ -296,6 +306,9 @@ export default class Home extends React.Component {
     this.fetchGraphData1D('IBM','full','60min');
     //1y,5y
     this.fetchGraphData1y('IBM','full');
+    this.setState({
+      graphCompanySymbol:"IBM"
+    });
     
     
     
@@ -303,34 +316,42 @@ export default class Home extends React.Component {
   render() {
     //1d
     if(this.state.homeTab==='1d'&&this.state.graphData1d!==null){
-      this.size.data=this.state.graphData1d
+      this.size.data=this.state.graphData1d;
+      this.size.companySymbol=this.state.graphCompanySymbol;
      
      
     }
     //1w
     if(this.state.homeTab==='1w'&&this.state.graphData1w!==null){
-      this.size.data=this.state.graphData1w
+      this.size.data=this.state.graphData1w;
+      this.size.companySymbol=this.state.graphCompanySymbol;
+
    
     }
     //1m
     if(this.state.homeTab==='1m'&&this.state.graphData1m!==null){
       this.size.data=this.state.graphData1m;
+      this.size.companySymbol=this.state.graphCompanySymbol;
 
     }
     //3m
     if(this.state.homeTab==='3m'&&this.state.graphData3m!==null){
       this.size.data=this.state.graphData3m;
+      this.size.companySymbol=this.state.graphCompanySymbol;
+
      
     }
     //1y
     if(this.state.homeTab==='1y'&&this.state.graphData1y!==null){
       this.size.data=this.state.graphData1y;
+      this.size.companySymbol=this.state.graphCompanySymbol;
       
 
     }
     //5y
     if(this.state.homeTab==='5y'&&this.state.graphData5y!==null){
-      this.size.data=this.state.graphData5y
+      this.size.data=this.state.graphData5y;
+      this.size.companySymbol=this.state.graphCompanySymbol;
   
     }
 

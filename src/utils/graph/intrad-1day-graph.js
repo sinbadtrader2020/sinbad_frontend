@@ -137,7 +137,7 @@ function  Intra1DGraph(props) {
                       const dateStr = businessDayToString(param.time);
                       toolTip.style.display = 'block';
                       var price = param.seriesPrices.get(series);
-                      toolTip.innerHTML = '<div style="color: #009688">Apple Inc.</div><div style="font-size: 24px; margin: 4px 0px; color: #21384d">' + Math.round(100 * price) / 100 + '</div><div style="color: #21384d">' + dateStr + '</div>';
+                      toolTip.innerHTML = `<div style="color: #009688">${props.companySymbol}.</div><div style="font-size: 24px; margin: 4px 0px; color: #21384d">` + Math.round(100 * price) / 100 + '</div><div style="color: #21384d">' + dateStr + '</div>';
                       var coordinate = series.priceToCoordinate(price);
                       var shiftedCoordinate = param.point.x - 50;
                       if (coordinate === null) {
