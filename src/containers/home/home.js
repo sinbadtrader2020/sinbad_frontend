@@ -398,9 +398,67 @@ export default class Home extends React.Component {
         <div className="home-intro user-home">
           <div className="container-fluid" >
             <div
-              className="row div-top-only div-margin-no overflow-hidden"
+              className="row div-top-only div-margin-no overflow-hidden home-padding"
               style={{ textAlign: "center" }}
             >
+                  {/* mobile view */}
+                  <div className='float-right home-company-list1 home-stock-mobile'> 
+                        <p className='text-left'>Stocks</p>
+
+                          <div className='div-scroll'>
+                              
+                    {this.state.comSymbol!==null&&this.state.itemSymbol!==null?
+
+                                  <InfiniteScroll
+                                      dataLength={this.state.itemSymbol.length}
+                                      next={this.scrollMoreData}
+                                      hasMore={true}
+                                      loader={<p>Loading...</p>}
+                                      height={200}
+                                    
+                                      endMessage={
+                                        <p style={{ textAlign: "center" }}>
+                                          <b>Yay! You have seen it all</b>
+                                        </p>
+                                      }
+                                  >
+                                  {this.state.itemSymbol.map((i,index) => (
+                                    <div key={index}  className=' row div-margin-no cursor' onClick={()=>{
+                                      this.setState({
+                                        updateData1d:true,
+                                        updateData1w:true,
+                                        updateData1m:true,
+                                        updateData3m:true,
+                                        updateData1y:true,
+                                        updateData5y:true
+
+
+                                      })
+                                      this.fetchData(i.sf_act_symbol);
+                                      this.fetchGraphData1D(i.sf_act_symbol,'compact','5min');
+                                      //1week
+                                      this.fetchGraphData1D(i.sf_act_symbol,'full','15min');
+                                      //1month
+                                      this.fetchGraphData1D(i.sf_act_symbol,'full','60min');
+
+                                      this.fetchGraphData1y(i.sf_act_symbol,'full');
+                                    
+                                      }}>
+                                      <p className='text-left   pad-l-r' style={{width:'48px'}} >{i.sf_act_symbol}</p>
+                                      <p className='  word-clamp' >{i.sf_company_name}</p>
+
+                                    
+                                  </div>
+                                    ))}
+
+                                  </InfiniteScroll>
+                              :<p>Loading...</p>}
+                                
+                          </div>
+                </div>
+
+                  {/* mobile view */}
+
               <div className='col-md-1'></div>
               <div className="col-md-7 " > 
 
@@ -565,59 +623,59 @@ export default class Home extends React.Component {
 
 
 {/* stocks showing company names */}
-                <div className='float-right home-company-list'> 
-                  <p className='text-left'>Stocks</p>
+                  <div className='float-right home-company-list home-display-none'> 
+                        <p className='text-left'>Stocks</p>
 
-                    <div className='div-scroll'>
-                        
-              {this.state.comSymbol!==null&&this.state.itemSymbol!==null?
-
-                            <InfiniteScroll
-                                dataLength={this.state.itemSymbol.length}
-                                next={this.scrollMoreData}
-                                hasMore={true}
-                                loader={<p>Loading...</p>}
-                                height={400}
+                          <div className='div-scroll'>
                               
-                                endMessage={
-                                  <p style={{ textAlign: "center" }}>
-                                    <b>Yay! You have seen it all</b>
-                                  </p>
-                                }
-                            >
-                            {this.state.itemSymbol.map((i,index) => (
-                              <div key={index}  className=' row div-margin-no cursor' onClick={()=>{
-                                this.setState({
-                                  updateData1d:true,
-                                  updateData1w:true,
-                                  updateData1m:true,
-                                  updateData3m:true,
-                                  updateData1y:true,
-                                  updateData5y:true
+                    {this.state.comSymbol!==null&&this.state.itemSymbol!==null?
+
+                                  <InfiniteScroll
+                                      dataLength={this.state.itemSymbol.length}
+                                      next={this.scrollMoreData}
+                                      hasMore={true}
+                                      loader={<p>Loading...</p>}
+                                      height={400}
+                                    
+                                      endMessage={
+                                        <p style={{ textAlign: "center" }}>
+                                          <b>Yay! You have seen it all</b>
+                                        </p>
+                                      }
+                                  >
+                                  {this.state.itemSymbol.map((i,index) => (
+                                    <div key={index}  className=' row div-margin-no cursor' onClick={()=>{
+                                      this.setState({
+                                        updateData1d:true,
+                                        updateData1w:true,
+                                        updateData1m:true,
+                                        updateData3m:true,
+                                        updateData1y:true,
+                                        updateData5y:true
 
 
-                                })
-                                this.fetchData(i.sf_act_symbol);
-                                this.fetchGraphData1D(i.sf_act_symbol,'compact','5min');
-                                //1week
-                                this.fetchGraphData1D(i.sf_act_symbol,'full','15min');
-                                //1month
-                                this.fetchGraphData1D(i.sf_act_symbol,'full','60min');
+                                      })
+                                      this.fetchData(i.sf_act_symbol);
+                                      this.fetchGraphData1D(i.sf_act_symbol,'compact','5min');
+                                      //1week
+                                      this.fetchGraphData1D(i.sf_act_symbol,'full','15min');
+                                      //1month
+                                      this.fetchGraphData1D(i.sf_act_symbol,'full','60min');
 
-                                this.fetchGraphData1y(i.sf_act_symbol,'full');
-                               
-                                }}>
-                                <p className='text-left col-md-3 pad-l-r' >{i.sf_act_symbol}</p>
-                                <p className='text-left word-clamp' >{i.sf_company_name}</p>
+                                      this.fetchGraphData1y(i.sf_act_symbol,'full');
+                                    
+                                      }}>
+                                      <p className='text-left col-md-3 pad-l-r' >{i.sf_act_symbol}</p>
+                                      <p className='text-left word-clamp' >{i.sf_company_name}</p>
 
-                               
-                            </div>
-                              ))}
+                                    
+                                  </div>
+                                    ))}
 
-                            </InfiniteScroll>
-                        :<p>Loading...</p>}
-                           
-                    </div>
+                                  </InfiniteScroll>
+                              :<p>Loading...</p>}
+                                
+                          </div>
                 </div>
 
 

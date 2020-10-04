@@ -953,6 +953,17 @@ input[type=number]::-webkit-outer-spin-button {
   .home-a{
     margin: 10px 10px !important;
   }
+  .home-stock-mobile{
+    display: block !important;
+    margin-bottom: 40px;
+    margin-left: 20px;
+  }
+  .home-display-none{
+    display: none;
+  }
+  .home-padding{
+    padding-top: 70px !important;
+  }
 }
 /* phase 2 */
 .nav-end{
@@ -1072,6 +1083,19 @@ input[type=number]::-webkit-outer-spin-button {
  
 
 }
+
+.home-company-list1{
+  box-shadow: rgb(106 130 159) 1px 1px 12px 8px;
+ margin-left: 15px;
+ padding: 20px;
+ height: 280px;
+ width: 300px;
+ right: 8%;
+ border: 1px solid black;
+
+
+}
+
 .reset-btn{
   padding-right: 10%;
   color: #002868;
@@ -1117,5 +1141,8 @@ input[type=number]::-webkit-outer-spin-button {
   width: 155px;
   height: 25px;
   padding-bottom: 5px;
+}
+.home-stock-mobile{
+  display: none;
 }
 /*# sourceMappingURL=custom.css.map */
