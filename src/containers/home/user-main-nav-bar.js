@@ -13,7 +13,7 @@ class UserMainNavBar extends Component {
     super(props);
 
     this.state = {
-      languagebtn:localStorage.getItem('language')=== "en" ? "English" : "Bangla",
+      languagebtn:localStorage.getItem('language')=== null ? "English" : localStorage.getItem('language')==='en'?'English':"Bangla",
 
       navExpand: "navbar-collapse collapse",
     };

@@ -40,7 +40,7 @@ class Index extends React.Component {
 class App extends React.Component {
   constructor(props) {
     super(props);
-
+    console.log("languiage",localStorage.getItem('language'))
     localStorage.getItem('language')!==null? i18n.changeLanguage( localStorage.getItem('language')): i18n.changeLanguage("en");
    
     this.state = {

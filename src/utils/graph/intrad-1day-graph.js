@@ -34,21 +34,24 @@ function  Intra1DGraph(props) {
         layout: {
        
 
-          backgroundColor: '#ffffff',
+          backgroundColor: '#E7EEF6',
           textColor: '#333',
         },
         grid: {
 
           horzLines: {
+            visible:false,
            
             color: '#eee',
-            labelVisible: true,
+            labelVisible: false,
     
            
           },
           vertLines: {
+           visible:false,
+
             color: '#ffffff',
-            labelVisible: true,
+            labelVisible: false,
           
         
           },
