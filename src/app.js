@@ -23,7 +23,7 @@ import ComingSoon from "./containers/coming-soon";
 import fullBlog from "./containers/full-blog";
 import Setting from "./containers/home/setting";
 import ForgetPassword from "./containers/forget-password";
-import { Alert } from "react-bootstrap";
+
 
 
 
@@ -41,7 +41,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    i18n.changeLanguage("en");
+    localStorage.getItem('language')!==null? i18n.changeLanguage( localStorage.getItem('language')): i18n.changeLanguage("en");
+   
     this.state = {
       isAuthenticated: false,
       user: "",

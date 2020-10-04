@@ -13,7 +13,7 @@ class UserMainNavBar extends Component {
     super(props);
 
     this.state = {
-      languagebtn: i18n.language === "en" ? "English" : "Bangla",
+      languagebtn:localStorage.getItem('language')=== "en" ? "English" : "Bangla",
 
       navExpand: "navbar-collapse collapse",
     };
@@ -28,6 +28,7 @@ class UserMainNavBar extends Component {
   render() {
     return (
       <>
+     
         {/* <!-- Main menu Navbar --> */}
         <OutsideAlerter onchangeNav={this.changeNav}>
           <Nav className="navbar navbar-expand-lg navbar-light bg-light sticky main-nav-shadow">
@@ -72,7 +73,7 @@ class UserMainNavBar extends Component {
                   <li className="nav-item dropdown">
                     <a
                       className="nav-link dropdown-toggle"
-                      href="top#"
+                      href="top"
                       id="navbarDropdown"
                       role="button"
                       data-toggle="dropdown"
@@ -89,6 +90,8 @@ class UserMainNavBar extends Component {
                         className="dropdown-item"
                         onClick={() => {
                           i18n.changeLanguage("en");
+                          localStorage.setItem('language', "en");
+
                           this.setState({
                             languagebtn: "English",
                             navExpand: "navbar-collapse collapse",
@@ -101,6 +104,8 @@ class UserMainNavBar extends Component {
                         className="dropdown-item"
                         onClick={() => {
                           i18n.changeLanguage("bn");
+                          localStorage.setItem('language', "bn");
+
                           this.setState({
                             languagebtn: "Bangla",
                             navExpand: "navbar-collapse collapse",
@@ -110,6 +115,13 @@ class UserMainNavBar extends Component {
                         Bangla
                       </button>
                     </div>
+                  </li>
+
+                  <li className="nav-item">
+                    <Link
+                      to={Path.blog} className="nav-link" >
+                      <Translator text="mainNavBarBlog.1" />
+                    </Link>
                   </li>
 
                   <li className="nav-item">
@@ -125,7 +137,7 @@ class UserMainNavBar extends Component {
                         <Translator text="mainNavBarPortfolio.1" />
                         <span className="sr-only" />
                     </Link>
-                </li>
+                   </li>
                
             
                 
@@ -133,9 +145,9 @@ class UserMainNavBar extends Component {
 
                  
                 <li className="nav-item dropdown">
-                  <a
+                  <Link
                     className="nav-link dropdown-toggle"
-                    href="top#"
+                    to={Path.comingSoon}
                     id="navbarDropdown"
                     role="button"
                     data-toggle="dropdown"
@@ -143,7 +155,7 @@ class UserMainNavBar extends Component {
                     aria-expanded="false"
                   >
                     Account
-                  </a>
+                  </Link>
                   <div
                     className="dropdown-menu account-menu"
                     aria-labelledby="navbarDropdown"
@@ -158,12 +170,12 @@ class UserMainNavBar extends Component {
                     <Link className="dropdown-item" to={Path.setting}>
                       Setting
                     </Link>
-                    <a className="dropdown-item" href="top#">
+                    <Link className="dropdown-item" to={Path.comingSoon}>
                       Help Center
-                    </a>
-                    <a className="dropdown-item" href="top#">
+                    </Link>
+                    <Link className="dropdown-item" to={Path.comingSoon}>
                       Contact Us
-                    </a>
+                    </Link>
                     <button
                         className="dropdown-item"
                         onClick={this.props.props.handleLogout}

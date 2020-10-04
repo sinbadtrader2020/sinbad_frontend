@@ -6,6 +6,7 @@ import { Helmet } from "react-helmet";
 import { Route } from "react-router";
 import notFound from "./not-found";
 import { blogApi } from "../utils/blog-api";
+import UserMainNavBar from "./home/user-main-nav-bar";
 
 
 
@@ -68,7 +69,8 @@ export default class fullBlog extends Component {
       <Helmet>
        <title>Sinbad Forum</title>
      </Helmet>
-     <MainNavBar props={this.props} />
+     {this.props.isAuthenticated === false ||this.props.isAuthenticated === undefined?<MainNavBar props={this.props} />:<UserMainNavBar props={this.props}/>}
+
      <div className="row div-margin-no full-blog-padding justify-content-lg-center">
        <div className=" full-blog-padding-content">
          <h1>{blogApi.blogData.data[this.state.index].blog_tittle}</h1>

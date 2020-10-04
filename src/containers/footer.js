@@ -14,40 +14,40 @@ class Footer extends Component {
             {/* <!-- Footer Essential links & Company Description --> */}
             <div className="row">
               <div className="col-md-3">
-                <a href="top#" className="nav-link">
+                <Link to={Path.comingSoon} className="nav-link">
                   <Translator text="welFootCol1R1.1" />
-                </a>
-                <a href="top#" className="nav-link">
+                </Link>
+                <Link to={Path.comingSoon} className="nav-link">
                   <Translator text="welFootCol1R2.1" />
-                </a>
-                <a href="top#" className="nav-link">
+                </Link>
+                <Link to={Path.comingSoon} className="nav-link">
                   <Translator text="welFootCol1R3.1" />
-                </a>
-                <a href="top#" className="nav-link">
+                </Link>
+                <Link to={Path.comingSoon} className="nav-link">
                   <Translator text="welFootCol1R4.1" />
-                </a>
+                </Link>
               </div>
               <div className="col-md-3">
-                <a href="top#" className="nav-link">
+                <Link to={Path.comingSoon} className="nav-link">
                   <Translator text="welFootCol2R1.1" />
-                </a>
-                <a href="top#" className="nav-link">
+                </Link>
+                <Link to={Path.comingSoon} className="nav-link">
                   <Translator text="welFootCol2R2.1" />
-                </a>
-                <a href="top#" className="nav-link">
+                </Link>
+                <Link to={Path.comingSoon} className="nav-link">
                   <Translator text="welFootCol2R3.1" />
-                </a>
+                </Link>
               </div>
               <div className="col-md-3">
-                <a href="top#" className="nav-link">
+                <Link to={Path.comingSoon} className="nav-link">
                   <Translator text="welFootCol3R1.1" />
-                </a>
-                <a href="top#" className="nav-link">
+                </Link>
+                <Link to={Path.comingSoon} className="nav-link">
                   <Translator text="welFootCol3R2.1" />
-                </a>
-                <a href="top#" className="nav-link">
+                </Link>
+                <Link to={Path.comingSoon} className="nav-link">
                   <Translator text="welFootCol3R3.1" />
-                </a>
+                </Link>
               </div>
               <div className="col-md-3">
                 <Link className="navbar-brand" to={Path.welcome}>
@@ -78,29 +78,29 @@ class Footer extends Component {
                 </div>
                 <ul>
                   <li>
-                    <a href="top#">
+                    <Link to={Path.comingSoon}>
                       <Translator text="welFootCol4Row2R1.1" />
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="top#">
+                    <Link to={Path.comingSoon}>
                       <Translator text="welFootCol4Row3R1.1" />
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="top#">
+                    <Link to={Path.comingSoon}>
                       <Translator text="welFootCol4Row4R1.1" />
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="top#">
+                    <Link to={Path.comingSoon}>
                       <Translator text="welFootCol4Row5R1.1" />{" "}
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="top#">
+                    <Link to={Path.comingSoon}>
                       <Translator text="welFootCol4Row6R1.1" />
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>

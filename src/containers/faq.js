@@ -5,6 +5,7 @@ import Footer from "./footer";
 
 import Translator from "../utils/translator";
 import InputTranslation from "../utils/input-translation";
+import UserMainNavBar from "./home/user-main-nav-bar";
 
 export default class Faq extends Component {
   render() {
@@ -13,7 +14,8 @@ export default class Faq extends Component {
         <Helmet>
           <title>Sinbad Faq</title>
         </Helmet>
-        <MainNavBar props={this.props} />
+        {this.props.isAuthenticated === false ||this.props.isAuthenticated === undefined?<MainNavBar props={this.props} />:<UserMainNavBar props={this.props}/>}
+
         {/* FAQ Page Into Search bar */}
         <div className="home-intro">
           <div className="container ">

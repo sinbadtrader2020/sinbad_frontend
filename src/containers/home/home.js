@@ -45,6 +45,8 @@ export default class Home extends React.Component {
       updateData5y:false,
 
 
+    
+
      
 
 
@@ -294,6 +296,16 @@ export default class Home extends React.Component {
 
 
   componentDidMount(){
+    this.setState({
+      updateData1d:true,
+      updateData1w:true,
+      updateData1m:true,
+      updateData3m:true,
+      updateData1y:true,
+      updateData5y:true
+
+
+    })
     //all company list
     this.fetchAllCompanySymbol()
     // one company details
@@ -315,6 +327,7 @@ export default class Home extends React.Component {
   }
   render() {
     //1d
+  
     if(this.state.homeTab==='1d'&&this.state.graphData1d!==null){
       this.size.data=this.state.graphData1d;
       this.size.companySymbol=this.state.graphCompanySymbol;
@@ -354,14 +367,27 @@ export default class Home extends React.Component {
       this.size.companySymbol=this.state.graphCompanySymbol;
   
     }
+    
 
   
     
     
     return (
-      
-    
-        <>
+      this.state.updateData1d===true&&this.state.updateData1w===true&&this.state.updateData1m===true&&this.state.updateData3d===true&&this.state.updateData1y===true&&this.state.updateData5y===true
+      ?
+      <>
+      {console.log("hit________null")}
+
+
+      <div className="div-center d-flex justify-content-center">
+      <div className="loading spinner-border"  role="status"> 
+      </div>
+      <div className='loading2 loading-img'> 
+
+      </div>
+     </div> </>:
+
+<>
           <Helmet>
             <title> Home</title>
           </Helmet>
@@ -377,18 +403,48 @@ export default class Home extends React.Component {
             >
               <div className='col-md-1'></div>
               <div className="col-md-7 " > 
-                <div style={{height:'300px',width:'600px'}}>
-                    
+
+                
+                
+
+              
+                {((this.state.graphData1d&&this.state.graphData5y)===null)?
                  
-                    {this.state.updateData1d===false&&this.state.homeTab==='1d'&&this.state.graphData1d!==null? <Intra1DGraph {...this.size}></Intra1DGraph>:null}
-                    {this.state.updateData1w===false&&this.state.homeTab==='1w'&&this.state.graphData1w!==null?  <Intra1DGraph {...this.size}></Intra1DGraph>:null}
-                    {this.state.updateData1m===false&&this.state.homeTab==='1m'&&this.state.graphData1m!==null?   <Intra1DGraph {...this.size}></Intra1DGraph>:null}
-                    {this.state.updateData3m===false&&this.state.homeTab==='3m'&&this.state.graphData3m!==null?  <Intra1DGraph {...this.size}></Intra1DGraph>:null}
-                    {this.state.updateData1y===false&&this.state.homeTab==='1y'&&this.state.graphData1y!==null?   <YearlyGraph {...this.size}></YearlyGraph>:null}
-                    {this.state.updateData5y===false&&this.state.homeTab==='5y'&&this.state.graphData5y!==null?  <YearlyGraph {...this.size}></YearlyGraph>:null}
+                  <div className='d-flex  align-items-center justify-content-center'  style={{height:'300px'}}>
+
+                  <div className="loading-graph spinner-border"  role="status"> 
+                  </div>
+                  <div className='loading2 loading-img position-absolute'> 
+
+                  </div>
+                    
+                  </div>
+                :
+                  ((this.state.updateData1d&&this.state.updateData5y)===true)?
+                    <div className='d-flex  align-items-center justify-content-center'  style={{height:'300px'}}>
+                
+                    <div className="loading-graph spinner-border"  role="status"> 
+                  </div>
+                  <div className='loading2 loading-img position-absolute'> 
+
+                  </div>
+                    
+                    </div>:
+                  <div style={{height:'300px'}}>
+             
+                  
+                 
+                    {(this.state.homeTab==='1d'&&this.state.graphData1d!==null)? <Intra1DGraph {...this.size}></Intra1DGraph>:null}
+                    {(this.state.homeTab==='1w'&&this.state.graphData1w!==null)?  <Intra1DGraph {...this.size}></Intra1DGraph>:null}
+                    {(this.state.homeTab==='1m'&&this.state.graphData1m!==null)?   <Intra1DGraph {...this.size}></Intra1DGraph>:null}
+                    {(this.state.homeTab==='3m'&&this.state.graphData3m!==null)?  <Intra1DGraph {...this.size}></Intra1DGraph>:null}
+                    {(this.state.homeTab==='1y'&&this.state.graphData1y!==null)?   <YearlyGraph {...this.size}></YearlyGraph>:null}
+                    {(this.state.homeTab==='5y'&&this.state.graphData5y!==null)?  <YearlyGraph {...this.size}></YearlyGraph>:null}
                     
                  
                 </div>
+                
+                }
 
                   <div className='row div-margin-no div-home-tab ' >
 
@@ -509,11 +565,12 @@ export default class Home extends React.Component {
 
 
 {/* stocks showing company names */}
-              {this.state.comSymbol!==null&&this.state.itemSymbol!==null?
                 <div className='float-right home-company-list'> 
                   <p className='text-left'>Stocks</p>
+
                     <div className='div-scroll'>
                         
+              {this.state.comSymbol!==null&&this.state.itemSymbol!==null?
 
                             <InfiniteScroll
                                 dataLength={this.state.itemSymbol.length}
@@ -558,10 +615,10 @@ export default class Home extends React.Component {
                               ))}
 
                             </InfiniteScroll>
+                        :<p>Loading...</p>}
                            
                     </div>
                 </div>
-              :null}
 
 
 

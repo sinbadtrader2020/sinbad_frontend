@@ -4,6 +4,7 @@ import Footer from "./footer";
 import Translator from "../utils/translator";
 import BecomeAnInvestor from "./become-an-investor";
 import { Helmet } from "react-helmet";
+import UserMainNavBar from "./home/user-main-nav-bar";
 
 export default class About extends Component {
   render() {
@@ -12,7 +13,8 @@ export default class About extends Component {
         <Helmet>
           <title>Sinbad About</title>
         </Helmet>
-        <MainNavBar props={this.props} />
+        {this.props.isAuthenticated === false ||this.props.isAuthenticated === undefined?<MainNavBar props={this.props} />:<UserMainNavBar props={this.props}/>}
+
 
         {/* <!-- About page design -->
              <!-- Intro design --> */}

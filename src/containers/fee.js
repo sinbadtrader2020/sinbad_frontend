@@ -7,6 +7,7 @@ import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import BecomeAnInvestor from "./become-an-investor";
 import Translator from "../utils/translator";
 import { Helmet } from "react-helmet";
+import UserMainNavBar from "./home/user-main-nav-bar";
 
 export default class Fees extends Component {
   render() {
@@ -15,7 +16,7 @@ export default class Fees extends Component {
         <Helmet>
           <title>Sinbad Fees</title>
         </Helmet>
-        <MainNavBar props={this.props} />
+        {this.props.isAuthenticated === false ||this.props.isAuthenticated === undefined?<MainNavBar props={this.props} />:<UserMainNavBar props={this.props}/>}
 
         {/* <!-- Fees page design -->
              <!-- Intro design --> */}

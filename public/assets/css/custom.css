@@ -879,6 +879,14 @@ input[type=number]::-webkit-outer-spin-button {
   color: #BF0A30;
 
 }
+.loading-graph{
+
+  height: 101px;
+  width: 101px;
+  position: relative;
+  color: #BF0A30;
+
+}
 
 .loading-img{
 

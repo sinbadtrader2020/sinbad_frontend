@@ -3,6 +3,7 @@ import MainNavBar from "./main-nav-bar";
 import Footer from "./footer";
 import Translator from "../utils/translator";
 import { Helmet } from "react-helmet";
+import UserMainNavBar from "./home/user-main-nav-bar";
 
 export default class Forum extends Component {
   render() {
@@ -11,7 +12,8 @@ export default class Forum extends Component {
         <Helmet>
           <title>Sinbad Forum</title>
         </Helmet>
-        <MainNavBar props={this.props} />
+        {this.props.isAuthenticated === false ||this.props.isAuthenticated === undefined?<MainNavBar props={this.props} />:<UserMainNavBar props={this.props}/>}
+
         {/* <!-- Forum Page Design -->
              <!-- Intro design --> */}
         <div className="home-intro">

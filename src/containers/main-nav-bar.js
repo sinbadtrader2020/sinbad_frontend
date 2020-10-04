@@ -13,9 +13,10 @@ class MainNavBar extends Component {
   
   constructor(props) {
     super(props);
+   
 
     this.state = {
-      languagebtn: i18n.language === "en" ? "English" : "Bangla",
+      languagebtn:  localStorage.getItem('language') === "en" ? "English" : "Bangla",
 
       navExpand: "navbar-collapse collapse",
     };
@@ -69,9 +70,9 @@ class MainNavBar extends Component {
             <div className={this.state.navExpand} id="navbarSupportedContent">
               <ul className="navbar-nav mr-auto">
                 <li className="nav-item dropdown">
-                  <a
+                  <Link
                     className="nav-link dropdown-toggle"
-                    href="top#"
+                    to={Path.comingSoon}
                     id="navbarDropdown"
                     role="button"
                     data-toggle="dropdown"
@@ -79,7 +80,7 @@ class MainNavBar extends Component {
                     aria-expanded="false"
                   >
                     <Translator text="mainNavBarAbout.1" />
-                  </a>
+                  </Link>
                   <div
                     className="dropdown-menu"
                     aria-labelledby="navbarDropdown"
@@ -87,12 +88,12 @@ class MainNavBar extends Component {
                     <Link className="dropdown-item" to={Path.about}>
                       <Translator text="mainNavBarAbout.2" />
                     </Link>
-                    <a className="dropdown-item" href="top#">
+                    <Link className="dropdown-item" to={Path.comingSoon}>
                       <Translator text="mainNavBarAbout.3" />
-                    </a>
-                    <a className="dropdown-item" href="top#">
+                    </Link>
+                    <Link className="dropdown-item" to={Path.comingSoon}>
                       <Translator text="mainNavBarAbout.4" />
-                    </a>
+                    </Link>
                   </div>
                 </li>
                 <li className="nav-item">
@@ -110,9 +111,9 @@ class MainNavBar extends Component {
                   </Link>
                 </li>
                 <li className="nav-item dropdown">
-                  <a
+                  <Link
                     className="nav-link dropdown-toggle"
-                    href="top#"
+                    to={Path.comingSoon}
                     id="navbarDropdown"
                     role="button"
                     data-toggle="dropdown"
@@ -120,7 +121,7 @@ class MainNavBar extends Component {
                     aria-expanded="false"
                   >
                     <Translator text="mainNavBarLearn.1" />
-                  </a>
+                  </Link>
                   <div
                     className="dropdown-menu"
                     aria-labelledby="navbarDropdown"
@@ -150,7 +151,7 @@ class MainNavBar extends Component {
                   <li className="nav-item dropdown">
                     <a
                       className="nav-link dropdown-toggle"
-                      href="top#"
+                      href="top"
                       id="navbarDropdown"
                       role="button"
                       data-toggle="dropdown"
@@ -167,6 +168,8 @@ class MainNavBar extends Component {
                         className="dropdown-item"
                         onClick={() => {
                           i18n.changeLanguage("en");
+                          localStorage.setItem('language', "en");
+
                           this.setState({
                             languagebtn: "English",
                             navExpand: "navbar-collapse collapse",
@@ -179,6 +182,7 @@ class MainNavBar extends Component {
                         className="dropdown-item"
                         onClick={() => {
                           i18n.changeLanguage("bn");
+                          localStorage.setItem('language', "bn");
                           this.setState({
                             languagebtn: "Bangla",
                             navExpand: "navbar-collapse collapse",
