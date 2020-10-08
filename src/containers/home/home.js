@@ -68,7 +68,26 @@ export default class Home extends React.Component {
 
   
 
+  handleSearch =(sym)=>{
+    this.setState({
+      updateData1d:true,
+      updateData1w:true,
+      updateData1m:true,
+      updateData3m:true,
+      updateData1y:true,
+      updateData5y:true
 
+
+    })
+    this.fetchData(sym);
+    this.fetchGraphData1D(sym,'compact','5min');
+    //1week
+    this.fetchGraphData1D(sym,'full','15min');
+    //1month
+    this.fetchGraphData1D(sym,'full','60min');
+
+    this.fetchGraphData1y(sym,'full');
+  }
 
   // for one comany details
   fetchData(symbol){
@@ -327,6 +346,7 @@ export default class Home extends React.Component {
   }
   render() {
     //1d
+    console.log("=====",this.state.comSymbol)
   
     if(this.state.homeTab==='1d'&&this.state.graphData1d!==null){
       this.size.data=this.state.graphData1d;
@@ -373,7 +393,7 @@ export default class Home extends React.Component {
     
     
     return (
-      this.state.updateData1d===true&&this.state.updateData1w===true&&this.state.updateData1m===true&&this.state.updateData3d===true&&this.state.updateData1y===true&&this.state.updateData5y===true
+     this.state.comSymbol===null
       ?
       <>
       {console.log("hit________null")}
@@ -391,7 +411,7 @@ export default class Home extends React.Component {
           <Helmet>
             <title> Home</title>
           </Helmet>
-          <UserMainNavBar props={this.props} />
+          <UserMainNavBar props={this.props} comSymbol={this.state.comSymbol} handleSearch={this.handleSearch.bind(this)}/>
           
           {/* <!-- Home page design -->
              <!-- Intro design --> */}

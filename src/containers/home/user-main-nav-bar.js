@@ -6,16 +6,19 @@ import i18n from "../../utils/i18n";
 
 import { Nav } from "react-bootstrap";
 import OutsideAlerter from "../../utils/outside-alert";
+import Select from "react-dropdown-select";
 
 
 class UserMainNavBar extends Component {
   constructor(props) {
     super(props);
-
+    
+    
     this.state = {
       languagebtn:localStorage.getItem('language')=== null ? "English" : localStorage.getItem('language')==='en'?'English':"Bangla",
 
       navExpand: "navbar-collapse collapse",
+      sym:[]
     };
   }
   changeNav = (event) => {
@@ -23,12 +26,26 @@ class UserMainNavBar extends Component {
       navExpand: "navbar-collapse collapse",
     });
   };
+  
+  componentWillMount(){
+   
+  }
 
  
   render() {
+    let sym=[];
+    if(this.props.comSymbol!==undefined){
+    this.props.comSymbol.map((index,i)=>{
+      sym.push({
+        'value': i, 'label': index.sf_act_symbol
+      });
+    });
+    
+  }
     return (
+      
       <>
-     
+    
         {/* <!-- Main menu Navbar --> */}
         <OutsideAlerter onchangeNav={this.changeNav}>
           <Nav className="navbar navbar-expand-lg navbar-light bg-light sticky main-nav-shadow">
@@ -60,10 +77,11 @@ class UserMainNavBar extends Component {
             <div className={this.state.navExpand} id="navbarSupportedContent">
               <ul className="navbar-nav mr-auto col-md-5">
               
-              <input className='nav-search col-md-12'  type="text" name="search" placeholder="Search..">
+              {/* <input className='nav-search col-md-12'  type="text" name="search" placeholder="Search..">
                   
-              </input>
-               
+              </input> */}
+              {console.log("sym",this.props.comSymbol)}
+              <Select className='nav-search '   type="text" name="search"  placeholder="Search.."  options={sym} onChange={(values) => this.props.handleSearch(values[0].label)}/>               
                 
               </ul>
 

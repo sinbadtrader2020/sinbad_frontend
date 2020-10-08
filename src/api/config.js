@@ -12,8 +12,17 @@ export class BlogApiConfig{
 
 
 }
+//production api url
+// export class APIConfig {
+//   static BASE_URL = "http://sinbad.finance/api/v1";
+//   static AUTH_TOKEN = "";
+//   static POST_CONTENT_TYPE = "application/json";
+//   static AUTH_TOKEN_HEADER = "token";
+// }
 
-
+// export class BlogApiConfig{
+//   static BASE_URL =  'http://sinbad.finance/admin/api/blogs/';
+// }
 export function configureAxios({
   baseURL = APIConfig.BASE_URL,
   authToken = APIConfig.AUTH_TOKEN,
