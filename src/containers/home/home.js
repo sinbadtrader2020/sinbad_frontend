@@ -10,6 +10,7 @@ import YearlyGraph from "../../utils/graph/yearly-graph";
 
 import SearchField from "react-search-field";
 import Footer from "../footer";
+import { Link } from "react-router-dom";
 
 export default class Home extends React.Component {
   constructor(){
@@ -511,7 +512,7 @@ export default class Home extends React.Component {
         <div className="home-intro user-home">
           <div className="container-fluid" >
             <div
-              className="row div-top-only div-margin-no overflow-hidden home-padding"
+              className="row div-top-only div-margin-no overflow-hidden home-padding tab-view"
               style={{ textAlign: "center" }}
             >
                   {/* mobile view */}
@@ -654,7 +655,7 @@ export default class Home extends React.Component {
                     
                     </div>:<>
                     {console.log("ccc",this.state.comData)}
-                    <p className='graph-title'>{`${this.state.comData.Name} (${this.state.comData.Symbol})`}</p>
+                    <p className='graph-title'>{`${this.state.comCompliantDetails.sf_company_name}`}</p><p>{`(${this.state.comCompliantDetails.sf_act_symbol})`}</p>
                   <div style={{height:'300px'}}>
              
                   
@@ -822,7 +823,7 @@ export default class Home extends React.Component {
                     <p className='home-about-head'>AAOIFI Screening Result</p>
                     <p className={this.state.show===null?'cursor ':'display-n'} onClick={()=>this.setState({
                       show:'show'
-                    })}>Click here to see the result</p>
+                    })}><Link className='a-green'>Click here </Link>to see the result</p>
                    
 
                     
@@ -830,19 +831,19 @@ export default class Home extends React.Component {
                   <div  className={this.state.show===null?'row home-about-margin text-left display-n':'row home-about-margin text-left'} >
                   {/* non compliant */}
                     {this.state.comCompliantDetails.sf_aaoifi_compliant==='NON-COMPLIANT'?<><p>
-                     {`Based on AAOIFI Standard, ${this.state.comCompliantDetails.sf_company_name} (${this.state.comCompliantDetails.sf_act_symbol}) is not compliant. `}</p>
+                     Based on AAOIFI Standard, <a className='a-red'>{`${this.state.comCompliantDetails.sf_company_name} (${this.state.comCompliantDetails.sf_act_symbol})`}</a> is not compliant. </p>
                       <p>{`This stock is non compliant due to ${message}` }</p></>:null}
 
                       {/* yellow */}
                     {this.state.comCompliantDetails.sf_aaoifi_compliant==="YELLOW"?<>
-                    <p>{`${this.state.comCompliantDetails.sf_company_name} (${this.state.comCompliantDetails.sf_act_symbol}) didn’t provide enough data to decide on this stock.`}</p> 
+                    <p><a className='a-yellow'>{`${this.state.comCompliantDetails.sf_company_name} (${this.state.comCompliantDetails.sf_act_symbol})`}</a> didn’t provide enough data to decide on this stock.</p> 
                     <p>{`Based on AAOIFI Standard. It is advisable to do due diligence on this stock before trading.`}</p> 
                     </>:null}
 
 
                     {/* complaint */}
                     {this.state.comCompliantDetails.sf_aaoifi_compliant==="COMPLIANT"?<>
-                      <p>{`Based on AAOIFI Standard, ${this.state.comCompliantDetails.sf_company_name} (${this.state.comCompliantDetails.sf_act_symbol}) is compliant to trade `}</p>
+                      <p>Based on AAOIFI Standard, <a className='a-green'>{`${this.state.comCompliantDetails.sf_company_name} (${this.state.comCompliantDetails.sf_act_symbol})`}</a> is compliant to trade. </p>
                       <p> </p>
                     </>:null}
                   </div>
@@ -868,7 +869,7 @@ export default class Home extends React.Component {
                                 placeholder="Stock Search..."
                                 onChange ={(value)=> this.setState({keyword:value})}
                               
-                                classNames="searchfield float-right"
+                                classNames="searchfield float-left"
                         />
                         </div>
 

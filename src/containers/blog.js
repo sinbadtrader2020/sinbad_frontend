@@ -9,6 +9,7 @@ import { Path } from "./config";
 import { blogApi } from "../utils/blog-api";
 import UserMainNavBar from "./home/user-main-nav-bar";
 import Select from "react-dropdown-select";
+import { Auth } from "../api/auth";
 
 //  'id',
 // 'blog_tittle',
@@ -25,9 +26,31 @@ export default class Blog extends Component {
     this.state = {
       hit: null,
       options:[],
+      name:'',
+      email:''
     };
   }
 
+  handleChange = (event) => {
+    this.setState({
+      [event.target.id]: event.target.value,
+    });
+  };
+  handleSubmit=()=>{
+    var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+    if(!pattern.test(this.state.email)){
+      alert('Enter a valid email address')
+      
+    }
+    else{
+      
+      let data={}
+      data={'email':this.state.email,'name':this.state.name}
+      Auth.subscribeEmail(data);
+    }
+   
+   
+  }
   componentDidMount() {
     let options=[];
     blogApi.blog().then((response) => {
@@ -105,8 +128,8 @@ export default class Blog extends Component {
           {/* <div className="home-intro"> */}
 
           <div className="container ">
-            <div className="row div-row-padding">
-              <div className="container">
+            <div className="row div-row-padding ">
+              <div className="container ">
                 <p className="pb-head-1">
                   <Translator text="blogIntro.1" />
                 </p>
@@ -255,6 +278,8 @@ export default class Blog extends Component {
                   <InputTranslation
                     className="form-control form-control-blog"
                     text="blogSearch.2"
+                    id="name"
+                    onchange={this.handleChange}
                   />
                 </div>
                 <div className="col-md-5">
@@ -262,10 +287,12 @@ export default class Blog extends Component {
                   <InputTranslation
                     className="form-control form-control-blog"
                     text="blogSearch.3"
+                    id="email"
+                    onchange={this.handleChange}
                   />
                 </div>
                 <div className="col-md-3">
-                  <button className="btn btn-primary pad-top">
+                  <button className="btn btn-primary pad-top" onClick={this.handleSubmit}>
                     {" "}
                     <Translator text="blogSearch.4" />
                   </button>

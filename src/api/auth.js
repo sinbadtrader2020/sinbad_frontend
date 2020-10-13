@@ -158,6 +158,16 @@ class Authentication {
   }
 
 
+  getApp(number){
+    console.log(number)
+    
+    return axios
+    .post(API.getApp, {'mobile_number':number})
+    .then(res=>alert(res.data.message))
+    .catch(error => alert(error.response.data.message))
+
+  }
+
 
 
 

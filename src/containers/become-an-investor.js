@@ -1,7 +1,37 @@
 import React, { Component } from 'react'
+import { Auth } from '../api/auth';
 import Translator from '../utils/translator'
 
 export default class BecomeAnInvestor extends Component {
+  constructor(props) {
+    super(props);
+
+ 
+
+    this.state = {
+      code: "",
+      number:"",
+     
+    };
+  }
+
+    handleChange = (event) => {
+    
+      this.setState({
+        [event.target.id]: event.target.value,
+      });
+    };
+    handleSubmit=()=>{
+      let phonenumber=''
+      phonenumber=this.state.code.concat(this.state.number)
+  
+      if(phonenumber!==''){
+        Auth.getApp(phonenumber)
+      }
+      else{
+        alert('Enter a mobile number')
+      }
+    }
     render() {
         return (
             <>
@@ -14,13 +44,13 @@ export default class BecomeAnInvestor extends Component {
 
               <div className="overflow-hidden  padding-zero ">
                 <div className="float-left about-padding pad-zero" >
-                  <input type="number" id="inputMDEx" className=" border-line1" />
+                  <input type="number" id="code" className=" border-line1" placeholder='+880' onChange={this.handleChange}/>
                 </div>
                 <div className="float-left  about-padding pad-zero">
-                  <input type="number" id="inputMDEx" className="border-line" />
+                  <input type="number" id="number" className="border-line" placeholder='1xxxxxxxxx' onChange={this.handleChange} />
                 </div>
                 <div className="float-left  about-padding pad-zero">
-                <button className='btn btn-primary'>  <Translator text="becomeAnInvestor.3" /></button>
+                <button className='btn btn-primary' onClick={this.handleSubmit}>  <Translator text="becomeAnInvestor.3" /></button>
 
                 </div>
               </div>

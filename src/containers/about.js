@@ -20,7 +20,7 @@ export default class About extends Component {
              <!-- Intro design --> */}
         <div className="home-intro">
           <div className="container ">
-            <div className="row div-row-padding" style={{ textAlign: "start" }}>
+            <div className="row div-row-padding  m-top" style={{ textAlign: "start" }}>
               <div className="col-lg-6 justify-content-center">
                 <h1 className="">
                   {" "}

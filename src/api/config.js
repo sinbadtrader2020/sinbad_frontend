@@ -1,26 +1,26 @@
 import axios from "axios";
 
-export class APIConfig {
-  static BASE_URL = "https://sinbad.finance/api/v1";
-  static AUTH_TOKEN = "";
-  static POST_CONTENT_TYPE = "application/json";
-  static AUTH_TOKEN_HEADER = "token";
-}
-
-export class BlogApiConfig{
-  static BASE_URL =  'https://sinbad.finance/admin/api/blogs/';
-}
-
 // export class APIConfig {
-//   static BASE_URL = "http://sinbad.finance/api/v1";
+//   static BASE_URL = "https://sinbad.finance/api/v1";
 //   static AUTH_TOKEN = "";
 //   static POST_CONTENT_TYPE = "application/json";
 //   static AUTH_TOKEN_HEADER = "token";
 // }
 
 // export class BlogApiConfig{
-//   static BASE_URL =  'http://sinbad.finance/admin/api/blogs/';
+//   static BASE_URL =  'https://sinbad.finance/admin/api/blogs/';
 // }
+
+export class APIConfig {
+  static BASE_URL = "http://43.224.110.47:9002/api/v1";
+  static AUTH_TOKEN = "";
+  static POST_CONTENT_TYPE = "application/json";
+  static AUTH_TOKEN_HEADER = "token";
+}
+
+export class BlogApiConfig{
+  static BASE_URL =  'http://127.0.0.1:8000/admin/api/blogs/';
+}
 export function configureAxios({
   baseURL = APIConfig.BASE_URL,
   authToken = APIConfig.AUTH_TOKEN,
@@ -98,7 +98,7 @@ const API_EDITUSER = '/user';
 const API_RESET_PASSWORD ='/resetpassword';
 const API_COMPANY_OVERVIEW ='/company';
 const API_SUBSCRIBE='/subscribe';
-
+const API_GET_APP='/get_app_url';
 export class API {
   static get signin() {
     return API_SIGNIN;
@@ -123,6 +123,9 @@ export class API {
   }
   static get subscribe(){
     return API_SUBSCRIBE;
+  }
+  static get getApp(){
+    return API_GET_APP;
   }
   
 }

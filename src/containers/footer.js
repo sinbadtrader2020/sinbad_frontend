@@ -25,10 +25,16 @@ class Footer extends Component {
   };
 
   handleSubmit=()=>{
-    let data={}
-    data={'email':this.state.user}
-    Auth.subscribeEmail(data);
-    
+    var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+    if(!pattern.test(this.state.user)){
+      alert('Enter a valid email address')
+      
+    }
+    else{
+      let data={}
+      data={'email':this.state.user}
+      Auth.subscribeEmail(data);
+    }
    
    
   }
@@ -93,9 +99,10 @@ class Footer extends Component {
                   <InputTranslation
                     className="form-control"
                     type="search"
-                    id="user"
+                 
                     text="welFootCol4Row1R1.1"
                     aria-label="Search"
+                    id="user"
                     onchange={this.handleChange}
                   />
 

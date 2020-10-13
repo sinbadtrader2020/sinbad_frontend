@@ -37,6 +37,9 @@
   padding-top: 50px;
 }
 @media (max-width: 600px) {
+  .m-top{
+    padding-top: 30px !important;
+  }
   .pad-top{
     margin-top: 5px;
   }
@@ -717,7 +720,7 @@ input[type=number]::-webkit-outer-spin-button {
  
   border: none;
   border-bottom: gray solid 2px;
-  width: 35px;
+  width: 40px;
   outline: none;
   color: gray;
   font-weight: bold;
@@ -1141,7 +1144,7 @@ input[type=number]::-webkit-outer-spin-button {
     margin-left: 15px;
     padding: 20px;
     height: 468px;
-    width: 300px;
+    width: 310px;
     right: 8%;
     border: 1px solid black;
  
@@ -1153,7 +1156,7 @@ input[type=number]::-webkit-outer-spin-button {
  margin-left: 15px;
  padding: 20px;
  height: 280px;
- width: 300px;
+ width: 310px;
  right: 8%;
  border: 1px solid black;
 
@@ -1168,17 +1171,17 @@ input[type=number]::-webkit-outer-spin-button {
 .div-scroll{
   
   height: 402px;
-  width: 276px;
+  width: 286px;
  
 }
-
-.infinite-scroll-component{
-  -ms-overflow-style: none !important;  /* IE and Edge */
-  scrollbar-width: none !important;  /* Firefox */
+/* .infinite-scroll-component{
+  -ms-overflow-style: none !important;  
+  scrollbar-width: none !important;  
 }
 .infinite-scroll-component::-webkit-scrollbar{
   display: none !important;
-}
+} */
+
 .word-clamp{
   width: 200px;
   white-space: nowrap;
@@ -1212,9 +1215,9 @@ input[type=number]::-webkit-outer-spin-button {
 
 
 .footer-p{
-  font-size: 14px;
-  font-weight: bold;
-  text-align: start;
+  font-size: 15px;
+  
+  text-align: justify;
 }
 .block-display{
   display: none;
@@ -1233,6 +1236,12 @@ input[type=number]::-webkit-outer-spin-button {
   .font-h4{
     font-size: 15px;
   }
+  .graph-title{
+    margin-top: 20px;
+  }
+  .tab-view{
+    justify-content: center;
+  }
 
 }
 
@@ -1242,8 +1251,10 @@ input[type=number]::-webkit-outer-spin-button {
   font-weight: unset !important;
 }
 .graph-title{
-  font-weight: bold;
-    font-size: 24px;
+    font-weight: bold;
+    font-size: 23px;
+    margin-bottom: 1px ;
+
 }
 .display-n{
   display: none;
@@ -1251,5 +1262,14 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .show{
   display: block;
+}
+.a-red{
+  color: #BF0A30 !important;
+}
+.a-yellow{
+  color: #ffc107 !important;
+}
+.a-green{
+  color: #28a745 !important;
 }
 /*# sourceMappingURL=custom.css.map */
