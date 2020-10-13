@@ -127,7 +127,7 @@ class Welcome extends Component {
                 </Link>
               </div>
               <div className="col-md-5 intro-img">
-                <img  src={"assets/images/home-intro.png"}  style={{ height: "400px" }} alt="logo" />
+                <img className='img-fluid'  src={"assets/images/home-intro.png"}  alt="logo" />
               </div>
             </div>
           </div>
@@ -150,7 +150,7 @@ class Welcome extends Component {
             >
               <img
                 src={"assets/images/home-intro.png"}
-                style={{ height: "400px" }}
+               
                 alt="logo"
               />
             </div>
@@ -251,13 +251,18 @@ class Welcome extends Component {
               <div className="col-md-9 my-auto">
                 <div className="container">
                   <div className="row txt-img-mob-center">
-                    <div className="col-md-5 my-auto">
-                      <img style={{width:'250px',height:'500px'}} src={this.state.imgname} alt="logo" />
-                    </div>
-                    <div className="col-md-7 my-auto">
+                  <div className="col-md-7 my-auto mo-show block-display">
                       <h3>{this.state.featureContent.tittle}</h3>
                       <p className="mt-4">{this.state.featureContent.body}</p>
                     </div>
+                    <div className="col-md-5 my-auto">
+                      <img className='img-fluid'  src={this.state.imgname} alt="logo" />
+                    </div>
+                    <div className="col-md-7 my-auto mo-hide">
+                      <h3>{this.state.featureContent.tittle}</h3>
+                      <p className="mt-4">{this.state.featureContent.body}</p>
+                    </div>
+                   
                   </div>
                 </div>
               </div>
@@ -298,21 +303,22 @@ class Welcome extends Component {
               </p>
             </div>
             <div
-              className="col-md-6"
+              className="col-md-6 wel-search"
               style={{ maxHeight: "350px", zIndex: " -1" }}
             >
               <img
+                className='img-fluid'
                 src={"assets/images/search.png"}
                 alt="logo"
 
-                style={{ height: "600px" }}
+          
 
               />
             </div>
           </div>
         </div>
 
-        <Footer />
+        <Footer  />
       </>
     );
   }

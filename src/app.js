@@ -202,13 +202,13 @@ class App extends React.Component {
               component={About}
               props={childProps}
             />
-
-               <AppliedRoute
+            {/* fees page disable */}
+               {/* <AppliedRoute
               path={Path.fee}
               exact
               component={Fees}
               props={childProps}
-            />
+            /> */}
 
             <AppliedRoute
               path={Path.blog}

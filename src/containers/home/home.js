@@ -8,19 +8,23 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Intra1DGraph from "../../utils/graph/intrad-1day-graph";
 import YearlyGraph from "../../utils/graph/yearly-graph";
 
-
+import SearchField from "react-search-field";
+import Footer from "../footer";
 
 export default class Home extends React.Component {
   constructor(){
     super();
     this.state={
-      
+      show:null,
+      keyword:null,
+      comCompliantDetails:null,
       comSymbol:null, //All company list
       itemSymbol:null, // pagination
       itemSymbolIndex:0,
 
 
       comData:null,   // one company details
+      comEndData:null,
       readmore:'less',  
 
 //graphdata means the data value send to load graph
@@ -66,7 +70,20 @@ export default class Home extends React.Component {
   }
 
 
+  handleChange =(value)=>{
+    Object.keys(this.state.comData).map((data)=>{
+      if(value===''){
+
+
+      }else if(data.sf_act_symbol==(value)){
+        this.setState({
+          itemSymbol:data
+        })
+      }
+    })
   
+    value===""?console.log("value"):console.log(value)
+  }
 
   handleSearch =(sym)=>{
     this.setState({
@@ -118,7 +135,35 @@ export default class Home extends React.Component {
         )
       
   }
-
+  //global quota endpoint
+  fetchEndpoint(symbol){
+    const pointer=this;
+    let fetchData=[];
+    
+    const API_KEY='AOYGBU6J7IN09PCE'
+    let API_Symbol = symbol;
+    console.log("symbol",symbol)
+    let API_CALL=`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${API_Symbol}&apikey=${API_KEY}`
+  
+    fetch(API_CALL)
+        .then(
+            function(response) {
+            return response.json();
+            }
+        )
+        .then(
+            function(data) {
+              console.log("row",data)
+              fetchData.push(data)
+              pointer.setState({
+                comEndData:data
+              })
+          
+            }
+          
+        )
+      
+  }
 
   // for all company list 
   fetchAllCompanySymbol(){
@@ -129,13 +174,29 @@ export default class Home extends React.Component {
       .get(API.companyOverview)
       .then((response) => {this.setState({
         comSymbol:response.data.data,
-        itemSymbol: response.data.data.slice(0,20),
-        itemSymbolIndex:20
+        itemSymbol: response.data.data.slice(0,200),
+        itemSymbolIndex:200
       });
       console.log('res', response.data.data)})
 
       
   }
+
+  //single company complance details
+  fetchCompanyCompliant(sym){
+    
+      
+      
+    return axios
+    .get(`${API.companyOverview}/${sym}`)
+    .then((response) => {this.setState({
+      comCompliantDetails:response.data.data[0],
+     
+    });
+    console.log('res12321321321', response.data.data[0])})
+
+    
+}
 
 
   //1d,1m,1w,3m data for specific symbol
@@ -304,10 +365,10 @@ export default class Home extends React.Component {
     setTimeout(() => {
       
       this.setState({
-        itemSymbol: this.state.itemSymbol.concat(this.state.comSymbol.slice(this.state.itemSymbolIndex,this.state.itemSymbolIndex+20)),
-        itemSymbolIndex :this.state.itemSymbolIndex+20
+        itemSymbol: this.state.itemSymbol.concat(this.state.comSymbol.slice(this.state.itemSymbolIndex,this.state.itemSymbolIndex+200)),
+        itemSymbolIndex :this.state.itemSymbolIndex+200
       });
-    }, 500);
+    }, 100);
   };
 
    
@@ -325,10 +386,13 @@ export default class Home extends React.Component {
 
 
     })
+    //single company Compliant details
+    this.fetchCompanyCompliant("IBM")
     //all company list
     this.fetchAllCompanySymbol()
     // one company details
     this.fetchData('IBM');
+    this.fetchEndpoint("IBM");
     //1day
     this.fetchGraphData1D('IBM','compact','5min');
     //1week
@@ -345,6 +409,35 @@ export default class Home extends React.Component {
     
   }
   render() {
+    let screening=this.state.comCompliantDetails;
+    let messages=[];
+    let message=null;
+    if(this.state.comCompliantDetails!==null){
+      if(this.state.comCompliantDetails.sf_aaoifi_compliant==="NON-COMPLIANT"){
+      messages=this.state.comCompliantDetails.sf_nc_reason.split('-')
+        if((messages[0]).trim()==='IATR'){
+          message='non-compliant amount of illiquid asset';
+
+        }
+        if((messages[0]).trim()==='NIS'){
+          message='non-compliant income source';
+          
+        }
+        if((messages[0]).trim()==='LAMC'){
+          message='non-compliant amount of illiquid asset';
+          
+        }
+        if((messages[0]).trim()==='DR'){
+          message='non-compliant amount of interest bearing debt';
+          
+        }
+        if((messages[0]).trim()==='NIR'){
+          message='non-compliant amount of investment in interest based income';
+          
+        }
+
+      }
+    }
     //1d
     console.log("=====",this.state.comSymbol)
   
@@ -422,8 +515,19 @@ export default class Home extends React.Component {
               style={{ textAlign: "center" }}
             >
                   {/* mobile view */}
-                  <div className='float-right home-company-list1 home-stock-mobile'> 
-                        <p className='text-left'>Stocks</p>
+                  <div className='float-right home-company-list1 home-stock-mobile m-auto'> 
+                
+                       <div className='overflow-hidden ' style={{marginBottom:'10px',paddingRight:"10px"}}>    
+                          
+                        {/* <p className=' float-left' style={{marginTop:'10px'}}>Stocks</p> */}
+                        <SearchField 
+                                placeholder="Stock Search..."
+                                onChange ={(value)=> this.setState({keyword:value})}
+                              
+                                classNames="searchfield float-right"
+                        />
+                        </div>
+
 
                           <div className='div-scroll'>
                               
@@ -443,6 +547,7 @@ export default class Home extends React.Component {
                                       }
                                   >
                                   {this.state.itemSymbol.map((i,index) => (
+                                    this.state.keyword===''||this.state.keyword===null?
                                     <div key={index}  className=' row div-margin-no cursor' onClick={()=>{
                                       this.setState({
                                         updateData1d:true,
@@ -450,11 +555,16 @@ export default class Home extends React.Component {
                                         updateData1m:true,
                                         updateData3m:true,
                                         updateData1y:true,
-                                        updateData5y:true
+                                        updateData5y:true,
+                                        show:null
+
 
 
                                       })
                                       this.fetchData(i.sf_act_symbol);
+                                      this.fetchCompanyCompliant(i.sf_act_symbol)
+
+                                      this.fetchEndpoint(i.sf_act_symbol);
                                       this.fetchGraphData1D(i.sf_act_symbol,'compact','5min');
                                       //1week
                                       this.fetchGraphData1D(i.sf_act_symbol,'full','15min');
@@ -464,17 +574,51 @@ export default class Home extends React.Component {
                                       this.fetchGraphData1y(i.sf_act_symbol,'full');
                                     
                                       }}>
-                                      <p className='text-left   pad-l-r' style={{width:'48px'}} >{i.sf_act_symbol}</p>
-                                      <p className='  word-clamp' >{i.sf_company_name}</p>
+                                      <p className='text-left  pad-l-r' style={{width:'48px'}}>{i.sf_act_symbol}</p>
+                                      <p className='text-left word-clamp' >{i.sf_company_name}</p>
 
                                     
-                                  </div>
+                                  </div>:
+                                  
+                                  i.sf_act_symbol.toLowerCase().indexOf(this.state.keyword.toLowerCase())>-1?
+                                  <div key={index}  className=' row div-margin-no cursor' onClick={()=>{
+                                      this.setState({
+                                        updateData1d:true,
+                                        updateData1w:true,
+                                        updateData1m:true,
+                                        updateData3m:true,
+                                        updateData1y:true,
+                                        updateData5y:true,
+                                        show:null
+                                
+
+
+                                      })
+                                      this.fetchData(i.sf_act_symbol);
+                                      this.fetchCompanyCompliant(i.sf_act_symbol)
+                                      
+                                      this.fetchEndpoint(i.sf_act_symbol);
+                                      this.fetchGraphData1D(i.sf_act_symbol,'compact','5min');
+                                      //1week
+                                      this.fetchGraphData1D(i.sf_act_symbol,'full','15min');
+                                      //1month
+                                      this.fetchGraphData1D(i.sf_act_symbol,'full','60min');
+
+                                      this.fetchGraphData1y(i.sf_act_symbol,'full');
+                                    
+                                      }}>
+                                      <p className='text-left pad-l-r' style={{width:'48px'}}>{i.sf_act_symbol}</p>
+                                      <p className='text-left word-clamp' >{i.sf_company_name}</p>
+
+                                    
+                                  </div>:null
                                     ))}
 
                                   </InfiniteScroll>
                               :<p>Loading...</p>}
                                 
                           </div>
+               
                 </div>
 
                   {/* mobile view */}
@@ -482,12 +626,13 @@ export default class Home extends React.Component {
               <div className='col-md-1'></div>
               <div className="col-md-7 " > 
 
+
                 
                 
 
               
                 {((this.state.graphData1d&&this.state.graphData5y)===null)?
-                 
+                   
                   <div className='d-flex  align-items-center justify-content-center'  style={{height:'300px'}}>
 
                   <div className="loading-graph spinner-border"  role="status"> 
@@ -507,7 +652,9 @@ export default class Home extends React.Component {
 
                   </div>
                     
-                    </div>:
+                    </div>:<>
+                    {console.log("ccc",this.state.comData)}
+                    <p className='graph-title'>{`${this.state.comData.Name} (${this.state.comData.Symbol})`}</p>
                   <div style={{height:'300px'}}>
              
                   
@@ -520,7 +667,7 @@ export default class Home extends React.Component {
                     {(this.state.homeTab==='5y'&&this.state.graphData5y!==null)?  <YearlyGraph {...this.size}></YearlyGraph>:null}
                     
                  
-                </div>
+                </div></>
                 
                 }
 
@@ -560,18 +707,62 @@ export default class Home extends React.Component {
 
                                 
                   </div>
+                  {console.log(this.state.comData)}
+                  {/*  */}
                   <div className='row home-about-margin ' >
                     <div className='col-md-3 text-left'>
                       <div className=' '>
-                      <p className='p-pad-zero'>CEO</p>
-                      <p className='f-s-13'>ceo</p>
+                      <p  className='p-pad-zero'>Open</p>
+                      <p className='f-s-13'>{this.state.comEndData===null?null:parseFloat(this.state.comEndData['Global Quote']['02. open']).toFixed(2)}</p>
                       </div>
                       
                     </div>
                     <div className='col-md-3 text-left'>
                       <div className=' '>
-                          <p  className='p-pad-zero'>Employees</p>
-                          <p className='f-s-13'>{this.state.comData===null?null:this.state.comData.FullTimeEmployees}</p>
+                          <p  className='p-pad-zero'>Today's High</p>
+                          <p className='f-s-13'>{this.state.comEndData===null?null:parseFloat(this.state.comEndData['Global Quote']['03. high']).toFixed(2)}</p>
+                      </div>
+                      
+                    </div>
+                    <div className='col-md-3 text-left'>
+                      <div className=' '>
+                          <p  className='p-pad-zero'>Today's Low</p>
+                          <p className='f-s-13'>{this.state.comEndData===null?null:parseFloat(this.state.comEndData['Global Quote']['04. low']).toFixed(2)}</p>
+                      </div>
+                      
+                    </div>
+
+
+                    <div className='col-md-3 text-left'>
+                      
+                      <div className=''>
+                          <p  className='p-pad-zero'>Dividend Yield</p>
+                          <p className='f-s-13'>{this.state.comData===null?null:this.state.comData.DividendYield}</p>
+                      </div>
+                    </div>
+
+                 
+                  
+
+
+                  </div>
+
+                  {/*  */}
+
+
+
+                  <div className='row home-about-margin ' >
+                    <div className='col-md-3 text-left'>
+                      <div className=' '>
+                      <p  className='p-pad-zero'>52WeekHigh</p>
+                      <p className='f-s-13'>{this.state.comData===null?null:this.state.comData['52WeekHigh']}</p>
+                      </div>
+                      
+                    </div>
+                    <div className='col-md-3 text-left'>
+                      <div className=' '>
+                          <p  className='p-pad-zero'>52WeekLow</p>
+                          <p className='f-s-13'>{this.state.comData===null?null:this.state.comData['52WeekLow']}</p>
                       </div>
                       
                     </div>
@@ -586,8 +777,8 @@ export default class Home extends React.Component {
 
                     <div className='col-md-3 text-left'>
                       <div className=' '>
-                          <p  className='p-pad-zero'>Founded</p>
-                          <p className='f-s-13'>CEO</p>
+                      <p  className='p-pad-zero'>Employee</p>
+                          <p className='f-s-13'>{this.state.comData===null?null:this.state.comData.FullTimeEmployees}</p>
                       </div>
                       
                     </div>
@@ -600,26 +791,21 @@ export default class Home extends React.Component {
                 
                   <div className='row home-about-margin ' >
                     <div className='col-md-3 text-left'>
-                      
-                      <div className=' '>
-                      <p  className='p-pad-zero'>Market Cap</p>
-                      <p className='f-s-13'>{this.state.comData===null?null:this.state.comData.MarketCapitalization}</p>
+                        <div className=' '>
+                            <p  className='p-pad-zero'>Market Cap</p>
+                            <p className='f-s-13'>{this.state.comData===null?null:this.state.comData.MarketCapitalization}</p>
+                        </div>
+                        
                       </div>
-                    </div>
-                    <div className='col-md-3 text-left'>
-                      
-                      <div className=' '>
-                          <p  className='p-pad-zero'>Price-Earning Ratio</p>
-                          <p className='f-s-13'>{this.state.comData===null?null:this.state.comData.PERatio}</p>
+
+
+                      <div className='col-md-3 text-left'>
+                        <div className=' '>
+                        <p  className='p-pad-zero'>Price-Earning Ratio</p>
+                            <p className='f-s-13'>{this.state.comData===null?null:this.state.comData.PERatio}</p>
+                        </div>
+                        
                       </div>
-                    </div>
-                    <div className='col-md-3 text-left'>
-                      
-                      <div className=''>
-                          <p  className='p-pad-zero'>Dividend Yield</p>
-                          <p className='f-s-13'>{this.state.comData===null?null:this.state.comData.DividendYield}</p>
-                      </div>
-                    </div>
 
 
                     <div className='col-md-3 text-left'>
@@ -630,7 +816,38 @@ export default class Home extends React.Component {
                       </div>
                     </div>
 
-                </div>
+                 </div>
+
+                  <div className='row home-about-margin ' >
+                    <p className='home-about-head'>AAOIFI Screening Result</p>
+                    <p className={this.state.show===null?'cursor ':'display-n'} onClick={()=>this.setState({
+                      show:'show'
+                    })}>Click here to see the result</p>
+                   
+
+                    
+                  </div>
+                  <div  className={this.state.show===null?'row home-about-margin text-left display-n':'row home-about-margin text-left'} >
+                  {/* non compliant */}
+                    {this.state.comCompliantDetails.sf_aaoifi_compliant==='NON-COMPLIANT'?<><p>
+                     {`Based on AAOIFI Standard, ${this.state.comCompliantDetails.sf_company_name} (${this.state.comCompliantDetails.sf_act_symbol}) is not compliant. `}</p>
+                      <p>{`This stock is non compliant due to ${message}` }</p></>:null}
+
+                      {/* yellow */}
+                    {this.state.comCompliantDetails.sf_aaoifi_compliant==="YELLOW"?<>
+                    <p>{`${this.state.comCompliantDetails.sf_company_name} (${this.state.comCompliantDetails.sf_act_symbol}) didn’t provide enough data to decide on this stock.`}</p> 
+                    <p>{`Based on AAOIFI Standard. It is advisable to do due diligence on this stock before trading.`}</p> 
+                    </>:null}
+
+
+                    {/* complaint */}
+                    {this.state.comCompliantDetails.sf_aaoifi_compliant==="COMPLIANT"?<>
+                      <p>{`Based on AAOIFI Standard, ${this.state.comCompliantDetails.sf_company_name} (${this.state.comCompliantDetails.sf_act_symbol}) is compliant to trade `}</p>
+                      <p> </p>
+                    </>:null}
+                  </div>
+                  {console.log("asd",this.state.comCompliantDetails)}
+
 
               </div>
                 
@@ -642,9 +859,19 @@ export default class Home extends React.Component {
        
 
 
-{/* stocks showing company names */}
-                  <div className='float-right home-company-list home-display-none'> 
-                        <p className='text-left'>Stocks</p>
+                      {/* stocks showing company names */}
+                  <div className='float-right home-company-list home-display-none '> 
+                       <div className='overflow-hidden ' style={{marginBottom:'10px'}}>    
+                          
+                        {/* <p className=' float-left' style={{marginTop:'10px'}}>Stocks</p> */}
+                        <SearchField 
+                                placeholder="Stock Search..."
+                                onChange ={(value)=> this.setState({keyword:value})}
+                              
+                                classNames="searchfield float-right"
+                        />
+                        </div>
+
 
                           <div className='div-scroll'>
                               
@@ -655,7 +882,7 @@ export default class Home extends React.Component {
                                       next={this.scrollMoreData}
                                       hasMore={true}
                                       loader={<p>Loading...</p>}
-                                      height={400}
+                                      height={380}
                                     
                                       endMessage={
                                         <p style={{ textAlign: "center" }}>
@@ -664,6 +891,7 @@ export default class Home extends React.Component {
                                       }
                                   >
                                   {this.state.itemSymbol.map((i,index) => (
+                                    this.state.keyword===''||this.state.keyword===null?
                                     <div key={index}  className=' row div-margin-no cursor' onClick={()=>{
                                       this.setState({
                                         updateData1d:true,
@@ -671,11 +899,15 @@ export default class Home extends React.Component {
                                         updateData1m:true,
                                         updateData3m:true,
                                         updateData1y:true,
-                                        updateData5y:true
+                                        updateData5y:true,
+                                        show:null,
 
 
                                       })
                                       this.fetchData(i.sf_act_symbol);
+                                      this.fetchCompanyCompliant(i.sf_act_symbol)
+                                      
+                                      this.fetchEndpoint(i.sf_act_symbol);
                                       this.fetchGraphData1D(i.sf_act_symbol,'compact','5min');
                                       //1week
                                       this.fetchGraphData1D(i.sf_act_symbol,'full','15min');
@@ -689,7 +921,39 @@ export default class Home extends React.Component {
                                       <p className='text-left word-clamp' >{i.sf_company_name}</p>
 
                                     
-                                  </div>
+                                  </div>:
+                                  
+                                  i.sf_act_symbol.toLowerCase().indexOf(this.state.keyword.toLowerCase())>-1?
+                                  <div key={index}  className=' row div-margin-no cursor' onClick={()=>{
+                                      this.setState({
+                                        updateData1d:true,
+                                        updateData1w:true,
+                                        updateData1m:true,
+                                        updateData3m:true,
+                                        updateData1y:true,
+                                        updateData5y:true,
+                                        show:null
+
+
+                                      })
+                                      this.fetchData(i.sf_act_symbol);
+                                      this.fetchCompanyCompliant(i.sf_act_symbol)
+                                      
+                                      this.fetchEndpoint(i.sf_act_symbol);
+                                      this.fetchGraphData1D(i.sf_act_symbol,'compact','5min');
+                                      //1week
+                                      this.fetchGraphData1D(i.sf_act_symbol,'full','15min');
+                                      //1month
+                                      this.fetchGraphData1D(i.sf_act_symbol,'full','60min');
+
+                                      this.fetchGraphData1y(i.sf_act_symbol,'full');
+                                    
+                                      }}>
+                                      <p className='text-left col-md-3 pad-l-r' >{i.sf_act_symbol}</p>
+                                      <p className='text-left word-clamp' >{i.sf_company_name}</p>
+
+                                    
+                                  </div>:null
                                     ))}
 
                                   </InfiniteScroll>
@@ -701,18 +965,19 @@ export default class Home extends React.Component {
 
 
 
-
+              
               
             </div>
             
     
-        
+            
           </div>
+         
 
 
         
 
-
+          <Footer/>
         </div>
       
         

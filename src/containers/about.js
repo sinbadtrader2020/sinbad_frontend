@@ -21,13 +21,13 @@ export default class About extends Component {
         <div className="home-intro">
           <div className="container ">
             <div className="row div-row-padding" style={{ textAlign: "start" }}>
-              <div className="col-md-7">
-                <h1 className="mt-5">
+              <div className="col-lg-6 justify-content-center">
+                <h1 className="">
                   {" "}
                   <Translator text="aboutInto.1" />
                   <br /> <Translator text="aboutInto.2" />
                 </h1>
-                <p className="mt-5 font-weight-bold">
+                <p className=" ">
                   {" "}
                   <Translator text="aboutInto.3" />
                 </p>
@@ -35,9 +35,9 @@ export default class About extends Component {
                   <Translator text="aboutInto.4" />
                 </p>
               </div>
-              <div className="col-md-5 ">
+              <div className="col-lg-6 text-center">
                 <img
-                  className="img-inherit"
+                  className='img-fluid'
                   src={"assets/images/about-intro.png"}
                   alt="logo"
                 />
@@ -55,10 +55,7 @@ export default class About extends Component {
                 {" "}
                 <Translator text="aboutWhySinbad.1" />
               </h2>
-              <p className="text-center">
-                {" "}
-                <Translator text="aboutWhySinbad.1" />
-              </p>
+           
             </div>
           </div>
 
@@ -150,7 +147,7 @@ export default class About extends Component {
                 <div className="row div-row-work-padding">
                   <div className="col-md-4 " style={{ textAlign: "center" }}>
                     <img
-                      className="img-screen-size"
+                      className="img-fluid"
                       src={"assets/images/work1.png"}
                       alt="logo"
                     />
@@ -159,7 +156,7 @@ export default class About extends Component {
 
                   <div className="col-md-7 m-auto">
                     <div className="works-div ">
-                      <h4 className="text-center">
+                      <h4 className="text-center font-h4">
                         <Translator text="aboutHowItWorks.2" />
                       </h4>
                     </div>
@@ -167,29 +164,44 @@ export default class About extends Component {
                 </div>
                 {/* work2  */}
 
+
                 <div className="row div-row-work-padding">
+                <div className="col-md-4 mo-show block-display " style={{ textAlign: "center" }}>
+                    <img
+                      className="img-fluid"
+                      src={"assets/images/work2.png"}
+                      alt="logo"
+                    />
+                  </div>
+                
                   <div className="col-md-7 m-auto">
                     <div className="works-div ">
-                      <h4 className="text-center">
+                      <h4 className="text-center font-h4">
                         <Translator text="aboutHowItWorks.3" />
                       </h4>
                     </div>
                   </div>
-                  <div className="col-md-1"></div>
+                  
+                  {/* <div className="col-md-1"></div> */}
 
-                  <div className="col-md-4 " style={{ textAlign: "center" }}>
+                  <div className="col-md-4 mo-hide " style={{ textAlign: "center" }}>
                     <img
-                      className="img-screen-size"
+                      className="img-fluid"
                       src={"assets/images/work2.png"}
                       alt="logo"
                     />
                   </div>
                 </div>
+
+                
                 {/* 3rd */}
+
+
                 <div className="row div-row-work-padding">
+              
                   <div className="col m-auto">
                     <div className="works-div ">
-                      <p className="text-center">
+                      <p className="text-center" style={{fontSize:'15px'}}>
                         <Translator text="aboutHowItWorks.4" />
                       </p>
                     </div>
@@ -200,16 +212,16 @@ export default class About extends Component {
                 <div className="row div-row-work-padding">
                   <div className="col-md-4 " style={{ textAlign: "center" }}>
                     <img
-                      className="img-screen-size"
+                      className="img-fluid" 
                       src={"assets/images/work3.png"}
                       alt="logo"
                     />
                   </div>
-                  <div className="col-md-1"></div>
+                  {/* <div className="col-md-1"></div> */}
 
                   <div className="col-md-7 m-auto">
                     <div className="works-div ">
-                      <h4 className="text-center">
+                      <h4 className="text-center font-h4">
                         <Translator text="aboutHowItWorks.5" />
                       </h4>
                     </div>
@@ -297,9 +309,9 @@ export default class About extends Component {
             style={{ paddingBottom: "50px" }}
           >
             <div className="col-md-1"></div>
-            <div className="col-md-2 ">
+            <div className="col-md-2 text-center">
               <img
-                className="image-height"
+                className="image-height img-fluid"
                 src={"assets/images/avatar.png"}
                 alt="logo"
               />
@@ -309,9 +321,9 @@ export default class About extends Component {
               </h2>
             </div>
 
-            <div className="col-md-2 ">
+            <div className="col-md-2 text-center ">
               <img
-                className="image-height"
+                className="image-height img-fluid"
                 src={"assets/images/avatar.png"}
                 alt="logo"
               />

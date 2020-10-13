@@ -29,13 +29,15 @@ export default class fullBlog extends Component {
     this.state = {
       hit1: null,
       index: null,
-      adressPath:  this.props.location.search.split('=')
+      adressPath:  this.props.location.search.split('='),
+      data:null
      
     };
   }
  
 
  componentDidMount() {
+  const pointer=this;
    console.log("dd"+this.state.adressPath)
     this.setState({
       index: this.state.adressPath[this.state.adressPath.length - 1]-1 ,
@@ -48,7 +50,19 @@ export default class fullBlog extends Component {
         hit1: true,
       })
     })
+  //   fetch(`http://127.0.0.1:8000/admin/api/blogs/${this.state.adressPath[this.state.adressPath.length - 1]}/`)
     
+  //   .then(
+  //     function(response) {
+  //     return response.json();
+  //     }
+  // ).then(function(data){
+      
+  //     console.log(data)
+  //     pointer.setState({
+  //       data:data
+  //     })
+  //   })
    
   }
   render() {
@@ -80,7 +94,7 @@ export default class fullBlog extends Component {
              " "+blogApi.blogData.data[this.state.index].author_name
            }{" "}
          </p>
-
+          
          <div 
            dangerouslySetInnerHTML={{
              __html: blogApi.blogData.data[this.state.index].blog_content,

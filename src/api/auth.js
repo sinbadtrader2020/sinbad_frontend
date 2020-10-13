@@ -148,6 +148,16 @@ class Authentication {
   }
 
 
+  subscribeEmail(data){
+    console.log(data)
+    return axios
+    .post(API.subscribe, data)
+    .then(res=>alert(res.data.message))
+    .catch(error => alert(error.response.data.message))
+
+  }
+
+
 
 
 
