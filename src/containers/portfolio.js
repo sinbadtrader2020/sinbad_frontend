@@ -85,7 +85,7 @@ export default class Portfolio extends Component {
           <div className="row div-row-padding-top-b">
             {/* <div className="col-md-1"></div> */}
             <div className="col-md-12">
-              <div className="row div-margin-no m-auto justify-content-sm-start">
+              <div className="row div-margin-no m-auto card-align">
                 <div
                   className={
                     this.state.divInvestSinbad === "GlobalStocks"
@@ -120,7 +120,7 @@ export default class Portfolio extends Component {
                   </p>
                 </div>
 
-                <div
+                {/* <div
                   className={
                     this.state.divInvestSinbad === "Sukuk"
                       ? "div-bg-color-black"
@@ -166,7 +166,7 @@ export default class Portfolio extends Component {
                   <p className="p-black">
                     <Translator text="portfolioCard5.1" />
                   </p>
-                </div>
+                </div> */}
 
                 <div
                   className={
@@ -466,7 +466,7 @@ export default class Portfolio extends Component {
         </div>
 
         {/* Our portfolio */}
-        <div className="container">
+        <div className="container block-display">
           <div className="row div-row-padding m-auto">
             <div className="row padding-zero">
               <div className="col-md-11 m-auto h1-blue-center-start ">
@@ -1066,7 +1066,7 @@ export default class Portfolio extends Component {
 
         {/* <!-- Become an investor-> */}
 
-        <BecomeAnInvestor />
+        {/* <BecomeAnInvestor /> */}
 
         <Footer />
       </>

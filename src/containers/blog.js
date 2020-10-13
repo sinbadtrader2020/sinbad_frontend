@@ -8,6 +8,7 @@ import { Helmet } from "react-helmet";
 import { Path } from "./config";
 import { blogApi } from "../utils/blog-api";
 import UserMainNavBar from "./home/user-main-nav-bar";
+import Select from "react-dropdown-select";
 
 //  'id',
 // 'blog_tittle',
@@ -23,16 +24,21 @@ export default class Blog extends Component {
     super(porps);
     this.state = {
       hit: null,
+      options:[],
     };
   }
 
   componentDidMount() {
+    let options=[];
     blogApi.blog().then((response) => {
-      console.log("update");
-
+      console.log("update",response[1].data);
+      
+      
       this.setState({
         hit: true,
+     
       });
+      
     });
   }
 
@@ -41,11 +47,22 @@ export default class Blog extends Component {
     this.props.history.push({
       pathname: Path.fullBlog,
       search: "blog=" + index.toString(),
-      render: data,
+   
     });
   };
 
   render() {
+    let options=[];
+      if(this.state.hit===true&&blogApi.blogData.data!==null){
+      
+      
+      blogApi.blogData.data.map((index,i)=>{
+        options.push({
+          'value': i+1, 'label': index.blog_tittle
+        });
+      })
+     
+    }
     return this.state.hit === null ? (
       <>
         <div className="div-center d-flex justify-content-center">
@@ -98,20 +115,28 @@ export default class Blog extends Component {
                 </p>
               </div>
 
-              <div className="col-md-2 blog-search-padd"></div>
-              <div className="col-sm-7 blog-search-padd">
-                <InputTranslation
+              {/* <div className="col-md-2 blog-search-padd"></div> */}
+              <div className="col-md-7 blog-search-padd a m-auto">
+                {/* <InputTranslation
                   type="search"
                   placeholder="Find Anything?"
                   aria-label="Search"
                   className="faq-search  h5 font-weight-normal mb-4 pb-1"
-                />
+                /> */}
+                {console.log('dasdasdas',blogApi.blogData.data )}
+               <Select className='blog-search'   aria-label="Search"    type="search"   placeholder="Find Anything?"  options={options} onChange={(values) => this.props.history.push({
+                        pathname: Path.fullBlog,
+                        search: "blog=" + values[0].value,
+                    
+                      })
+                
+               }/>         
               </div>
-              <div className="col-md-1 blog-search-padd">
-                <button className="faq-search-btn font-weight-bold">
+              {/* <div className="col-md-1 blog-search-padd"> */}
+                {/* <button className="faq-search-btn font-weight-bold">
                   <Translator text="blogIntro.4" />
-                </button>
-              </div>
+                </button> */}
+              {/* </div> */}
             </div>
           </div>
         </div>
@@ -217,7 +242,7 @@ export default class Blog extends Component {
           </div>
         </div>
 
-        <div className="row div-padding-top-only">
+        <div className="row div-padding-top-only padding-bot">
           <div className="col-md-2"></div>
           <div className="col-md-8 ">
             <div className=" div-margin-only text-center color-bg">
@@ -225,8 +250,8 @@ export default class Blog extends Component {
                 {" "}
                 <Translator text="blogSearch.1" />
               </p>
-              <div className="row div-blog-padding justify-content-lg-center">
-                <div className="col-md-5 ">
+              <div className="row div-blog-padding justify-content-lg-center ">
+                <div className="col-md-4 ">
                   <InputTranslation
                     className="form-control form-control-blog"
                     text="blogSearch.2"
@@ -239,8 +264,8 @@ export default class Blog extends Component {
                     text="blogSearch.3"
                   />
                 </div>
-                <div className="col-md-2">
-                  <button className="btn btn-primary">
+                <div className="col-md-3">
+                  <button className="btn btn-primary pad-top">
                     {" "}
                     <Translator text="blogSearch.4" />
                   </button>

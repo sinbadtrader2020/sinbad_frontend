@@ -104,13 +104,13 @@ class MainNavBar extends Component {
                     <span className="sr-only" />
                   </Link>
                 </li>
-               
-                <li className="nav-item">
+               {/* fees disable */}
+                {/* <li className="nav-item">
                   <Link
                     to={Path.fee} className="nav-link" >
                     <Translator text="mainNavBarFees.1" />
                   </Link>
-                </li>
+                </li> */}
                 <li className="nav-item dropdown">
                   <Link
                     className="nav-link dropdown-toggle"

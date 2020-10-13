@@ -3,13 +3,40 @@ import Translator from "../utils/translator";
 import InputTranslation from "../utils/input-translation";
 import { Path } from "./config";
 import { Link } from "react-router-dom";
+import { Auth } from "../api/auth";
 
 class Footer extends Component {
+
+  constructor(props) {
+    super(props);
+
+ 
+
+    this.state = {
+      user: "",
+     
+    };
+  }
+
+  handleChange = (event) => {
+    this.setState({
+      [event.target.id]: event.target.value,
+    });
+  };
+
+  handleSubmit=()=>{
+    let data={}
+    data={'email':this.state.user}
+    Auth.subscribeEmail(data);
+    
+   
+   
+  }
   render() {
     return (
       <>
         {/* <!-- Website's Footer Design --> */}
-        <footer>
+        <footer className='foot'>
           <div className="container">
             {/* <!-- Footer Essential links & Company Description --> */}
             <div className="row">
@@ -27,18 +54,16 @@ class Footer extends Component {
                   <Translator text="welFootCol1R4.1" />
                 </Link>
               </div>
-              <div className="col-md-3">
+              <div className="col-md-2">
                 <Link to={Path.comingSoon} className="nav-link">
                   <Translator text="welFootCol2R1.1" />
                 </Link>
                 <Link to={Path.comingSoon} className="nav-link">
                   <Translator text="welFootCol2R2.1" />
                 </Link>
-                <Link to={Path.comingSoon} className="nav-link">
-                  <Translator text="welFootCol2R3.1" />
-                </Link>
+         
               </div>
-              <div className="col-md-3">
+              <div className="col-md-2">
                 <Link to={Path.comingSoon} className="nav-link">
                   <Translator text="welFootCol3R1.1" />
                 </Link>
@@ -49,7 +74,8 @@ class Footer extends Component {
                   <Translator text="welFootCol3R3.1" />
                 </Link>
               </div>
-              <div className="col-md-3">
+              <div className='col-md-1'></div>
+              <div className="col-md-4 text-center">
                 <Link className="navbar-brand" to={Path.welcome}>
                   <img className='sinbad-log' src={"assets/images/sinbad-logo1.png"} alt="Logo" />
                 </Link>
@@ -63,16 +89,17 @@ class Footer extends Component {
             {/* <!-- Footer Subscribe --> */}
             <div className="row">
               <div className="col-md-12 footer-subscribe">
-                <div>
+                <div style={{paddingBottom:'3px'}}>
                   <InputTranslation
                     className="form-control"
                     type="search"
                     id="user"
                     text="welFootCol4Row1R1.1"
                     aria-label="Search"
+                    onchange={this.handleChange}
                   />
 
-                  <button className="btn btn-success" type="submit">
+                  <button className="btn btn-danger" style={{backgroundColor:'#BF0A30'}} onClick={this.handleSubmit}>
                     <Translator text="welFootCol4Row1R2.1" />
                   </button>
                 </div>

@@ -75,17 +75,85 @@ class UserMainNavBar extends Component {
             </button>
 
             <div className={this.state.navExpand} id="navbarSupportedContent">
-              <ul className="navbar-nav mr-auto col-md-5">
-              
-              {/* <input className='nav-search col-md-12'  type="text" name="search" placeholder="Search..">
-                  
-              </input> */}
-              {console.log("sym",this.props.comSymbol)}
-              <Select className='nav-search '   type="text" name="search"  placeholder="Search.."  options={sym} onChange={(values) => this.props.handleSearch(values[0].label)}/>               
-                
-              </ul>
+            <ul className="navbar-nav mr-auto">
+                <li className="nav-item dropdown">
+                  <Link
+                    className="nav-link dropdown-toggle"
+                    to={Path.comingSoon}
+                    id="navbarDropdown"
+                    role="button"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    <Translator text="mainNavBarAbout.1" />
+                  </Link>
+                  <div
+                    className="dropdown-menu"
+                    aria-labelledby="navbarDropdown"
+                  >
+                    <Link className="dropdown-item" to={Path.about}>
+                      <Translator text="mainNavBarAbout.2" />
+                    </Link>
+                    <Link className="dropdown-item" to={Path.comingSoon}>
+                      <Translator text="mainNavBarAbout.3" />
+                    </Link>
+                    <Link className="dropdown-item" to={Path.comingSoon}>
+                      <Translator text="mainNavBarAbout.4" />
+                    </Link>
+                  </div>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    to={Path.portfolio} className="nav-link" >
+                    <Translator text="mainNavBarPortfolio.1" />
+                    <span className="sr-only" />
+                  </Link>
+                </li>
+               {/* fees disable */}
+                {/* <li className="nav-item">
+                  <Link
+                    to={Path.fee} className="nav-link" >
+                    <Translator text="mainNavBarFees.1" />
+                  </Link>
+                </li> */}
+                <li className="nav-item dropdown">
+                  <Link
+                    className="nav-link dropdown-toggle"
+                    to={Path.comingSoon}
+                    id="navbarDropdown"
+                    role="button"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    <Translator text="mainNavBarLearn.1" />
+                  </Link>
+                  <div
+                    className="dropdown-menu"
+                    aria-labelledby="navbarDropdown"
+                  >
+                    <Link
+                    to={Path.forum} className="dropdown-item" >
+                      <Translator text="mainNavBarLearn.2" />
+                    </Link>
+                    <Link
+                    to={Path.faq} className="dropdown-item" >
+                      <Translator text="mainNavBarLearn.3" />
+                    </Link>
+                  </div>
+                </li>
 
+                <li className="nav-item">
+                  <Link
+                    to={Path.blog} className="nav-link" >
+                    <Translator text="mainNavBarBlog.1" />
+                  </Link>
+                </li>
+              </ul>
           
+
+            {/* <Select className='nav-search '   type="text" name="search"  placeholder="Search.."  options={sym} onChange={(values) => this.props.handleSearch(values[0].label)}/>         
                 {/* language button Start1*/}
                 <ul className="navbar-nav mr-auto col-md-7 nav-end" >
                   <li className="nav-item dropdown">
@@ -135,28 +203,7 @@ class UserMainNavBar extends Component {
                     </div>
                   </li>
 
-                  <li className="nav-item">
-                    <Link
-                      to={Path.blog} className="nav-link" >
-                      <Translator text="mainNavBarBlog.1" />
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link
-                        to={Path.comingSoon} className="nav-link" >
-                        Free Stocks
-                        <span className="sr-only" />
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link
-                        to={Path.portfolio} className="nav-link" >
-                        <Translator text="mainNavBarPortfolio.1" />
-                        <span className="sr-only" />
-                    </Link>
-                   </li>
-               
+                 
             
                 
                 

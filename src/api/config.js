@@ -96,10 +96,10 @@ export function configureAxios({
 const API_SIGNIN = "/signin";
 const API_SIGNUP = "/signup";
 const API_SIGNOUT = "/logout";
-const API_EDITUSER = '/user'
-const API_RESET_PASSWORD ='/resetpassword'
-const API_COMPANY_OVERVIEW ='/company'
-
+const API_EDITUSER = '/user';
+const API_RESET_PASSWORD ='/resetpassword';
+const API_COMPANY_OVERVIEW ='/company';
+const API_SUBSCRIBE='/subscribe';
 
 export class API {
   static get signin() {
@@ -122,6 +122,9 @@ export class API {
  // company list
   static get companyOverview(){
     return API_COMPANY_OVERVIEW;
+  }
+  static get subscribe(){
+    return API_SUBSCRIBE;
   }
   
 }
