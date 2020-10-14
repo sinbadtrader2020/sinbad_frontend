@@ -1,18 +1,21 @@
 import React from "react";
 import axios from "axios";
 import { Helmet } from "react-helmet";
-import UserMainNavBar from "./user-main-nav-bar";
 
-import { API } from "../../api/config";
+
 import InfiniteScroll from "react-infinite-scroll-component";
-import Intra1DGraph from "../../utils/graph/intrad-1day-graph";
-import YearlyGraph from "../../utils/graph/yearly-graph";
+
 
 import SearchField from "react-search-field";
-import Footer from "../footer";
-import { Link } from "react-router-dom";
+import Footer from "../containers/footer";
 
-export default class Home extends React.Component {
+import { Link } from "react-router-dom";
+import UserMainNavBar from "../containers/home/user-main-nav-bar";
+import { API } from "../api/config";
+import Intra1DGraph from "../utils/graph/intrad-1day-graph";
+import YearlyGraph from "../utils/graph/yearly-graph";
+
+export default class testhome extends React.Component {
   constructor(){
     super();
     this.state={
@@ -175,10 +178,10 @@ export default class Home extends React.Component {
       .get(API.companyOverview)
       .then((response) => {this.setState({
         comSymbol:response.data.data,
-        itemSymbol: response.data.data.slice(0,40),
+        itemSymbol: response.data.data.slice(0,200),
         // itemSymbol: response.data.data,
 
-        itemSymbolIndex:40
+        itemSymbolIndex:200
       });
       console.log('res', response.data.data)})
 
@@ -368,8 +371,8 @@ export default class Home extends React.Component {
     setTimeout(() => {
       
       this.setState({
-        itemSymbol: this.state.itemSymbol.concat(this.state.comSymbol.slice(this.state.itemSymbolIndex,this.state.itemSymbolIndex+40)),
-        itemSymbolIndex :this.state.itemSymbolIndex+40
+        itemSymbol: this.state.itemSymbol.concat(this.state.comSymbol.slice(this.state.itemSymbolIndex,this.state.itemSymbolIndex+200)),
+        itemSymbolIndex :this.state.itemSymbolIndex+200
       });
     }, 100);
   };
@@ -533,7 +536,7 @@ export default class Home extends React.Component {
                                 placeholder="Stock Search..."
                                 onChange ={(value)=> this.setState({keyword:value})}
                               
-                                classNames="searchfield float-left"
+                                classNames="searchfield float-right"
                         />
                         </div>
 

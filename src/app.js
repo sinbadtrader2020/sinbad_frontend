@@ -23,6 +23,7 @@ import ComingSoon from "./containers/coming-soon";
 import fullBlog from "./containers/full-blog";
 import Setting from "./containers/home/setting";
 import ForgetPassword from "./containers/forget-password";
+import hometest from "./test/hometest";
 
 
 
@@ -265,7 +266,7 @@ class App extends React.Component {
             />
 
             
-
+         
 
             {/* Finally, catch all unmatched routes */}
             <Route component={NotFound} />

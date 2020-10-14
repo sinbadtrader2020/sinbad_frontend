@@ -16,7 +16,7 @@ function InputTranslation(props) {
 
 
 
-  return <input {...props}  value={inputValue} onChange={handleChange} placeholder={t(props.text)} />
+  return <input  autocomplete="off"   {...props}    value={inputValue} onChange={handleChange} placeholder={t(props.text)} />
 }
 
 export default InputTranslation;

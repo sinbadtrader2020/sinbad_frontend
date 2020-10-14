@@ -897,7 +897,7 @@ export default class Portfolio extends Component {
 
         {/* Everything to get you betwer result */}
 
-        <div className="container footer-no-margin padding-extra">
+        <div className="container footer-no-margin padding-extra bot-padding">
           <div className="row top-padding bg-color-div">
             <div className="col-md-6">
               <h2 style={{ paddingTop: "10px" }}>

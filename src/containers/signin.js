@@ -89,15 +89,17 @@ class Signin extends React.Component {
             </div>
           </div>
           <div className="row row-padding">
-            <div className="col-md-9 log-in-input">
-                <form onSubmit={this.handleSubmit}>
+            <div className="col-md-9 log-in-input" >
+                <form onSubmit={this.handleSubmit} >
 
                     <InputTranslation
                       type="mail"
                       text="signInBlock3R1.1"
                       id="email"
+                      name='the_address'
                       required
                       onchange={this.handleChange}
+                      autoFocus
                     />
                     <InputTranslation
                       type="password"

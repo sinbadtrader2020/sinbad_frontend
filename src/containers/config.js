@@ -25,6 +25,7 @@ const FORGETPASSWORD='/forgetpassword'
 
 
 
+
 export class Path {
   static get index() {
     return INDEX;
@@ -78,9 +79,11 @@ export class Path {
   }
 
 
-  static get graphapi(){
-    return  '/test'
-  }
+
+//test perpose
+  // static get graphapi(){
+  //   return  '/test'
+  // }
   
  
 }

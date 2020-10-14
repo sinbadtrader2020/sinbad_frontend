@@ -7,6 +7,7 @@ import Translator from '../../utils/translator';
 import Editable from '../../utils/editablelabel'
 import { Link } from 'react-router-dom';
 import { Auth } from '../../api/auth';
+import Footer from '../footer';
 
 class Setting extends Component {
     constructor(props){
@@ -64,7 +65,7 @@ class Setting extends Component {
 
 
                 {/* setting page body */}
-                        <div className="container">
+                        <div className="container bot-padding">
                             <div className="row row-padding setting-page-color">
                                 <div className="col-md-12">
                                     <div className="account-call-pad"  style={{paddingLeft:"60px"}}>
@@ -157,7 +158,7 @@ class Setting extends Component {
                                                         onchange={this.handleChange}
                                                         />
                                                 </div>
-                                                <div className='overflow-hidden account-detail'>
+                                                <div className='overflow-hidden '>
                                                 <button style={{marginRight:"80px"}} className='btn btn-outline-danger my-2 my-sm-0 float-right' type='submit'> Save</button>
                                                
                                                 </div>     
@@ -173,10 +174,9 @@ class Setting extends Component {
                             </div>
 
                             {/* <!-- social account login options --> */}
-                            <div className="row row-padding">
-                               
-                            </div>
+                           
                 </div>
+                <Footer/>
             </div>
         )
     }

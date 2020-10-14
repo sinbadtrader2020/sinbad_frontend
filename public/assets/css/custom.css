@@ -1272,4 +1272,8 @@ input[type=number]::-webkit-outer-spin-button {
 .a-green{
   color: #28a745 !important;
 }
+
+.bot-padding{
+  padding-bottom: 30px !important;
+}
 /*# sourceMappingURL=custom.css.map */

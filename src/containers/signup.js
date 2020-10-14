@@ -109,10 +109,15 @@ export default class Signup extends React.Component {
               </p>
 
               {/* <!-- Signup Form --> */}
-              <form onSubmit={this.handleSubmit}>
+              <form onSubmit={this.handleSubmit}   >
                 <div className="form-row">
                   <div className="form-group col-md-6">
                     <InputTranslation
+                    
+                  
+                  
+
+                      autoFocus
                       id="first_name"
                       type="text"
                       className="form-control"
@@ -123,6 +128,7 @@ export default class Signup extends React.Component {
                   </div>
                   <div className="form-group col-md-6">
                     <InputTranslation
+                     autocomplete="test"
                       id="last_name"
                       type="text"
                       className="form-control"
@@ -244,7 +250,7 @@ export default class Signup extends React.Component {
           </div>
 
           {/* <!-- social account login options --> */}
-          <div className="row row-padding">
+          <div className="row row-padding bot-padding" >
             <div className="col-md-3"></div>
             <div className="col-md-3 social-log-pad">
               <a
