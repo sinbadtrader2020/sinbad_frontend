@@ -110,7 +110,7 @@ function  Intra1DGraph(props) {
   },[])
 
     function prepareChart(chart) {
-        var series = chart.addLineSeries({
+        var series = chart.addAreaSeries({
             topColor: 'rgba(0, 150, 136, 0.56)',
             bottomColor: 'rgba(0, 150, 136, 0.04)',
             lineColor: 'rgba(0, 150, 136, 1)',

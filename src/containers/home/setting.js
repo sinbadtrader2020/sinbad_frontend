@@ -8,6 +8,7 @@ import Editable from '../../utils/editablelabel'
 import { Link } from 'react-router-dom';
 import { Auth } from '../../api/auth';
 import Footer from '../footer';
+import { Path } from '../config';
 
 class Setting extends Component {
     constructor(props){
@@ -24,21 +25,27 @@ class Setting extends Component {
         }
     }
     handleSubmit =(event)=>{
+
         console.log("called submit")
         event.preventDefault();
         Auth.updateUser(this.state,this.user.id).then((response) => {
-         
+         if(response.status===200){
+            alert('Successfully user password update')
+            Auth.updateData(this.user.id).then((res)=>{
+              
+                window.location.reload(false);
+                   
+               })
+         }
 
         })
-        Auth.updateData(this.user.id).then((res)=>{
-            
-        })
+        
         
     }
     handleReset =()=>{
         Auth.resetPassword(this.props.user.data[0].email).then((res)=>{
            alert(res.data.message)
-           this.props.handleLogout();
+        //    this.props.handleLogout();
           
         });
         

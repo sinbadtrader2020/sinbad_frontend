@@ -109,12 +109,13 @@ export default class Signup extends React.Component {
               </p>
 
               {/* <!-- Signup Form --> */}
+                     
               <form onSubmit={this.handleSubmit}   >
                 <div className="form-row">
                   <div className="form-group col-md-6">
                     <InputTranslation
                     
-                  
+                    autocomplete="test" 
                   
 
                       autoFocus
@@ -146,6 +147,7 @@ export default class Signup extends React.Component {
                       type="email"
                       className="form-control"
                       text="signUpBlock4R1.1"
+                      autocomplete="test" 
                       required
                       onchange={this.handleChange}
                     />
@@ -153,9 +155,10 @@ export default class Signup extends React.Component {
                   <div className="form-group col-md-6">
                     <InputTranslation
                       id="mobile_number"
-                      type="text"
+                      type="number"
                       className="form-control"
                       text="signUpBlock4R2.1"
+                      autocomplete="test" 
                       required
                       onchange={this.handleChange}
                     />
@@ -190,6 +193,7 @@ export default class Signup extends React.Component {
                     <InputTranslation
                       id="street_address"
                       type="text"
+                      autocomplete="test" 
                       className="form-control"
                       text="signUpBlock6R1.1"
                       onchange={this.handleChange}
@@ -218,6 +222,7 @@ export default class Signup extends React.Component {
                     <InputTranslation
                       id="city"
                       type="text"
+                      autocomplete="test" 
                       className="form-control"
                       text="signUpBlock7R2.1"
                       onchange={this.handleChange}
@@ -229,6 +234,7 @@ export default class Signup extends React.Component {
                       type="text"
                       className="form-control"
                       text="signUpBlock7R2.2"
+                      autocomplete="test" 
                       onchange={this.handleChange}
                     />
                   </div>

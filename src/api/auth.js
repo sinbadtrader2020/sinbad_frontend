@@ -142,7 +142,8 @@ class Authentication {
     .post(API.resetPassword, {
       email: email,
       
-    }).catch(error => alert(error.response.data.message))
+    }) 
+    .catch(error => alert(error.response.data.message))
     
 
   }
