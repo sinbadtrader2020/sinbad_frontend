@@ -72,7 +72,7 @@ class ForgetPassword extends React.Component {
             <div className="col-md-12">
               <h2 style={{ fontWeight: "bold" }}>
                 {" "}
-                 Forget Password{" "}
+                 Forgot Password{" "}
               </h2>
               <p>
                 {" "}

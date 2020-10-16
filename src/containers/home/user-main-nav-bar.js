@@ -156,7 +156,8 @@ class UserMainNavBar extends Component {
             {/* <Select className='nav-search '   type="text" name="search"  placeholder="Search.."  options={sym} onChange={(values) => this.props.handleSearch(values[0].label)}/>         
                 {/* language button Start1*/}
                 <ul className="navbar-nav mr-auto col-md-7 nav-end" >
-                  <li className="nav-item dropdown">
+                {/* disable button */}
+                  {/* <li className="nav-item dropdown">
                     <a
                       className="nav-link dropdown-toggle"
                       href="top"
@@ -201,7 +202,7 @@ class UserMainNavBar extends Component {
                         Bangla
                       </button>
                     </div>
-                  </li>
+                  </li> */}
 
                  
             

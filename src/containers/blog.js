@@ -266,7 +266,7 @@ export default class Blog extends Component {
         </div>
 
         <div className="row div-padding-top-only padding-bot">
-          <div className="col-md-2"></div>
+          {/* <div className="col-md-2"></div>
           <div className="col-md-8 ">
             <div className=" div-margin-only text-center color-bg">
               <p className="p-blog">
@@ -301,7 +301,7 @@ export default class Blog extends Component {
             </div>
           </div>
 
-          <div className="col-md-2"></div>
+          <div className="col-md-2"></div> */}
         </div>
 
         <Footer />

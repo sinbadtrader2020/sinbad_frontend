@@ -159,7 +159,7 @@ export default class Signup extends React.Component {
                       className="form-control"
                       text="signUpBlock4R2.1"
                       autocomplete="test" 
-                      required
+                     
                       onchange={this.handleChange}
                     />
                   </div>
@@ -216,6 +216,10 @@ export default class Signup extends React.Component {
                       <OptionTranslation text="signUpBlock7R1.3" />
                       <OptionTranslation text="signUpBlock7R1.4" />
                       <OptionTranslation text="signUpBlock7R1.5" />
+                      <OptionTranslation text="signUpBlock7R1.6" />
+                      <OptionTranslation text="signUpBlock7R1.7" />
+
+
                     </select>
                   </div>
                   <div className="form-group col-md-4">

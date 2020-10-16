@@ -148,7 +148,7 @@ class MainNavBar extends Component {
 
               <div className="form-inline my-2 my-lg-0">
                 {/* language button Start1*/}
-                <ul className="navbar-nav mr-auto">
+                {/* <ul className="navbar-nav mr-auto">
                   <li className="nav-item dropdown">
                     <a
                       className="nav-link dropdown-toggle"
@@ -194,7 +194,7 @@ class MainNavBar extends Component {
                       </button>
                     </div>
                   </li>
-                </ul>
+                </ul> */}
                 {/* language button end */}
 
                

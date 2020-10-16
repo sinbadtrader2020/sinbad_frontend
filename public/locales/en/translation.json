@@ -251,10 +251,12 @@
 
     "signUpBlock7R1":{
         "1": "Country",
-        "2": "Argentina",
-        "3": "Brazil",
-        "4": "Bangladesh",
-        "5": "Denmark"
+        "2": "Australia",
+        "3": "Canada",
+        "4": "Malaysia",
+        "5": "Singapore",
+        "6": "United States",
+        "7": "United Kingdom"
     },
 
 
@@ -291,7 +293,7 @@
    
     },
     "mainNavBarPortfolio":{
-        "1":"Portfolio"
+        "1":"Products"
     },
     "mainNavBarBlog":{
         "1":"Blog"
@@ -330,7 +332,7 @@
         "2":"We don't want to leave a single ethical investor without access to a diversified portfolio."
     },
     "aboutCard3":{
-        "1":"Lower Fees",
+        "1":"No Commission",
         "2":"Monitor performance and view your holdings at any time."
     },
     "aboutCard4":{
@@ -509,7 +511,7 @@
 
     "portfolioIntro":{
         "1":"Find the efficient way to invest",
-        "2":"Compelete the portfolios to give you the trust you seek."
+        "2":""
     },
 
     "portfolioWhatInvest":{

@@ -168,7 +168,7 @@ export default class Portfolio extends Component {
                   </p>
                 </div> */}
 
-                <div
+                {/* <div
                   className={
                     this.state.divInvestSinbad === "BitCoin"
                       ? "div-bg-color-black"
@@ -182,7 +182,7 @@ export default class Portfolio extends Component {
                   <p className="p-black">
                     <Translator text="portfolioCard6.1" />
                   </p>
-                </div>
+                </div> */}
               </div>
             </div>
             {/* <div className="col-md-1"></div> */}

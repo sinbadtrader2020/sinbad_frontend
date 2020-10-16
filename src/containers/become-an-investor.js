@@ -43,8 +43,8 @@ export default class BecomeAnInvestor extends Component {
               <p> <Translator text="becomeAnInvestor.2" /></p>
 
               <div className="overflow-hidden  padding-zero ">
-                <div className="float-left about-padding pad-zero" >
-                  <input type="number" id="code" className=" border-line1" placeholder='+880' onChange={this.handleChange}/>
+                <div className="float-left about-padding pad-zero m-auto" >
+                  <input type="number" id="code" className=" border-line1 " placeholder='+1' onChange={this.handleChange}/>
                 </div>
                 <div className="float-left  about-padding pad-zero">
                   <input type="number" id="number" className="border-line" placeholder='1xxxxxxxxx' onChange={this.handleChange} />

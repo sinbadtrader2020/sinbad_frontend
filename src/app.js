@@ -219,10 +219,10 @@ class App extends React.Component {
             />
 
 
-               <AppliedRoute
+            <AppliedRoute
               path={Path.forum}
               exact
-              component={Forum}
+              component={ComingSoon}
               props={childProps}
             />
 

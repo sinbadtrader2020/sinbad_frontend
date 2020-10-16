@@ -815,14 +815,14 @@ export default class Home extends React.Component {
                   <div className='row home-about-margin ' >
                     <div className='col-md-3 text-left'>
                       <div className=' '>
-                      <p  className='p-pad-zero'>52WeekHigh</p>
+                      <p  className='p-pad-zero'>52Week High</p>
                       <p className='f-s-13'>{this.state.comData===null?null:this.state.comData['52WeekHigh']}</p>
                       </div>
                       
                     </div>
                     <div className='col-md-3 text-left'>
                       <div className=' '>
-                          <p  className='p-pad-zero'>52WeekLow</p>
+                          <p  className='p-pad-zero'>52Week Low</p>
                           <p className='f-s-13'>{this.state.comData===null?null:this.state.comData['52WeekLow']}</p>
                       </div>
                       
