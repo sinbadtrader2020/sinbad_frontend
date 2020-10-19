@@ -156,9 +156,9 @@ export default class About extends Component {
 
                   <div className="col-md-7 m-auto">
                     <div className="works-div ">
-                      <h4 className="text-center font-h4">
+                      <p className="text-justify p-font">
                         <Translator text="aboutHowItWorks.2" />
-                      </h4>
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -176,9 +176,9 @@ export default class About extends Component {
                 
                   <div className="col-md-7 m-auto">
                     <div className="works-div ">
-                      <h4 className="text-center font-h4">
+                      <p className="text-justify p-font">
                         <Translator text="aboutHowItWorks.3" />
-                      </h4>
+                      </p>
                     </div>
                   </div>
                   
@@ -201,7 +201,7 @@ export default class About extends Component {
               
                   <div className="col m-auto">
                     <div className="works-div ">
-                      <p className="text-center" style={{fontSize:'15px'}}>
+                      <p className="text-justify p-font" style={{fontSize:'18px'}}>
                         <Translator text="aboutHowItWorks.4" />
                       </p>
                     </div>
@@ -221,9 +221,9 @@ export default class About extends Component {
 
                   <div className="col-md-7 m-auto">
                     <div className="works-div ">
-                      <h4 className="text-center font-h4">
-                        <Translator text="aboutHowItWorks.5" />
-                      </h4>
+                      <p className="text-justify p-font">
+                        <Translator text="aboutHowItWorks.5" /> 
+                      </p>
                     </div>
                   </div>
                 </div>

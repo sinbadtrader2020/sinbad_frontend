@@ -17,7 +17,7 @@ const ABOUT = '/about'
 const FEE = '/fees'
 const BLOG ='/blog'
 const FORUM ='/forum'
-const PORTFOLIO ='/portfolio'
+const PORTFOLIO ='/products'
 const COMINGSOON='/top'
 const FULLBLOG='/fullblog'
 

@@ -37,6 +37,10 @@
   padding-top: 50px;
 }
 @media (max-width: 600px) {
+  .footer-contact{
+    border-bottom: solid 0px white !important;
+    padding-bottom: 10px;
+  }
   .m-top{
     padding-top: 30px !important;
   }
@@ -370,17 +374,21 @@ a:hover {
 }
 
 /* This SCSS part contains all footer style */
+/*  #7F7F7F */
 footer {
-  background: #7F7F7F;
+  background: linear-gradient(150deg, #3A7175 15%, #378d9c 70%, #288998 94%);
+  
   margin-top: 70px;
   padding-top: 30px;
 }
 footer a {
-  color: white;
+  
   font-weight: bold;
+  color: wheat;
   text-decoration: none;
 }
 footer a:hover {
+
   color: #aaa;
   text-decoration: none;
 }
@@ -1211,6 +1219,31 @@ input[type=number]::-webkit-outer-spin-button {
   height: 25px;
   padding-bottom: 5px;
 }
+.logo p{
+ margin-bottom: 0px;
+ font-size: 21px;
+ font-weight: normal;
+}
+.logo-sinbad{
+  color :#346bc1;
+  padding-right: 4px;
+}
+.logo-sinbad-footer{
+  color : black;
+  padding-right: 4px;
+}
+.logo-finance-footer{
+  color: #a22323;
+}
+.logo-finance{
+  color: #BF0A30;
+  
+}
+.sinbad-logo{
+  width: 25px;
+  height: 25px;
+  
+}
 .home-stock-mobile{
   display: none;
 }
@@ -1218,7 +1251,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .footer-p{
   font-size: 15px;
-  
+  color: #000;
   text-align: justify;
 }
 .block-display{
@@ -1279,5 +1312,26 @@ input[type=number]::-webkit-outer-spin-button {
 
 .bot-padding{
   padding-bottom: 30px !important;
+}
+
+input.error {
+  border: 1px solid #EADAE4;
+}
+
+.error {
+  color:#db2269;
+  font-size: 0.625em;
+  display: relative;
+}
+.p-font{
+  font-size: 20px;
+  color: #000 !important;
+}
+.footer-contact{
+  border-bottom: solid 2px white;
+}
+.footer-contact-us{
+ font-weight: normal;
+ margin-right: 10px;
 }
 /*# sourceMappingURL=custom.css.map */

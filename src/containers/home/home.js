@@ -61,9 +61,11 @@ export default class Home extends React.Component {
       homeTab:'1d',
 
     }
+   
     this.size={
       height:300,
-      width:600,
+     
+      width: window.innerWidth>600?window.innerWidth/1.9:600,
       data:null,
       companySymbol:null,
       
@@ -518,7 +520,7 @@ export default class Home extends React.Component {
           {/* <!-- Home page design -->
              <!-- Intro design --> */}
         <div className="home-intro user-home">
-          <div className="container-fluid" >
+          <div className="container" >
             <div
               className="row div-top-only div-margin-no overflow-hidden home-padding tab-view"
               style={{ textAlign: "center" }}
@@ -684,8 +686,8 @@ export default class Home extends React.Component {
 
                   {/* mobile view */}
 
-              <div className='col-md-1'></div>
-              <div className="col-md-7 " > 
+              {/* <div className='col-md-1'></div> */}
+              <div className="col-md-8 " > 
 
 
                 
@@ -715,7 +717,7 @@ export default class Home extends React.Component {
                     
                     </div>:<>
                     {console.log("ccc",this.state.comData)}
-                    <p className='graph-title'>{`${this.state.comCompliantDetails.sf_company_name}`}</p><p>{`(${this.state.comCompliantDetails.sf_act_symbol})`}</p>
+                    <p className='graph-title'>{`${this.state.comCompliantDetails.sf_company_name}`}</p><p className='graph-title'>{`(${this.state.comCompliantDetails.sf_act_symbol})`}</p>
                   <div style={{height:'300px'}}>
              
                   
@@ -815,14 +817,14 @@ export default class Home extends React.Component {
                   <div className='row home-about-margin ' >
                     <div className='col-md-3 text-left'>
                       <div className=' '>
-                      <p  className='p-pad-zero'>52Week High</p>
+                      <p  className='p-pad-zero'>52 Week High</p>
                       <p className='f-s-13'>{this.state.comData===null?null:this.state.comData['52WeekHigh']}</p>
                       </div>
                       
                     </div>
                     <div className='col-md-3 text-left'>
                       <div className=' '>
-                          <p  className='p-pad-zero'>52Week Low</p>
+                          <p  className='p-pad-zero'>52 Week Low</p>
                           <p className='f-s-13'>{this.state.comData===null?null:this.state.comData['52WeekLow']}</p>
                       </div>
                       
@@ -1063,9 +1065,9 @@ export default class Home extends React.Component {
 
         
 
-          <Footer/>
+          
         </div>
-      
+        <Footer/>
         
         </>
     );

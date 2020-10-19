@@ -164,7 +164,7 @@ class Authentication {
     
     return axios
     .post(API.getApp, {'mobile_number':number})
-    .then(res=>alert(res.data.message))
+    .then(res=>alert('Coming soon, you will be notified'))
     .catch(error => alert(error.response.data.message))
 
   }

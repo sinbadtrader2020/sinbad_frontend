@@ -54,8 +54,13 @@ class UserMainNavBar extends Component {
               onClick={this.changeNav}
               to={Path.welcome}
             >
-            <img className='sinbad-log' src={"assets/images/sinbad-logo1.png"} alt="Logo" />
-
+            {/* <img className='sinbad-log' src={"assets/images/sinbad-logo1.png"} alt="Logo" /> */}
+              <div className='overflow-hidden logo'>
+                <img className='sinbad-logo float-left ' src={"assets/images/sinbad-logo.png"} alt="Logo" />
+                <p className='float-left logo-sinbad' >Sinbad </p>
+                
+                <p className='float-left logo-finance' >Finance</p>
+              </div>
             </Link>
             <button
               className="navbar-toggler"

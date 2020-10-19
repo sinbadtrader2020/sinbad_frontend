@@ -8,6 +8,7 @@ import InputTranslation from "../utils/input-translation";
 import OptionTranslation from "../utils/option-translation";
 import { Auth } from "../api/auth";
 import { Path } from "./config";
+import { Link } from "react-router-dom";
 
 export default class Signup extends React.Component {
   constructor(props) {
@@ -106,7 +107,23 @@ export default class Signup extends React.Component {
               </h2>
               <p>
                 <Translator text="signUpBlock2R1.1" />
+             
+                
               </p>
+
+           
+              
+              <p className='text-justify'>
+                  {" "}
+                  Already a Registered User? 
+                  <Link to={Path.signin}>
+               
+                    {" "}
+                    Click to log In
+                  </Link>
+                </p>
+
+              
 
               {/* <!-- Signup Form --> */}
                      

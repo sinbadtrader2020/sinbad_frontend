@@ -129,7 +129,7 @@
         "1":"Company News"
     },
     "welFootCol4R1":{
-        "1":"Sinbad Finance is a stock screening tool designed for making ethical investment easier. Now you can know which stock is ethical and which one is not. Whether you are looking to invest ethical or you would like to check if your current investment is ethical, Sinbad Finance is here to help."
+        "1":"Sinbad Finance is a stock screening tool designed for making ethical investment easier. Now you can know which stock is ethical and which one is not. Whether you are looking forward to investing ethically or you would like to check if your current investment is ethical, Sinbad Finance is here to help."
     },
     "welFootCol4Row1R1":{
         "1":"your email address"
@@ -316,7 +316,7 @@
         "1":"Sinbad Finance",
         "2":"Ethical Stock Finder Tools",
         "3":"About",
-        "4":"Sinbad Finance is a stock screening tool designed for making ethical investment easier. Now you can know which stock is ethical and which one is not. Whether you are looking to invest ethical or you would like to check if your current investment is ethical, Sinbad Finance is here to help."
+        "4":"Sinbad Finance is a stock screening tool designed for making ethical investment easier. Now you can know which stock is ethical and which one is not. Whether you are looking forward to investing ethically or you would like to check if your current investment is ethical, Sinbad Finance is here to help."
     },
     "aboutWhySinbad":{
         "1":"Why Sinbad Finance?",
@@ -510,7 +510,7 @@
 
 
     "portfolioIntro":{
-        "1":"Find the efficient way to invest",
+        "1":"Find the most efficient way to invest",
         "2":""
     },
 
@@ -522,10 +522,10 @@
     "portfolioCard1":{
         "1":"Global Stocks",
     
-        "2":"Global stocks are mainly from the developed markets of the world. These are diversified investments across sectors and geographies and generally follow a large-cap value investment style.",
+        "2":"Global stocks come primarily from developed markets. They are predominantly large-cap and value stocks coming from different markets and sectors.",
         "3":"   Reason we chose this Asset Class:",
         "4":" Direct and diversified investment in US, Uk and other foreign companies in developed markets that comply with islamic investment principles",
-        "5":"  Exposure to developed and mature stock markets"
+        "5":"  Exposure to developed and matured stock markets"
     },
     "portfolioCard2":{
         "1":"Emerging Marketing Stocks",
@@ -633,15 +633,15 @@
     },
     "portfolioGetBetter1":{
         "1":"Diversified",
-        "2":"You'll be invested in hundreds of individual companies ethical bonds, and commodities, ensuring your concentration risk to one security is limited."
+        "2":"Your portfolio will comprise of hundreds of different stocks, ethical bonds, and commodities; ensuring that your risk is not concentrated."
     },
     "portfolioGetBetter2":{
         "1":"Low Cost",
-        "2":"The investment funds we use are efficient and low cost. Every penny you save on expenses can help you achieve higher returns."
+        "2":"We manage your fund very efficiently and our fee is absolutely low. Every penny saved on your expenses can help you achieve superior returns."
     },
     "portfolioGetBetter3":{
         "1":"Optimized",
-        "2":"Our investment committee uses the modern portfolio theory to build portfolios that seek to maximize your return based on your risk profile."
+        "2":"Our investment committee uses modern portfolio theories to build portfolios that seek to maximize return based on your individual risk profile."
     }
     
     

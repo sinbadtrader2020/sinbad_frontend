@@ -4,16 +4,21 @@ import InputTranslation from "../utils/input-translation";
 import { Path } from "./config";
 import { Link } from "react-router-dom";
 import { Auth } from "../api/auth";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope, faEnvelopeOpenText } from "@fortawesome/free-solid-svg-icons";
+import { FaRegEnvelopeOpen } from "react-icons/fa";
+import { faEnvelopeOpen } from "@fortawesome/free-regular-svg-icons";
 
 class Footer extends Component {
 
   constructor(props) {
-    super(props);
+    super();
 
  
 
     this.state = {
       user: "",
+    
      
     };
   }
@@ -25,25 +30,33 @@ class Footer extends Component {
   };
 
   handleSubmit=()=>{
+  
     var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
-    if(!pattern.test(this.state.user)){
+    let user=this.state.user;
+    user = user.trim()
+    if(!pattern.test(user)){
       alert('Enter a valid email address')
-      
+     
     }
     else{
+      
       let data={}
-      data={'email':this.state.user}
+      data={'email':user}
       Auth.subscribeEmail(data);
     }
    
    
   }
   render() {
+  
+
     return (
       <>
         {/* <!-- Website's Footer Design --> */}
         <footer className='foot'>
-          <div className="container">
+          <div className="container ">
+          
+
             {/* <!-- Footer Essential links & Company Description --> */}
             <div className="row">
               <div className="col-md-3">
@@ -83,7 +96,13 @@ class Footer extends Component {
               <div className='col-md-1'></div>
               <div className="col-md-4 text-center">
                 <Link className="navbar-brand" to={Path.welcome}>
-                  <img className='sinbad-log' src={"assets/images/sinbad-logo1.png"} alt="Logo" />
+                  {/* <img className='sinbad-log' src={"assets/images/sinbad-logo1.png"} alt="Logo" /> */}
+                  <div className='overflow-hidden logo'>
+                        <img className='sinbad-logo float-left ' src={"assets/images/sinbad-logo.png"} alt="Logo" />
+                        <p className='float-left logo-sinbad-footer' >Sinbad </p>
+                        
+                        <p className='float-left logo-finance-footer' >Finance</p>
+                  </div>
                 </Link>
                 <p className="footer-p">
                   {" "}
@@ -94,8 +113,20 @@ class Footer extends Component {
 
             {/* <!-- Footer Subscribe --> */}
             <div className="row">
-              <div className="col-md-12 footer-subscribe">
-                <div style={{paddingBottom:'3px'}}>
+              <div className='col-md-3 footer-contact'>
+                <p style={{fontWeight:"bold", color:'white'}}>CONTACT US</p>
+                
+                <div>
+                <a className='footer-contact-us' href='mailto:mohsin@sinbad.finance'> <FontAwesomeIcon style={{marginRight:'10px'}} color='white' icon={faEnvelope} />mohsin@sinbad.finance</a>
+                </div>
+                <div>
+                <a className='footer-contact-us' href='mailto:moshiur@sinbad.finance'> <FontAwesomeIcon style={{marginRight:'10px'}} color='white' icon={faEnvelope} />moshiur@sinbad.finance</a>
+                </div>
+              </div>
+              <div className="col-md-9 footer-subscribe">
+            
+                <div style={{paddingBottom:'10px'}}>
+                 
                   <InputTranslation
                     className="form-control"
                     type="search"
@@ -105,50 +136,57 @@ class Footer extends Component {
                     id="user"
                     onchange={this.handleChange}
                   />
+                  
 
                   <button className="btn btn-danger" style={{backgroundColor:'#BF0A30'}} onClick={this.handleSubmit}>
                     <Translator text="welFootCol4Row1R2.1" />
                   </button>
+              
+          
                 </div>
-                <ul>
-                  <li>
-                    <Link to={Path.comingSoon}>
-                      <Translator text="welFootCol4Row2R1.1" />
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to={Path.comingSoon}>
-                      <Translator text="welFootCol4Row3R1.1" />
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to={Path.comingSoon}>
-                      <Translator text="welFootCol4Row4R1.1" />
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to={Path.comingSoon}>
-                      <Translator text="welFootCol4Row5R1.1" />{" "}
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to={Path.comingSoon}>
-                      <Translator text="welFootCol4Row6R1.1" />
-                    </Link>
-                  </li>
-                </ul>
+               
+              
+                  <ul>
+                    <li>
+                      <Link to={Path.comingSoon}>
+                        <Translator text="welFootCol4Row2R1.1" />
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to={Path.comingSoon}>
+                        <Translator text="welFootCol4Row3R1.1" />
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to={Path.comingSoon}>
+                        <Translator text="welFootCol4Row4R1.1" />
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to={Path.comingSoon}>
+                        <Translator text="welFootCol4Row5R1.1" />{" "}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to={Path.comingSoon}>
+                        <Translator text="welFootCol4Row6R1.1" />
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
               </div>
 
               {/* <!-- Footer Bottom: Company Information--> */}
 
               <div className="row" style={{ margin: "auto" }}>
-                <div className="col-md-12">
-                  <p style={{ fontSize: "13px", color: "white" }}>
+                <div className="col-md-12 text-center">
+                  <p style={{ fontSize: "13px", color: "wheat" }}>
                     <Translator text="welFootCol4Row7R1.1" />
                   </p>
                 </div>
               </div>
-            </div>
+          
+          
           </div>
         </footer>
       </>
