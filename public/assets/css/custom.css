@@ -376,6 +376,7 @@ a:hover {
 /* This SCSS part contains all footer style */
 /*  #7F7F7F */
 footer {
+  box-shadow: rgb(35 22 72) -9px 5px 22px;
   background: linear-gradient(150deg, #3A7175 15%, #378d9c 70%, #288998 94%);
   
   margin-top: 70px;

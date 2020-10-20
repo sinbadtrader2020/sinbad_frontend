@@ -11,6 +11,10 @@ import YearlyGraph from "../../utils/graph/yearly-graph";
 import SearchField from "react-search-field";
 import Footer from "../footer";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCalculator, faCheckCircle, faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
+import { faTimesCircle } from "@fortawesome/free-regular-svg-icons";
+import { FaTimesCircle } from "react-icons/fa";
 
 export default class Home extends React.Component {
   constructor(){
@@ -892,19 +896,28 @@ export default class Home extends React.Component {
                   </div>
                   <div  className={this.state.show===null?'row home-about-margin text-left display-n':'row home-about-margin text-left'} >
                   {/* non compliant */}
-                    {this.state.comCompliantDetails.sf_aaoifi_compliant==='NON-COMPLIANT'?<><p>
+                 
+                    {this.state.comCompliantDetails.sf_aaoifi_compliant==='NON-COMPLIANT'?<>
+                    <p>
+                    <FontAwesomeIcon  style={{fontSize:'20px',marginRight:'10px'}} color='#BF0A30' icon={faTimesCircle}/>
+                   
                      Based on AAOIFI Standard, <a className='a-red'>{`${this.state.comCompliantDetails.sf_company_name} (${this.state.comCompliantDetails.sf_act_symbol})`}</a> is not compliant. </p>
                       <p>{`This stock is non compliant due to ${message}` }</p></>:null}
 
                       {/* yellow */}
+                      
                     {this.state.comCompliantDetails.sf_aaoifi_compliant==="YELLOW"?<>
-                    <p><a className='a-yellow'>{`${this.state.comCompliantDetails.sf_company_name} (${this.state.comCompliantDetails.sf_act_symbol})`}</a> didn’t provide enough data to decide on this stock.</p> 
+
+                    {/* https://fontawesome.com/how-to-use/on-the-web/using-with/react */}
+                    <p>  <FontAwesomeIcon  style={{fontSize:'20px' ,marginRight:'10px'}} color='#ed931a' icon={faExclamationCircle}/> <a className='a-yellow'>{`${this.state.comCompliantDetails.sf_company_name} (${this.state.comCompliantDetails.sf_act_symbol})`}</a> didn’t provide enough data to decide on this stock.</p> 
                     <p>{`Based on AAOIFI Standard. It is advisable to do due diligence on this stock before trading.`}</p> 
                     </>:null}
 
 
                     {/* complaint */}
                     {this.state.comCompliantDetails.sf_aaoifi_compliant==="COMPLIANT"?<>
+                      <FontAwesomeIcon  style={{fontSize:'20px' ,marginRight:'10px'}} color='green' icon={faCheckCircle}/>
+
                       <p>Based on AAOIFI Standard, <a className='a-green'>{`${this.state.comCompliantDetails.sf_company_name} (${this.state.comCompliantDetails.sf_act_symbol})`}</a> is compliant to trade. </p>
                       <p> </p>
                     </>:null}

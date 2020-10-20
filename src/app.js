@@ -92,6 +92,20 @@ class App extends React.Component {
   };
 
   render() {
+    // if (process.env.NODE_ENV !== "development"){
+    //   console.log = () => {};
+    // }
+    //production cancel out methods
+    if (process.env.NODE_ENV  === 'production') {
+      const noop = () => {}
+      ['assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
+        'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
+        'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
+        'timeline', 'timelineEnd', 'timeStamp', 'trace', 'warn',
+      ].forEach((method) => {
+        window.console[method] = noop
+      })
+    }
    
 
     const childProps = {
@@ -131,8 +145,9 @@ class App extends React.Component {
         return <Redirect to={Path.welcome} />;
       }
     }
-
+    
     return (
+      
     
       <Suspense
         fallback={

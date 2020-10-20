@@ -127,7 +127,8 @@ class Welcome extends Component {
                 </Link>
               </div>
               <div className="col-md-5 intro-img">
-                <img className='img-fluid'  src={"assets/images/home-intro.png"}  alt="logo" />
+  
+                <img className='img-fluid'  src={"assets/images/home-intro-1.png"}  alt="logo" />
               </div>
             </div>
           </div>
@@ -149,7 +150,7 @@ class Welcome extends Component {
               style={{ textAlign: "center" }}
             >
               <img
-                src={"assets/images/home-intro.png"}
+                src={"assets/images/home-intro-2.png"}
                
                 alt="logo"
               />
