@@ -5,6 +5,7 @@ import Translator from "../utils/translator";
 import BecomeAnInvestor from "./become-an-investor";
 import { Helmet } from "react-helmet";
 import UserMainNavBar from "./home/user-main-nav-bar";
+import { Link } from "react-router-dom";
 
 export default class About extends Component {
   render() {
@@ -148,7 +149,8 @@ export default class About extends Component {
                   <div className="col-md-4 " style={{ textAlign: "center" }}>
                     <img
                       className="img-fluid"
-                      src={"assets/images/work1.png"}
+                      
+                      src={"assets/images/about-work1.png"}
                       alt="logo"
                     />
                   </div>
@@ -163,13 +165,14 @@ export default class About extends Component {
                   </div>
                 </div>
                 {/* work2  */}
-
+              
 
                 <div className="row div-row-work-padding">
                 <div className="col-md-4 mo-show block-display " style={{ textAlign: "center" }}>
                     <img
                       className="img-fluid"
-                      src={"assets/images/work2.png"}
+                     
+                      src={"assets/images/about-work2.png"}
                       alt="logo"
                     />
                   </div>
@@ -187,7 +190,7 @@ export default class About extends Component {
                   <div className="col-md-4 mo-hide " style={{ textAlign: "center" }}>
                     <img
                       className="img-fluid"
-                      src={"assets/images/work2.png"}
+                      src={"assets/images/about-work2.png"}
                       alt="logo"
                     />
                   </div>
@@ -213,7 +216,7 @@ export default class About extends Component {
                   <div className="col-md-4 " style={{ textAlign: "center" }}>
                     <img
                       className="img-fluid" 
-                      src={"assets/images/work3.png"}
+                      src={"assets/images/about-work3.png"}
                       alt="logo"
                     />
                   </div>
@@ -319,6 +322,7 @@ export default class About extends Component {
               <h2 className="text-center" style={{ paddingTop: "5px" }}>
                 <Translator text="aboutTeam.2" />
               </h2>
+              <a href="mailto:mohsin@sinbad.finance"> mohsin@sinbad.finance</a>
             </div>
 
             <div className="col-md-2 text-center ">
@@ -330,6 +334,8 @@ export default class About extends Component {
               <h2 className="text-center" style={{ paddingTop: "5px" }}>
                 <Translator text="aboutTeam.3" />
               </h2>
+              <a href="mailto:moshiur@sinbad.finance" > moshiur@sinbad.finance</a>
+
             </div>
             <div className="col-md-1 "></div>
           </div>
