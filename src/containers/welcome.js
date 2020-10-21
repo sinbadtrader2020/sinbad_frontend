@@ -126,9 +126,9 @@ class Welcome extends Component {
                   <Translator text="welBlock1R4.1" />
                 </Link>
               </div>
-              <div className="col-md-5 intro-img">
-  
-                <img className='img-fluid'  src={"assets/images/home-intro-1.png"}  alt="logo" />
+              <div className="col-md-5 ">
+         
+                <img className='img-fluid'  src={"assets/images/home-into-main.png"}  alt="logo" />
               </div>
             </div>
           </div>
@@ -150,7 +150,7 @@ class Welcome extends Component {
               style={{ textAlign: "center" }}
             >
               <img
-                src={"assets/images/home-intro-2.png"}
+                src={"assets/images/home-intro-work.png"}
                
                 alt="logo"
               />

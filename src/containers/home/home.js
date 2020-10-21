@@ -69,7 +69,7 @@ export default class Home extends React.Component {
     this.size={
       height:300,
      
-      width: window.innerWidth>600?window.innerWidth/1.9:600,
+      width: window.innerWidth>600?window.innerWidth/2.1:600,
       data:null,
       companySymbol:null,
       
