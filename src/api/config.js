@@ -96,6 +96,8 @@ const API_SIGNUP = "/signup";
 const API_SIGNOUT = "/logout";
 const API_EDITUSER = '/user';
 const API_RESET_PASSWORD ='/resetpassword';
+const API_CHANGE_PASSWORD = '/changepassword'
+const API_FORGOT_PASSWORD ='/forgetpassword'
 const API_COMPANY_OVERVIEW ='/company';
 const API_SUBSCRIBE='/subscribe';
 const API_GET_APP='/get_app_url';
@@ -116,6 +118,12 @@ export class API {
   }
   static get resetPassword(){
     return API_RESET_PASSWORD;
+  }
+  static get forgotPassword(){
+    return API_FORGOT_PASSWORD;
+  }
+  static get changePassword(){
+    return API_CHANGE_PASSWORD;
   }
  // company list
   static get companyOverview(){

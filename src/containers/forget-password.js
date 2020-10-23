@@ -7,7 +7,7 @@ import { Helmet } from "react-helmet";
 
 import InputTranslation from "../utils/input-translation";
 import { Auth } from "../api/auth";
-import { Alert, Form } from "react-bootstrap";
+
 
 class ForgetPassword extends React.Component {
   constructor(props) {
@@ -39,10 +39,11 @@ class ForgetPassword extends React.Component {
       
     }
     else {
-      Auth.resetPassword(this.state.email).then((res)=>{
+      Auth.forgotPassword(this.state.email).then((res)=>{
         if(res!==undefined){
-            alert(res.data.message);
-            this.props.history.push(Path.signin);
+          if(res.status===202){
+              console.log(res.status);
+          }
         }
         
       

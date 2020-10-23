@@ -147,6 +147,27 @@ class Authentication {
     
 
   }
+  forgotPassword(email){
+    return axios
+    .post(API.forgotPassword, {
+      email: email,
+      
+    }) 
+    .catch(error => alert(error.response.data.message))
+    
+
+  }
+  changePassword(email,password,new_password){
+    return axios
+    .post(API.changePassword,{
+      email:email,
+      password:password,
+      new_password:new_password
+    })
+    .then((response) => alert(response.data.message))
+    .catch(error => alert(error.response.data.message))
+
+  }
 
 
   subscribeEmail(data){

@@ -3,7 +3,7 @@
         "1":"Ethical Investing for Everyone"
     },
     "welBlock1R2":{
-        "1":"No Minimum | No lock-in | Lower fees"
+        "1":"No Minimum | No lock-in | No Commission"
     },
     "welBlock1R3":{
         "1":"Sinbad Finance is a pioneer of commission-free investing,gives you more ways to make your money work harder with AAOIFI."
@@ -205,7 +205,7 @@
     },
 
     "signInLinkdln":{
-        "1":"Continue with Linkdln"
+        "1":"Continue with LinkedIn"
     },
     "signInInstagram":{
         "1":"Continue with Instagram"
@@ -235,7 +235,7 @@
         "1":"*E-mail"
     },
     "signUpBlock4R2":{
-        "1":"*Mobile Number"
+        "1":"Mobile Number"
     },
 
     "signUpBlock5R1":{
@@ -300,6 +300,9 @@
     },
     "mainNavBarFees":{
         "1":"Fees"
+    },
+    "mainNavBarHome":{
+        "1":"Home"
     },
 
     "mainNavBarBtn":{

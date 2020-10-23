@@ -117,8 +117,6 @@ export default class Signup extends React.Component {
                   {" "}
                   Already a Registered User? 
                   <Link to={Path.signin}>
-               
-                    {" "}
                     Click to log In
                   </Link>
                 </p>
