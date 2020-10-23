@@ -126,9 +126,9 @@ class Authentication {
 
     // localStorage.setItem(this.session, JSON.stringify(this.result));
   }
-  updateData(userID){
+  updateData(userID,token){
     return  axios.get(API.editUser+"/"+userID)
-    .then((response) => {this.result.data = response.data.data;localStorage.setItem(this.session, JSON.stringify(this.result));})
+    .then((response) => {this.result.token=token;this.result.data = response.data.data;localStorage.setItem(this.session, JSON.stringify(this.result));})
   }
 
   currentSession() {

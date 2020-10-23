@@ -37,23 +37,19 @@ class Setting extends Component {
         }
     }
     handleSubmit =(event)=>{
-
-        console.log("called submit")
         event.preventDefault();
         Auth.updateUser(this.state,this.user.id).then((response) => {
          if(response.status===200){
             alert('Successfully user password update')
-            Auth.updateData(this.user.id).then((res)=>{
+            Auth.updateData(this.user.id,this.props.user.token).then((res)=>{
               
                 window.location.reload(false);
                    
                })
          }
-
-        })
-        
-        
+        })       
     }
+    
     handleChangePassword=()=>{
         if(this.state.old_password!==''){
             if(this.state.new_password.length>=10){
