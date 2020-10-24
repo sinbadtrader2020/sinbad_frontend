@@ -1,12 +1,12 @@
 import React from "react";
-import Footer from "./footer";
-import MainNavBar from "./main-nav-bar";
+import Footer from "../footer";
+import MainNavBar from "../main-nav-bar";
 import { Link } from "react-router-dom";
-import { Path } from "../containers/config";
+import { Path } from "../config";
 import { Helmet } from "react-helmet";
 
-import InputTranslation from "../utils/input-translation";
-import { Auth } from "../api/auth";
+import InputTranslation from "../../utils/input-translation";
+import { Auth } from "../../api/auth";
 
 
 class ForgetPassword extends React.Component {
@@ -42,7 +42,14 @@ class ForgetPassword extends React.Component {
       Auth.forgotPassword(this.state.email).then((res)=>{
         if(res!==undefined){
           if(res.status===202){
-              console.log(res.status);
+            this.props.history.push({
+              pathname: Path.verifyCode,
+              search: "email=" + this.state.email,
+              verified :true
+          
+            });
+            console.log(res)
+
           }
         }
         

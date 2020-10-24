@@ -157,6 +157,18 @@ class Authentication {
     
 
   }
+  verifyCode(email,verifycode){
+    return axios
+    .post(API.verifyCode, {
+      email: email,
+      verifycode :verifycode
+      
+    }) 
+    .catch(error => alert(error.response.data.message))
+    
+
+  }
+
   changePassword(email,password,new_password){
     return axios
     .post(API.changePassword,{
@@ -165,6 +177,18 @@ class Authentication {
       new_password:new_password
     })
     .then((response) => alert(response.data.message))
+    .catch(error => alert(error.response.data.message))
+
+  }
+
+  forgetChangePassword(email,password){
+    return axios
+    .post(API.forgetChangePassword,{
+      email:email,
+      password:password,
+    
+    })
+   
     .catch(error => alert(error.response.data.message))
 
   }
