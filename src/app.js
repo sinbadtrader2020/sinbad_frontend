@@ -22,8 +22,10 @@ import Portfolio from "./containers/portfolio";
 import ComingSoon from "./containers/coming-soon";
 import fullBlog from "./containers/full-blog";
 import Setting from "./containers/home/setting";
-import ForgetPassword from "./containers/forget-password";
+
 import hometest from "./test/hometest";
+import ForgetPassword from "./containers/forget-password/forget-password";
+import VerifyCode from "./containers/forget-password/verify-code";
 
 
 
@@ -280,8 +282,14 @@ class App extends React.Component {
               props={childProps}
             />
 
-            
-         
+            <AppliedRoute
+              path={Path.verifyCode}
+              exact       
+              component={VerifyCode}
+              props={childProps}
+            />
+
+       
 
             {/* Finally, catch all unmatched routes */}
             <Route component={NotFound} />

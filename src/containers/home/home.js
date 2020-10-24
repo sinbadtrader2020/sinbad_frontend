@@ -12,9 +12,9 @@ import SearchField from "react-search-field";
 import Footer from "../footer";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalculator, faCheckCircle, faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
+import {  faCheckCircle, faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
 import { faTimesCircle } from "@fortawesome/free-regular-svg-icons";
-import { FaTimesCircle } from "react-icons/fa";
+
 
 export default class Home extends React.Component {
   constructor(){
@@ -69,11 +69,12 @@ export default class Home extends React.Component {
     this.size={
       height:300,
      
-      width: window.innerWidth>600?window.innerWidth/2.1:600,
+      width: 700,
       data:null,
       companySymbol:null,
       
     }
+    //window.innerWidth>600?window.innerWidth/12*6:600,
   }
 
 
@@ -738,7 +739,7 @@ export default class Home extends React.Component {
                 
                 }
 
-                  <div className='row div-margin-no div-home-tab ' >
+                  <div className='row div-margin-no div-home-tab justify-content-center' >
 
                     <p className={this.state.homeTab==='1d'?'home-a cursor p-color':'home-a cursor'} onClick={()=>{this.setState({homeTab:"1d"})}}>1d</p>
                     <p className={this.state.homeTab==='1w'?'home-a cursor p-color':'home-a cursor'} onClick={()=>{this.setState({homeTab:"1w"})}}>1w</p>
@@ -780,21 +781,21 @@ export default class Home extends React.Component {
                     <div className='col-md-3 text-left'>
                       <div className=' '>
                       <p  className='p-pad-zero'>Open</p>
-                      <p className='f-s-13'>{this.state.comEndData===null?null:parseFloat(this.state.comEndData['Global Quote']['02. open']).toFixed(2)}</p>
+                      <p className='f-s-13'>{this.state.comEndData['Global Quote']['02. open']!==undefined&this.state.comEndData===null?null:parseFloat(this.state.comEndData['Global Quote']['02. open']).toFixed(2)}</p>
                       </div>
                       
                     </div>
                     <div className='col-md-3 text-left'>
                       <div className=' '>
                           <p  className='p-pad-zero'>Today's High</p>
-                          <p className='f-s-13'>{this.state.comEndData===null?null:parseFloat(this.state.comEndData['Global Quote']['03. high']).toFixed(2)}</p>
+                          <p className='f-s-13'>{this.state.comEndData['Global Quote']['03. high']!==undefined&this.state.comEndData===null?null:parseFloat(this.state.comEndData['Global Quote']['03. high']).toFixed(2)}</p>
                       </div>
                       
                     </div>
                     <div className='col-md-3 text-left'>
                       <div className=' '>
                           <p  className='p-pad-zero'>Today's Low</p>
-                          <p className='f-s-13'>{this.state.comEndData===null?null:parseFloat(this.state.comEndData['Global Quote']['04. low']).toFixed(2)}</p>
+                          <p className='f-s-13'>{this.state.comEndData['Global Quote']['04. low']!==undefined&this.state.comEndData===null?null:parseFloat(this.state.comEndData['Global Quote']['04. low']).toFixed(2)}</p>
                       </div>
                       
                     </div>
@@ -889,7 +890,7 @@ export default class Home extends React.Component {
                     <p className='home-about-head'>AAOIFI Screening Result</p>
                     <p className={this.state.show===null?'cursor ':'display-n'} onClick={()=>this.setState({
                       show:'show'
-                    })}><Link className='a-green'>Click here </Link>to see the result</p>
+                    })}><Link to={'#'} className='a-green'>Click here </Link>to see the result</p>
                    
 
                     
@@ -916,9 +917,9 @@ export default class Home extends React.Component {
 
                     {/* complaint */}
                     {this.state.comCompliantDetails.sf_aaoifi_compliant==="COMPLIANT"?<>
-                      <FontAwesomeIcon  style={{fontSize:'20px' ,marginRight:'10px'}} color='green' icon={faCheckCircle}/>
+                      
 
-                      <p>Based on AAOIFI Standard, <a className='a-green'>{`${this.state.comCompliantDetails.sf_company_name} (${this.state.comCompliantDetails.sf_act_symbol})`}</a> is compliant to trade. </p>
+                      <p><FontAwesomeIcon  style={{fontSize:'20px' ,marginRight:'10px'}} color='green' icon={faCheckCircle}/> Based on AAOIFI Standard, <a className='a-green'>{`${this.state.comCompliantDetails.sf_company_name} (${this.state.comCompliantDetails.sf_act_symbol})`}</a> is compliant to trade. </p>
                       <p> </p>
                     </>:null}
                   </div>

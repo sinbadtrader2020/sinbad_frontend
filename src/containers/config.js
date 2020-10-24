@@ -18,11 +18,10 @@ const FEE = '/fees'
 const BLOG ='/blog'
 const FORUM ='/forum'
 const PORTFOLIO ='/products'
-const COMINGSOON='/top'
-const FULLBLOG='/fullblog'
-
-const FORGETPASSWORD='/forgetpassword'
-
+const COMINGSOON ='/top'
+const FULLBLOG ='/fullblog'
+const FORGETPASSWORD ='/forgetpassword'
+const VERIFYCODE ='/verifycode'
 
 
 
@@ -77,6 +76,12 @@ export class Path {
   static get forgetPassword(){
     return FORGETPASSWORD;
   }
+
+  static get verifyCode(){
+    return VERIFYCODE;
+  }
+
+
 
 
 

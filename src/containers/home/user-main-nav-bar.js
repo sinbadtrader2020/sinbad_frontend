@@ -52,7 +52,7 @@ class UserMainNavBar extends Component {
             <Link
               className="navbar-brand"
               onClick={this.changeNav}
-              to={Path.welcome}
+              to={Path.home}
             >
             {/* <img className='sinbad-log' src={"assets/images/sinbad-logo1.png"} alt="Logo" /> */}
               <div className='overflow-hidden logo'>
@@ -81,6 +81,12 @@ class UserMainNavBar extends Component {
 
             <div className={this.state.navExpand} id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
+               <li className="nav-item">
+                  <Link
+                    to={Path.home} className="nav-link" >
+                    <Translator text="mainNavBarHome.1" />
+                  </Link>
+                </li>
                 <li className="nav-item dropdown">
                   <Link
                     className="nav-link dropdown-toggle"

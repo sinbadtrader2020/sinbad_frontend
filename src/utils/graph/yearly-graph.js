@@ -25,8 +25,8 @@ function  YearlyGraph(props) {
         },
        
   
-        handleScroll: true,
-        handleScale: true,
+        handleScroll: false,
+        handleScale: false,
     
         layout: {
        

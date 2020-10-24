@@ -126,9 +126,9 @@ class Authentication {
 
     // localStorage.setItem(this.session, JSON.stringify(this.result));
   }
-  updateData(userID){
+  updateData(userID,token){
     return  axios.get(API.editUser+"/"+userID)
-    .then((response) => {this.result.data = response.data.data;localStorage.setItem(this.session, JSON.stringify(this.result));})
+    .then((response) => {this.result.token=token;this.result.data = response.data.data;localStorage.setItem(this.session, JSON.stringify(this.result));})
   }
 
   currentSession() {
@@ -145,6 +145,51 @@ class Authentication {
     }) 
     .catch(error => alert(error.response.data.message))
     
+
+  }
+  forgotPassword(email){
+    return axios
+    .post(API.forgotPassword, {
+      email: email,
+      
+    }) 
+    .catch(error => alert(error.response.data.message))
+    
+
+  }
+  verifyCode(email,verifycode){
+    return axios
+    .post(API.verifyCode, {
+      email: email,
+      verifycode :verifycode
+      
+    }) 
+    .catch(error => alert(error.response.data.message))
+    
+
+  }
+
+  changePassword(email,password,new_password){
+    return axios
+    .post(API.changePassword,{
+      email:email,
+      password:password,
+      new_password:new_password
+    })
+    .then((response) => alert(response.data.message))
+    .catch(error => alert(error.response.data.message))
+
+  }
+
+  forgetChangePassword(email,password){
+    return axios
+    .post(API.forgetChangePassword,{
+      email:email,
+      password:password,
+    
+    })
+   
+    .catch(error => alert(error.response.data.message))
 
   }
 
