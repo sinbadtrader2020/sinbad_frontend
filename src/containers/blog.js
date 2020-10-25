@@ -67,11 +67,12 @@ export default class Blog extends Component {
 
   routeChange = (data, i) => {
     let index = i + 1;
-    this.props.history.push({
-      pathname: Path.fullBlog,
-      search: "blog=" + index.toString(),
+    window.open(`${Path.fullBlog}?blog=${index.toString()}`)
+    // this.props.history.push({
+    //   pathname: Path.fullBlog,
+    //   search: "blog=" + index.toString(),
    
-    });
+    // });
   };
 
   render() {
