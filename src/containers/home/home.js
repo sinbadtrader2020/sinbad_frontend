@@ -781,21 +781,21 @@ export default class Home extends React.Component {
                     <div className='col-md-3 text-left'>
                       <div className=' '>
                       <p  className='p-pad-zero'>Open</p>
-                      <p className='f-s-13'>{this.state.comEndData['Global Quote']['02. open']!==undefined&this.state.comEndData===null?null:this.state.comEndData['Global Quote']['02. open']===null&&parseFloat(this.state.comEndData['Global Quote']['02. open']).toFixed(2)}</p>
+                      <p className='f-s-13'>{this.state.comEndData['Global Quote']['02. open']!==undefined&this.state.comEndData===null?null:this.state.comEndData['Global Quote']['02. open']!==null&&parseFloat(this.state.comEndData['Global Quote']['02. open']).toFixed(2)}</p>
                       </div>
                       
                     </div>
                     <div className='col-md-3 text-left'>
                       <div className=' '>
                           <p  className='p-pad-zero'>Today's High</p>
-                          <p className='f-s-13'>{this.state.comEndData['Global Quote']['03. high']!==undefined&this.state.comEndData===null?null:this.state.comEndData['Global Quote']['03. high']===null&&parseFloat(this.state.comEndData['Global Quote']['03. high']).toFixed(2)}</p>
+                          <p className='f-s-13'>{this.state.comEndData['Global Quote']['03. high']!==undefined&this.state.comEndData===null?null:this.state.comEndData['Global Quote']['03. high']!==null&&parseFloat(this.state.comEndData['Global Quote']['03. high']).toFixed(2)}</p>
                       </div>
                       
                     </div>
                     <div className='col-md-3 text-left'>
                       <div className=' '>
                           <p  className='p-pad-zero'>Today's Low</p>
-                          <p className='f-s-13'>{this.state.comEndData['Global Quote']['04. low']!==undefined&this.state.comEndData===null?null:this.state.comEndData['Global Quote']['04. low']===null&&parseFloat(this.state.comEndData['Global Quote']['04. low']).toFixed(2)}</p>
+                          <p className='f-s-13'>{this.state.comEndData['Global Quote']['04. low']!==undefined&this.state.comEndData===null?null:this.state.comEndData['Global Quote']['04. low']!==null&&parseFloat(this.state.comEndData['Global Quote']['04. low']).toFixed(2)}</p>
                       </div>
                       
                     </div>
