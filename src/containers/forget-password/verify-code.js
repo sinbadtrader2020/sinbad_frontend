@@ -52,8 +52,25 @@ class VerifyCode extends Component {
               console.log(res)
               if(res!==undefined){
                 if(res.status===202){
-                  this.props.history.push(Path.signin)
-                  alert(res.data.message)
+                  Auth.signin(this.state.email[this.state.email.length-1],this.state.new_password).then((response) => {
+                    this.props.userHasAuthenticated(response[0], response[1]);
+                    this.setState({
+                      spinner: false,
+                    });
+              
+                    if (response[0]) {
+                      
+                      this.props.history.push(Path.home);
+                    } else {
+                      // this.alertRef.handleShow(response[1].error, "danger");
+                      // setTimeout(this.alertRef.handleDismiss, 3000);
+                    // console.log(response)
+                    
+                      this.props.history.push(Path.signin);
+              
+                    }
+                  });
+                  alert(res.data.message);
                 }
               }
             })
