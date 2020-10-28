@@ -887,11 +887,14 @@ export default class Home extends React.Component {
                  </div>
 
                   <div className='row home-about-margin ' >
-                    <p className='home-about-head'>AAOIFI Screening Result</p>
-                    <p className={this.state.show===null?'cursor ':'display-n'} onClick={()=>this.setState({
-                      show:'show'
-                    })}><Link to={'#'} className='a-green'>Click here </Link>to see the result</p>
-                   
+                    <div className='col-sm-12'>
+                     <p className='home-about-head'>AAOIFI Screening Result</p>
+                    </div>
+                    <div className={this.state.show===null?'col-sm-12 text-left cursor ':'col-sm-12 text-left display-n'} onClick={()=>this.setState({
+                        show:'show'
+                      })}><Link to={'#'} className='a-green'>Click here </Link>to see the result
+                    </div>
+                    
 
                     
                   </div>

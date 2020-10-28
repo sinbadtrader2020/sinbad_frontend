@@ -7,25 +7,38 @@ export default class BecomeAnInvestor extends Component {
     super(props);
 
     this.state = {
-      code: "",
+      code: "+1",
       number: "",
     };
   }
 
   handleChange = (event) => {
-    this.setState({
-      [event.target.id]: event.target.value,
-    });
+  
+    
+      this.setState({
+        [event.target.id]: event.target.value,
+        
+      });
+ 
+    
+    
   };
   handleSubmit = () => {
     let phonenumber = "";
     phonenumber = this.state.code.concat(this.state.number);
 
-    if (phonenumber !== "") {
+    if (this.state.number !== "") {
       Auth.getApp(phonenumber);
+      this.setState({
+        number:''
+      })
+     
     } else {
+    
       alert("Enter a mobile number");
+      
     }
+  
   };
   render() {
     return (
@@ -47,6 +60,7 @@ export default class BecomeAnInvestor extends Component {
                 <input
                   type="number"
                   id="code"
+                  
                   className=" border-line1 "
                   placeholder="+1"
                   onChange={this.handleChange}
@@ -55,9 +69,11 @@ export default class BecomeAnInvestor extends Component {
               <div className="float-left  about-padding pad-zero">
                 <input
                   type="number"
+                  value={this.state.number}
+                 
                   id="number"
                   className="border-line"
-                  placeholder="1xxxxxxxxx"
+                  placeholder="xxxxxxxxx"
                   onChange={this.handleChange}
                 />
               </div>

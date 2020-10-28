@@ -37,10 +37,17 @@ class Setting extends Component {
         }
     }
     handleSubmit =(event)=>{
+        let userDetails={
+            email:this.state.email,
+            street_address:this.state.street_address,
+            mobile_number:this.state.mobile_number,
+            first_name:this.state.first_name,
+            last_name:this.state.last_name,
+        }
         event.preventDefault();
-        Auth.updateUser(this.state,this.user.id).then((response) => {
+        Auth.updateUser(userDetails,this.user.id).then((response) => {
          if(response.status===200){
-            alert('Successfully user password update')
+            alert('Your profile was successfully updated')
             Auth.updateData(this.user.id,this.props.user.token).then((res)=>{
               
                 window.location.reload(false);
