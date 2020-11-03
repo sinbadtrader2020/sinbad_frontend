@@ -756,13 +756,14 @@ export default class Home extends React.Component {
 
 
                   <div className='row home-about-margin ' >
+                    <div className='col-md-12'>
                   
-                   <p className='home-about-head'>About</p>
+                     <p className='home-about-head'>About</p>
                
                    
-                       
+                    </div>
                      {this.state.comData===null?null:
-                     <> 
+                     <div className='col-md-12'> 
                       <p className={this.state.readmore==='less'?'text-left company-details cursor':'text-left cursor'} 
                       onClick={()=>{this.state.readmore==='less'?this.setState({readmore:"show"})
                       :this.setState({readmore:"less"})}}
@@ -771,7 +772,7 @@ export default class Home extends React.Component {
                       </p> 
                     
                      
-                     </>}
+                     </div>}
 
                                 
                   </div>
