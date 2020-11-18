@@ -10,10 +10,11 @@ import YearlyGraph from "../../utils/graph/yearly-graph";
 
 import SearchField from "react-search-field";
 import Footer from "../footer";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {  faCheckCircle, faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
 import { faTimesCircle } from "@fortawesome/free-regular-svg-icons";
+import { Path } from "../config";
 
 
 export default class Home extends React.Component {
@@ -180,14 +181,22 @@ export default class Home extends React.Component {
       
       return axios
       .get(API.companyOverview)
-      .then((response) => {this.setState({
-        comSymbol:response.data.data,
-        itemSymbol: response.data.data.slice(0,40),
-        // itemSymbol: response.data.data,
-
-        itemSymbolIndex:40
-      });
-      console.log('res', response.data.data)})
+      
+      .then((response) => {
+        if(response!==undefined){
+          console.log("dddddd1",response)
+          this.setState({
+          comSymbol:response.data.data,
+          itemSymbol: response.data.data.slice(0,40),
+          // itemSymbol: response.data.data,
+  
+          itemSymbolIndex:40
+        });
+        console.log('res', response)
+        }  
+      
+      })
+   
 
       
   }
@@ -199,11 +208,22 @@ export default class Home extends React.Component {
       
     return axios
     .get(`${API.companyOverview}/${sym}`)
-    .then((response) => {this.setState({
-      comCompliantDetails:response.data.data[0],
-     
-    });
-    console.log('res12321321321', response.data.data[0])})
+    
+    .then((response) => {
+   
+      if(response!==undefined){
+        console.log("dddddd",response)
+        if(response!==undefined)
+          {this.setState({
+            comCompliantDetails:response.data.data[0],
+          
+          });
+          console.log('res12321321321', response.data.data[0])}
+        }
+        
+      }
+      )
+   
 
     
 }
@@ -419,7 +439,8 @@ export default class Home extends React.Component {
     
   }
   render() {
-
+   
+  
     let update=true;
     if(this.state.updateData1d===false&&this.state.updateData1w===false&&this.state.updateData1m===false&&this.state.updateData3m===false&&this.state.updateData1y===false&&this.state.updateData5y===false){
         update=false;

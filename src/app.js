@@ -59,7 +59,14 @@ class App extends React.Component {
     };
 
     this.authCallback = (response) => {
-      alert(response.data.message)
+      if(response.status===401){
+        console.log("inn")
+        localStorage.removeItem(this.session);
+        this.userHasAuthenticated(false);
+        return <Redirect to={Path.welcome} />;
+        
+      }
+      
     };
 
     Auth.setAuthCallback(this.authCallback);
@@ -75,6 +82,7 @@ class App extends React.Component {
  
     try {
       let result = Auth.currentSession();
+      console.log('component',result)
       if (result) {
         this.userHasAuthenticated(true, result);
       }

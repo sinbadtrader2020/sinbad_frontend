@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Auth } from "./auth";
 
 export class APIConfig {
   static BASE_URL = "https://sinbad.finance/api/v1";
@@ -43,7 +44,9 @@ export function configureAxios({
       if (401 === error.response.status) {
         if (configureAxios.authCallback) {
           configureAxios.authCallback(error.response);
+          
         }
+        
       } else {
         return Promise.reject(error);
       }
